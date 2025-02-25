@@ -1,8 +1,6 @@
 ---
 layout: default
-title: Groovulator
+title: Ectophonic Groovulator
 ---
-
-# Welcome to Ectophonic Groovulator
 
 [Enter Taxidermia](/taxidermia)

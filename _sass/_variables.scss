@@ -1,0 +1,167 @@
+/* -------------------------------------------------------
+Spacing
+------------------------------------------------------- */
+:root {
+  --spacing-1: 6px;
+  --spacing-2: calc(var(--spacing-1) * 2);
+  --spacing-3: calc(var(--spacing-1) * 3);
+  --spacing-4: calc(var(--spacing-1) * 4);
+  --spacing-5: calc(var(--spacing-1) * 5);
+  --spacing-6: calc(var(--spacing-1) * 6);
+  --spacing-7: calc(var(--spacing-1) * 7);
+  --spacing-8: calc(var(--spacing-1) * 8);
+  --spacing-9: calc(var(--spacing-1) * 9);
+  --spacing-10: calc(var(--spacing-1) * 10);
+}
+
+/* -------------------------------------------------------
+Color
+------------------------------------------------------- */
+:root {
+  /* Base */
+  --main-bkg-color: var(--gray-1);
+  --surface-bkg-color: var(--white);
+  --border-color: var(--gray-5);
+  --border-color-dim: var(--gray-3);
+  --border-color-extra-dim: var(--gray-2);
+  --error-color: var(--red-core);
+  --text-color: var(--black);
+  --text-color-dim: var(--gray-7);
+  --text-color-extra-dim: var(--gray-6);
+  // --link-color: var(--band-purple);
+  // --link-color-hover: var(--purple-4);
+  // --link-color-active: var(--purple-2);
+  --highlight-color: var(--band-purple);
+}
+
+@media (prefers-color-scheme: dark) {
+:root {
+  /* Base */
+  --main-bkg-color: var(--gray-9);
+  --surface-bkg-color: var(--gray-8);
+  --border-color: var(--gray-5);
+  --border-color-dim: var(--gray-7);
+  --border-color-extra-dim: var(--gray-8);
+  --error-color: var(--red-core);
+  --text-color: var(--white);
+  --text-color-dim: var(--gray-3);
+  --text-color-extra-dim: var(--gray-4);
+  // --link-color: var(--mint-core);
+  // --link-color-hover: var(--mint-5);
+  // --link-color-active: var(--mint-7);
+  --highlight-color: var(--band-green);
+}
+}
+
+/* -------------------------------------------------------
+Typography
+------------------------------------------------------- */
+:root {
+  /* Font-family - try to use component first */
+  --heading-typeface: "Syne", sans-serif;
+  --body-text-typeface: "Inter", sans-serif;
+  --eyebrow-text-typeface: Inter, sans-serif;
+  --mono-typeface: SFMono-Regular, monospace;
+
+  /* Font-weight - try to use font shorthand vars first */
+  --heading-font-weight: 700;
+  --body-text-normal-font-weight: 400;
+  --body-text-bold-font-weight: 650;
+  --eyebrow-text-font-weight: 650;
+
+  --extra-bold-font-weight: 800;
+  --normal-font-weight: 400;
+
+  /* Font-size - try to use font shorthand vars first */
+  --heading-font-size-large: 2.0625rem; /* 33px */
+  --heading-font-size-medium: 1.6875rem; /* 27px */
+  --heading-font-size-small: 1.4375rem; /* 23px */
+  --heading-font-size-x-small: 1.1875rem; /* 19px */
+  --heading-font-size-xx-small: var(--body-text-font-size-medium); /* 16px */
+
+  --body-text-font-size-large: 1.1875rem; /* 19px */
+  --body-text-font-size-medium: 1rem; /* 16px */
+  --body-text-font-size-small: 0.875rem; /* 14px */
+  --body-text-font-size-x-small: 0.75rem; /* 12px */
+  --body-text-font-size-xx-small: 0.625rem; /* 10px */
+
+  --eyebrow-text-font-size: 0.75rem; /* 12px */
+
+  /* Line-height - try to use font shorthand vars first */
+  --heading-line-height-large: 2.5rem; /* 40px */
+  --heading-line-height-medium: 2.0625rem; /* 33px */
+  --heading-line-height-small: 1.75rem; /* 28px */
+  --heading-line-height-x-small: 1.4375rem; /* 23px */
+  --heading-line-height-xx-small: 1.1875rem; /* 19px */
+
+  --body-text-line-height-large: 1.8125rem; /* 29px */
+  --body-text-line-height-medium: 1.5rem; /* 24px */
+  --body-text-line-height-small: var(--body-text-line-height-medium); /* 24px */
+  --body-text-line-height-x-small: 1.125rem; /* 18px */
+
+  --eyebrow-text-line-height: 1.125rem; /* 18px */
+
+  /* Letter-spacing - try to use font shorthand vars first */
+  --heading-letter-spacing-large: -0.015em;
+  --heading-letter-spacing-medium: -0.015em;
+  --heading-letter-spacing-small: -0.01em;
+  --heading-letter-spacing-x-small: -0.01em;
+  --heading-letter-spacing-xx-small: 0;
+
+  --body-text-letter-spacing: 0;
+
+  --eyebrow-text-letter-spacing: 0.022em;
+
+  /*
+    Font shorthands - try to use type components first because headings need
+    letter-spacing styling, which using the component automatically gives you.
+    If you can't use the component, remember to use an appropriate
+    letter-spacing variable.
+  */
+  --heading-large: var(--extra-bold-font-weight) var(--heading-font-size-large) /
+    var(--heading-line-height-large) var(--heading-typeface);
+  --heading-medium: var(--heading-font-weight) var(--heading-font-size-medium) /
+    var(--heading-line-height-medium) var(--heading-typeface);
+  --heading-small: var(--heading-font-weight) var(--heading-font-size-small) /
+    var(--heading-line-height-small) var(--heading-typeface);
+  --heading-x-small: var(--heading-font-weight) var(--heading-font-size-x-small) /
+    var(--heading-line-height-x-small) var(--heading-typeface);
+  --heading-xx-small: var(--heading-font-weight)
+    var(--heading-font-size-xx-small) / var(--heading-line-height-xx-small)
+    var(--heading-typeface);
+
+  --body-text-large: var(--body-text-normal-font-weight)
+    var(--body-text-font-size-large) / var(--body-text-line-height-large)
+    var(--body-text-typeface);
+  --body-text-medium: var(--body-text-normal-font-weight)
+    var(--body-text-font-size-medium) / var(--body-text-line-height-medium)
+    var(--body-text-typeface);
+  --body-text-small: var(--body-text-normal-font-weight)
+    var(--body-text-font-size-small) / var(--body-text-line-height-small)
+    var(--body-text-typeface);
+  --body-text-x-small: var(--body-text-normal-font-weight)
+    var(--body-text-font-size-x-small) / var(--body-text-line-height-x-small)
+    var(--body-text-typeface);
+
+  --eyebrow-text: var(--eyebrow-text-font-weight) var(--eyebrow-text-font-size) /
+    var(--eyebrow-text-line-height) var(--eyebrow-text-typeface);
+}
+
+/* -------------------------------------------------------
+Border-radii
+------------------------------------------------------- */
+:root {
+  --border-radius-x-small: 3px; /* only for making items slightly off-square */
+  --border-radius-small: 6px; /* innermost, smallest element corners */
+  --border-radius-medium: 12px; /* mid-size and container element corners */
+  --border-radius-large: 24px; /* outermost, largest element corners */
+  --border-radius-round: 999px; /* fully rounds an elements like buttons */
+}
+
+/* -------------------------------------------------------
+Transition
+------------------------------------------------------- */
+:root {
+  --hover-transition: 200ms;
+  --transition-easing: cubic-bezier(0.4, 0.05, 0.33, 0.95);
+}
