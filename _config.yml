@@ -1,0 +1,64 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Ectophonic Groovulator
+email: makecontact@groovulator.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Audio/visual production studio specializing in horror and the absurd.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://groovulator.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Social settings
+github_username:  jimfrankenstein
+facebook_url: "https://facebook.com/groovulator"
+instagram_url: "https://instagram.com/groovulator"
+youtube_url: "https://youtube.com/@groovulator"
+linkedin_url: "https://linkedin.com/company/groovulator"
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-sass-converter
+  - jekyll-livereload
+
+# Build settings
+# markdown: kramdown
+# permalink: /post/:title/
+image_path: "/images"
+logo_img: "logo.png"
+
+# Styles
+sass:
+  sass_dir: _sass
+  # style: compressed
+
+# Exclusions and Gems
+exclude:
+  - firebase.json
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
