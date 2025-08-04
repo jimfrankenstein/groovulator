@@ -4,9 +4,14 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-[#18181b] text-white font-sans">
       <div className="w-full max-w-xl px-6 py-24 flex flex-col items-center text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight" style={{ color: '#fff' }}>
-          Ectophonic Groovulator
-        </h1>
+        <Image
+          src="/images/logo-with-color-small.png"
+          alt="Ectophonic Groovulator"
+          width={400}
+          height={200}
+          className="mb-6"
+          priority
+        />
         <p className="text-lg md:text-2xl mb-10 text-white/80 font-light">
           Ghost-powered music.<br />
           Monsters, occult, cryptids, undead.<br />
