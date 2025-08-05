@@ -77,23 +77,27 @@ export default function SongPage({ params }: { params: { songId: string } }) {
             Listen on Spotify
           </Link>
           
-          <Link
-            href={song.appleMusicLink}
-            target="_blank"
-            className="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg font-semibold transition-colors"
-          >
-            <span>🍎</span>
-            Listen on Apple Music
-          </Link>
+          {song.appleMusicLink && (
+            <Link
+              href={song.appleMusicLink}
+              target="_blank"
+              className="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg font-semibold transition-colors"
+            >
+              <span>🍎</span>
+              Listen on Apple Music
+            </Link>
+          )}
           
-          <Link
-            href={song.youtubeLink}
-            target="_blank"
-            className="flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg font-semibold transition-colors"
-          >
-            <span>📺</span>
-            Watch on YouTube
-          </Link>
+          {song.youtubeLink && (
+            <Link
+              href={song.youtubeLink}
+              target="_blank"
+              className="flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg font-semibold transition-colors"
+            >
+              <span>📺</span>
+              Watch on YouTube
+            </Link>
+          )}
         </div>
 
         {/* Lyrics */}

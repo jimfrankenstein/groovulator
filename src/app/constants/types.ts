@@ -3,9 +3,10 @@ export interface Song {
     title: string;
     description: string;
     spotifyId: string;
-    appleMusicLink: string;
-    youtubeLink: string;
+    appleMusicLink?: string;
+    youtubeLink?: string;
     lyrics: string;
     credits: string;
+    album?: string;
     albumLink?: string;
   }
