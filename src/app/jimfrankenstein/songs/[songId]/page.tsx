@@ -1,43 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-const songs = {
-  "midnight-ritual": {
-    title: "Midnight Ritual",
-    description: "Dark ambient exploration of nocturnal ceremonies",
-    duration: "4:32",
-    lyrics: "In the depths of night, where shadows dance...",
-    releaseDate: "2024",
-    genre: "Dark Ambient"
-  },
-  "cryptid-whispers": {
-    title: "Cryptid Whispers",
-    description: "Ethereal sounds from the depths of the unknown",
-    duration: "6:18",
-    lyrics: "Whispers echo through the mist...",
-    releaseDate: "2024",
-    genre: "Experimental"
-  },
-  "ectoplasmic-dance": {
-    title: "Ectoplasmic Dance",
-    description: "Haunting melodies for spectral gatherings",
-    duration: "5:47",
-    lyrics: "Spirits swirl in spectral light...",
-    releaseDate: "2024",
-    genre: "Electronic"
-  },
-  "occult-symphony": {
-    title: "Occult Symphony",
-    description: "Orchestral darkness with electronic undertones",
-    duration: "8:23",
-    lyrics: "Ancient rites in modern times...",
-    releaseDate: "2024",
-    genre: "Orchestral"
-  }
-};
+import { songs } from "../songs";
 
 export default function SongPage({ params }: { params: { songId: string } }) {
-  const song = songs[params.songId as keyof typeof songs];
+  const song = songs.find(s => s.id === params.songId);
 
   if (!song) {
     notFound();
@@ -49,14 +15,14 @@ export default function SongPage({ params }: { params: { songId: string } }) {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">{song.title}</h1>
-          <p className="text-xl text-white/80 mb-4">{song.description}</p>
-          <div className="flex justify-center gap-6 text-white/60">
+          {/* <p className="text-xl text-white/80 mb-4">{song.description}</p> */}
+          {/* <div className="flex justify-center gap-6 text-white/60">
             <span>{song.duration}</span>
             <span>•</span>
             <span>{song.genre}</span>
             <span>•</span>
             <span>{song.releaseDate}</span>
-          </div>
+          </div> */}
         </div>
 
         {/* Song Content */}
@@ -73,7 +39,7 @@ export default function SongPage({ params }: { params: { songId: string } }) {
           <div className="bg-white/5 rounded-lg p-8 border border-white/20">
             <h3 className="text-xl font-semibold mb-4">Lyrics</h3>
             <div className="prose prose-invert max-w-none">
-              <p className="text-white/80 leading-relaxed">{song.lyrics}</p>
+              {/* <p className="text-white/80 leading-relaxed">{song.lyrics}</p> */}
             </div>
           </div>
         </div>

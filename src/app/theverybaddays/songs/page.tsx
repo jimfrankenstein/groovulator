@@ -1,37 +1,5 @@
 import Link from "next/link";
-
-const songs = [
-  {
-    id: "darkness-falls",
-    title: "Darkness Falls",
-    description: "A haunting exploration of night's embrace",
-    duration: "3:45"
-  },
-  {
-    id: "spectral-echoes",
-    title: "Spectral Echoes",
-    description: "Post-punk rhythms with ghostly undertones",
-    duration: "4:12"
-  },
-  {
-    id: "midnight-waltz",
-    title: "Midnight Waltz",
-    description: "Atmospheric dance with dark melodies",
-    duration: "5:33"
-  },
-  {
-    id: "cryptic-messages",
-    title: "Cryptic Messages",
-    description: "Electronic beats with mysterious lyrics",
-    duration: "4:58"
-  },
-  {
-    id: "shadow-dance",
-    title: "Shadow Dance",
-    description: "Gothic rock with modern electronic elements",
-    duration: "6:21"
-  }
-];
+import { songs } from "./songs";
 
 export default function TheVeryBadDaysSongsPage() {
   return (
@@ -56,9 +24,9 @@ export default function TheVeryBadDaysSongsPage() {
                   <h3 className="text-xl font-semibold mb-2">{song.title}</h3>
                   <p className="text-white/70 mb-2">{song.description}</p>
                 </div>
-                <div className="text-white/60 text-sm">
+                {/* <div className="text-white/60 text-sm">
                   {song.duration}
-                </div>
+                </div> */}
               </div>
             </Link>
           ))}
@@ -76,4 +44,4 @@ export default function TheVeryBadDaysSongsPage() {
       </div>
     </main>
   );
-} 
+}

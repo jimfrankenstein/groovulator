@@ -1,31 +1,5 @@
 import Link from "next/link";
-
-const songs = [
-  {
-    id: "midnight-ritual",
-    title: "Midnight Ritual",
-    description: "Dark ambient exploration of nocturnal ceremonies",
-    duration: "4:32"
-  },
-  {
-    id: "cryptid-whispers",
-    title: "Cryptid Whispers",
-    description: "Ethereal sounds from the depths of the unknown",
-    duration: "6:18"
-  },
-  {
-    id: "ectoplasmic-dance",
-    title: "Ectoplasmic Dance",
-    description: "Haunting melodies for spectral gatherings",
-    duration: "5:47"
-  },
-  {
-    id: "occult-symphony",
-    title: "Occult Symphony",
-    description: "Orchestral darkness with electronic undertones",
-    duration: "8:23"
-  }
-];
+import { songs } from "./songs";
 
 export default function JimFrankensteinSongsPage() {
   return (
@@ -50,9 +24,9 @@ export default function JimFrankensteinSongsPage() {
                   <h3 className="text-xl font-semibold mb-2">{song.title}</h3>
                   <p className="text-white/70 mb-2">{song.description}</p>
                 </div>
-                <div className="text-white/60 text-sm">
+                {/* <div className="text-white/60 text-sm">
                   {song.duration}
-                </div>
+                </div> */}
               </div>
             </Link>
           ))}
@@ -70,4 +44,4 @@ export default function JimFrankensteinSongsPage() {
       </div>
     </main>
   );
-} 
+}
