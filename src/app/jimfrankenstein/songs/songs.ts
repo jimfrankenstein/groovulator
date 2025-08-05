@@ -1,4 +1,6 @@
-export const songs = [
+import { Song } from "@/app/constants/types";
+
+export const songs: Song[] = [
   {
     id: "beautiful-unknown",
     title: "Beautiful Unknown",
