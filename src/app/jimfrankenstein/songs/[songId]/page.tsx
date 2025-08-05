@@ -1,10 +1,15 @@
+'use client';
+
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { use } from "react";
 import { songs } from "../songs";
 import { Song } from "@/app/constants/types";
+import { SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
 
-export default function SongPage({ params }: { params: { songId: string } }) {
-  const song: Song | undefined = songs.find(s => s.id === params.songId);
+export default function SongPage({ params }: { params: Promise<{ songId: string }> }) {
+  const { songId } = use(params);
+  const song: Song | undefined = songs.find(s => s.id === songId);
 
   if (!song) {
     notFound();
@@ -103,24 +108,24 @@ export default function SongPage({ params }: { params: { songId: string } }) {
         )}
 
         {/* Streaming Links */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-col gap-4 mb-12 max-w-md mx-auto">
           <Link
             href={`https://open.spotify.com/track/${song.spotifyId}`}
             target="_blank"
-            className="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 rounded-lg font-semibold transition-colors"
+            className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
           >
-            <span>🎵</span>
-            Listen on Spotify
+            <SpotifyLogo size={24} weight="fill" className="mr-3" />
+            <span className="text-sm font-medium">Listen on Spotify</span>
           </Link>
           
           {song.appleMusicLink && (
             <Link
               href={song.appleMusicLink}
               target="_blank"
-              className="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg font-semibold transition-colors"
+              className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
             >
-              <span>🍎</span>
-              Listen on Apple Music
+              <AppleLogo size={24} weight="fill" className="mr-3" />
+              <span className="text-sm font-medium">Listen on Apple Music</span>
             </Link>
           )}
           
@@ -128,10 +133,10 @@ export default function SongPage({ params }: { params: { songId: string } }) {
             <Link
               href={song.youtubeLink}
               target="_blank"
-              className="flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg font-semibold transition-colors"
+              className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
             >
-              <span>📺</span>
-              Watch on YouTube
+              <YoutubeLogo size={24} weight="fill" className="mr-3" />
+              <span className="text-sm font-medium">Listen on YouTube</span>
             </Link>
           )}
         </div>
