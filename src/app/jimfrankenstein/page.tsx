@@ -156,18 +156,16 @@ export default function JimFrankensteinPage() {
           >
             <p className="text-black text-center">The Very Bad Days (my band)</p>
           </a>
-        </div>
 
-        {/* Songs Link */}
-        <div className="text-center">
           <a
             href="/jimfrankenstein/songs"
             aria-label="View Jim Frankenstein songs"
-            className="inline-block px-8 py-4 bg-white text-[#18181b] rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors text-center"
+            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
           >
-            View Songs
+            <p className="text-black text-center">View Songs</p>
           </a>
         </div>
+
       </div>
     </main>
   );

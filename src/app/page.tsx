@@ -1,43 +1,106 @@
+'use client';
+
 import Image from "next/image";
+import Link from "next/link";
+import { SpotifyLogo, InstagramLogo, YoutubeLogo, TiktokLogo, Envelope } from "@phosphor-icons/react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-[#18181b] text-white font-sans">
-      <div className="w-full max-w-xl px-6 py-24 flex flex-col items-center text-center">
-        <Image
-          src="/images/logo-with-color-small.png"
-          alt="Ectophonic Groovulator"
-          width={400}
-          height={200}
-          className="mb-6"
-          priority
-        />
-        <p className="text-lg md:text-2xl mb-10 text-white/80 font-light">
-          Ghost-powered music.<br />
-          Monsters, occult, cryptids, undead.<br />
-          Taxidermied heroes.
-        </p>
-        <div className="flex gap-6 mt-8">
+    <main className="min-h-screen bg-[#18181b] text-white font-sans">
+      <div className="max-w-2xl mx-auto px-6 py-12">
+        {/* Artist Image */}
+        <div className="text-center mb-8">
+          <Image
+            src="/images/logo-with-color-small.png"
+            alt="Ectophonic Groovulator"
+            width={400}
+            height={400}
+            className="mx-auto mb-6"
+            priority
+          />
+        </div>
+
+        {/* Bio */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Ectophonic Groovulator</h1>
+          <p className="text-lg text-white/80 leading-relaxed max-w-xl mx-auto">
+            Ghost-powered music. Monsters, occult, cryptids, undead. Taxidermied heroes.
+          </p>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+          <a
+            href="https://open.spotify.com/user/groovulator"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Groovulator on Spotify"
+            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
+          >
+            <SpotifyLogo size={32} weight="fill" className="mb-2" />
+            <span className="text-sm font-medium">Spotify</span>
+          </a>
+
           <a
             href="https://instagram.com/groovulator"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-5 py-2 rounded-full border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors text-lg font-medium"
-            aria-label="Instagram"
+            aria-label="Groovulator on Instagram"
+            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
           >
-            <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" fill="none" stroke="currentColor" strokeWidth="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
-            Instagram
+            <InstagramLogo size={32} weight="fill" className="mb-2" />
+            <span className="text-sm font-medium">Instagram</span>
           </a>
+
           <a
             href="https://www.tiktok.com/@groovulator"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-5 py-2 rounded-full border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors text-lg font-medium"
-            aria-label="TikTok"
+            aria-label="Groovulator on TikTok"
+            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
           >
-            <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 3a1 1 0 0 1 1 1c0 3.03 2.47 5.5 5.5 5.5a1 1 0 0 1 1 1v2.5a1 1 0 0 1-1 1c-2.21 0-4.21-.9-5.66-2.34V17a5.5 5.5 0 1 1-5.5-5.5 1 1 0 0 1 1 1V15a2.5 2.5 0 1 0 2.5 2.5V3a1 1 0 0 1 1-1z"/></svg>
-            TikTok
+            <TiktokLogo size={32} weight="fill" className="mb-2" />
+            <span className="text-sm font-medium">TikTok</span>
           </a>
+
+          <a
+            href="https://youtube.com/@groovulator"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Groovulator on YouTube"
+            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
+          >
+            <YoutubeLogo size={32} weight="fill" className="mb-2" />
+            <span className="text-sm font-medium">YouTube</span>
+          </a>
+
+          <a
+            href="mailto:contact@groovulator.com"
+            aria-label="Email Groovulator"
+            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
+          >
+            <Envelope size={32} weight="fill" className="mb-2" />
+            <span className="text-sm font-medium">Email</span>
+          </a>
+        </div>
+
+        {/* Projects */}
+        <div className="space-y-4 mb-12">
+          <h3 className="text-xl font-semibold text-center mb-6">Projects</h3>
+          
+          <Link
+            href="/jimfrankenstein"
+            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            <p className="text-black text-center">Jim Frankenstein</p>
+          </Link>
+          
+          <Link
+            href="/theverybaddays"
+            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            <p className="text-black text-center">The Very Bad Days</p>
+          </Link>
         </div>
       </div>
     </main>

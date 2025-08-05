@@ -142,18 +142,16 @@ export default function TheVeryBadDaysPage() {
           >
             <p className="text-black text-center">Book the Band</p>
           </a>
-        </div>
 
-        {/* Songs Link */}
-        <div className="text-center">
           <a
             href="/theverybaddays/songs"
             aria-label="View The Very Bad Days songs"
-            className="inline-block px-8 py-4 bg-white text-[#18181b] rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors text-center"
+            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
           >
-            View Songs
+            <p className="text-black text-center">View Songs</p>
           </a>
         </div>
+
       </div>
     </main>
   );
