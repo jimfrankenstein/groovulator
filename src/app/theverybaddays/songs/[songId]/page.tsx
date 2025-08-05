@@ -45,8 +45,44 @@ export default function SongPage({ params }: { params: { songId: string } }) {
   return (
     <main className="min-h-screen bg-[#18181b] text-white font-sans">
       <div className="max-w-5xl mx-auto px-6 py-12">
-        {/* Header */}
+        {/* Header with Album Art */}
         <div className="text-center mb-8">
+          <div className="mb-8">
+            <picture className="block max-w-md mx-auto">
+              <source
+                srcSet={`/images/theverybaddays/songs/${song.id}/track-art-1024.avif 1024w,
+                        /images/theverybaddays/songs/${song.id}/track-art-512.avif 512w,
+                        /images/theverybaddays/songs/${song.id}/track-art-256.avif 256w`}
+                sizes="(max-width: 256px) 256px,
+                      (max-width: 512px) 512px,
+                      1024px"
+                type="image/avif"
+              />
+              <source
+                srcSet={`/images/theverybaddays/songs/${song.id}/track-art-1024.webp 1024w,
+                        /images/theverybaddays/songs/${song.id}/track-art-512.webp 512w,
+                        /images/theverybaddays/songs/${song.id}/track-art-256.webp 256w`}
+                sizes="(max-width: 256px) 256px,
+                      (max-width: 512px) 512px,
+                      1024px"
+                type="image/webp"
+              />
+              <source
+                srcSet={`/images/theverybaddays/songs/${song.id}/track-art-1024.jpg 1024w,
+                        /images/theverybaddays/songs/${song.id}/track-art-512.jpg 512w,
+                        /images/theverybaddays/songs/${song.id}/track-art-256.jpg 256w`}
+                sizes="(max-width: 256px) 256px,
+                      (max-width: 512px) 512px,
+                      1024px"
+                type="image/jpeg"
+              />
+              <img
+                className="w-full h-auto rounded-lg shadow-lg"
+                src={`/images/theverybaddays/songs/${song.id}/track-art-512.jpg`}
+                alt={`Track art for ${song.title}`}
+              />
+            </picture>
+          </div>
           <h1 className="text-4xl font-bold mb-4">{song.title}</h1>
           <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
             {song.description}
