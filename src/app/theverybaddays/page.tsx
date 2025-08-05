@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 import { SpotifyLogo, InstagramLogo, FacebookLogo, YoutubeLogo, Envelope } from "@phosphor-icons/react";
 
 export default function TheVeryBadDaysPage() {
@@ -143,13 +144,13 @@ export default function TheVeryBadDaysPage() {
             <p className="text-black text-center">Book the Band</p>
           </a>
 
-          <a
+          <Link
             href="/theverybaddays/songs"
             aria-label="View The Very Bad Days songs"
             className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
           >
             <p className="text-black text-center">View Songs</p>
-          </a>
+          </Link>
         </div>
 
       </div>
