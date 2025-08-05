@@ -29,18 +29,7 @@ export default function Home() {
         </div>
 
         {/* Social Media Links */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
-          <a
-            href="https://open.spotify.com/user/groovulator"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Groovulator on Spotify"
-            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
-          >
-            <SpotifyLogo size={32} weight="fill" className="mb-2" />
-            <span className="text-sm font-medium">Spotify</span>
-          </a>
-
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           <a
             href="https://instagram.com/groovulator"
             target="_blank"
@@ -75,7 +64,7 @@ export default function Home() {
           </a>
 
           <a
-            href="mailto:contact@groovulator.com"
+            href="mailto:makecontact@groovulator.com"
             aria-label="Email Groovulator"
             className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
           >
