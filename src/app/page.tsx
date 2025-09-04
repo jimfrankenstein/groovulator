@@ -1,3 +1,5 @@
+import SongCard from '../components/SongCard';
+
 export default function Home() {
   const featured = {
     title: "Here There Be Monsters — Single",
@@ -88,7 +90,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SERIES GRID */}
+        {/* SERIES GRID (disabled for now)
         <section id="series" className="border-b border-black/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
             <h3 className="text-xl md:text-2xl font-bold mb-6">Series</h3>
@@ -114,7 +116,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* SONGS GRID */}
         <section id="songs" className="border-b border-black/10">
@@ -122,29 +124,20 @@ export default function Home() {
             <h3 className="text-xl md:text-2xl font-bold mb-6">Songs</h3>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
               {other.map(item => (
-                <article key={item.title} className="border border-black/15">
-                  <div className="aspect-square bg-neutral-50 border-b border-black/15 grid place-items-center">
-                    <div className="text-[11px] uppercase tracking-wide opacity-60">
-                      Art placeholder
-                    </div>
-                  </div>
-                  <div className="p-4 flex flex-col gap-2">
-                    <div className="text-[11px] uppercase tracking-wide opacity-60">
-                      {item.meta}
-                    </div>
-                    <h4 className="font-semibold leading-tight">{item.title}</h4>
-                    <p className="text-sm opacity-70">{item.note}</p>
-                    <a href="#" className="text-sm underline pt-2">
-                      Open
-                    </a>
-                  </div>
-                </article>
+                <SongCard
+                  key={item.title}
+                  title={item.title}
+                  meta={item.meta}
+                  note={item.note}
+                  aspectRatio="square"
+                  // placeholderText="Art placeholder"
+                />
               ))}
             </div>
           </div>
         </section>
 
-        {/* JOIN CTA */}
+        {/* JOIN CTA (disabled for now)
         <section id="join" className="border-b border-black/10">
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div className="md:col-span-2">
@@ -171,7 +164,7 @@ export default function Home() {
               </button>
             </form>
           </div>
-        </section>
+        </section> */}
 
         {/* ABOUT */}
         <section id="about" className="border-b border-black/10">
