@@ -6,6 +6,7 @@ import { use } from "react";
 import { songs } from "../songs";
 import { Song } from "@/app/constants/types";
 import { SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
+import SongImage from "@/components/SongImage";
 
 export default function SongPage({ params }: { params: Promise<{ songId: string }> }) {
   const { songId } = use(params);
@@ -51,40 +52,11 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
         {/* Header with Album Art */}
         <div className="text-center mb-8">
           <div className="mb-8">
-            <picture className="block max-w-md mx-auto">
-              <source
-                srcSet={`/images/jimfrankenstein/songs/${song.id}/track-art-1024.avif 1024w,
-                        /images/jimfrankenstein/songs/${song.id}/track-art-512.avif 512w,
-                        /images/jimfrankenstein/songs/${song.id}/track-art-256.avif 256w`}
-                sizes="(max-width: 256px) 256px,
-                      (max-width: 512px) 512px,
-                      1024px"
-                type="image/avif"
-              />
-              <source
-                srcSet={`/images/jimfrankenstein/songs/${song.id}/track-art-1024.webp 1024w,
-                        /images/jimfrankenstein/songs/${song.id}/track-art-512.webp 512w,
-                        /images/jimfrankenstein/songs/${song.id}/track-art-256.webp 256w`}
-                sizes="(max-width: 256px) 256px,
-                      (max-width: 512px) 512px,
-                      1024px"
-                type="image/webp"
-              />
-              <source
-                srcSet={`/images/jimfrankenstein/songs/${song.id}/track-art-1024.jpg 1024w,
-                        /images/jimfrankenstein/songs/${song.id}/track-art-512.jpg 512w,
-                        /images/jimfrankenstein/songs/${song.id}/track-art-256.jpg 256w`}
-                sizes="(max-width: 256px) 256px,
-                      (max-width: 512px) 512px,
-                      1024px"
-                type="image/jpeg"
-              />
-              <img
-                className="w-full h-auto rounded-lg shadow-lg"
-                src={`/images/jimfrankenstein/songs/${song.id}/track-art-512.jpg`}
-                alt={`Track art for ${song.title}`}
-              />
-            </picture>
+            <SongImage 
+              songId={song.id}
+              artist="jimfrankenstein"
+              title={song.title}
+            />
           </div>
           <h1 className="text-4xl font-bold mb-4">{song.title}</h1>
           <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
