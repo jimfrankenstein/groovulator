@@ -140,10 +140,12 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
         </div>
 
         {/* Lyrics */}
+        {song.lyrics && (
         <div className="bg-white/5 rounded-lg p-8 border border-white/20 mb-8">
           <h3 className="text-2xl font-semibold mb-6">Lyrics</h3>
-          <div className="prose prose-invert max-w-none">{formatLyrics(song.lyrics)}</div>
-        </div>
+            <div className="prose prose-invert max-w-none">{formatLyrics(song.lyrics)}</div>
+          </div>
+        )}
 
         {/* Credits */}
         <div className="bg-white/5 rounded-lg p-6 border border-white/20 mb-8">
