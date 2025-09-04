@@ -4,6 +4,7 @@ export interface Song {
   description: string;
   spotifyId: string;
   releaseDate: string;
+  songType: "single" | "episode" | "track";
   appleMusicLink?: string;
   youtubeLink?: string;
   lyrics: string;
