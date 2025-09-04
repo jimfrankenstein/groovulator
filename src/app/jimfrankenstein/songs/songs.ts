@@ -2,167 +2,6 @@ import { Song } from "@/app/constants/types";
 
 export const songs: Song[] = [
   {
-    id: "beautiful-unknown",
-    title: "Beautiful Unknown",
-    description:
-      "A hazy, late-night drive through the wreckage of a bad trip, where the universe warps, the music cuts out, and the only thing keeping you from floating off into the abyss is the one person who won't let you slip. It's a love song for the lost and found... one foot in the void, one hand in theirs.",
-    spotifyId: "3Ptj0tk0OR5g9oazsqFhyy",
-    releaseDate: "2025-03-20",
-    songType: "single",
-    appleMusicLink: "https://music.apple.com/us/album/beautiful-unknown-single/1800561411",
-    youtubeLink: "https://youtu.be/bwn2IHWz9Q0",
-    lyrics: `#### Verse 1
-Took a trip today
-Don't know how long we're gone
-We put our hearts on the radio
-and we gave in to the song
-
-I came so close to nothing, you were all that remained,
-like a warm point of light in the dark
-your love had found me and it wrapped itself around me
-and I know I'm going home again.
-
-#### Chorus
-Into the Beautiful Unknown we go,
-just hold me close til the morning.
-As we drift away, I'll take your hand,
-lead me into the night
-
-and to the Universe below, I know,
-I'm not myself anymore, no.
-If the sun comes up tomorrow,
-I know you'll wait for me in the light.
-
-#### Verse 2
-We got back in the morning
-Don't know how long we stayed.
-It's so shockingly quiet
-when the music stops playing.
-
-When we look up to the heavens we're not praying.
-We're just looking for what I found in your arms.
-
-There's no Heaven above us, but there's surely a Hell below
-me if I should ever fail to tell you that I love you.
-
-#### Chorus
-Into the Beautiful Unknown we go,
-just don't let go til the morning.
-As we drift away, I trust you
-—just you— take me into the night.
-
-With the Universe below aglow,
-I'm not myself anymore, no.
-When the sun comes up tomorrow,
-I know you'll be waiting.`,
-    credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed",
-  },
-  {
-    id: "here-there-be-monsters",
-    title: "Here There Be Monsters",
-    description:
-      "Here There Be Monsters slithers in like a half-remembered nightmare from a crooked carnival, equal parts spectacle and warning. Twisted melodies sway on a tightrope above chaos, while the lyrics mutter folklore through a cracked megaphone. It's the kind of song that feels like it's watching you back, grinning through sharpened teeth and beckoning you just a little deeper into the woods.",
-    spotifyId: "5fCfhjNYwvjnNO5jzmYev0",
-    releaseDate: "2025-05-02",
-    songType: "single",
-    appleMusicLink: "https://music.apple.com/us/album/here-there-be-monsters-single/1809531356",
-    youtubeLink: "https://youtu.be/1p9DazyMazY",
-    lyrics: `#### Verse 1
-Welcome, dear traveler, fearful, alone
-Although welcomes are meaningless, strange, and unknown
-In this terrible place. The look on your face
-Says you're rather put off by this desolate waste
-
-The mothers and kids have abandoned their homes
-For the ivy is worming its way through the bones
-Of the fathers that fought and then came to not
-At betentacled limbs. Bemoan them with hymns that say
-
-#### Chorus
-Here there be monsters
-And there there, my dear, we all die
-And this town is a frightening place
-So watch your step and hold your breath
-Because here there be monsters
-
-#### Verse 2
-In the dark of the woods, by the light of the eyes
-Of the peekers that peek and the criers that cry
-Hear the claws of the clickers that clack on the trees
-To the quickening beat of your heart and your pleas
-
-They'll crack in your head and they'll crawl in your mind
-And they'll pull out the sinew and sins that they find
-Twist them around like hideous crowns
-And wear them like robes, and nobody knows why, but
-
-#### Chorus
-
-#### Verse 3
-Why are you listening still to our song
-While these monsters advance in their devilish throng
-There's one at your toes that's beginning to eat
-While you stand there quite foolishly tapping your feet
-
-High tail and run for it, straight through the morning
-Yea, that is the gist of this melodic warning:
-A horrible death does await if you stay
-So run away, far away, go away, by the way…
-
-#### Chorus`,
-    credits:
-      "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
-  },
-  {
-    id: "i-believe-in-the-mothman",
-    title: "I Believe in the Mothman",
-    description:
-      "You ever feel like someone's watching you from the dark? Yeah, that's Mothman... those red eyes, man, they don't just see you... they know you.",
-    spotifyId: "1JLoFwmDIxGc0qNrt76s1c",
-    releaseDate: "2024-10-01",
-    songType: "single",
-    appleMusicLink: "https://music.apple.com/us/album/i-believe-in-the-mothman-single/1772310979",
-    youtubeLink: "https://youtu.be/YRMD8O8_I28?si=DfX2haBSLt95Usow",
-    lyrics: `#### Verse 1
-I saw Mothman in the sky
-He had great big wings and some deep red eyes
-And coincidentally, so did I
-I was feeling pretty rough cuz I got too high
-
-#### Verse 2
-Late at night one Saturday
-On the bridge I built from yesterday
-He flew with me a little way
-Then he swoop real low and I hear him say
-
-#### Chorus
-What did he tell me?
-I'm the Mothman
-Burn ya bridges baby
-
-#### Verse 3
-I saw Mothman in my sleep
-He spoke to me like a father
-Said, Son, these waters mighty deep
-And this bridge you're on look pretty weak
-
-#### Chorus
-What did he tell me?
-I'm the Mothman
-Big spooky lamp-lover
-
-#### Bridge
-I believe in the Mothman
-And he believes in me
-
-#### Verse 4
-I saw Mothman in the sky
-Great big wings, deep red eyes
-No one knows til the day they die
-Just where the Mothman flies`,
-    credits: "Written and Recorded in Minneapolis by Brian Reed",
-  },
-  {
     id: "spooky-song",
     title: "Spooky Song",
     description:
@@ -232,6 +71,167 @@ Everybody's gonna be at the party on Saturday
 You never have to be all by yourself
 Spooky kids gotta spooky stick together like bones`,
     credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed",
+  },
+  {
+    id: "here-there-be-monsters",
+    title: "Here There Be Monsters",
+    description:
+      "Here There Be Monsters slithers in like a half-remembered nightmare from a crooked carnival, equal parts spectacle and warning. Twisted melodies sway on a tightrope above chaos, while the lyrics mutter folklore through a cracked megaphone. It's the kind of song that feels like it's watching you back, grinning through sharpened teeth and beckoning you just a little deeper into the woods.",
+    spotifyId: "5fCfhjNYwvjnNO5jzmYev0",
+    releaseDate: "2025-05-02",
+    songType: "single",
+    appleMusicLink: "https://music.apple.com/us/album/here-there-be-monsters-single/1809531356",
+    youtubeLink: "https://youtu.be/1p9DazyMazY",
+    lyrics: `#### Verse 1
+Welcome, dear traveler, fearful, alone
+Although welcomes are meaningless, strange, and unknown
+In this terrible place. The look on your face
+Says you're rather put off by this desolate waste
+
+The mothers and kids have abandoned their homes
+For the ivy is worming its way through the bones
+Of the fathers that fought and then came to not
+At betentacled limbs. Bemoan them with hymns that say
+
+#### Chorus
+Here there be monsters
+And there there, my dear, we all die
+And this town is a frightening place
+So watch your step and hold your breath
+Because here there be monsters
+
+#### Verse 2
+In the dark of the woods, by the light of the eyes
+Of the peekers that peek and the criers that cry
+Hear the claws of the clickers that clack on the trees
+To the quickening beat of your heart and your pleas
+
+They'll crack in your head and they'll crawl in your mind
+And they'll pull out the sinew and sins that they find
+Twist them around like hideous crowns
+And wear them like robes, and nobody knows why, but
+
+#### Chorus
+
+#### Verse 3
+Why are you listening still to our song
+While these monsters advance in their devilish throng
+There's one at your toes that's beginning to eat
+While you stand there quite foolishly tapping your feet
+
+High tail and run for it, straight through the morning
+Yea, that is the gist of this melodic warning:
+A horrible death does await if you stay
+So run away, far away, go away, by the way…
+
+#### Chorus`,
+    credits:
+      "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
+  },
+  {
+    id: "beautiful-unknown",
+    title: "Beautiful Unknown",
+    description:
+      "A hazy, late-night drive through the wreckage of a bad trip, where the universe warps, the music cuts out, and the only thing keeping you from floating off into the abyss is the one person who won't let you slip. It's a love song for the lost and found... one foot in the void, one hand in theirs.",
+    spotifyId: "3Ptj0tk0OR5g9oazsqFhyy",
+    releaseDate: "2025-03-20",
+    songType: "single",
+    appleMusicLink: "https://music.apple.com/us/album/beautiful-unknown-single/1800561411",
+    youtubeLink: "https://youtu.be/bwn2IHWz9Q0",
+    lyrics: `#### Verse 1
+Took a trip today
+Don't know how long we're gone
+We put our hearts on the radio
+and we gave in to the song
+
+I came so close to nothing, you were all that remained,
+like a warm point of light in the dark
+your love had found me and it wrapped itself around me
+and I know I'm going home again.
+
+#### Chorus
+Into the Beautiful Unknown we go,
+just hold me close til the morning.
+As we drift away, I'll take your hand,
+lead me into the night
+
+and to the Universe below, I know,
+I'm not myself anymore, no.
+If the sun comes up tomorrow,
+I know you'll wait for me in the light.
+
+#### Verse 2
+We got back in the morning
+Don't know how long we stayed.
+It's so shockingly quiet
+when the music stops playing.
+
+When we look up to the heavens we're not praying.
+We're just looking for what I found in your arms.
+
+There's no Heaven above us, but there's surely a Hell below
+me if I should ever fail to tell you that I love you.
+
+#### Chorus
+Into the Beautiful Unknown we go,
+just don't let go til the morning.
+As we drift away, I trust you
+—just you— take me into the night.
+
+With the Universe below aglow,
+I'm not myself anymore, no.
+When the sun comes up tomorrow,
+I know you'll be waiting.`,
+    credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed",
+  },
+  {
+    id: "i-believe-in-the-mothman",
+    title: "I Believe in the Mothman",
+    description:
+      "You ever feel like someone's watching you from the dark? Yeah, that's Mothman... those red eyes, man, they don't just see you... they know you.",
+    spotifyId: "1JLoFwmDIxGc0qNrt76s1c",
+    releaseDate: "2024-10-01",
+    songType: "single",
+    appleMusicLink: "https://music.apple.com/us/album/i-believe-in-the-mothman-single/1772310979",
+    youtubeLink: "https://youtu.be/YRMD8O8_I28?si=DfX2haBSLt95Usow",
+    lyrics: `#### Verse 1
+I saw Mothman in the sky
+He had great big wings and some deep red eyes
+And coincidentally, so did I
+I was feeling pretty rough cuz I got too high
+
+#### Verse 2
+Late at night one Saturday
+On the bridge I built from yesterday
+He flew with me a little way
+Then he swoop real low and I hear him say
+
+#### Chorus
+What did he tell me?
+I'm the Mothman
+Burn ya bridges baby
+
+#### Verse 3
+I saw Mothman in my sleep
+He spoke to me like a father
+Said, Son, these waters mighty deep
+And this bridge you're on look pretty weak
+
+#### Chorus
+What did he tell me?
+I'm the Mothman
+Big spooky lamp-lover
+
+#### Bridge
+I believe in the Mothman
+And he believes in me
+
+#### Verse 4
+I saw Mothman in the sky
+Great big wings, deep red eyes
+No one knows til the day they die
+Just where the Mothman flies`,
+    credits: "Written and Recorded in Minneapolis by Brian Reed",
   },
   {
     id: "the-cryptozoologist",

@@ -1,72 +1,7 @@
 import { Song } from "@/app/constants/types";
 
 export const songs: Song[] = [
-  {
-    id: "april",
-    title: "April",
-    description: "A song dedicated to our collective first childhood crush.",
-    spotifyId: "1XYIPEImKDAN9kzzcYPhDC",
-    releaseDate: "2019-03-20",
-    songType: "track",
-    album: "Scapegoats",
-    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
-    lyrics: `#### Verse 1
-She woke up on the wrong side of the bed.
-Another day, another undetermined end.
-All's well that ends well, but the in-betweens are enough
-to make you feel that enough is enough.
-
-#### Verse 2
-The kids won't blame you, they know times is tough,
-and nobody will deny you've had it rough.
-Tie white boots over jumpsuit, bright yellow as the sun.
-Grab keys, heavy sigh, and a short walk to the van.
-
-#### Prechorus
-April, you keep thinking that your life is in the toilet;
-well, baby, you should know it's in the sewers.
-
-#### Chorus 1
-April, keep your wits about you, April, it's not hard.
-This King of Rats won't stand a chance with this Turtle Force in your backyard.
-April, keep your wits about you, April, don't be meek.
-This Green Machine will keep your jumper clean of absurdities week to week.
-
-#### Verse 3
-It's tough to live when your life's an open cell,
-free to wander through your private jail.
-Through episode after episode, I only hope you learn
-some tricks to help you come out of your shell.
-
-#### Chorus 2
-April, keep your wits about you, April, you're not dumb.
-And everyone here understands that fame is not just something that comes
-up to rescue you from a subway or an alien invasion.
-April, keep that camera rolling and I'll tell you what I'm saying.
-
-#### Bridge
-Someday, maybe you can find yourself
-in another world, another series of events.
-Maybe score a cushy job as a lab assistant?
-Change lives one sequence at a time.
-
-But your past will always follow you, and you will stay the same.
-Maybe your jock boyfriend will make it worth it.
-
-#### Verse 4
-Just know that you've got nothing left to prove,
-and dammit, there ain't nothing you can't do.
-It seems the world's against you, but you'll land on your feet.
-Now grab a slice, here's looking at you.
-
-#### Chorus 3
-April, keep your wits about you, April, don't give up.
-Sure, you spend your days in a laser cage, but you still get your stories done.
-April, keep your wits about you, tomorrow's a brand new day.
-New origins await you, in the city by the bay.`,
-    credits:
-      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
-  },
+  // singles
   {
     id: "devils-door",
     title: "Devil's Door",
@@ -113,51 +48,6 @@ This is what you get when you walk through the Devil's Door
 One, two, three, four, five, six six six`,
     credits:
       "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
-  },
-  {
-    id: "furthermore",
-    title: "Furthermore",
-    description: "Explore the philosophical depths of the liquor cabinet at your grandma's house.",
-    spotifyId: "7ivJF1JLWkHSOsOaq3KIwG",
-    releaseDate: "2022-06-24",
-    songType: "track",
-    album: "You Call This An Apocalypse?",
-    albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
-    lyrics: `#### Verse 1
-I was thinking the other day:
-Why do good men die? Why do criminals get away?
-Why do they nail down a coffin lid anyway?
-Because of zombies.
-
-If it's a secret, then where is the King?
-What crashed at Roswell and made it a thing?
-Why is there a French fry in my onion rings?
-Conspiracy.
-
-#### Verse 2
-Do you think that if I told it,
-you would have the power to control it?
-You can't have everything; how would you hold it?
-And furthermore…
-
-Only scientists can tell us:
-who builds robots so rebellious?
-No use hiding, they can smell us.
-
-#### Verse 3
-Will the rains take our lives?
-When the flood waters come, will the wicked survives?
-Did Noah keep bees in his ark hives?
-I submit that he did.
-
-In the event the protagonist dies,
-who will be the hero when the villains arrive?
-The one who saves the city will get a surprise!
-You think it's bees?
-
-I think it's bees.`,
-    credits:
-      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
   {
     id: "here-there-be-monsters",
@@ -216,254 +106,6 @@ So run away, far away, go away, by the way…
       "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
   },
   {
-    id: "inundation",
-    title: "Inundation",
-    description: "in·un·da·tion / noun / a flood, or the fact of being flooded with water",
-    spotifyId: "2DBze5NuRAKIyn4zhFOGE1",
-    releaseDate: "2022-06-24",
-    songType: "track",
-    album: "You Call This An Apocalypse?",
-    albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
-    lyrics: `#### Verse 1
-She's a glimpse of my desire
-The perfect soul to stop the fire
-Ooh
-A silhouette clothed in skin
-Radiating from within
-Everything I have been longing for this,
-This temporary tease
-
-#### Verse 2
-Float along for the ride
-Meandering side by side
-But she's at the mouth and I'm stuck in the source
-Try to find a way downstream
-Stationary, frustrated scream
-Given a sail but I'm all out of wind
-
-#### Chorus
-Inundated
-Sinking fast
-Inundated
-This won't last, it won't last, it won't last
-This won't last
-
-#### Verse 3
-Oh, she's a glimpse of my desire
-The perfect soul to stop the fire
-But she can't extinguish a fire when she's not even there
-Flesh and blood a shadow now
-Her entrance made, she took a bow
-She hooked my dried up heart and cast me aflood
-
-#### Chorus
-Inundated
-Sinking fast
-Inundated
-This won't last, it won't last, it won't last
-This won't last
-She won't last
-She didn't last
-I'll be stuck here forever: Inundation`,
-    credits:
-      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
-  },
-  {
-    id: "mildred",
-    title: "Mildred",
-    description: "They'd have buried Aunt Mildred if she hadn't burned up...",
-    spotifyId: "11gSEMITGe6vmhCqtT07LJ",
-    releaseDate: "2019-03-20",
-    songType: "track",
-    album: "Scapegoats",
-    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
-    lyrics: `#### Part 1
-Do you remember that summer that we spent out on the lake?
-We were young, and our whole family was staying with Aunt Mildred.
-Nobody really noticed her warm eyes and solemn smile,
-but I took to her quite fondly. And she showed me all around her brand new house
-that our father built upon the ashes of the old family estate
-that he had recently acquired.
-
-#### Part 2
-Aunt Mildred showed me how to use the oven, and I'd bake
-these little treats for all her cats and dogs, and chase them through the hallways.
-And father would light a cigarette and stand out in the tide,
-and watch the sun go down, and listen to the waves come rolling in.
-Because he didn't like the songs that she would sing to him when it got late
-and the house smelled like tobacco.
-
-#### Part 3
-And they'd have buried Aunt Mildred if she hadn't burned up
-inside the house with all her animals and her crazy little knick knacks.
-And the bones that they could find, they put inside a sealed box,
-laid to rest in the foundation of the grand, marvelous tribute of a house
-that our father built upon the ashes of the old family estate
-that he had recently acquired.
-
-#### Part 4
-Then came the day; I heard old Mildred singing sweetly by the water's edge.
-So I went outside to listen while the gas flowed freely from the oven I left on.
-I watched the house go up, and I listened to our father screaming out
-as Aunt Mildred smiled out the doorway of the old family estate
-that I would soon come to acquire.`,
-    credits:
-      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
-  },
-  {
-    id: "monkey-king",
-    title: "Monkey King",
-    description: "Hail, hail to the Monkey King!",
-    spotifyId: "09v8w7JAZdlqTsyjKTDgbN",
-    releaseDate: "2019-03-20",
-    songType: "track",
-    album: "Scapegoats",
-    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
-    lyrics: `#### Verse 1
-Everybody wants monkeys, but the monkey cages just cost far too much to buy.
-And we all wanna be the hero, but we don't want to admit attention is our Kryptonite.
-But if we ever win the lottery, or the monkey cages somehow drop drastically in price,
-We all know the attention monkeys bring, so where the hell will all these monkeys stay the night?
-
-#### Chorus 1
-Hail, hail to the Monkey King!
-Hail, hail to the Chief!
-No one will remember you, but that's the way you wanted it to be.
-So just be free and you'll see that everyone's afraid of being seen.
-
-#### Verse 2
-Just an eon and a century ago, all you needed was some time to be alone.
-And everybody that we loved would be at home, waiting for us.
-Then a couple hundred million years went by and you decided there were too many prying eyes.
-And thus, rebelliously charged into Oblivion upon a stegosaurus.
-
-#### Chorus 2
-Hail, hail to the Monkey King!
-Hail, hail to the Butcher of the Dinosaurs!
-No one will remember you, but that's the way you wanted it to be.
-So just be free, and you'll see that everyone's afraid of being seen.
-
-#### Chorus 3
-Hail, hail to the Monkey King!
-Hail, hail to the god who left us long ago!
-No one will remember you, but that's the way we needed it to be.
-We'll just be free and we'll see that everyone's alone and wants to feel
-connected to the world around them.`,
-    credits:
-      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
-  },
-  {
-    id: "one-day",
-    title: "One Day",
-    description: "All of these things... someday.",
-    spotifyId: "4M6MLtBNFhx82WVnP8Ltj5",
-    releaseDate: "2019-03-20",
-    songType: "track",
-    album: "Scapegoats",
-    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
-    lyrics: `#### Verse 1
-Someday, the dinosaurs will return someday, probably.
-Someday, the robot dogs will spring us into action.
-Someday, all these promises of past future somethings just might occur.
-For now we're waiting assured that all of these things someday.
-
-#### Prechorus
-And everything you've ever known will be revealed to be a holographic simulation
-of everything you ever knew, and nothing's left to know, but all of these things, someday.
-
-#### Verse 2
-Someday, future space places will appear much closer that they do today.
-Someday, we'll all own a glowing laser sword... but wait no, nevermind.
-Someday, doesn't work for that, it was long ago and far away.
-I cook my food by microwave, and all of these things someday.
-
-#### Prechorus
-And everything you've ever known will be revealed to be a holographic simulation
-of everything you ever knew, and nothing's left to know, but all of these things, someday.
-
-#### Chorus
-And we're waiting for someday to be today again.
-Everyone alive will be dust before the end.
-Before the Universe disintegrates, I just want to see one day, someday.
-
-#### Verse 3
-Someday, I thought we'd ride off together into the sunset.
-On hover bikes or boards or maybe hover boots.
-But now I'm all alone, and the center of this b'rrito is cold.
-This future sucks so I'll just stare off into someday.
-
-#### Prechorus
-And everything you've ever known will be revealed to be a holographic stimulation
-of everything you ever knew, and nothing's left to know, but all of these things someday.
-
-#### Chorus
-And we're waiting for someday to be today again.
-Everyone alive will be dust before the end.
-Before the Universe disintegrates, I just want to see one day, someday.
-
-#### Chorus
-Cuz I'm waiting for someday to be today again.
-Begging for just one last kiss before the end.
-Before the Universe disintegrates, I just want to see one day with you, someday.`,
-    credits:
-      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
-  },
-  {
-    id: "paint-it-ugly",
-    title: "Paint It Ugly",
-    description: "Do you feel like nothing? I know I do, I said I do.",
-    spotifyId: "779oQEsO9PL8SIERWgs3On",
-    releaseDate: "2022-06-24",
-    songType: "track",
-    album: "You Call This An Apocalypse?",
-    albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
-    lyrics: `#### Verse 1
-You paint it ugly to kiss it better
-A princess in a dirty sweater
-A foolish chump
-A stupid bum
-A sorry wasted time
-Put it in a letter, sealed with piss and vinegar
-Stamp hard upon my heart and let it go
-
-#### Chorus
-There's no living larger than life
-because everyone is living a lie
-some die harder and some die young
-But baby no one here is leaving alive
-There is not a hope, you can stop all your praying
-I don't think anyone is listening in
-to the chaotic emaciated ugliness of feeling like nothing
-
-#### Verse 2
-So paint it up ugly and put a pretty bow on it
-Cram-it down my throat for years and years
-Tell me that I'm wrong
-Stab me through the middle
-Tear me apart and prey it disappears
-All-so that my soul can let it go
-
-#### Chorus
-There's no living larger than life
-because everyone is living a lie
-some die harder and some die young
-But baby no one here is leaving alive
-There is not a hope, you can stop all your praying
-I don't think anyone is listening in
-to the chaotic emaciated ugliness of feeling like nothing
-
-#### Chorus
-There's no living larger than life
-because everyone is living a lie
-some die harder and some die young
-But baby no one here is leaving alive
-There is no escape, you can stop all your praying
-I don't think anyone is listening in
-to the chaotic emaciated ugliness of feeling like nothing`,
-    credits:
-      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
-  },
-  {
     id: "the-book-of-woodman",
     title: "The Book of Woodman",
     description:
@@ -496,122 +138,6 @@ That Jesus Christ is coming soon
 Just kidding, Woodman's trying to kill you`,
     credits:
       "Produced by Cloverleaf Audio-Visual, Saint Paul MN\nRecording & Mix Engineer: Matt Ebso\nMastering Engineer: Greg Reierson",
-  },
-  {
-    id: "the-skeleton-band",
-    title: "The Skeleton Band",
-    description: "Put a little soul in the skeleton band!",
-    spotifyId: "3owJus2hPYhmHIBQAdi667",
-    releaseDate: "2019-03-20",
-    songType: "track",
-    album: "Scapegoats",
-    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
-    lyrics: `#### Verse 1
-There is an end to your life and it's calling your name,
-and it's far more beautiful than I can explain.
-When your outside is all that remains,
-then your inside escapes from your guts and your brains.
-
-First, there's an ugly old corpse in the ground,
-and then there's a mess and a rattling sound
-as the bones that are in you start dancing around
-and the skeleton band begins to resound, singing,
-
-#### Chorus
-We're a skeleton band and we're rocking in a graveyard.
-Using bones as drumsticks, and a ribcage as a guitar.
-Come join the skeleton band!
-
-#### Verse 2
-You can play drums, or you can play bass,
-or you can play horn if there's lips left on your face.
-But there's just one stipulation for saving your place:
-you got a skeleton, right? So just give it some space.
-
-You think you're happy? You're probably not.
-Because life is a bitch, and we're all gonna rot one day.
-It's better for you if you give it a shot!
-Come join the skeleton band! Let's see what you got.
-
-#### Chorus
-We're a skeleton band and we're rocking in a graveyard.
-Using bones as drumsticks, and a ribcage as a guitar.
-Come join the skeleton band!
-Put a little soul in the skeleton band!
-
-#### Bridge
-The afterlife is a horrifying purgatory
-where you live on in the beat eternally.
-There's no religion and there's no truthiology,
-but you can be a skinless ghoul rock prodigy.
-You can give your spirit to the amplifier,
-and your bones will dance in the hellfire.
-Leave your soul deep down in the dirt
-and join the skeletons forevermore.
-
-#### Verse 3
-There is an end to your life, and it's calling your name,
-and it's far more skeletons than we can explain.
-When your spirit is damned and aflame,
-come join the skeleton band!`,
-    credits:
-      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
-  },
-  {
-    id: "the-spirit-of-the-scapegoat",
-    title: "The Spirit of the Scapegoat",
-    description: "A haunting song about our personal demons, come to life.",
-    spotifyId: "0V3YE9SMpFeCTjatEbwWy1",
-    releaseDate: "2019-03-20",
-    songType: "track",
-    album: "Scapegoats",
-    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
-    lyrics: `#### A-section
-When I turn off all the lights in this little house at night,
-Azazel, Chief of the Goat Demons comes a'lurking.
-He's silent as the Lord and imposing as the Devil.
-He's trying to put a little terror in my soul, but it's not really working.
-
-Tonight, he's standing quiet in the corner by the radiator.
-I think he's cold, but I don't care enough to ask him.
-"Every man, woman, and child goes to Hell," he reminds me.
-He's starting to become corporeal, but I know it won't last
-
-#### B-section
-because the greatest trick the Devil ever pulled
-was to convince the world he doesn't exist.
-But now he's really lonely.
-The greatest trick the Devil ever pulled
-was to convince the world he doesn't exist.
-But now he's really fucking lonely, so he's hanging out with me cuz I'm lonely too.
-
-#### C-section
-What's a guy to do when the god of space and time is the Devil, and everyone seems to be on the level with it?
-At least that's what I gather from this party in a cemetery,
-and the silence of the Lord toward the dying and the bored.
-Here's to the demons we all live with every day and to the Void.
-
-#### D-section
-Well, I'm not dumb and I'm not crazy, I'm just disassociated, bored, and lazy.
-And the Spirit of the Scapegoat says that's someone else's problem.
-
-And I'm not cold and I'm not jaded, I'm just improperly medicated.
-And the Spirit of the Scapegoat says that doesn't really matter.
-
-And I can't cry when people die, I guess I'm deep down dee-dee-dead inside.
-And the Spirit of the Scapegoat says that I should go and join them.
-Go kick it with the dead folk, honey.
-
-#### A-section
-Tonight, he ate my dog alive,
-then he resurrected my childhood dog and he ate him too.
-What's a guy to do?
-Here's to the silence of the Lord
-toward the dying and the bored.
-Here's to the demons we all live with every day
-and to the void.`,
-    credits:
-      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
   },
   {
     id: "the-tale-of-the-woodman",
@@ -674,6 +200,8 @@ It's the Horrible Legend of Woodman!`,
     credits:
       "Produced by Cloverleaf Audio-Visual, Saint Paul MN\nRecording & Mix Engineer: Matt Ebso\nMastering Engineer: Greg Reierson",
   },
+
+// yctaa
   {
     id: "unhappy-kathy",
     title: "Unhappy Kathy",
@@ -684,6 +212,7 @@ It's the Horrible Legend of Woodman!`,
     songType: "track",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
+    trackList: 6,
     lyrics: `#### A-Section
 Broken-hearted, desperate hope,
 you sank to the sandy bottom of your despair.
@@ -745,6 +274,60 @@ weight that lifts your heart and lets you go.`,
       "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
   {
+    id: "inundation",
+    title: "Inundation",
+    description: "in·un·da·tion / noun / a flood, or the fact of being flooded with water",
+    spotifyId: "2DBze5NuRAKIyn4zhFOGE1",
+    releaseDate: "2022-06-24",
+    songType: "track",
+    album: "You Call This An Apocalypse?",
+    albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
+    trackList: 5,
+    lyrics: `#### Verse 1
+She's a glimpse of my desire
+The perfect soul to stop the fire
+Ooh
+A silhouette clothed in skin
+Radiating from within
+Everything I have been longing for this,
+This temporary tease
+
+#### Verse 2
+Float along for the ride
+Meandering side by side
+But she's at the mouth and I'm stuck in the source
+Try to find a way downstream
+Stationary, frustrated scream
+Given a sail but I'm all out of wind
+
+#### Chorus
+Inundated
+Sinking fast
+Inundated
+This won't last, it won't last, it won't last
+This won't last
+
+#### Verse 3
+Oh, she's a glimpse of my desire
+The perfect soul to stop the fire
+But she can't extinguish a fire when she's not even there
+Flesh and blood a shadow now
+Her entrance made, she took a bow
+She hooked my dried up heart and cast me aflood
+
+#### Chorus
+Inundated
+Sinking fast
+Inundated
+This won't last, it won't last, it won't last
+This won't last
+She won't last
+She didn't last
+I'll be stuck here forever: Inundation`,
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
+  },
+  {
     id: "uptown-town",
     title: "Uptown Town",
     description: "A true Minnesota classic, right up there with Fievel Goes to the Soap Factory.",
@@ -753,6 +336,7 @@ weight that lifts your heart and lets you go.`,
     songType: "track",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
+    trackList: 4,
     lyrics: `#### Verse 1
 There's a road we walked down I swore I'd never go down without you.
 And there's a place in Uptown I go to when I'm thinking about you.
@@ -802,6 +386,62 @@ Porters, lagers, coffee ales.`,
       "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
   {
+    id: "paint-it-ugly",
+    title: "Paint It Ugly",
+    description: "Do you feel like nothing? I know I do, I said I do.",
+    spotifyId: "779oQEsO9PL8SIERWgs3On",
+    releaseDate: "2022-06-24",
+    songType: "track",
+    album: "You Call This An Apocalypse?",
+    albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
+    trackList: 3,
+    lyrics: `#### Verse 1
+You paint it ugly to kiss it better
+A princess in a dirty sweater
+A foolish chump
+A stupid bum
+A sorry wasted time
+Put it in a letter, sealed with piss and vinegar
+Stamp hard upon my heart and let it go
+
+#### Chorus
+There's no living larger than life
+because everyone is living a lie
+some die harder and some die young
+But baby no one here is leaving alive
+There is not a hope, you can stop all your praying
+I don't think anyone is listening in
+to the chaotic emaciated ugliness of feeling like nothing
+
+#### Verse 2
+So paint it up ugly and put a pretty bow on it
+Cram-it down my throat for years and years
+Tell me that I'm wrong
+Stab me through the middle
+Tear me apart and prey it disappears
+All-so that my soul can let it go
+
+#### Chorus
+There's no living larger than life
+because everyone is living a lie
+some die harder and some die young
+But baby no one here is leaving alive
+There is not a hope, you can stop all your praying
+I don't think anyone is listening in
+to the chaotic emaciated ugliness of feeling like nothing
+
+#### Chorus
+There's no living larger than life
+because everyone is living a lie
+some die harder and some die young
+But baby no one here is leaving alive
+There is no escape, you can stop all your praying
+I don't think anyone is listening in
+to the chaotic emaciated ugliness of feeling like nothing`,
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
+  },
+  {
     id: "when-i-go-like-this",
     title: "When I Go Like This",
     description: "That's what I'm trying to say when I go like this.",
@@ -810,6 +450,7 @@ Porters, lagers, coffee ales.`,
     songType: "track",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
+    trackList: 2,
     lyrics: `#### Verse 1
 Socrates was just a boy when he discovered dialectics
 and aesthetics was a part of his genetics as he paved the way for modern thought.
@@ -853,5 +494,381 @@ I freak out a little when I think about it.
 That's what I'm trying to say.`,
     credits:
       "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
+  },
+  {
+    id: "furthermore",
+    title: "Furthermore",
+    description: "Explore the philosophical depths of the liquor cabinet at your grandma's house.",
+    spotifyId: "7ivJF1JLWkHSOsOaq3KIwG",
+    releaseDate: "2022-06-24",
+    songType: "track",
+    album: "You Call This An Apocalypse?",
+    albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
+    trackList: 1,
+    lyrics: `#### Verse 1
+I was thinking the other day:
+Why do good men die? Why do criminals get away?
+Why do they nail down a coffin lid anyway?
+Because of zombies.
+
+If it's a secret, then where is the King?
+What crashed at Roswell and made it a thing?
+Why is there a French fry in my onion rings?
+Conspiracy.
+
+#### Verse 2
+Do you think that if I told it,
+you would have the power to control it?
+You can't have everything; how would you hold it?
+And furthermore…
+
+Only scientists can tell us:
+who builds robots so rebellious?
+No use hiding, they can smell us.
+
+#### Verse 3
+Will the rains take our lives?
+When the flood waters come, will the wicked survives?
+Did Noah keep bees in his ark hives?
+I submit that he did.
+
+In the event the protagonist dies,
+who will be the hero when the villains arrive?
+The one who saves the city will get a surprise!
+You think it's bees?
+
+I think it's bees.`,
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
+  },
+
+// scapegoats
+  {
+    id: "mildred",
+    title: "Mildred",
+    description: "They'd have buried Aunt Mildred if she hadn't burned up...",
+    spotifyId: "11gSEMITGe6vmhCqtT07LJ",
+    releaseDate: "2019-03-20",
+    songType: "track",
+    album: "Scapegoats",
+    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
+    trackList: 6,
+    lyrics: `#### Part 1
+Do you remember that summer that we spent out on the lake?
+We were young, and our whole family was staying with Aunt Mildred.
+Nobody really noticed her warm eyes and solemn smile,
+but I took to her quite fondly. And she showed me all around her brand new house
+that our father built upon the ashes of the old family estate
+that he had recently acquired.
+
+#### Part 2
+Aunt Mildred showed me how to use the oven, and I'd bake
+these little treats for all her cats and dogs, and chase them through the hallways.
+And father would light a cigarette and stand out in the tide,
+and watch the sun go down, and listen to the waves come rolling in.
+Because he didn't like the songs that she would sing to him when it got late
+and the house smelled like tobacco.
+
+#### Part 3
+And they'd have buried Aunt Mildred if she hadn't burned up
+inside the house with all her animals and her crazy little knick knacks.
+And the bones that they could find, they put inside a sealed box,
+laid to rest in the foundation of the grand, marvelous tribute of a house
+that our father built upon the ashes of the old family estate
+that he had recently acquired.
+
+#### Part 4
+Then came the day; I heard old Mildred singing sweetly by the water's edge.
+So I went outside to listen while the gas flowed freely from the oven I left on.
+I watched the house go up, and I listened to our father screaming out
+as Aunt Mildred smiled out the doorway of the old family estate
+that I would soon come to acquire.`,
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
+  },
+  {
+    id: "the-spirit-of-the-scapegoat",
+    title: "The Spirit of the Scapegoat",
+    description: "A haunting song about our personal demons, come to life.",
+    spotifyId: "0V3YE9SMpFeCTjatEbwWy1",
+    releaseDate: "2019-03-20",
+    songType: "track",
+    album: "Scapegoats",
+    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
+    trackList: 5,
+    lyrics: `#### A-section
+When I turn off all the lights in this little house at night,
+Azazel, Chief of the Goat Demons comes a'lurking.
+He's silent as the Lord and imposing as the Devil.
+He's trying to put a little terror in my soul, but it's not really working.
+
+Tonight, he's standing quiet in the corner by the radiator.
+I think he's cold, but I don't care enough to ask him.
+"Every man, woman, and child goes to Hell," he reminds me.
+He's starting to become corporeal, but I know it won't last
+
+#### B-section
+because the greatest trick the Devil ever pulled
+was to convince the world he doesn't exist.
+But now he's really lonely.
+The greatest trick the Devil ever pulled
+was to convince the world he doesn't exist.
+But now he's really fucking lonely, so he's hanging out with me cuz I'm lonely too.
+
+#### C-section
+What's a guy to do when the god of space and time is the Devil, and everyone seems to be on the level with it?
+At least that's what I gather from this party in a cemetery,
+and the silence of the Lord toward the dying and the bored.
+Here's to the demons we all live with every day and to the Void.
+
+#### D-section
+Well, I'm not dumb and I'm not crazy, I'm just disassociated, bored, and lazy.
+And the Spirit of the Scapegoat says that's someone else's problem.
+
+And I'm not cold and I'm not jaded, I'm just improperly medicated.
+And the Spirit of the Scapegoat says that doesn't really matter.
+
+And I can't cry when people die, I guess I'm deep down dee-dee-dead inside.
+And the Spirit of the Scapegoat says that I should go and join them.
+Go kick it with the dead folk, honey.
+
+#### A-section
+Tonight, he ate my dog alive,
+then he resurrected my childhood dog and he ate him too.
+What's a guy to do?
+Here's to the silence of the Lord
+toward the dying and the bored.
+Here's to the demons we all live with every day
+and to the void.`,
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
+  },
+  {
+    id: "one-day",
+    title: "One Day",
+    description: "All of these things... someday.",
+    spotifyId: "4M6MLtBNFhx82WVnP8Ltj5",
+    releaseDate: "2019-03-20",
+    songType: "track",
+    album: "Scapegoats",
+    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
+    trackList: 4,
+    lyrics: `#### Verse 1
+Someday, the dinosaurs will return someday, probably.
+Someday, the robot dogs will spring us into action.
+Someday, all these promises of past future somethings just might occur.
+For now we're waiting assured that all of these things someday.
+
+#### Prechorus
+And everything you've ever known will be revealed to be a holographic simulation
+of everything you ever knew, and nothing's left to know, but all of these things, someday.
+
+#### Verse 2
+Someday, future space places will appear much closer that they do today.
+Someday, we'll all own a glowing laser sword... but wait no, nevermind.
+Someday, doesn't work for that, it was long ago and far away.
+I cook my food by microwave, and all of these things someday.
+
+#### Prechorus
+And everything you've ever known will be revealed to be a holographic simulation
+of everything you ever knew, and nothing's left to know, but all of these things, someday.
+
+#### Chorus
+And we're waiting for someday to be today again.
+Everyone alive will be dust before the end.
+Before the Universe disintegrates, I just want to see one day, someday.
+
+#### Verse 3
+Someday, I thought we'd ride off together into the sunset.
+On hover bikes or boards or maybe hover boots.
+But now I'm all alone, and the center of this b'rrito is cold.
+This future sucks so I'll just stare off into someday.
+
+#### Prechorus
+And everything you've ever known will be revealed to be a holographic stimulation
+of everything you ever knew, and nothing's left to know, but all of these things someday.
+
+#### Chorus
+And we're waiting for someday to be today again.
+Everyone alive will be dust before the end.
+Before the Universe disintegrates, I just want to see one day, someday.
+
+#### Chorus
+Cuz I'm waiting for someday to be today again.
+Begging for just one last kiss before the end.
+Before the Universe disintegrates, I just want to see one day with you, someday.`,
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
+  },
+  {
+    id: "the-skeleton-band",
+    title: "The Skeleton Band",
+    description: "Put a little soul in the skeleton band!",
+    spotifyId: "3owJus2hPYhmHIBQAdi667",
+    releaseDate: "2019-03-20",
+    songType: "track",
+    album: "Scapegoats",
+    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
+    trackList: 3,
+    lyrics: `#### Verse 1
+There is an end to your life and it's calling your name,
+and it's far more beautiful than I can explain.
+When your outside is all that remains,
+then your inside escapes from your guts and your brains.
+
+First, there's an ugly old corpse in the ground,
+and then there's a mess and a rattling sound
+as the bones that are in you start dancing around
+and the skeleton band begins to resound, singing,
+
+#### Chorus
+We're a skeleton band and we're rocking in a graveyard.
+Using bones as drumsticks, and a ribcage as a guitar.
+Come join the skeleton band!
+
+#### Verse 2
+You can play drums, or you can play bass,
+or you can play horn if there's lips left on your face.
+But there's just one stipulation for saving your place:
+you got a skeleton, right? So just give it some space.
+
+You think you're happy? You're probably not.
+Because life is a bitch, and we're all gonna rot one day.
+It's better for you if you give it a shot!
+Come join the skeleton band! Let's see what you got.
+
+#### Chorus
+We're a skeleton band and we're rocking in a graveyard.
+Using bones as drumsticks, and a ribcage as a guitar.
+Come join the skeleton band!
+Put a little soul in the skeleton band!
+
+#### Bridge
+The afterlife is a horrifying purgatory
+where you live on in the beat eternally.
+There's no religion and there's no truthiology,
+but you can be a skinless ghoul rock prodigy.
+You can give your spirit to the amplifier,
+and your bones will dance in the hellfire.
+Leave your soul deep down in the dirt
+and join the skeletons forevermore.
+
+#### Verse 3
+There is an end to your life, and it's calling your name,
+and it's far more skeletons than we can explain.
+When your spirit is damned and aflame,
+come join the skeleton band!`,
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
+  },
+  {
+    id: "monkey-king",
+    title: "Monkey King",
+    description: "Hail, hail to the Monkey King!",
+    spotifyId: "09v8w7JAZdlqTsyjKTDgbN",
+    releaseDate: "2019-03-20",
+    songType: "track",
+    album: "Scapegoats",
+    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
+    trackList: 2,
+    lyrics: `#### Verse 1
+Everybody wants monkeys, but the monkey cages just cost far too much to buy.
+And we all wanna be the hero, but we don't want to admit attention is our Kryptonite.
+But if we ever win the lottery, or the monkey cages somehow drop drastically in price,
+We all know the attention monkeys bring, so where the hell will all these monkeys stay the night?
+
+#### Chorus 1
+Hail, hail to the Monkey King!
+Hail, hail to the Chief!
+No one will remember you, but that's the way you wanted it to be.
+So just be free and you'll see that everyone's afraid of being seen.
+
+#### Verse 2
+Just an eon and a century ago, all you needed was some time to be alone.
+And everybody that we loved would be at home, waiting for us.
+Then a couple hundred million years went by and you decided there were too many prying eyes.
+And thus, rebelliously charged into Oblivion upon a stegosaurus.
+
+#### Chorus 2
+Hail, hail to the Monkey King!
+Hail, hail to the Butcher of the Dinosaurs!
+No one will remember you, but that's the way you wanted it to be.
+So just be free, and you'll see that everyone's afraid of being seen.
+
+#### Chorus 3
+Hail, hail to the Monkey King!
+Hail, hail to the god who left us long ago!
+No one will remember you, but that's the way we needed it to be.
+We'll just be free and we'll see that everyone's alone and wants to feel
+connected to the world around them.`,
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
+  },
+  {
+    id: "april",
+    title: "April",
+    description: "A song dedicated to our collective first childhood crush.",
+    spotifyId: "1XYIPEImKDAN9kzzcYPhDC",
+    releaseDate: "2019-03-20",
+    songType: "track",
+    album: "Scapegoats",
+    albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
+    trackList: 1,
+    lyrics: `#### Verse 1
+She woke up on the wrong side of the bed.
+Another day, another undetermined end.
+All's well that ends well, but the in-betweens are enough
+to make you feel that enough is enough.
+
+#### Verse 2
+The kids won't blame you, they know times is tough,
+and nobody will deny you've had it rough.
+Tie white boots over jumpsuit, bright yellow as the sun.
+Grab keys, heavy sigh, and a short walk to the van.
+
+#### Prechorus
+April, you keep thinking that your life is in the toilet;
+well, baby, you should know it's in the sewers.
+
+#### Chorus 1
+April, keep your wits about you, April, it's not hard.
+This King of Rats won't stand a chance with this Turtle Force in your backyard.
+April, keep your wits about you, April, don't be meek.
+This Green Machine will keep your jumper clean of absurdities week to week.
+
+#### Verse 3
+It's tough to live when your life's an open cell,
+free to wander through your private jail.
+Through episode after episode, I only hope you learn
+some tricks to help you come out of your shell.
+
+#### Chorus 2
+April, keep your wits about you, April, you're not dumb.
+And everyone here understands that fame is not just something that comes
+up to rescue you from a subway or an alien invasion.
+April, keep that camera rolling and I'll tell you what I'm saying.
+
+#### Bridge
+Someday, maybe you can find yourself
+in another world, another series of events.
+Maybe score a cushy job as a lab assistant?
+Change lives one sequence at a time.
+
+But your past will always follow you, and you will stay the same.
+Maybe your jock boyfriend will make it worth it.
+
+#### Verse 4
+Just know that you've got nothing left to prove,
+and dammit, there ain't nothing you can't do.
+It seems the world's against you, but you'll land on your feet.
+Now grab a slice, here's looking at you.
+
+#### Chorus 3
+April, keep your wits about you, April, don't give up.
+Sure, you spend your days in a laser cage, but you still get your stories done.
+April, keep your wits about you, tomorrow's a brand new day.
+New origins await you, in the city by the bay.`,
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
   },
 ];

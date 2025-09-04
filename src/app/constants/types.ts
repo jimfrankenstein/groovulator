@@ -11,4 +11,5 @@ export interface Song {
   credits: string;
   album?: string;
   albumLink?: string;
+  trackList?: number;
 }
