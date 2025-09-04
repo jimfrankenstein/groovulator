@@ -38,8 +38,8 @@ export default function Home() {
             <a href="#series" className="hover:underline">
               Series
             </a>
-            <a href="#music" className="hover:underline">
-              Other music
+            <a href="#songs" className="hover:underline">
+              Songs
             </a>
             <a href="#about" className="hover:underline">
               About
@@ -116,10 +116,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* OTHER MUSIC GRID */}
-        <section id="music" className="border-b border-black/10">
+        {/* SONGS GRID */}
+        <section id="songs" className="border-b border-black/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
-            <h3 className="text-xl md:text-2xl font-bold mb-6">Other music</h3>
+            <h3 className="text-xl md:text-2xl font-bold mb-6">Songs</h3>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
               {other.map(item => (
                 <article key={item.title} className="border border-black/15">
