@@ -13,7 +13,7 @@ export default function TheVeryBadDaysSongsPage() {
 
         {/* Songs List */}
         <div className="grid gap-6">
-          {songs.map((song) => (
+          {songs.map(song => (
             <Link
               key={song.id}
               href={`/theverybaddays/songs/${song.id}`}

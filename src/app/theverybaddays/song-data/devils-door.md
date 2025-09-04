@@ -11,43 +11,43 @@ apple_music_link: https://music.apple.com/us/album/devils-door-single/1817347497
 youtube_link: https://youtu.be/SnJQ4qYe-QI
 
 lyrics: |-
-    #### Verse 1
-    Maybe you will
-    Maybe you won’t
-    Maybe I did
-    Probably you won’t
+  #### Verse 1
+  Maybe you will
+  Maybe you won’t
+  Maybe I did
+  Probably you won’t
 
-    Give me a sign
-    Some sacred geometry
-    More than the sign of the
-    Six six six
+  Give me a sign
+  Some sacred geometry
+  More than the sign of the
+  Six six six
 
-    Devil you will
-    Devil you won’t
-    Maybe I demon
-    Probably you should start to count
-    One, two, three, four, five, six six six
+  Devil you will
+  Devil you won’t
+  Maybe I demon
+  Probably you should start to count
+  One, two, three, four, five, six six six
 
-    #### Chorus
-    This is what you get when you walk through the Devil’s Door
+  #### Chorus
+  This is what you get when you walk through the Devil’s Door
 
-    #### Verse 2
-    It shadowy figures
-    That you’re in this place
-    Fallen from Grace
-    An upside down face
+  #### Verse 2
+  It shadowy figures
+  That you’re in this place
+  Fallen from Grace
+  An upside down face
 
-    The south wall is open 
-    The Unsound is calling
-    But you keep on falling
-    One, two, three, four, five, six six six
+  The south wall is open 
+  The Unsound is calling
+  But you keep on falling
+  One, two, three, four, five, six six six
 
-    #### Chorus
-    This is what you get when you walk through the Devil’s Door
-    One, two, three, four, five, six six six
+  #### Chorus
+  This is what you get when you walk through the Devil’s Door
+  One, two, three, four, five, six six six
 
 song_credits: |-
-    Drum Recording: Matt Ebso, Cloverleaf Audio-Visual
-    All Other Recording: Brian Reed, Ectophonic Groovulator
-    Mix and Mastering Engineer: Jason Obergfoll
+  Drum Recording: Matt Ebso, Cloverleaf Audio-Visual
+  All Other Recording: Brian Reed, Ectophonic Groovulator
+  Mix and Mastering Engineer: Jason Obergfoll
 ---

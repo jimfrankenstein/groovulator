@@ -1,8 +1,14 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { SpotifyLogo, InstagramLogo, FacebookLogo, YoutubeLogo, Envelope } from "@phosphor-icons/react";
+import {
+  SpotifyLogo,
+  InstagramLogo,
+  FacebookLogo,
+  YoutubeLogo,
+  Envelope,
+} from "@phosphor-icons/react";
 
 export default function TheVeryBadDaysPage() {
   return (
@@ -87,7 +93,7 @@ export default function TheVeryBadDaysPage() {
         {/* Music Links */}
         <div className="space-y-4 mb-12">
           <h3 className="text-xl font-semibold text-center mb-6">Music & Links</h3>
-          
+
           <a
             href="https://open.spotify.com/playlist/5uhuvVfRzb632ZgZKDL0pz?si=71e2b64de9ee4469"
             target="_blank"
@@ -95,7 +101,9 @@ export default function TheVeryBadDaysPage() {
             aria-label="The Very Bad Days playlist on Spotify"
             className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
           >
-            <p className="text-black text-center">Find our newest tunes at the top of this playlist</p>
+            <p className="text-black text-center">
+              Find our newest tunes at the top of this playlist
+            </p>
           </a>
 
           <a
@@ -152,8 +160,7 @@ export default function TheVeryBadDaysPage() {
             <p className="text-black text-center">View Songs</p>
           </Link>
         </div>
-
       </div>
     </main>
   );
-} 
+}

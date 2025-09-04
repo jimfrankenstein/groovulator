@@ -1,8 +1,14 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { SpotifyLogo, InstagramLogo, FacebookLogo, YoutubeLogo, Envelope } from "@phosphor-icons/react";
+import {
+  SpotifyLogo,
+  InstagramLogo,
+  FacebookLogo,
+  YoutubeLogo,
+  Envelope,
+} from "@phosphor-icons/react";
 
 export default function JimFrankensteinPage() {
   return (
@@ -86,8 +92,8 @@ export default function JimFrankensteinPage() {
 
         {/* Music Links */}
         <div className="space-y-4 mb-12">
-        <h3 className="text-xl font-semibold text-center mb-6">Music & Links</h3>
-          
+          <h3 className="text-xl font-semibold text-center mb-6">Music & Links</h3>
+
           <a
             href="https://youtu.be/RaEekujTv6E?si=ykRTArNZpbXAZMWh"
             target="_blank"
@@ -145,7 +151,9 @@ export default function JimFrankensteinPage() {
             aria-label="You Call This an Apocalypse album on Spotify"
             className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
           >
-            <p className="text-black text-center">The Very Bad Days | You Call This an Apocalypse?</p>
+            <p className="text-black text-center">
+              The Very Bad Days | You Call This an Apocalypse?
+            </p>
           </a>
 
           <a
@@ -166,8 +174,7 @@ export default function JimFrankensteinPage() {
             <p className="text-black text-center">View Songs</p>
           </Link>
         </div>
-
       </div>
     </main>
   );
-} 
+}

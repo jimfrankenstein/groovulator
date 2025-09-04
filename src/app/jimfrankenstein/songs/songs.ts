@@ -4,7 +4,8 @@ export const songs: Song[] = [
   {
     id: "beautiful-unknown",
     title: "Beautiful Unknown",
-    description: "A hazy, late-night drive through the wreckage of a bad trip, where the universe warps, the music cuts out, and the only thing keeping you from floating off into the abyss is the one person who won't let you slip. It's a love song for the lost and found... one foot in the void, one hand in theirs.",
+    description:
+      "A hazy, late-night drive through the wreckage of a bad trip, where the universe warps, the music cuts out, and the only thing keeping you from floating off into the abyss is the one person who won't let you slip. It's a love song for the lost and found... one foot in the void, one hand in theirs.",
     spotifyId: "3Ptj0tk0OR5g9oazsqFhyy",
     appleMusicLink: "https://music.apple.com/us/album/beautiful-unknown-single/1800561411",
     youtubeLink: "https://youtu.be/bwn2IHWz9Q0",
@@ -52,12 +53,13 @@ With the Universe below aglow,
 I'm not myself anymore, no.
 When the sun comes up tomorrow,
 I know you'll be waiting.`,
-    credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed"
+    credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed",
   },
   {
     id: "here-there-be-monsters",
     title: "Here There Be Monsters",
-    description: "Here There Be Monsters slithers in like a half-remembered nightmare from a crooked carnival, equal parts spectacle and warning. Twisted melodies sway on a tightrope above chaos, while the lyrics mutter folklore through a cracked megaphone. It's the kind of song that feels like it's watching you back, grinning through sharpened teeth and beckoning you just a little deeper into the woods.",
+    description:
+      "Here There Be Monsters slithers in like a half-remembered nightmare from a crooked carnival, equal parts spectacle and warning. Twisted melodies sway on a tightrope above chaos, while the lyrics mutter folklore through a cracked megaphone. It's the kind of song that feels like it's watching you back, grinning through sharpened teeth and beckoning you just a little deeper into the woods.",
     spotifyId: "5fCfhjNYwvjnNO5jzmYev0",
     appleMusicLink: "https://music.apple.com/us/album/here-there-be-monsters-single/1809531356",
     youtubeLink: "https://youtu.be/1p9DazyMazY",
@@ -104,12 +106,14 @@ A horrible death does await if you stay
 So run away, far away, go away, by the way…
 
 #### Chorus`,
-    credits: "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll"
+    credits:
+      "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
   },
   {
     id: "i-believe-in-the-mothman",
     title: "I Believe in the Mothman",
-    description: "You ever feel like someone's watching you from the dark? Yeah, that's Mothman... those red eyes, man, they don't just see you... they know you.",
+    description:
+      "You ever feel like someone's watching you from the dark? Yeah, that's Mothman... those red eyes, man, they don't just see you... they know you.",
     spotifyId: "1JLoFwmDIxGc0qNrt76s1c",
     appleMusicLink: "https://music.apple.com/us/album/i-believe-in-the-mothman-single/1772310979",
     youtubeLink: "https://youtu.be/YRMD8O8_I28?si=DfX2haBSLt95Usow",
@@ -150,12 +154,13 @@ I saw Mothman in the sky
 Great big wings, deep red eyes
 No one knows til the day they die
 Just where the Mothman flies`,
-    credits: "Written and Recorded in Minneapolis by Brian Reed"
+    credits: "Written and Recorded in Minneapolis by Brian Reed",
   },
   {
     id: "spooky-song",
     title: "Spooky Song",
-    description: "A haunted pep talk in lo-fi drag, Spooky Song loops like a dusty cassette in the glovebox of a ghost's car. There's grit in the groove and weight in the words. Rhymes for the lonely, rhythms for the freaks. It's a funeral march you can dance to, with a bassline that drags its bones across the floor and a chorus that chants like a séance in your parents' basement.\n\nSad kids, weird hearts, strange rhythms. You're not alone. Just spooky.",
+    description:
+      "A haunted pep talk in lo-fi drag, Spooky Song loops like a dusty cassette in the glovebox of a ghost's car. There's grit in the groove and weight in the words. Rhymes for the lonely, rhythms for the freaks. It's a funeral march you can dance to, with a bassline that drags its bones across the floor and a chorus that chants like a séance in your parents' basement.\n\nSad kids, weird hearts, strange rhythms. You're not alone. Just spooky.",
     spotifyId: "6Tvka4hgnheKaOc8gOC55k",
     appleMusicLink: "https://music.apple.com/us/song/spooky-song/1825985235",
     youtubeLink: "https://youtu.be/RaEekujTv6E",
@@ -218,12 +223,13 @@ Li li li li
 Everybody's gonna be at the party on Saturday
 You never have to be all by yourself
 Spooky kids gotta spooky stick together like bones`,
-    credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed"
+    credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed",
   },
   {
     id: "the-cryptozoologist",
     title: "The Cryptozoologist",
-    description: "A hushed, heart-heavy folk tale plucked from the underbrush on a weathered tenor guitar. It drifts like smoke through the trees, telling the story of a man searching for something unreal and finding something even rarer. Part campfire myth, part confession, it's a quiet hymn for the outcasts, the seekers, and anyone who's ever longed to be known by something stranger than themselves.",
+    description:
+      "A hushed, heart-heavy folk tale plucked from the underbrush on a weathered tenor guitar. It drifts like smoke through the trees, telling the story of a man searching for something unreal and finding something even rarer. Part campfire myth, part confession, it's a quiet hymn for the outcasts, the seekers, and anyone who's ever longed to be known by something stranger than themselves.",
     spotifyId: "5PFBqSxHGE7R0hValZBg94",
     appleMusicLink: "https://music.apple.com/us/album/the-cryptozoologist-single/1704963980",
     youtubeLink: "https://youtu.be/94hfl62wlGY",
@@ -282,6 +288,6 @@ That we share with one another
 
 And I never ever thought I'd be so close to something great and then I'd have to let it go
 Cuz if there is something out there, I don't have to feel alone.`,
-    credits: "Written and Recorded in Minneapolis by Brian Reed"
-  }
+    credits: "Written and Recorded in Minneapolis by Brian Reed",
+  },
 ];

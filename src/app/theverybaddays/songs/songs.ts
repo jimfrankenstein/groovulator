@@ -62,12 +62,14 @@ April, keep your wits about you, April, don't give up.
 Sure, you spend your days in a laser cage, but you still get your stories done.
 April, keep your wits about you, tomorrow's a brand new day.
 New origins await you, in the city by the bay.`,
-    credits: "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson"
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
   },
   {
     id: "devils-door",
     title: "Devil's Door",
-    description: "A love letter to The Black Tapes podcast and all things eerily unresolved, Devil's Door creeps in like an unexpected guest. A midnight radio transmission or a soundtrack to a séance gone off-script. Built on slow-burning tension and a swirl of strange symbols, this classic rock meets 90's alt ballad is moody, mysterious, and just theatrical enough to make you wonder if something's really behind that door.",
+    description:
+      "A love letter to The Black Tapes podcast and all things eerily unresolved, Devil's Door creeps in like an unexpected guest. A midnight radio transmission or a soundtrack to a séance gone off-script. Built on slow-burning tension and a swirl of strange symbols, this classic rock meets 90's alt ballad is moody, mysterious, and just theatrical enough to make you wonder if something's really behind that door.",
     spotifyId: "2r2dKVaWL0zZSnzKYHBPul",
     appleMusicLink: "https://music.apple.com/us/album/devils-door-single/1817347497",
     youtubeLink: "https://youtu.be/SnJQ4qYe-QI",
@@ -105,7 +107,8 @@ One, two, three, four, five, six six six
 #### Chorus
 This is what you get when you walk through the Devil's Door
 One, two, three, four, five, six six six`,
-    credits: "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll"
+    credits:
+      "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
   },
   {
     id: "furthermore",
@@ -147,12 +150,14 @@ The one who saves the city will get a surprise!
 You think it's bees?
 
 I think it's bees.`,
-    credits: "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering"
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
   {
     id: "here-there-be-monsters",
     title: "Here There Be Monsters",
-    description: "Here There Be Monsters slithers in like a half-remembered nightmare from a crooked carnival, equal parts spectacle and warning. Twisted melodies sway on a tightrope above chaos, while the lyrics mutter folklore through a cracked megaphone. It's the kind of song that feels like it's watching you back, grinning through sharpened teeth and beckoning you just a little deeper into the woods.",
+    description:
+      "Here There Be Monsters slithers in like a half-remembered nightmare from a crooked carnival, equal parts spectacle and warning. Twisted melodies sway on a tightrope above chaos, while the lyrics mutter folklore through a cracked megaphone. It's the kind of song that feels like it's watching you back, grinning through sharpened teeth and beckoning you just a little deeper into the woods.",
     spotifyId: "5fCfhjNYwvjnNO5jzmYev0",
     appleMusicLink: "https://music.apple.com/us/album/here-there-be-monsters-single/1809531356",
     youtubeLink: "https://youtu.be/1p9DazyMazY",
@@ -199,7 +204,8 @@ A horrible death does await if you stay
 So run away, far away, go away, by the way…
 
 #### Chorus`,
-    credits: "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll"
+    credits:
+      "Drum Recording: Matt Ebso, Cloverleaf Audio-Visual\nAll Other Recording: Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
   },
   {
     id: "inundation",
@@ -249,7 +255,8 @@ This won't last
 She won't last
 She didn't last
 I'll be stuck here forever: Inundation`,
-    credits: "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering"
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
   {
     id: "mildred",
@@ -288,7 +295,8 @@ So I went outside to listen while the gas flowed freely from the oven I left on.
 I watched the house go up, and I listened to our father screaming out
 as Aunt Mildred smiled out the doorway of the old family estate
 that I would soon come to acquire.`,
-    credits: "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson"
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
   },
   {
     id: "monkey-king",
@@ -327,7 +335,8 @@ Hail, hail to the god who left us long ago!
 No one will remember you, but that's the way we needed it to be.
 We'll just be free and we'll see that everyone's alone and wants to feel
 connected to the world around them.`,
-    credits: "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson"
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
   },
   {
     id: "one-day",
@@ -380,7 +389,8 @@ Before the Universe disintegrates, I just want to see one day, someday.
 Cuz I'm waiting for someday to be today again.
 Begging for just one last kiss before the end.
 Before the Universe disintegrates, I just want to see one day with you, someday.`,
-    credits: "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson"
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
   },
   {
     id: "paint-it-ugly",
@@ -432,12 +442,14 @@ But baby no one here is leaving alive
 There is no escape, you can stop all your praying
 I don't think anyone is listening in
 to the chaotic emaciated ugliness of feeling like nothing`,
-    credits: "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering"
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
   {
     id: "the-book-of-woodman",
     title: "The Book of Woodman",
-    description: "In the thrilling sequel to the campfire classic, Woodman hatches a terrifying new plan to stalk his victims -- starting his own religion!",
+    description:
+      "In the thrilling sequel to the campfire classic, Woodman hatches a terrifying new plan to stalk his victims -- starting his own religion!",
     spotifyId: "1E85YWanHkWl1Htz20wWbl",
     lyrics: `#### Verse 1
 Woodman was a boy and he was turned into a woodman
@@ -462,7 +474,8 @@ Now he bears the word of the Lord to you
 And he wants to share what he learned when he first heard the good news
 That Jesus Christ is coming soon
 Just kidding, Woodman's trying to kill you`,
-    credits: "Produced by Cloverleaf Audio-Visual, Saint Paul MN\nRecording & Mix Engineer: Matt Ebso\nMastering Engineer: Greg Reierson"
+    credits:
+      "Produced by Cloverleaf Audio-Visual, Saint Paul MN\nRecording & Mix Engineer: Matt Ebso\nMastering Engineer: Greg Reierson",
   },
   {
     id: "the-skeleton-band",
@@ -519,7 +532,8 @@ There is an end to your life, and it's calling your name,
 and it's far more skeletons than we can explain.
 When your spirit is damned and aflame,
 come join the skeleton band!`,
-    credits: "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson"
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
   },
   {
     id: "the-spirit-of-the-scapegoat",
@@ -572,12 +586,14 @@ Here's to the silence of the Lord
 toward the dying and the bored.
 Here's to the demons we all live with every day
 and to the void.`,
-    credits: "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson"
+    credits:
+      "Written and Recorded in Minneapolis by Daniel Goodroad + Jim Frankenstein\nMixed & Mastered by Anders Carlson",
   },
   {
     id: "the-tale-of-the-woodman",
     title: "The Tale of the Woodman",
-    description: "This horrible legend will echo for all time through the woods around Camp Woodman.",
+    description:
+      "This horrible legend will echo for all time through the woods around Camp Woodman.",
     spotifyId: "3kTzpwkUjZZPgfN5ie0zqL",
     lyrics: `#### Intro
 Submitted for the approval of The Very Bad Society,
@@ -629,12 +645,14 @@ Go, Little Boris, go!
 In fire, the Woodman, he dies!
 Run, run children, run!
 It's the Horrible Legend of Woodman!`,
-    credits: "Produced by Cloverleaf Audio-Visual, Saint Paul MN\nRecording & Mix Engineer: Matt Ebso\nMastering Engineer: Greg Reierson"
+    credits:
+      "Produced by Cloverleaf Audio-Visual, Saint Paul MN\nRecording & Mix Engineer: Matt Ebso\nMastering Engineer: Greg Reierson",
   },
   {
     id: "unhappy-kathy",
     title: "Unhappy Kathy",
-    description: "The Very Bad Days present a bizarre eulogy for former Flipper star and actual dolphin Kathy, who held her breath until she died. After being abducted by humans and forced to perform on NBC, Kathy refused to remain in captivity, breaking our hearts and our notions of consciousness.",
+    description:
+      "The Very Bad Days present a bizarre eulogy for former Flipper star and actual dolphin Kathy, who held her breath until she died. After being abducted by humans and forced to perform on NBC, Kathy refused to remain in captivity, breaking our hearts and our notions of consciousness.",
     spotifyId: "12CkjnGyHDPX6zrw3HR3DW",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
@@ -695,7 +713,8 @@ as your breath grows thin,
 surrendering now to the hope
 that you'll find comfort in the
 weight that lifts your heart and lets you go.`,
-    credits: "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering"
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
   {
     id: "uptown-town",
@@ -749,7 +768,8 @@ You're the one I wanna be with,
 you're the girl I think I wanna drag into this
 cogent argument for a life.
 Porters, lagers, coffee ales.`,
-    credits: "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering"
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
   {
     id: "when-i-go-like-this",
@@ -799,6 +819,7 @@ I freak out a little when I think about it.
 
 #### Chorus
 That's what I'm trying to say.`,
-    credits: "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering"
-  }
+    credits:
+      "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
+  },
 ];

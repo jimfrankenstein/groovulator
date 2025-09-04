@@ -20,17 +20,20 @@ A modern Next.js 14 project with App Router and Tailwind CSS.
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/jimfrankenstein/groovulator.git
 cd groovulator
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -48,11 +51,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 ### Manual Deployment
 
 1. Build the project:
+
 ```bash
 npm run build
 ```
 
 2. Start the production server:
+
 ```bash
 npm start
 ```

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -17,30 +17,28 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
 
   // Format lyrics to convert markdown headers to HTML
   const formatLyrics = (lyrics: string) => {
-    return lyrics
-      .split('\n')
-      .map((line, index) => {
-        if (line.startsWith('#### ')) {
-          return (
-            <h4 key={index} className="text-lg font-semibold text-white/90 mt-6 mb-2 first:mt-0">
-              {line.substring(4)}
-            </h4>
-          );
-        }
-        if (line.trim() === '') {
-          return <br key={index} />;
-        }
+    return lyrics.split("\n").map((line, index) => {
+      if (line.startsWith("#### ")) {
         return (
-          <p key={index} className="text-white/80 leading-relaxed mb-1">
-            {line}
-          </p>
+          <h4 key={index} className="text-lg font-semibold text-white/90 mt-6 mb-2 first:mt-0">
+            {line.substring(4)}
+          </h4>
         );
-      });
+      }
+      if (line.trim() === "") {
+        return <br key={index} />;
+      }
+      return (
+        <p key={index} className="text-white/80 leading-relaxed mb-1">
+          {line}
+        </p>
+      );
+    });
   };
 
   // Format credits to handle line breaks
   const formatCredits = (credits: string) => {
-    return credits.split('\n').map((line, index) => (
+    return credits.split("\n").map((line, index) => (
       <p key={index} className="text-white/70 text-sm">
         {line}
       </p>
@@ -114,28 +112,28 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
             target="_blank"
             className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
           >
-            <SpotifyLogo size={24} weight="fill" className="mr-3" />
+                              <SpotifyLogo size={24} weight="fill" className="mr-3" />
             <span className="text-sm font-medium">Listen on Spotify</span>
           </Link>
-          
+
           {song.appleMusicLink && (
             <Link
               href={song.appleMusicLink}
               target="_blank"
               className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
             >
-              <AppleLogo size={24} weight="fill" className="mr-3" />
+                                <AppleLogo size={24} weight="fill" className="mr-3" />
               <span className="text-sm font-medium">Listen on Apple Music</span>
             </Link>
           )}
-          
+
           {song.youtubeLink && (
             <Link
               href={song.youtubeLink}
               target="_blank"
               className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
             >
-              <YoutubeLogo size={24} weight="fill" className="mr-3" />
+                                <YoutubeLogo size={24} weight="fill" className="mr-3" />
               <span className="text-sm font-medium">Listen on YouTube</span>
             </Link>
           )}
@@ -144,9 +142,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
         {/* Lyrics */}
         <div className="bg-white/5 rounded-lg p-8 border border-white/20 mb-8">
           <h3 className="text-2xl font-semibold mb-6">Lyrics</h3>
-          <div className="prose prose-invert max-w-none">
-            {formatLyrics(song.lyrics)}
-          </div>
+          <div className="prose prose-invert max-w-none">{formatLyrics(song.lyrics)}</div>
         </div>
 
         {/* Credits */}
@@ -163,7 +159,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
           >
             ← Back to Songs
           </Link>
-          
+
           <Link
             href="/jimfrankenstein"
             className="inline-block px-6 py-3 border border-white/20 rounded-lg hover:bg-white hover:text-[#18181b] transition-colors"
@@ -174,4 +170,4 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
       </div>
     </main>
   );
-} 
+}

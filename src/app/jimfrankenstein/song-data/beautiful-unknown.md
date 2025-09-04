@@ -12,51 +12,51 @@ apple_music_link: https://music.apple.com/us/album/beautiful-unknown-single/1800
 youtube_link: https://youtu.be/bwn2IHWz9Q0
 
 lyrics: |-
-    #### Verse 1
-    Took a trip today
-    Don’t know how long we’re gone
-    We put our hearts on the radio
-    and we gave in to the song
+  #### Verse 1
+  Took a trip today
+  Don’t know how long we’re gone
+  We put our hearts on the radio
+  and we gave in to the song
 
-    I came so close to nothing, you were all that remained,
-    like a warm point of light in the dark
-    your love had found me and it wrapped itself around me
-    and I know I’m going home again.
+  I came so close to nothing, you were all that remained,
+  like a warm point of light in the dark
+  your love had found me and it wrapped itself around me
+  and I know I’m going home again.
 
-    #### Chorus
-    Into the Beautiful Unknown we go,
-    just hold me close til the morning.
-    As we drift away, I’ll take your hand,
-    lead me into the night
+  #### Chorus
+  Into the Beautiful Unknown we go,
+  just hold me close til the morning.
+  As we drift away, I’ll take your hand,
+  lead me into the night
 
-    and to the Universe below, I know,
-    I’m not myself anymore, no.
-    If the sun comes up tomorrow,
-    I know you’ll wait for me in the light.
+  and to the Universe below, I know,
+  I’m not myself anymore, no.
+  If the sun comes up tomorrow,
+  I know you’ll wait for me in the light.
 
-    #### Verse 2
-    We got back in the morning
-    Don’t know how long we stayed.
-    It’s so shockingly quiet
-    when the music stops playing.
+  #### Verse 2
+  We got back in the morning
+  Don’t know how long we stayed.
+  It’s so shockingly quiet
+  when the music stops playing.
 
-    When we look up to the heavens we’re not praying.
-    We’re just looking for what I found in your arms.
+  When we look up to the heavens we’re not praying.
+  We’re just looking for what I found in your arms.
 
-    There’s no Heaven above us, but there’s surely a Hell below
-    me if I should ever fail to tell you that I love you.
+  There’s no Heaven above us, but there’s surely a Hell below
+  me if I should ever fail to tell you that I love you.
 
-    #### Chorus
-    Into the Beautiful Unknown we go,
-    just don’t let go til the morning.
-    As we drift away, I trust you
-    —just you— take me into the night.
+  #### Chorus
+  Into the Beautiful Unknown we go,
+  just don’t let go til the morning.
+  As we drift away, I trust you
+  —just you— take me into the night.
 
-    With the Universe below aglow,
-    I’m not myself anymore, no.
-    When the sun comes up tomorrow,
-    I know you’ll be waiting.
+  With the Universe below aglow,
+  I’m not myself anymore, no.
+  When the sun comes up tomorrow,
+  I know you’ll be waiting.
 
 song_credits: |-
-    Written, Recorded, and Produced in Minneapolis by Brian Reed
+  Written, Recorded, and Produced in Minneapolis by Brian Reed
 ---
