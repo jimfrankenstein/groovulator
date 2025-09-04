@@ -56,6 +56,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
               songId={song.id}
               artist="jimfrankenstein"
               title={song.title}
+              className="rounded-lg"
             />
           </div>
           <h1 className="text-4xl font-bold mb-4">{song.title}</h1>

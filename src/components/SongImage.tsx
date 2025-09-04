@@ -9,9 +9,9 @@ export default function SongImage({ songId, artist, title, className = "" }: Son
   const imageUrl = `/images/${artist}/songs/${songId}/track-art-512.jpg`;
 
   return (
-    <div className={`max-w-md mx-auto ${className}`}>
+    <div className={`max-w-md mx-auto overflow-hidden ${className}`}>
       <img
-        className="w-full h-auto rounded-lg shadow-lg"
+        className="w-full h-auto shadow-lg"
         src={imageUrl}
         alt={`Track art for ${title}`}
       />

@@ -1,4 +1,6 @@
 import SongCard from '../components/SongCard';
+import { songs as jfSongs } from './jimfrankenstein/songs/songs';
+import { songs as tvbdSongs } from './theverybaddays/songs/songs';
 
 export default function Home() {
   const featured = {
@@ -11,17 +13,15 @@ export default function Home() {
     ],
   };
 
-  const series = [
-    { title: "Sutton Mountain Sabbath", meta: "Series", note: "Folk-horror radio arc" },
-    { title: "Undead Justice Warriors", meta: "Series", note: "Cult-punk saga" },
-    { title: "Creatures of the Void", meta: "Series", note: "Monster interludes" },
+  // Combine all songs from both artists and sort by release date to get the latest 3
+  const allSongs = [
+    ...jfSongs.map(song => ({ ...song, artist: "Jim Frankenstein" })),
+    ...tvbdSongs.map(song => ({ ...song, artist: "The Very Bad Days" }))
   ];
 
-  const other = [
-    { title: "Devil's Door", meta: "Song", note: "Jim Frankenstein" },
-    { title: "Spooky Song", meta: "Song", note: "The Very Bad Days" },
-    { title: "Grass & Water (Frogman)", meta: "Song", note: "TVBD" },
-  ];
+  const latestSongs = allSongs
+    .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime())
+    .slice(0, 3);
 
   const roster = [
     { name: "The Very Bad Days", href: "/theverybaddays" },
@@ -123,14 +123,11 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-4 py-10">
             <h3 className="text-xl md:text-2xl font-bold mb-6">Songs</h3>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-              {other.map(item => (
+              {latestSongs.map(song => (
                 <SongCard
-                  key={item.title}
-                  title={item.title}
-                  meta={item.meta}
-                  note={item.note}
+                  key={song.id}
+                  song={song}
                   aspectRatio="square"
-                  // placeholderText="Art placeholder"
                 />
               ))}
             </div>
