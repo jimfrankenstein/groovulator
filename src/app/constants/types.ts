@@ -3,6 +3,7 @@ export interface Song {
   title: string;
   description: string;
   spotifyId: string;
+  releaseDate: string;
   appleMusicLink?: string;
   youtubeLink?: string;
   lyrics: string;

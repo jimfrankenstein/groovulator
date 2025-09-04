@@ -6,6 +6,7 @@ export const songs: Song[] = [
     title: "April",
     description: "A song dedicated to our collective first childhood crush.",
     spotifyId: "1XYIPEImKDAN9kzzcYPhDC",
+    releaseDate: "2019-03-20",
     album: "Scapegoats",
     albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
     lyrics: `#### Verse 1
@@ -71,6 +72,7 @@ New origins await you, in the city by the bay.`,
     description:
       "A love letter to The Black Tapes podcast and all things eerily unresolved, Devil's Door creeps in like an unexpected guest. A midnight radio transmission or a soundtrack to a séance gone off-script. Built on slow-burning tension and a swirl of strange symbols, this classic rock meets 90's alt ballad is moody, mysterious, and just theatrical enough to make you wonder if something's really behind that door.",
     spotifyId: "2r2dKVaWL0zZSnzKYHBPul",
+    releaseDate: "2025-06-20",
     appleMusicLink: "https://music.apple.com/us/album/devils-door-single/1817347497",
     youtubeLink: "https://youtu.be/SnJQ4qYe-QI",
     lyrics: `#### Verse 1
@@ -115,6 +117,7 @@ One, two, three, four, five, six six six`,
     title: "Furthermore",
     description: "Explore the philosophical depths of the liquor cabinet at your grandma's house.",
     spotifyId: "7ivJF1JLWkHSOsOaq3KIwG",
+    releaseDate: "2022-06-24",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
     lyrics: `#### Verse 1
@@ -159,6 +162,7 @@ I think it's bees.`,
     description:
       "Here There Be Monsters slithers in like a half-remembered nightmare from a crooked carnival, equal parts spectacle and warning. Twisted melodies sway on a tightrope above chaos, while the lyrics mutter folklore through a cracked megaphone. It's the kind of song that feels like it's watching you back, grinning through sharpened teeth and beckoning you just a little deeper into the woods.",
     spotifyId: "5fCfhjNYwvjnNO5jzmYev0",
+    releaseDate: "2025-05-02",
     appleMusicLink: "https://music.apple.com/us/album/here-there-be-monsters-single/1809531356",
     youtubeLink: "https://youtu.be/1p9DazyMazY",
     lyrics: `#### Verse 1
@@ -212,6 +216,7 @@ So run away, far away, go away, by the way…
     title: "Inundation",
     description: "in·un·da·tion / noun / a flood, or the fact of being flooded with water",
     spotifyId: "2DBze5NuRAKIyn4zhFOGE1",
+    releaseDate: "2022-06-24",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
     lyrics: `#### Verse 1
@@ -263,6 +268,7 @@ I'll be stuck here forever: Inundation`,
     title: "Mildred",
     description: "They'd have buried Aunt Mildred if she hadn't burned up...",
     spotifyId: "11gSEMITGe6vmhCqtT07LJ",
+    releaseDate: "2019-03-20",
     album: "Scapegoats",
     albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
     lyrics: `#### Part 1
@@ -303,6 +309,7 @@ that I would soon come to acquire.`,
     title: "Monkey King",
     description: "Hail, hail to the Monkey King!",
     spotifyId: "09v8w7JAZdlqTsyjKTDgbN",
+    releaseDate: "2019-03-20",
     album: "Scapegoats",
     albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
     lyrics: `#### Verse 1
@@ -343,6 +350,7 @@ connected to the world around them.`,
     title: "One Day",
     description: "All of these things... someday.",
     spotifyId: "4M6MLtBNFhx82WVnP8Ltj5",
+    releaseDate: "2019-03-20",
     album: "Scapegoats",
     albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
     lyrics: `#### Verse 1
@@ -397,6 +405,7 @@ Before the Universe disintegrates, I just want to see one day with you, someday.
     title: "Paint It Ugly",
     description: "Do you feel like nothing? I know I do, I said I do.",
     spotifyId: "779oQEsO9PL8SIERWgs3On",
+    releaseDate: "2022-06-24",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
     lyrics: `#### Verse 1
@@ -451,6 +460,7 @@ to the chaotic emaciated ugliness of feeling like nothing`,
     description:
       "In the thrilling sequel to the campfire classic, Woodman hatches a terrifying new plan to stalk his victims -- starting his own religion!",
     spotifyId: "1E85YWanHkWl1Htz20wWbl",
+    releaseDate: "2024-10-11",
     lyrics: `#### Verse 1
 Woodman was a boy and he was turned into a woodman
 By a witch was turning people into woodmen, don't you see?
@@ -482,6 +492,7 @@ Just kidding, Woodman's trying to kill you`,
     title: "The Skeleton Band",
     description: "Put a little soul in the skeleton band!",
     spotifyId: "3owJus2hPYhmHIBQAdi667",
+    releaseDate: "2019-03-20",
     album: "Scapegoats",
     albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
     lyrics: `#### Verse 1
@@ -540,6 +551,7 @@ come join the skeleton band!`,
     title: "The Spirit of the Scapegoat",
     description: "A haunting song about our personal demons, come to life.",
     spotifyId: "0V3YE9SMpFeCTjatEbwWy1",
+    releaseDate: "2019-03-20",
     album: "Scapegoats",
     albumLink: "https://open.spotify.com/album/1GmX76Xij1oQSQO64pdyh3",
     lyrics: `#### A-section
@@ -595,6 +607,7 @@ and to the void.`,
     description:
       "This horrible legend will echo for all time through the woods around Camp Woodman.",
     spotifyId: "3kTzpwkUjZZPgfN5ie0zqL",
+    releaseDate: "2022-10-20",
     lyrics: `#### Intro
 Submitted for the approval of The Very Bad Society,
 we call this dreadful story the Tale of the Woodman!
@@ -654,6 +667,7 @@ It's the Horrible Legend of Woodman!`,
     description:
       "The Very Bad Days present a bizarre eulogy for former Flipper star and actual dolphin Kathy, who held her breath until she died. After being abducted by humans and forced to perform on NBC, Kathy refused to remain in captivity, breaking our hearts and our notions of consciousness.",
     spotifyId: "12CkjnGyHDPX6zrw3HR3DW",
+    releaseDate: "2022-06-24",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
     lyrics: `#### A-Section
@@ -721,6 +735,7 @@ weight that lifts your heart and lets you go.`,
     title: "Uptown Town",
     description: "A true Minnesota classic, right up there with Fievel Goes to the Soap Factory.",
     spotifyId: "3lMj9aazpixvBDNlBBeMTV",
+    releaseDate: "2022-06-24",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
     lyrics: `#### Verse 1
@@ -776,6 +791,7 @@ Porters, lagers, coffee ales.`,
     title: "When I Go Like This",
     description: "That's what I'm trying to say when I go like this.",
     spotifyId: "24YdP9yzRyMCxvDVuEZvGg",
+    releaseDate: "2022-06-24",
     album: "You Call This An Apocalypse?",
     albumLink: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c",
     lyrics: `#### Verse 1
