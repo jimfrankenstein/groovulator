@@ -27,8 +27,8 @@ export default function SongCard({
   const artistName = collabArtists ? "collaborations" : artistUrl as "jimfrankenstein" | "theverybaddays";
 
   return (
-    <Link href={songUrl} className="block border border-black/15 hover:shadow-lg transition-shadow">
-      <div className={`${aspectClass} bg-neutral-50 border-b border-black/15 overflow-hidden`}>
+    <Link href={songUrl} className="block border border-black/15 dark:border-white/15 hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-white/10 transition-shadow">
+      <div className={`${aspectClass} bg-neutral-50 dark:bg-neutral-800 overflow-hidden`}>
         <SongImage 
           songId={id}
           artist={artistName}
@@ -42,7 +42,7 @@ export default function SongCard({
         </div>
         <h4 className="font-semibold leading-tight">{title}</h4>
         <p className="text-sm opacity-70">{artist}</p>
-        <div className="text-sm text-blue-600 hover:text-blue-800 pt-2">
+        <div className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 pt-2">
           Listen →
         </div>
       </div>

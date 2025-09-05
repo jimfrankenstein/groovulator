@@ -1,4 +1,5 @@
 import SongCard from '../components/SongCard';
+import DarkModeToggle from '../components/DarkModeToggle';
 import { songs as jfSongs } from './jimfrankenstein/songs/songs';
 import { songs as tvbdSongs } from './theverybaddays/songs/songs';
 import { collaborations } from './collaborations/collaborations';
@@ -27,9 +28,9 @@ export default function Home() {
     .slice(0, 9);
 
   return (
-    <div className="min-h-screen bg-white text-black antialiased">
+    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased">
       {/* HEADER */}
-      <header className="border-b border-black/10">
+      <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
           <a href="#" className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700">
             <span>ECTOPHONIC</span> GROOVULATOR
@@ -52,7 +53,7 @@ export default function Home() {
       </header>
 
       {/* TAGLINE
-      <section className="border-b border-black/10">
+      <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
             Short, haunting musicals <span className="opacity-60">and other oddities</span>
@@ -61,19 +62,19 @@ export default function Home() {
       </section>*/}
 
       {/* TAGLINE (TEMP) */}
-      <section className="border-b border-black/10">
+      <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            The grim grunge ghostbustery of <Link href={'/jimfrankenstein'} className="text-pink-500 hover:text-pink-700 active:text-pink-900 transition-colors duration-200">Jim Frankenstein</Link> and <Link className="text-emerald-500 hover:text-emerald-700 active:text-emerald-900 transition-colors duration-200" href={'/theverybaddays'}>The Very Bad Days</Link>
+            The grim grunge ghostbustery of <Link href={'/jimfrankenstein'} className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200">Jim Frankenstein</Link> and <Link className="text-emerald-500 hover:text-emerald-700 active:text-emerald-900 dark:text-fuchsia-500 dark:hover:text-fuchsia-500/80 dark:active:text-fuchsia-500/60 transition-colors duration-200" href={'/theverybaddays'}>The Very Bad Days</Link>
           </h1>
         </div>
       </section>
 
       <main>
         {/* FEATURED SECTION
-        <section className="border-b border-black/10">
+        <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-2">
-            <div className="aspect-[16/9] w-full border border-black/20 bg-neutral-50 grid place-items-center">
+            <div className="aspect-[16/9] w-full border border-white/20 bg-neutral-800 grid place-items-center">
               <div className="text-xs uppercase tracking-wide opacity-60">
                 Image / video placeholder
               </div>
@@ -87,7 +88,7 @@ export default function Home() {
                   <a
                     key={a.label}
                     href={a.href}
-                    className="inline-flex items-center gap-2 border border-black px-4 py-2 text-sm font-medium hover:-translate-y-0.5 transition-transform"
+                    className="inline-flex items-center gap-2 border border-white px-4 py-2 text-sm font-medium hover:-translate-y-0.5 transition-transform"
                   >
                     {a.label}
                   </a>
@@ -99,13 +100,13 @@ export default function Home() {
         */}
 
         {/* SERIES GRID (disabled for now)
-        <section id="series" className="border-b border-black/10">
+        <section id="series" className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
             <h3 className="text-xl md:text-2xl font-bold mb-6">Series</h3>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
               {series.map(item => (
-                <article key={item.title} className="border border-black/15">
-                  <div className="aspect-[4/3] bg-neutral-50 border-b border-black/15 grid place-items-center">
+                <article key={item.title} className="border border-white/15">
+                  <div className="aspect-[4/3] bg-neutral-800 border-b border-white/15 grid place-items-center">
                     <div className="text-[11px] uppercase tracking-wide opacity-60">
                       Cover placeholder
                     </div>
@@ -127,7 +128,7 @@ export default function Home() {
         </section> */}
 
         {/* SONGS GRID */}
-        <section id="songs" className="border-b border-black/10">
+        <section id="songs" className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
             <h3 className="text-xl md:text-2xl font-bold mb-6">Latest Songs</h3>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -143,7 +144,7 @@ export default function Home() {
         </section>
 
         {/* JOIN CTA (disabled for now)
-        <section id="join" className="border-b border-black/10">
+        <section id="join" className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div className="md:col-span-2">
               <h3 className="text-xl md:text-2xl font-bold">Join the journey</h3>
@@ -159,11 +160,11 @@ export default function Home() {
                 id="email"
                 type="email"
                 placeholder="you@domain.com"
-                className="w-full sm:w-auto flex-1 border border-black px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-black"
+                className="w-full sm:w-auto flex-1 border border-white px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-white"
               />
               <button
                 type="button"
-                className="border border-black px-4 py-2 text-sm font-medium hover:-translate-y-0.5 transition-transform"
+                className="border border-white px-4 py-2 text-sm font-medium hover:-translate-y-0.5 transition-transform"
               >
                 Subscribe
               </button>
@@ -172,7 +173,7 @@ export default function Home() {
         </section> */}
 
         {/* ABOUT */}
-        <section id="about" className="border-b border-black/10">
+        <section id="about" className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div>
               <h3 className="text-xl md:text-2xl font-bold">About</h3>
@@ -194,10 +195,11 @@ export default function Home() {
             <br />
             <span>Minneapolis, MN</span>
           </div>
-          <div className="flex gap-6 justify-start md:justify-end text-sm">
+          <div className="flex gap-6 justify-start md:justify-end items-center text-sm">
             <a href="mailto:makecontact@groovulator.com?subject=I%20have%20been%20summoned%20by%20your%20spooky%20grooves" className="underline">
               Contact
             </a>
+            <DarkModeToggle />
           </div>
         </div>
       </footer>
