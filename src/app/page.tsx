@@ -33,7 +33,7 @@ export default function Home() {
       {/* HEADER */}
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
-          <a href="#" className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700">
+          <a href="#" className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors">
             <span>ECTOPHONIC</span> GROOVULATOR
           </a>
           {/* <nav className="hidden md:flex items-center gap-6 text-sm">
@@ -51,7 +51,7 @@ export default function Home() {
             </a>
           </nav> */}
           <div className="flex gap-2">
-            <SocialLinks links={['instagram', 'tiktok', 'youtube', 'email']} />
+            <SocialLinks links={['instagram', 'email']} />
             <DarkModeToggle />
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function Home() {
       <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            The grim grunge ghostbustery of <Link href={'/jimfrankenstein'} className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200">Jim Frankenstein</Link> and <Link className="text-emerald-500 hover:text-emerald-700 active:text-emerald-900 dark:text-fuchsia-500 dark:hover:text-fuchsia-500/80 dark:active:text-fuchsia-500/60 transition-colors duration-200" href={'/theverybaddays'}>The Very Bad Days</Link>
+            The grim grunge ghostbustery of <Link href={'/jimfrankenstein'} className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200">Jim Frankenstein</Link> and <Link className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200" href={'/theverybaddays'}>The Very Bad Days</Link>
           </h1>
         </div>
       </section>
@@ -201,7 +201,7 @@ export default function Home() {
             <span>Minneapolis, MN</span>
           </div>
           <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
-            <SocialLinks links={['instagram', 'tiktok', 'youtube', 'email']} />
+            <SocialLinks links={['instagram', 'email']} />
             <DarkModeToggle />
           </div>
         </div>
