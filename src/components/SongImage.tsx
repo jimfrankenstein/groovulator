@@ -11,7 +11,7 @@ export default function SongImage({ songId, artist, title, className = "" }: Son
   return (
     <div className={`max-w-md mx-auto overflow-hidden ${className}`}>
       <img
-        className="w-full h-auto shadow-lg"
+        className="w-full h-full object-cover shadow-lg"
         src={imageUrl}
         alt={`Track art for ${title}`}
       />

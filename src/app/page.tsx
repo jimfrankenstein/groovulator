@@ -1,6 +1,7 @@
 import SongCard from '../components/SongCard';
 import { songs as jfSongs } from './jimfrankenstein/songs/songs';
 import { songs as tvbdSongs } from './theverybaddays/songs/songs';
+import Link from 'next/link';
 
 export default function Home() {
   const featured = {
@@ -21,22 +22,17 @@ export default function Home() {
 
   const latestSongs = allSongs
     .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime())
-    .slice(0, 3);
-
-  const roster = [
-    { name: "The Very Bad Days", href: "/theverybaddays" },
-    { name: "Jim Frankenstein", href: "/jimfrankenstein" },
-  ];
+    .slice(0, 6);
 
   return (
     <div className="min-h-screen bg-white text-black antialiased">
       {/* HEADER */}
       <header className="border-b border-black/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
-          <a href="#" className="font-black tracking-tight text-xl">
-            GROOVULATOR
+          <a href="#" className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700">
+            <span>ECTOPHONIC</span> GROOVULATOR
           </a>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
+          {/* <nav className="hidden md:flex items-center gap-6 text-sm">
             <a href="#series" className="hover:underline">
               Series
             </a>
@@ -49,21 +45,30 @@ export default function Home() {
             <a href="#join" className="hover:underline">
               Join
             </a>
-          </nav>
+          </nav> */}
         </div>
       </header>
 
-      {/* TAGLINE */}
+      {/* TAGLINE
       <section className="border-b border-black/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
             Short, haunting musicals <span className="opacity-60">and other oddities</span>
           </h1>
         </div>
+      </section>*/}
+
+      {/* TAGLINE (TEMP) */}
+      <section className="border-b border-black/10">
+        <div className="mx-auto max-w-6xl px-4 py-10">
+          <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+            The grim grunge ghostbustery of <Link href={'/jimfrankenstein'} className="text-pink-500 hover:text-pink-700 active:text-pink-900 transition-colors duration-200">Jim Frankenstein</Link> and <Link className="text-emerald-500 hover:text-emerald-700 active:text-emerald-900 transition-colors duration-200" href={'/theverybaddays'}>The Very Bad Days</Link>
+          </h1>
+        </div>
       </section>
 
       <main>
-        {/* FEATURED SECTION */}
+        {/* FEATURED SECTION
         <section className="border-b border-black/10">
           <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-2">
             <div className="aspect-[16/9] w-full border border-black/20 bg-neutral-50 grid place-items-center">
@@ -89,6 +94,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        */}
 
         {/* SERIES GRID (disabled for now)
         <section id="series" className="border-b border-black/10">
@@ -121,7 +127,7 @@ export default function Home() {
         {/* SONGS GRID */}
         <section id="songs" className="border-b border-black/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
-            <h3 className="text-xl md:text-2xl font-bold mb-6">Songs</h3>
+            <h3 className="text-xl md:text-2xl font-bold mb-6">Latest Songs</h3>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
               {latestSongs.map(song => (
                 <SongCard
@@ -171,23 +177,8 @@ export default function Home() {
             </div>
             <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-6">
               <p>
-                Groovulator is a studio for short, haunting musicals and related oddities. We make
-                songs, mini-series, and artifacts that stitch together a weird little universe—equal
-                parts spooky and playful. Think radio-show folklore, VHS-era horror, and alt-rock
-                energy.
+              Ectophonic Groovulator is an independent studio and label from Minneapolis, making short, haunting musicals and other oddities. We write songs about goblins, cults, dolphin suicides, and whatever else crawls out of the woods. Our projects, The Very Bad Days and Jim Frankenstein, mix dark humor with 90s alt-rock fuzz and basement-punk energy. If you like your laughter with a chill and your horror with a wink, welcome to the Groovulator.
               </p>
-              <div>
-                <h4 className="font-semibold mb-2">On the roster:</h4>
-                <ul className="space-y-1">
-                  {roster.map(band => (
-                    <li key={band.name}>
-                      <a href={band.href} className="underline">
-                        {band.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </div>
         </section>
@@ -197,17 +188,13 @@ export default function Home() {
       <footer className="py-10">
         <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-end">
           <div className="text-sm opacity-70">
-            © {new Date().getFullYear()} Groovulator. All rights reserved.
+            <span>© {new Date().getFullYear()} Groovulator LLC. All rights reserved.</span>
+            <br />
+            <span>Minneapolis, MN</span>
           </div>
           <div className="flex gap-6 justify-start md:justify-end text-sm">
-            <a href="#" className="underline">
+            <a href="mailto:makecontact@groovulator.com?subject=I%20have%20been%20summoned%20by%20your%20spooky%20grooves" className="underline">
               Contact
-            </a>
-            <a href="#" className="underline">
-              Privacy
-            </a>
-            <a href="#" className="underline">
-              Terms
             </a>
           </div>
         </div>

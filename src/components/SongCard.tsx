@@ -31,17 +31,17 @@ export default function SongCard({
           songId={id}
           artist={artistUrl as "jimfrankenstein" | "theverybaddays"}
           title={title}
-          className="w-full h-full object-cover"
+          className="!max-w-none !mx-0 w-full h-full"
         />
       </div>
-      <div className="p-4 flex flex-col gap-2">
+      <div className="p-4 flex flex-col gap-1">
         <div className="text-[11px] uppercase tracking-wide opacity-60">
           {songType}
         </div>
         <h4 className="font-semibold leading-tight">{title}</h4>
         <p className="text-sm opacity-70">{artist}</p>
         <div className="text-sm text-blue-600 hover:text-blue-800 pt-2">
-          View Details →
+          Listen →
         </div>
       </div>
     </Link>
