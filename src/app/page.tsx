@@ -1,5 +1,6 @@
 import SongCard from '../components/SongCard';
 import DarkModeToggle from '../components/DarkModeToggle';
+import SocialLinks from '../components/SocialLinks';
 import { songs as jfSongs } from './jimfrankenstein/songs/songs';
 import { songs as tvbdSongs } from './theverybaddays/songs/songs';
 import { collaborations } from './collaborations/collaborations';
@@ -28,7 +29,7 @@ export default function Home() {
     .slice(0, 9);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased">
+    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       {/* HEADER */}
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
@@ -49,6 +50,10 @@ export default function Home() {
               Join
             </a>
           </nav> */}
+          <div className="flex gap-2">
+            <SocialLinks links={['instagram', 'tiktok', 'youtube', 'email']} />
+            <DarkModeToggle />
+          </div>
         </div>
       </header>
 
@@ -195,10 +200,8 @@ export default function Home() {
             <br />
             <span>Minneapolis, MN</span>
           </div>
-          <div className="flex gap-6 justify-start md:justify-end items-center text-sm">
-            <a href="mailto:makecontact@groovulator.com?subject=I%20have%20been%20summoned%20by%20your%20spooky%20grooves" className="underline">
-              Contact
-            </a>
+          <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
+            <SocialLinks links={['instagram', 'tiktok', 'youtube', 'email']} />
             <DarkModeToggle />
           </div>
         </div>
