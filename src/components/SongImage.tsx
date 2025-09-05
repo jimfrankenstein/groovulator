@@ -1,6 +1,6 @@
 interface SongImageProps {
   songId: string;
-  artist: "jimfrankenstein" | "theverybaddays";
+  artist: "jimfrankenstein" | "theverybaddays" | "collaborations";
   title: string;
   className?: string;
 }

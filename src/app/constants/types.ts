@@ -1,6 +1,7 @@
 export interface Song {
   id: string;
   title: string;
+  collabArtists?: string[];
   description: string;
   spotifyId: string;
   releaseDate: string;

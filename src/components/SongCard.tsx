@@ -5,13 +5,11 @@ import Link from 'next/link';
 interface SongCardProps {
   song: Song & { artist: string };
   aspectRatio?: 'square' | '4/3';
-  placeholderText?: string;
 }
 
 export default function SongCard({
-  song: { id, title, artist, spotifyId, appleMusicLink, youtubeLink, songType },
-  aspectRatio = 'square',
-  placeholderText = "fArt placeholder"
+  song: { id, title, artist, songType, collabArtists },
+  aspectRatio = 'square'
 }: SongCardProps) {
   const aspectClass = aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/3]';
   
@@ -21,15 +19,19 @@ export default function SongCard({
     "The Very Bad Days": "theverybaddays"
   };
   
-  const artistUrl = artistUrlMap[artist];
+  // For collaborations, use the first collab artist's URL, otherwise use the regular artist
+  const linkArtist = collabArtists ? collabArtists[0] : artist;
+  const artistUrl = artistUrlMap[linkArtist];
   const songUrl = `/${artistUrl}/songs/${id}`;
+
+  const artistName = collabArtists ? "collaborations" : artistUrl as "jimfrankenstein" | "theverybaddays";
 
   return (
     <Link href={songUrl} className="block border border-black/15 hover:shadow-lg transition-shadow">
       <div className={`${aspectClass} bg-neutral-50 border-b border-black/15 overflow-hidden`}>
         <SongImage 
           songId={id}
-          artist={artistUrl as "jimfrankenstein" | "theverybaddays"}
+          artist={artistName}
           title={title}
           className="!max-w-none !mx-0 w-full h-full"
         />

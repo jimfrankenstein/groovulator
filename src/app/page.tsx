@@ -1,28 +1,30 @@
 import SongCard from '../components/SongCard';
 import { songs as jfSongs } from './jimfrankenstein/songs/songs';
 import { songs as tvbdSongs } from './theverybaddays/songs/songs';
+import { collaborations } from './collaborations/collaborations';
 import Link from 'next/link';
 
 export default function Home() {
-  const featured = {
-    title: "Here There Be Monsters — Single",
-    kicker: "Featured",
-    blurb: "A short, haunting musical vignette. Stream it everywhere or watch the teaser.",
-    actions: [
-      { label: "Listen", href: "#" },
-      { label: "Details", href: "#" },
-    ],
-  };
+  // const featured = {
+  //   title: "Here There Be Monsters — Single",
+  //   kicker: "Featured",
+  //   blurb: "A short, haunting musical vignette. Stream it everywhere or watch the teaser.",
+  //   actions: [
+  //     { label: "Listen", href: "#" },
+  //     { label: "Details", href: "#" },
+  //   ],
+  // };
 
-  // Combine all songs from both artists and sort by release date to get the latest 3
+  // Combine all songs from both artists and collaborations, sort by release date to get the latest 6
   const allSongs = [
     ...jfSongs.map(song => ({ ...song, artist: "Jim Frankenstein" })),
-    ...tvbdSongs.map(song => ({ ...song, artist: "The Very Bad Days" }))
+    ...tvbdSongs.map(song => ({ ...song, artist: "The Very Bad Days" })),
+    ...collaborations.map(song => ({ ...song, artist: "Collaboration" }))
   ];
 
   const latestSongs = allSongs
     .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime())
-    .slice(0, 6);
+    .slice(0, 9);
 
   return (
     <div className="min-h-screen bg-white text-black antialiased">

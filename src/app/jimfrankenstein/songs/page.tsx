@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { songs } from "./songs";
+import { collaborations } from "../../collaborations/collaborations";
 
 export default function JimFrankensteinSongsPage() {
+  const allSongs = [...songs, ...collaborations]
+    .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
+
   return (
     <main className="min-h-screen bg-[#18181b] text-white font-sans">
       <div className="max-w-4xl mx-auto px-6 py-12">
@@ -13,7 +17,7 @@ export default function JimFrankensteinSongsPage() {
 
         {/* Songs List */}
         <div className="grid gap-6">
-          {songs.map(song => (
+          {allSongs.map(song => (
             <Link
               key={song.id}
               href={`/jimfrankenstein/songs/${song.id}`}
@@ -22,6 +26,11 @@ export default function JimFrankensteinSongsPage() {
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold mb-2">{song.title}</h3>
+                  {song.collabArtists && (
+                    <p className="text-white/60 text-sm mb-1">
+                      {song.collabArtists.join(", ")}
+                    </p>
+                  )}
                   <p className="text-white/70 mb-2">{song.description}</p>
                 </div>
                 {/* <div className="text-white/60 text-sm">

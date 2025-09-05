@@ -4,13 +4,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { use } from "react";
 import { songs } from "../songs";
+import { collaborations } from "../../../collaborations/collaborations";
 import { Song } from "@/app/constants/types";
 import { SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
 import SongImage from "@/components/SongImage";
 
 export default function SongPage({ params }: { params: Promise<{ songId: string }> }) {
   const { songId } = use(params);
-  const song: Song | undefined = songs.find(s => s.id === songId);
+  const allSongs = [...songs, ...collaborations];
+  const song: Song | undefined = allSongs.find(s => s.id === songId);
 
   if (!song) {
     notFound();
@@ -37,6 +39,9 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
     });
   };
 
+  const artist = song.collabArtists ? "collaborations" : "theverybaddays";
+
+
   // Format credits to handle line breaks
   const formatCredits = (credits: string) => {
     return credits.split("\n").map((line, index) => (
@@ -59,10 +64,12 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
               className="rounded-lg"
             />
           </div>
-          <h1 className="text-4xl font-bold mb-4">{song.title}</h1>
-          <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
-            {song.description}
-          </p>
+          <h1 className={`text-4xl font-bold ${song.collabArtists ? 'mb-2' : 'mb-4'}`}>{song.title}</h1>
+          {song.collabArtists && (
+            <p className="text-l text-white/80 max-w-4xl mx-auto leading-relaxed mb-4">
+              {song.collabArtists?.join(", ")}
+            </p>
+          )}
         </div>
 
         {/* Album Link (only if applicable) */}
