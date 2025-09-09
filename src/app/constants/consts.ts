@@ -15,5 +15,13 @@ export const SOCIAL_LINKS = {
     youtube: { href: 'https://youtube.com/@theverybaddays', label: 'Watch The Very Bad Days on YouTube' },
     tiktok: { href: 'https://tiktok.com/@theverybaddays', label: 'Follow The Very Bad Days on TikTok' },
     email: { href: 'mailto:press@theverybaddays.com?subject=I%20survived%20The%20Very%20Bad%20Days%20and%20all%20I%20got%20was%20this%20lousy%20email', label: 'Email The Very Bad Days' }
+  },
+  jimfrankenstein: {
+    instagram: { href: 'https://instagram.com/jimfrankenstein', label: 'Follow Jim Frankenstein on Instagram' },
+    spotify: { href: 'https://open.spotify.com/artist/09Pna9M8cfCtPdAkF3PfLb?si=NXeZg63GQxqa4tA_iijA1g', label: 'Listen to Jim Frankenstein on Spotify' },
+    applemusic: { href: 'https://music.apple.com/artist/jimfrankenstein', label: 'Listen to Jim Frankenstein on Apple Music' },
+    youtube: { href: 'https://youtube.com/@jimfrankenstein', label: 'Watch Jim Frankenstein on YouTube' },
+    tiktok: { href: 'https://tiktok.com/@jimfrankenstein', label: 'Follow Jim Frankenstein on TikTok' },
+    email: { href: 'mailto:jim@jimfrankenstein.com?subject=I%20found%20your%20spooky%20songs%20and%20now%20I%20can%27t%20escape', label: 'Email Jim Frankenstein' }
   }
 } as const;
