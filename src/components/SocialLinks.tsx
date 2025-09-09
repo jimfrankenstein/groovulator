@@ -1,76 +1,78 @@
 "use client";
 
 import { InstagramLogoIcon, SpotifyLogoIcon, AppleLogoIcon, YoutubeLogoIcon, TiktokLogoIcon, EnvelopeSimpleIcon } from '@phosphor-icons/react';
+import { SOCIAL_LINKS } from '@/app/constants/consts';
 
 type SocialPlatform = 'instagram' | 'spotify' | 'applemusic' | 'youtube' | 'tiktok' | 'email';
+type EntityName = keyof typeof SOCIAL_LINKS;
+
+interface SocialLink {
+  platform: SocialPlatform;
+  href: string;
+}
 
 interface SocialLinksProps {
-  links?: SocialPlatform[];
+  entity?: EntityName;
+  links?: SocialPlatform[] | SocialLink[];
 }
 
 export default function SocialLinks({
+    entity = 'groovulator',
     links,
   }: SocialLinksProps) {
-  const socialLinks = [
-    {
-      id: 'instagram',
-      name: 'Instagram',
-      symbol: <InstagramLogoIcon size={20} className="text-black dark:text-white" />,
-      href: 'https://instagram.com/groovulator',
-      ariaLabel: 'Follow Groovulator on Instagram'
-    },
-    {
-      id: 'spotify',
-      name: 'Spotify',
-      symbol: <SpotifyLogoIcon size={20} className="text-black dark:text-white" />,
-      href: 'https://open.spotify.com/artist/groovulator',
-      ariaLabel: 'Listen to Groovulator on Spotify'
-    },
-    {
-      id: 'applemusic',
-      name: 'Apple Music',
-      symbol: <AppleLogoIcon size={20} className="text-black dark:text-white" />,
-      href: 'https://music.apple.com/artist/groovulator',
-      ariaLabel: 'Listen to Groovulator on Apple Music'
-    },
-    {
-      id: 'youtube',
-      name: 'YouTube',
-      symbol: <YoutubeLogoIcon size={20} className="text-black dark:text-white" />,
-      href: 'https://youtube.com/@groovulator',
-      ariaLabel: 'Watch Groovulator on YouTube'
-    },
-    {
-      id: 'tiktok',
-      name: 'TikTok',
-      symbol: <TiktokLogoIcon size={20} className="text-black dark:text-white" />,
-      href: 'https://tiktok.com/@groovulator',
-      ariaLabel: 'Follow Groovulator on TikTok'
-    },
-    {
-      id: 'email',
-      name: 'Email',
-      symbol: <EnvelopeSimpleIcon size={20} className="text-black dark:text-white" />,
-      href: 'mailto:makecontact@groovulator.com?subject=I%20have%20been%20summoned%20by%20your%20spooky%20grooves',
-      ariaLabel: 'Email Groovulator'
-    }
-  ] as const;
+  // Get social links for the specified entity
+  const entitySocialLinks = SOCIAL_LINKS[entity];
+
+  const platformIcons = {
+    instagram: <InstagramLogoIcon size={16} className="text-black dark:text-white" />,
+    spotify: <SpotifyLogoIcon size={16} className="text-black dark:text-white" />,
+    applemusic: <AppleLogoIcon size={16} className="text-black dark:text-white" />,
+    youtube: <YoutubeLogoIcon size={16} className="text-black dark:text-white" />,
+    tiktok: <TiktokLogoIcon size={16} className="text-black dark:text-white" />,
+    email: <EnvelopeSimpleIcon size={16} className="text-black dark:text-white" />
+  };
+
+  // Determine which links to show and their URLs
+  let linksToShow: { platform: SocialPlatform; href: string; label: string; }[] = [];
+
+  if (!links) {
+    // Show all links for this entity
+    linksToShow = Object.entries(entitySocialLinks).map(([platform, { href, label }]) => ({
+      platform: platform as SocialPlatform,
+      href,
+      label
+    }));
+  } else if (typeof links[0] === 'string') {
+    // Array of platform names - use entity URLs
+    const platformArray = links as SocialPlatform[];
+    linksToShow = platformArray.map(platform => ({
+      platform,
+      href: entitySocialLinks[platform].href,
+      label: entitySocialLinks[platform].label
+    }));
+  } else {
+    // Array of custom link objects
+    const customLinks = links as { platform: SocialPlatform; href: string; label?: string; }[];
+    linksToShow = customLinks.map(link => ({
+      platform: link.platform,
+      href: link.href,
+      label: link.label || entitySocialLinks[link.platform].label
+    }));
+  }
 
   return (
     <div className="flex gap-2">
-      {socialLinks.map(link => (
-        (!links || links.includes(link.id)) && (
-          <a
-            key={link.id}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-8 h-8 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-            aria-label={link.ariaLabel}
-          >
-            {link.symbol}
-          </a>
-        )
+      {linksToShow.map(({ platform, href, label }) => (
+        <a
+          key={platform}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-8 h-8 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+          aria-label={label || `${platform} link`}
+        >
+          {platformIcons[platform]}
+        </a>
       ))}
     </div>
   );

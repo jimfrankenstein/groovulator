@@ -51,7 +51,7 @@ export default function Home() {
             </a>
           </nav> */}
           <div className="flex gap-2">
-            <SocialLinks links={['instagram', 'email']} />
+            <SocialLinks entity="groovulator" links={['instagram', 'email']} />
             <DarkModeToggle />
           </div>
         </div>
@@ -201,7 +201,7 @@ export default function Home() {
             <span>Minneapolis, MN</span>
           </div>
           <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
-            <SocialLinks links={['instagram', 'email']} />
+            <SocialLinks entity="groovulator" links={['instagram', 'email']} />
             <DarkModeToggle />
           </div>
         </div>

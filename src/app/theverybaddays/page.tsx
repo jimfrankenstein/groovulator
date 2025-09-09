@@ -1,166 +1,156 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import {
-  SpotifyLogo,
-  InstagramLogo,
-  FacebookLogo,
-  YoutubeLogo,
-  Envelope,
-} from "@phosphor-icons/react";
+import SongCard from '../../components/SongCard';
+import DarkModeToggle from '../../components/DarkModeToggle';
+import SocialLinks from '../../components/SocialLinks';
+import LinkCard from '../../components/LinkCard';
+import { songs as tvbdSongs } from './songs/songs';
+import { collaborations } from '../collaborations/collaborations';
+import { SOCIAL_LINKS } from '../constants/consts';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function TheVeryBadDaysPage() {
+  // Combine TVBD songs and collaborations, sort by release date
+  const allSongs = [
+    ...tvbdSongs.map(song => ({ ...song, artist: "The Very Bad Days" })),
+    ...collaborations.map(song => ({ ...song, artist: "Collaboration" }))
+  ];
+
+  const allSongsSorted = allSongs
+    .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
+
+
+  const links = [
+    {
+      title: "Spotify Playlist",
+      description: "Find our newest tunes at the top",
+      href: "https://open.spotify.com/playlist/5uhuvVfRzb632ZgZKDL0pz?si=71e2b64de9ee4469",
+      isExternal: true
+    },
+    {
+      title: "Download Codes",
+      description: "Redeem on Bandcamp",
+      href: "https://theverybaddays.bandcamp.com/yum",
+      isExternal: true
+    },
+    {
+      title: "Woodman Story",
+      description: "Read-along adventure",
+      href: "/woodman",
+      isExternal: false
+    },
+    {
+      title: "Music Videos",
+      description: "YouTube playlist",
+      href: "https://www.youtube.com/playlist?list=PLdDD0nxJDFiod72KGwnTh14xKRRJ0wshv",
+      isExternal: true
+    },
+    {
+      title: "Book the Band",
+      description: "Press inquiries",
+      href: "mailto:press@theverybaddays.com",
+      isExternal: true
+    }
+  ];
+
   return (
-    <main className="min-h-screen bg-[#18181b] text-white font-sans">
-      <div className="max-w-2xl mx-auto px-6 py-12">
-        {/* Band Image */}
-        <div className="text-center mb-8">
+    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
+      {/* HEADER */}
+      <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
+          <Link href="/" className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors">
+            THE VERY BAD DAYS
+          </Link>
+          <div className="flex gap-2">
+            <SocialLinks entity="theverybaddays" links={['instagram', 'spotify', 'youtube', 'email']} />
+            <DarkModeToggle />
+          </div>
+        </div>
+      </header>
+
+      {/* TAGLINE */}
+      <section className="border-b border-black/10 dark:border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-10">
+          <div className="flex flex-col md:flex-row items-center gap-6">
           <Image
             src="/images/theverybaddays/profile-square.jpg"
             alt="The Very Bad Days"
-            width={400}
-            height={400}
-            className="rounded-full mx-auto mb-6"
+              width={200}
+              height={200}
+              className="rounded-full flex-shrink-0 w-48 h-48 md:w-32 md:h-32"
             priority
           />
+            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+              Catchy tunes about <span className="text-fuchsia-500">the</span> terrible, horrible, no good, <span className="text-fuchsia-500">very bad days</span>
+            </h1>
+          </div>
         </div>
+      </section>
 
-        {/* Bio */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">The Very Bad Days</h1>
-          <p className="text-lg text-white/80 leading-relaxed max-w-xl mx-auto mb-4">
-            Grim humor grunge rock Ghostbusters • Minneapolis, MN
-          </p>
+      <main>
+        {/* LINKS GRID */}
+        <section className="border-b border-black/10 dark:border-white/10">
+          <div className="mx-auto max-w-6xl px-4 py-10">
+            <h3 className="text-xl md:text-2xl font-bold mb-6">Links</h3>
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+              {links.map(link => (
+                <LinkCard
+                  key={link.title}
+                  title={link.title}
+                  description={link.description}
+                  href={link.href}
+                  isExternal={link.isExternal}
+                  aspectRatio="square"
+                />
+              ))}
+            </div>
         </div>
+        </section>
 
-        {/* Social Media Links */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
-          <a
-            href="https://open.spotify.com/artist/2dIRQutExUe2Q9guDq4CAH?si=lbwIdQf7Q5mG2YI5Wchmkw"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="The Very Bad Days on Spotify"
-            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
-          >
-            <SpotifyLogo size={32} weight="fill" className="mb-2" />
-            <span className="text-sm font-medium">Spotify</span>
-          </a>
+        {/* SONGS GRID */}
+        <section id="songs" className="border-b border-black/10 dark:border-white/10">
+          <div className="mx-auto max-w-6xl px-4 py-10">
+            <h3 className="text-xl md:text-2xl font-bold mb-6">All Songs</h3>
+            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+              {allSongsSorted.map(song => (
+                <SongCard
+                  key={song.id}
+                  song={song}
+                  aspectRatio="square"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
 
-          <a
-            href="https://instagram.com/theverybaddays"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="The Very Bad Days on Instagram"
-            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
-          >
-            <InstagramLogo size={32} weight="fill" className="mb-2" />
-            <span className="text-sm font-medium">Instagram</span>
-          </a>
-
-          <a
-            href="https://facebook.com/theverybaddays"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="The Very Bad Days on Facebook"
-            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
-          >
-            <FacebookLogo size={32} weight="fill" className="mb-2" />
-            <span className="text-sm font-medium">Facebook</span>
-          </a>
-
-          <a
-            href="https://youtube.com/@theverybaddays"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="The Very Bad Days on YouTube"
-            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
-          >
-            <YoutubeLogo size={32} weight="fill" className="mb-2" />
-            <span className="text-sm font-medium">YouTube</span>
-          </a>
-
-          <a
-            href="mailto:press@theverybaddays.com"
-            aria-label="Email The Very Bad Days"
-            className="flex flex-col items-center p-4 rounded-lg border border-white/20 hover:bg-white hover:text-[#18181b] transition-colors"
-          >
-            <Envelope size={32} weight="fill" className="mb-2" />
-            <span className="text-sm font-medium">Email</span>
-          </a>
+        {/* ABOUT */}
+        <section id="about" className="border-b border-black/10 dark:border-white/10">
+          <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold">About</h3>
         </div>
+            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-6">
+              <p>
+                The Very Bad Days brings grim humor grunge rock to the Minneapolis music scene. Part Ghostbusters, part garage band, all weird energy. We write songs about monsters, cults, and whatever else crawls out of the basement practice space.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
 
-        {/* Music Links */}
-        <div className="space-y-4 mb-12">
-          <h3 className="text-xl font-semibold text-center mb-6">Music & Links</h3>
-
-          <a
-            href="https://open.spotify.com/playlist/5uhuvVfRzb632ZgZKDL0pz?si=71e2b64de9ee4469"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="The Very Bad Days playlist on Spotify"
-            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <p className="text-black text-center">
-              Find our newest tunes at the top of this playlist
-            </p>
-          </a>
-
-          <a
-            href="https://theverybaddays.bandcamp.com/yum"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Redeem download code on Bandcamp"
-            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <p className="text-black text-center">Redeem Download Code</p>
-          </a>
-
-          <a
-            href="/woodman"
-            aria-label="Woodman read-along story"
-            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <p className="text-black text-center">Woodman Read-Along Story!</p>
-          </a>
-
-          <a
-            href="https://youtu.be/1p9DazyMazY?si=yWB5VSsebKAW3MKC"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Here There Be Monsters lyric video on YouTube"
-            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <p className="text-black text-center">Here There Be Monsters | Lyric Video | Youtube</p>
-          </a>
-
-          <a
-            href="https://www.youtube.com/playlist?list=PLdDD0nxJDFiod72KGwnTh14xKRRJ0wshv"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="The Very Bad Days videos playlist on YouTube"
-            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <p className="text-black text-center">Videos</p>
-          </a>
-
-          <a
-            href="mailto:press@theverybaddays.com"
-            aria-label="Book The Very Bad Days"
-            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <p className="text-black text-center">Book the Band</p>
-          </a>
-
-          <Link
-            href="/theverybaddays/songs"
-            aria-label="View The Very Bad Days songs"
-            className="block p-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <p className="text-black text-center">View Songs</p>
-          </Link>
+      {/* FOOTER */}
+      <footer className="py-10">
+        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-end">
+          <div className="text-sm opacity-70">
+            <span>© {new Date().getFullYear()} The Very Bad Days. All rights reserved.</span>
+            <br />
+            <span>Minneapolis, MN</span>
+          </div>
+          <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
+            <SocialLinks entity="theverybaddays" links={['instagram', 'spotify', 'youtube', 'email']} />
+            <DarkModeToggle />
+          </div>
         </div>
+      </footer>
       </div>
-    </main>
   );
 }
