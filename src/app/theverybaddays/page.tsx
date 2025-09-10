@@ -4,7 +4,6 @@ import SocialLinks from '../../components/SocialLinks';
 import LinkCard from '../../components/LinkCard';
 import { songs as tvbdSongs } from './songs/songs';
 import { collaborations } from '../collaborations/collaborations';
-import { SOCIAL_LINKS } from '../constants/consts';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -99,7 +98,6 @@ export default function TheVeryBadDaysPage() {
                   description={link.description}
                   href={link.href}
                   isExternal={link.isExternal}
-                  aspectRatio="square"
                 />
               ))}
             </div>
@@ -115,7 +113,6 @@ export default function TheVeryBadDaysPage() {
                 <SongCard
                   key={song.id}
                   song={song}
-                  aspectRatio="square"
                 />
               ))}
             </div>
@@ -131,7 +128,7 @@ export default function TheVeryBadDaysPage() {
             <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
               <p>Emerging from the scary basement of the Minneapolis music scene, The Very Bad Days are a devilishly funny B-horror flick of a band.</p>
               <ul className="list-disc list-outside space-y-2 pl-6">
-                <li>Dark and danceable originals. Upbeat, bittersweet ballads. Grotesque puns and 90's covers.</li>
+                  <li>Dark and danceable originals. Upbeat, bittersweet ballads. Grotesque puns and 90&apos;s covers.</li>
                 <li>Minimalist, backbeat drumming. Melodic, punk jazz basslines. Powerful axe-chops and chilling solos.</li>
                 <li>Fantastical grindhouse macabre, all tied up with the unexpected sweetness of alt-rock nostalgia.</li>
               </ul>

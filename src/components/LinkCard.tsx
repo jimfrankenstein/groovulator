@@ -5,15 +5,13 @@ interface LinkCardProps {
   description: string;
   href: string;
   isExternal?: boolean;
-  aspectRatio?: 'square' | '4/3';
 }
 
 export default function LinkCard({
   title,
   description,
   href,
-  isExternal = false,
-  aspectRatio = 'square'
+  isExternal = false
 }: LinkCardProps) {
   const linkProps = isExternal ? {
     target: "_blank",

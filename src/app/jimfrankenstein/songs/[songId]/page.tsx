@@ -48,7 +48,6 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
     ));
   };
 
-  const artist = song.collabArtists ? "collaborations" : "jimfrankenstein";
 
   return (
     <main className="min-h-screen bg-[#18181b] text-white font-sans">
@@ -58,7 +57,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
           <div className="mb-8">
             <SongImage 
               songId={song.id}
-              artist={artist}
+              artist={song.collabArtists ? "collaborations" : "jimfrankenstein"}
               title={song.title}
               className="rounded-lg"
             />

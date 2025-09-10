@@ -4,7 +4,6 @@ import SocialLinks from '../../components/SocialLinks';
 import LinkCard from '../../components/LinkCard';
 import { songs as jfSongs } from './songs/songs';
 import { collaborations } from '../collaborations/collaborations';
-import { SOCIAL_LINKS } from '../constants/consts';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -104,7 +103,6 @@ export default function JimFrankensteinPage() {
                   description={link.description}
                   href={link.href}
                   isExternal={link.isExternal}
-                  aspectRatio="square"
                 />
               ))}
             </div>
@@ -120,7 +118,6 @@ export default function JimFrankensteinPage() {
                 <SongCard
                   key={song.id}
                   song={song}
-                  aspectRatio="square"
                 />
               ))}
             </div>
@@ -134,7 +131,7 @@ export default function JimFrankensteinPage() {
               <h3 className="text-xl md:text-2xl font-bold">About</h3>
             </div>
             <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
-              <p>Irreverent yet poignant, the experimental indie Ghostbustery of Jim Frankenstein evokes a malty, existential angst with the bourbon oak undertones of a bassy pasquinade. Jim is truly the soul of an old man who died asking 'why?'</p>
+              <p>Irreverent yet poignant, the experimental indie Ghostbustery of Jim Frankenstein evokes a malty, existential angst with the bourbon oak undertones of a bassy pasquinade. Jim is truly the soul of an old man who died asking &apos;why?&apos;</p>
             </div>
           </div>
         </section>

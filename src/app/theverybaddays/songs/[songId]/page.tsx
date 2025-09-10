@@ -39,7 +39,6 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
     });
   };
 
-  const artist = song.collabArtists ? "collaborations" : "theverybaddays";
 
 
   // Format credits to handle line breaks
