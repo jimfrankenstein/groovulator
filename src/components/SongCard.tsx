@@ -8,7 +8,7 @@ interface SongCardProps {
 }
 
 export default function SongCard({
-  song: { id, title, artist, songType, collabArtists },
+  song: { id, title, artist, songType, collabArtists, album },
   aspectRatio = 'square'
 }: SongCardProps) {
   const aspectClass = aspectRatio === 'square' ? 'aspect-square' : 'aspect-[4/3]';
@@ -38,7 +38,11 @@ export default function SongCard({
       </div>
       <div className="p-4 flex flex-col gap-1">
         <div className="text-[11px] uppercase tracking-wide opacity-60">
-          {songType}
+          {songType === 'track' && album ? (
+            <>TRACK FROM <em>{album}</em></>
+          ) : (
+            songType
+          )}
         </div>
         <h4 className="font-semibold leading-tight">{title}</h4>
         <p className="text-sm opacity-70">{artist}</p>
