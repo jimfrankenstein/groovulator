@@ -133,10 +133,8 @@ export default function JimFrankensteinPage() {
             <div>
               <h3 className="text-xl md:text-2xl font-bold">About</h3>
             </div>
-            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-6">
-              <p>
-                Jim Frankenstein crafts spooky musical tales from his Minneapolis basement. A master of haunting melodies and eerie storytelling, he creates songs that feel like campfire ghost stories set to music. When he's not conjuring solo material, he's the bassist for The Very Bad Days.
-              </p>
+            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
+              <p>Irreverent yet poignant, the experimental indie Ghostbustery of Jim Frankenstein evokes a malty, existential angst with the bourbon oak undertones of a bassy pasquinade. Jim is truly the soul of an old man who died asking 'why?'</p>
             </div>
           </div>
         </section>

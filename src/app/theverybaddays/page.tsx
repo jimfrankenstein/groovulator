@@ -128,10 +128,14 @@ export default function TheVeryBadDaysPage() {
             <div>
               <h3 className="text-xl md:text-2xl font-bold">About</h3>
         </div>
-            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-6">
-              <p>
-                The Very Bad Days brings grim humor grunge rock to the Minneapolis music scene. Part Ghostbusters, part garage band, all weird energy. We write songs about monsters, cults, and whatever else crawls out of the basement practice space.
-              </p>
+            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
+              <p>Emerging from the scary basement of the Minneapolis music scene, The Very Bad Days are a devilishly funny B-horror flick of a band.</p>
+              <ul className="list-disc list-outside space-y-2 pl-6">
+                <li>Dark and danceable originals. Upbeat, bittersweet ballads. Grotesque puns and 90's covers.</li>
+                <li>Minimalist, backbeat drumming. Melodic, punk jazz basslines. Powerful axe-chops and chilling solos.</li>
+                <li>Fantastical grindhouse macabre, all tied up with the unexpected sweetness of alt-rock nostalgia.</li>
+              </ul>
+              <p>These grim humor grunge rock Ghostbusters proudly capture a bizarre spirit all their own. On a terrible, horrible, no good, very bad day, you can catch the band haunting the bars, theaters, and curiosity shops of Minnesota.</p>
             </div>
           </div>
         </section>

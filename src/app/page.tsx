@@ -183,7 +183,7 @@ export default function Home() {
             <div>
               <h3 className="text-xl md:text-2xl font-bold">About</h3>
             </div>
-            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-6">
+            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
               <p>
               Ectophonic Groovulator is an independent studio and label from Minneapolis, making short, haunting musicals and other oddities. We write songs about goblins, cults, dolphin suicides, and whatever else crawls out of the woods. Our projects, The Very Bad Days and Jim Frankenstein, mix dark humor with 90s alt-rock fuzz and basement-punk energy. If you like your laughter with a chill and your horror with a wink, welcome to the Groovulator.
               </p>
