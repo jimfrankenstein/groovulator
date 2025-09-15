@@ -33,8 +33,8 @@ export default function Home() {
       {/* HEADER */}
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
-          <a href="#" className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors">
-            <span>ECTOPHONIC</span> GROOVULATOR
+          <a href="#" className="font-black tracking-tight lowercase text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors">
+            <span>Ectophonic</span> Groovulator
           </a>
           {/* <nav className="hidden md:flex items-center gap-6 text-sm">
             <a href="#series" className="hover:underline">
