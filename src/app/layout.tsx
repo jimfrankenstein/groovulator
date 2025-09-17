@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { fugaz } from "./fonts/fugaz";
 import { DarkModeProvider } from "../components/DarkModeContext";
 import "./globals.css";
 
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${fugaz.variable} antialiased`}>
         <DarkModeProvider>
           {children}
         </DarkModeProvider>

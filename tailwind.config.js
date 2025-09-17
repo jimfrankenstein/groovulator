@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
+        mono: ["var(--font-fugaz)", "cursive"],
       },
     },
   },

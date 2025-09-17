@@ -1,3 +1,7 @@
 @import "tailwindcss";
 
+@theme {
+  --font-fugaz: var(--font-fugaz);
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
