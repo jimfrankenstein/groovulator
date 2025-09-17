@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 interface DarkModeContextType {
   isDark: boolean;
@@ -15,35 +15,35 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    
+
     // Initialize theme based on saved preference or system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemDark);
-    
+    const savedTheme = localStorage.getItem("theme");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && systemDark);
+
     setIsDark(shouldBeDark);
-    
+
     // Apply the theme
     if (shouldBeDark) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
   const toggleDarkMode = () => {
     const newDarkMode = !isDark;
     setIsDark(newDarkMode);
-    
+
     // Apply to html element
     const htmlElement = document.documentElement;
-    
+
     if (newDarkMode) {
-      htmlElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      htmlElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      htmlElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      htmlElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   };
 
@@ -62,7 +62,7 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
 export function useDarkMode() {
   const context = useContext(DarkModeContext);
   if (context === undefined) {
-    throw new Error('useDarkMode must be used within a DarkModeProvider');
+    throw new Error("useDarkMode must be used within a DarkModeProvider");
   }
   return context;
 }

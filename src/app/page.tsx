@@ -1,10 +1,10 @@
-import SongCard from '../components/SongCard';
-import DarkModeToggle from '../components/DarkModeToggle';
-import SocialLinks from '../components/SocialLinks';
-import { songs as jfSongs } from './jimfrankenstein/songs/songs';
-import { songs as tvbdSongs } from './theverybaddays/songs/songs';
-import { collaborations } from './collaborations/collaborations';
-import Link from 'next/link';
+import SongCard from "../components/SongCard";
+import DarkModeToggle from "../components/DarkModeToggle";
+import SocialLinks from "../components/SocialLinks";
+import { songs as jfSongs } from "./jimfrankenstein/songs/songs";
+import { songs as tvbdSongs } from "./theverybaddays/songs/songs";
+import { collaborations } from "./collaborations/collaborations";
+import Link from "next/link";
 
 export default function Home() {
   // const featured = {
@@ -21,7 +21,7 @@ export default function Home() {
   const allSongs = [
     ...jfSongs.map(song => ({ ...song, artist: "Jim Frankenstein" })),
     ...tvbdSongs.map(song => ({ ...song, artist: "The Very Bad Days" })),
-    ...collaborations.map(song => ({ ...song, artist: "Collaboration" }))
+    ...collaborations.map(song => ({ ...song, artist: "Collaboration" })),
   ];
 
   const latestSongs = allSongs
@@ -33,7 +33,10 @@ export default function Home() {
       {/* HEADER */}
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
-          <a href="#" className="font-black font-fugaz tracking-tight lowercase text-2xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors">
+          <a
+            href="#"
+            className="font-black font-fugaz tracking-tight lowercase text-2xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors"
+          >
             <span>Ectophonic</span> Groovulator
           </a>
           {/* <nav className="hidden md:flex items-center gap-6 text-sm">
@@ -51,7 +54,7 @@ export default function Home() {
             </a>
           </nav> */}
           <div className="flex gap-2">
-            <SocialLinks entity="groovulator" links={['instagram', 'email']} />
+            <SocialLinks entity="groovulator" links={["instagram", "email"]} />
             <DarkModeToggle />
           </div>
         </div>
@@ -70,7 +73,20 @@ export default function Home() {
       <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            The grim grunge ghostbustery of <Link href={'/jimfrankenstein'} className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200">Jim Frankenstein</Link> and <Link className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200" href={'/theverybaddays'}>The Very Bad Days</Link>
+            The grim grunge ghostbustery of{" "}
+            <Link
+              href={"/jimfrankenstein"}
+              className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
+            >
+              Jim Frankenstein
+            </Link>{" "}
+            and{" "}
+            <Link
+              className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
+              href={"/theverybaddays"}
+            >
+              The Very Bad Days
+            </Link>
           </h1>
         </div>
       </section>
@@ -138,11 +154,7 @@ export default function Home() {
             <h3 className="text-xl md:text-2xl font-bold mb-6">Latest Songs</h3>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
               {latestSongs.map(song => (
-                <SongCard
-                  key={song.id}
-                  song={song}
-                  aspectRatio="square"
-                />
+                <SongCard key={song.id} song={song} aspectRatio="square" />
               ))}
             </div>
           </div>
@@ -185,7 +197,12 @@ export default function Home() {
             </div>
             <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
               <p>
-              Ectophonic Groovulator is an independent studio and label from Minneapolis, making short, haunting musicals and other oddities. We write songs about goblins, cults, dolphin suicides, and whatever else crawls out of the woods. Our projects, The Very Bad Days and Jim Frankenstein, mix dark humor with 90s alt-rock fuzz and basement-punk energy. If you like your laughter with a chill and your horror with a wink, welcome to the Groovulator.
+                Ectophonic Groovulator is an independent studio and label from Minneapolis, making
+                short, haunting musicals and other oddities. We write songs about goblins, cults,
+                dolphin suicides, and whatever else crawls out of the woods. Our projects, The Very
+                Bad Days and Jim Frankenstein, mix dark humor with 90s alt-rock fuzz and
+                basement-punk energy. If you like your laughter with a chill and your horror with a
+                wink, welcome to the Groovulator.
               </p>
             </div>
           </div>
@@ -201,7 +218,7 @@ export default function Home() {
             <span>Minneapolis, MN</span>
           </div>
           <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
-            <SocialLinks entity="groovulator" links={['instagram', 'email']} />
+            <SocialLinks entity="groovulator" links={["instagram", "email"]} />
             <DarkModeToggle />
           </div>
         </div>

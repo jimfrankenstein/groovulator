@@ -1,9 +1,16 @@
 "use client";
 
-import { InstagramLogoIcon, SpotifyLogoIcon, AppleLogoIcon, YoutubeLogoIcon, TiktokLogoIcon, EnvelopeSimpleIcon } from '@phosphor-icons/react';
-import { SOCIAL_LINKS } from '@/app/constants/consts';
+import {
+  InstagramLogoIcon,
+  SpotifyLogoIcon,
+  AppleLogoIcon,
+  YoutubeLogoIcon,
+  TiktokLogoIcon,
+  EnvelopeSimpleIcon,
+} from "@phosphor-icons/react";
+import { SOCIAL_LINKS } from "@/app/constants/consts";
 
-type SocialPlatform = 'instagram' | 'spotify' | 'applemusic' | 'youtube' | 'tiktok' | 'email';
+type SocialPlatform = "instagram" | "spotify" | "applemusic" | "youtube" | "tiktok" | "email";
 type EntityName = keyof typeof SOCIAL_LINKS;
 
 interface SocialLink {
@@ -16,10 +23,7 @@ interface SocialLinksProps {
   links?: SocialPlatform[] | SocialLink[];
 }
 
-export default function SocialLinks({
-    entity = 'groovulator',
-    links,
-  }: SocialLinksProps) {
+export default function SocialLinks({ entity = "groovulator", links }: SocialLinksProps) {
   // Get social links for the specified entity
   const entitySocialLinks = SOCIAL_LINKS[entity];
 
@@ -29,34 +33,34 @@ export default function SocialLinks({
     applemusic: <AppleLogoIcon size={16} className="text-black dark:text-white" />,
     youtube: <YoutubeLogoIcon size={16} className="text-black dark:text-white" />,
     tiktok: <TiktokLogoIcon size={16} className="text-black dark:text-white" />,
-    email: <EnvelopeSimpleIcon size={16} className="text-black dark:text-white" />
+    email: <EnvelopeSimpleIcon size={16} className="text-black dark:text-white" />,
   };
 
   // Determine which links to show and their URLs
-  let linksToShow: { platform: SocialPlatform; href: string; label: string; }[] = [];
+  let linksToShow: { platform: SocialPlatform; href: string; label: string }[] = [];
 
   if (!links) {
     // Show all links for this entity
     linksToShow = Object.entries(entitySocialLinks).map(([platform, { href, label }]) => ({
       platform: platform as SocialPlatform,
       href,
-      label
+      label,
     }));
-  } else if (typeof links[0] === 'string') {
+  } else if (typeof links[0] === "string") {
     // Array of platform names - use entity URLs
     const platformArray = links as SocialPlatform[];
     linksToShow = platformArray.map(platform => ({
       platform,
       href: entitySocialLinks[platform].href,
-      label: entitySocialLinks[platform].label
+      label: entitySocialLinks[platform].label,
     }));
   } else {
     // Array of custom link objects
-    const customLinks = links as { platform: SocialPlatform; href: string; label?: string; }[];
+    const customLinks = links as { platform: SocialPlatform; href: string; label?: string }[];
     linksToShow = customLinks.map(link => ({
       platform: link.platform,
       href: link.href,
-      label: link.label || entitySocialLinks[link.platform].label
+      label: link.label || entitySocialLinks[link.platform].label,
     }));
   }
 

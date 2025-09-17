@@ -250,7 +250,8 @@ Cuz if there is something out there, I don't have to feel alone.`,
   {
     id: "souls-and-ghosts",
     title: "Souls and Ghosts",
-    description: "All about leaving a cult and starting a new life with the ghouls and the dragons.",
+    description:
+      "All about leaving a cult and starting a new life with the ghouls and the dragons.",
     spotifyId: "7rZc7kNMjpg6bG4N1MF0ya",
     releaseDate: "2016-10-31",
     appleMusicLink: "https://music.apple.com/us/song/souls-and-ghosts/1173364081",
@@ -264,7 +265,8 @@ Cuz if there is something out there, I don't have to feel alone.`,
   {
     id: "calamari-sunshine",
     title: "Calamari Sunshine",
-    description: "All about the Ten Commandments and bringing yourself back to life after living in a cult.",
+    description:
+      "All about the Ten Commandments and bringing yourself back to life after living in a cult.",
     spotifyId: "6DX6yZzjb64qStiLS0C9ir",
     releaseDate: "2016-10-31",
     appleMusicLink: "https://music.apple.com/us/song/calamari-sunshine/1173364080",
@@ -306,7 +308,8 @@ Cuz if there is something out there, I don't have to feel alone.`,
   {
     id: "europa",
     title: "Europa",
-    description: "All about how all these worlds are yours, except Europa. Attempt no landings here.",
+    description:
+      "All about how all these worlds are yours, except Europa. Attempt no landings here.",
     spotifyId: "22Arq3hYvxGfd0pF5FTsip",
     releaseDate: "2016-10-31",
     appleMusicLink: "https://music.apple.com/us/song/europa/1173364077",

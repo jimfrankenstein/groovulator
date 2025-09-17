@@ -3,8 +3,9 @@ import { songs } from "./songs";
 import { collaborations } from "../../collaborations/collaborations";
 
 export default function TheVeryBadDaysSongsPage() {
-  const allSongs = [...songs, ...collaborations]
-    .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
+  const allSongs = [...songs, ...collaborations].sort(
+    (a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
+  );
 
   return (
     <main className="min-h-screen bg-[#18181b] text-white font-sans">
@@ -27,9 +28,7 @@ export default function TheVeryBadDaysSongsPage() {
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold mb-2">{song.title}</h3>
                   {song.collabArtists && (
-                    <p className="text-white/60 text-sm mb-1">
-                      {song.collabArtists.join(", ")}
-                    </p>
+                    <p className="text-white/60 text-sm mb-1">{song.collabArtists.join(", ")}</p>
                   )}
                   <p className="text-white/70 mb-2">{song.description}</p>
                 </div>

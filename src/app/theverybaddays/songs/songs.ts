@@ -56,7 +56,8 @@ One, two, three, four, five, six six six`,
       "In the thrilling sequel to the campfire classic, Woodman hatches a terrifying new plan to stalk his victims -- starting his own religion!",
     spotifyId: "1E85YWanHkWl1Htz20wWbl",
     releaseDate: "2024-10-11",
-    appleMusicLink: "https://music.apple.com/us/song/the-tale-of-the-woodman-2-the-book-of-woodman/1771901251",
+    appleMusicLink:
+      "https://music.apple.com/us/song/the-tale-of-the-woodman-2-the-book-of-woodman/1771901251",
     songType: "single",
     lyrics: `#### Verse 1
 Woodman was a boy and he was turned into a woodman
@@ -148,7 +149,7 @@ It's the Horrible Legend of Woodman!`,
       "Produced by Cloverleaf Audio-Visual, Saint Paul MN\nRecording & Mix Engineer: Matt Ebso\nMastering Engineer: Greg Reierson",
   },
 
-// yctaa
+  // yctaa
   {
     id: "unhappy-kathy",
     title: "Unhappy Kathy",
@@ -497,7 +498,7 @@ I think it's bees.`,
       "Album produced by Cloverleaf Audio-Visual, Saint Paul MN\nProducer & Recording Engineer: Matt Ebso\nAssistant Engineer: Maximiliano Frini\nMix Engineer: Jun Yang Ng\nMastering Engineer: Greg Reierson, Rareform Mastering",
   },
 
-// scapegoats
+  // scapegoats
   {
     id: "mildred",
     title: "Mildred",

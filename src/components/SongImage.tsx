@@ -5,7 +5,7 @@ interface SongImageProps {
   className?: string;
 }
 
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function SongImage({ songId, artist, title, className = "" }: SongImageProps) {
   // For collaborations, use theverybaddays images as default

@@ -39,8 +39,6 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
     });
   };
 
-
-
   // Format credits to handle line breaks
   const formatCredits = (credits: string) => {
     return credits.split("\n").map((line, index) => (
@@ -56,14 +54,16 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
         {/* Header with Album Art */}
         <div className="text-center mb-8">
           <div className="mb-8">
-            <SongImage 
+            <SongImage
               songId={song.id}
               artist="theverybaddays"
               title={song.title}
               className="rounded-lg"
             />
           </div>
-          <h1 className={`text-4xl font-bold ${song.collabArtists ? 'mb-2' : 'mb-4'}`}>{song.title}</h1>
+          <h1 className={`text-4xl font-bold ${song.collabArtists ? "mb-2" : "mb-4"}`}>
+            {song.title}
+          </h1>
           {song.collabArtists && (
             <p className="text-l text-white/80 max-w-4xl mx-auto leading-relaxed mb-4">
               {song.collabArtists?.join(", ")}
@@ -91,7 +91,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
             target="_blank"
             className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
           >
-                              <SpotifyLogo size={24} weight="fill" className="mr-3" />
+            <SpotifyLogo size={24} weight="fill" className="mr-3" />
             <span className="text-sm font-medium">Listen on Spotify</span>
           </Link>
 
@@ -101,7 +101,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
               target="_blank"
               className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
             >
-                                <AppleLogo size={24} weight="fill" className="mr-3" />
+              <AppleLogo size={24} weight="fill" className="mr-3" />
               <span className="text-sm font-medium">Listen on Apple Music</span>
             </Link>
           )}
@@ -112,7 +112,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
               target="_blank"
               className="flex items-center p-4 rounded-lg bg-white text-black hover:bg-gray-100 transition-colors"
             >
-                                <YoutubeLogo size={24} weight="fill" className="mr-3" />
+              <YoutubeLogo size={24} weight="fill" className="mr-3" />
               <span className="text-sm font-medium">Listen on YouTube</span>
             </Link>
           )}
@@ -120,8 +120,8 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
 
         {/* Lyrics */}
         {song.lyrics && (
-        <div className="bg-white/5 rounded-lg p-8 border border-white/20 mb-8">
-          <h3 className="text-2xl font-semibold mb-6">Lyrics</h3>
+          <div className="bg-white/5 rounded-lg p-8 border border-white/20 mb-8">
+            <h3 className="text-2xl font-semibold mb-6">Lyrics</h3>
             <div className="prose prose-invert max-w-none">{formatLyrics(song.lyrics)}</div>
           </div>
         )}

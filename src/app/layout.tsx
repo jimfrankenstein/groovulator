@@ -42,18 +42,17 @@ export default function RootLayout({
         `}</Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${fugaz.variable} antialiased`}>
-        {/* Facebook noscript image */}
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=743422318694202&ev=PageView&noscript=1"
-          />
-        </noscript>
-        <DarkModeProvider>
-          {children}
-        </DarkModeProvider>
+         <noscript>
+           {/* eslint-disable-next-line @next/next/no-img-element */}
+           <img 
+             height="1" 
+             width="1" 
+             style={{display: 'none'}}
+             src="https://www.facebook.com/tr?id=743422318694202&ev=PageView&noscript=1"
+             alt="Facebook Pixel"
+           />
+         </noscript>
+        <DarkModeProvider>{children}</DarkModeProvider>
       </body>
     </html>
   );

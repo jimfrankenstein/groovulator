@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 interface LinkCardProps {
   title: string;
@@ -7,22 +7,19 @@ interface LinkCardProps {
   isExternal?: boolean;
 }
 
-export default function LinkCard({
-  title,
-  description,
-  href,
-  isExternal = false
-}: LinkCardProps) {
-  const linkProps = isExternal ? {
-    target: "_blank",
-    rel: "noopener noreferrer"
-  } : {};
+export default function LinkCard({ title, description, href, isExternal = false }: LinkCardProps) {
+  const linkProps = isExternal
+    ? {
+        target: "_blank",
+        rel: "noopener noreferrer",
+      }
+    : {};
 
-  const LinkComponent = isExternal ? 'a' : Link;
+  const LinkComponent = isExternal ? "a" : Link;
 
   return (
-    <LinkComponent 
-      href={href} 
+    <LinkComponent
+      href={href}
       {...linkProps}
       className="block border border-black/15 dark:border-white/15 hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-white/10 transition-shadow"
     >
