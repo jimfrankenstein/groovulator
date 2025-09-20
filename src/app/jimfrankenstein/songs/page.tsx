@@ -1,6 +1,7 @@
 import { songs } from "./songs";
 import { collaborations } from "../../collaborations/collaborations";
 import SongsListLayout from "../../../components/SongsListLayout";
+import { ArtistConfig } from "../../constants/types";
 
 export default function JimFrankensteinSongsPage() {
   const allSongs = [
@@ -8,7 +9,7 @@ export default function JimFrankensteinSongsPage() {
     ...collaborations.map(song => ({ ...song, artist: "Collaboration" })),
   ].sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
 
-  const artist = {
+  const artist: ArtistConfig = {
     name: "Jim Frankenstein",
     displayName: "JIM FRANKENSTEIN",
     slug: "jimfrankenstein",

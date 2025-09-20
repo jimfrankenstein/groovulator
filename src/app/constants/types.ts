@@ -14,3 +14,20 @@ export interface Song {
   albumLink?: string;
   trackList?: number;
 }
+
+// Shared types for artist and social platform configurations
+export type SocialPlatform =
+  | "instagram"
+  | "spotify"
+  | "applemusic"
+  | "youtube"
+  | "tiktok"
+  | "email";
+export type ArtistSlug = "jimfrankenstein" | "theverybaddays" | "groovulator";
+
+export interface ArtistConfig {
+  name: string;
+  displayName: string;
+  slug: ArtistSlug;
+  socialLinks: readonly SocialPlatform[];
+}

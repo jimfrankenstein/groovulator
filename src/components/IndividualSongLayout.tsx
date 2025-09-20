@@ -19,19 +19,14 @@
  */
 
 import Link from "next/link";
-import { Song } from "@/app/constants/types";
+import { Song, ArtistConfig } from "@/app/constants/types";
 import { SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
 import SongImage from "./SongImage";
 import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
 
 interface IndividualSongLayoutProps {
   song: Song;
-  artist: {
-    name: string;
-    displayName: string;
-    slug: string;
-    socialLinks: string[];
-  };
+  artist: ArtistConfig;
   formatLyrics: (lyrics: string) => React.ReactNode[];
   formatCredits: (credits: string) => React.ReactNode[];
 }
@@ -69,7 +64,13 @@ export default function IndividualSongLayout({
             <div className="order-1 md:order-2">
               <SongImage
                 songId={song.id}
-                artist={song.collabArtists ? "collaborations" : artist.slug}
+                artist={
+                  song.collabArtists
+                    ? "collaborations"
+                    : artist.slug === "groovulator"
+                      ? "jimfrankenstein"
+                      : (artist.slug as "jimfrankenstein" | "theverybaddays")
+                }
                 title={song.title}
                 className="rounded-lg w-full max-w-md mx-auto"
               />

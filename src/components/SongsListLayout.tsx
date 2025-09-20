@@ -17,17 +17,12 @@
  */
 
 import Link from "next/link";
-import { Song } from "@/app/constants/types";
+import { Song, ArtistConfig } from "@/app/constants/types";
 import SongCard from "./SongCard";
 import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
 
 interface SongsListLayoutProps {
-  artist: {
-    name: string;
-    displayName: string;
-    slug: string;
-    socialLinks: string[];
-  };
+  artist: ArtistConfig;
   songs: (Song & { artist: string })[];
 }
 

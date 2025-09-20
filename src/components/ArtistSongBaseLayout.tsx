@@ -17,14 +17,10 @@
 import Link from "next/link";
 import DarkModeToggle from "./DarkModeToggle";
 import SocialLinks from "./SocialLinks";
+import { ArtistConfig } from "@/app/constants/types";
 
 interface ArtistSongBaseLayoutProps {
-  artist: {
-    name: string;
-    displayName: string;
-    slug: string;
-    socialLinks: string[];
-  };
+  artist: ArtistConfig;
   children: React.ReactNode;
 }
 
@@ -41,7 +37,7 @@ export default function ArtistSongBaseLayout({ artist, children }: ArtistSongBas
             {artist.displayName}
           </Link>
           <div className="flex gap-2">
-            <SocialLinks entity={artist.slug} links={artist.socialLinks} />
+            <SocialLinks entity={artist.slug} links={[...artist.socialLinks]} />
             <DarkModeToggle />
           </div>
         </div>
@@ -60,7 +56,7 @@ export default function ArtistSongBaseLayout({ artist, children }: ArtistSongBas
             <span>Minneapolis, MN</span>
           </div>
           <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
-            <SocialLinks entity={artist.slug} links={artist.socialLinks} />
+            <SocialLinks entity={artist.slug} links={[...artist.socialLinks]} />
             <DarkModeToggle />
           </div>
         </div>

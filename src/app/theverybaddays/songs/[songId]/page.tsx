@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { use } from "react";
 import { songs } from "../songs";
 import { collaborations } from "../../../collaborations/collaborations";
-import { Song } from "@/app/constants/types";
+import { Song, ArtistConfig } from "@/app/constants/types";
 import IndividualSongLayout from "@/components/IndividualSongLayout";
 
 export default function SongPage({ params }: { params: Promise<{ songId: string }> }) {
@@ -46,7 +46,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
     ));
   };
 
-  const artist = {
+  const artist: ArtistConfig = {
     name: "The Very Bad Days",
     displayName: "THE VERY BAD DAYS",
     slug: "theverybaddays",
