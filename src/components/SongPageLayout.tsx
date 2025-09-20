@@ -1,15 +1,15 @@
 /**
  * ArtistSongBaseLayout - Base layout wrapper for all artist song-related pages
- * 
+ *
  * This is the foundational layout component that provides:
  * - Consistent header with artist branding, social links, and dark mode toggle
  * - Consistent footer with copyright and social links
  * - Base page structure (background colors, dark mode support, etc.)
- * 
+ *
  * Used by:
  * - IndividualSongLayout (for /artist/songs/[songId] pages)
  * - SongsListLayout (for /artist/songs pages)
- * 
+ *
  * This component handles the common structure while allowing specialized
  * layouts to provide their own content via the children prop.
  */
@@ -53,7 +53,9 @@ export default function ArtistSongBaseLayout({ artist, children }: ArtistSongBas
       <footer className="py-10">
         <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-end">
           <div className="text-sm opacity-70">
-            <span>© {new Date().getFullYear()} {artist.name}. All rights reserved.</span>
+            <span>
+              © {new Date().getFullYear()} {artist.name}. All rights reserved.
+            </span>
             <br />
             <span>Minneapolis, MN</span>
           </div>

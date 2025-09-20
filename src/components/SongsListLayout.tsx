@@ -1,17 +1,17 @@
 /**
  * SongsListLayout - Complete layout for artist songs list pages
- * 
+ *
  * This component provides the full layout for pages like /artist/songs.
  * It uses ArtistSongBaseLayout as its wrapper and adds:
- * 
+ *
  * - Simple "All Songs" heading (matches home page "Latest Songs" style)
  * - Songs grid using SongCard components
  * - Navigation section with back-to-artist button
- * 
+ *
  * Used by:
  * - /jimfrankenstein/songs/page.tsx
  * - /theverybaddays/songs/page.tsx
- * 
+ *
  * This component displays all songs for an artist in a clean grid layout
  * with consistent styling across both artists.
  */

@@ -17,22 +17,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Groovulator",
-  description: "Ectophonic Groovulator · Haunted musical oddities · Featuring Jim Frankenstein and The Very Bad Days · Minneapolis, MN",
+  description:
+    "Ectophonic Groovulator · Haunted musical oddities · Featuring Jim Frankenstein and The Very Bad Days · Minneapolis, MN",
   icons: {
     icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     other: [
-      { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
   },
-  manifest: '/site.webmanifest',
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -57,16 +56,16 @@ export default function RootLayout({
         `}</Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${fugaz.variable} antialiased`}>
-         <noscript>
-           {/* eslint-disable-next-line @next/next/no-img-element */}
-           <img 
-             height="1" 
-             width="1" 
-             style={{display: 'none'}}
-             src="https://www.facebook.com/tr?id=743422318694202&ev=PageView&noscript=1"
-             alt="Facebook Pixel"
-           />
-         </noscript>
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=743422318694202&ev=PageView&noscript=1"
+            alt="Facebook Pixel"
+          />
+        </noscript>
         <DarkModeProvider>{children}</DarkModeProvider>
       </body>
     </html>
