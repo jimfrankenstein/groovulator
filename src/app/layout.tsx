@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { fugaz } from "./fonts/fugaz";
+import { dmSans } from "./fonts/dmsans";
 import { DarkModeProvider } from "../components/DarkModeContext";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Groovulator",
@@ -55,7 +46,12 @@ export default function RootLayout({
           fbq('track', 'PageView');
         `}</Script>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${fugaz.variable} antialiased`}>
+      <body 
+        className={`${fugaz.variable} ${dmSans.variable} antialiased`}
+        style={{
+          fontFamily: "var(--font-dm-sans), system-ui, sans-serif"
+        }}
+      >
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

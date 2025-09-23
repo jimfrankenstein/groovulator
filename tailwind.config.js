@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "monospace"],
-        mono: ["var(--font-fugaz)", "cursive"],
+        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+        fugaz: ["var(--font-fugaz)", "cursive"],
+        "dm-sans": ["var(--font-dm-sans)", "sans-serif"],
       },
     },
   },
