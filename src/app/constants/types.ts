@@ -32,3 +32,15 @@ export interface ArtistConfig {
   slug: ArtistSlug;
   socialLinks: readonly SocialPlatform[];
 }
+
+export interface Playlist {
+  id: string;
+  title: string;
+  description: string;
+  spotifyId?: string;
+  appleMusicLink?: string;
+  youtubeLink?: string;
+  youtubeMusicLink?: string;
+  about: string;
+  headerFont?: string; // Custom font for playlist page headers
+}
