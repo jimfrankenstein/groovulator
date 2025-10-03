@@ -13,6 +13,7 @@ export interface Song {
   album?: string;
   albumLink?: string;
   trackList?: number;
+  headerFont?: string; // Custom font for song page headers
 }
 
 // Shared types for artist and social platform configurations

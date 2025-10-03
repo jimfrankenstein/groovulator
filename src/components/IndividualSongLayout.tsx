@@ -23,6 +23,7 @@ import { Song, ArtistConfig } from "@/app/constants/types";
 import { SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
 import SongImage from "./SongImage";
 import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
+import CountdownTimer from "./CountdownTimer";
 
 interface IndividualSongLayoutProps {
   song: Song;
@@ -37,6 +38,8 @@ export default function IndividualSongLayout({
   formatLyrics,
   formatCredits,
 }: IndividualSongLayoutProps) {
+  // Check if release date is in the future
+  const isFutureRelease = new Date(song.releaseDate) > new Date();
   return (
     <ArtistSongBaseLayout artist={artist}>
       {/* SONG HERO */}
@@ -44,13 +47,19 @@ export default function IndividualSongLayout({
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="order-2 md:order-1">
-              <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4">
+              <h1 
+                className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4"
+                style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
+              >
                 {song.title}
               </h1>
               {song.collabArtists && (
                 <p className="text-lg opacity-80 mb-4">{song.collabArtists.join(", ")}</p>
               )}
-              <p className="text-lg opacity-80 mb-6 leading-relaxed">{song.description}</p>
+              <p 
+                className="text-lg opacity-80 mb-6 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: song.description }}
+              />
               {song.albumLink && (
                 <Link
                   href={song.albumLink}
@@ -80,42 +89,53 @@ export default function IndividualSongLayout({
       </section>
 
       <main>
-        {/* STREAMING LINKS */}
+        {/* STREAMING LINKS OR COUNTDOWN */}
         <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
-            <h3 className="text-xl md:text-2xl font-bold mb-6">Listen</h3>
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 max-w-3xl">
-              <Link
-                href={`https://open.spotify.com/track/${song.spotifyId}`}
-                target="_blank"
-                className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              >
-                <SpotifyLogo size={24} weight="fill" className="mr-3 text-green-600" />
-                <span className="text-sm font-medium">Spotify</span>
-              </Link>
-
-              {song.appleMusicLink && (
-                <Link
-                  href={song.appleMusicLink}
-                  target="_blank"
-                  className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+            {isFutureRelease ? (
+              <CountdownTimer releaseDate={song.releaseDate} />
+            ) : (
+              <>
+                <h3 
+                  className="text-xl md:text-2xl font-bold mb-6"
+                  style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
                 >
-                  <AppleLogo size={24} weight="fill" className="mr-3" />
-                  <span className="text-sm font-medium">Apple Music</span>
-                </Link>
-              )}
+                  Listen
+                </h3>
+                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 max-w-3xl">
+                  <Link
+                    href={`https://open.spotify.com/track/${song.spotifyId}`}
+                    target="_blank"
+                    className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                  >
+                    <SpotifyLogo size={24} weight="fill" className="mr-3 text-green-600" />
+                    <span className="text-sm font-medium">Spotify</span>
+                  </Link>
 
-              {song.youtubeLink && (
-                <Link
-                  href={song.youtubeLink}
-                  target="_blank"
-                  className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                >
-                  <YoutubeLogo size={24} weight="fill" className="mr-3 text-red-600" />
-                  <span className="text-sm font-medium">YouTube</span>
-                </Link>
-              )}
-            </div>
+                  {song.appleMusicLink && (
+                    <Link
+                      href={song.appleMusicLink}
+                      target="_blank"
+                      className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                    >
+                      <AppleLogo size={24} weight="fill" className="mr-3" />
+                      <span className="text-sm font-medium">Apple Music</span>
+                    </Link>
+                  )}
+
+                  {song.youtubeLink && (
+                    <Link
+                      href={song.youtubeLink}
+                      target="_blank"
+                      className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                    >
+                      <YoutubeLogo size={24} weight="fill" className="mr-3 text-red-600" />
+                      <span className="text-sm font-medium">YouTube</span>
+                    </Link>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </section>
 
@@ -124,7 +144,12 @@ export default function IndividualSongLayout({
           <section className="border-b border-black/10 dark:border-white/10">
             <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold">Lyrics</h3>
+                <h3 
+                  className="text-xl md:text-2xl font-bold"
+                  style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
+                >
+                  Lyrics
+                </h3>
               </div>
               <div className="md:col-span-2">
                 <div className="prose prose-lg max-w-none text-black dark:text-white">
@@ -139,7 +164,12 @@ export default function IndividualSongLayout({
         <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold">Credits</h3>
+              <h3 
+                className="text-xl md:text-2xl font-bold"
+                style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
+              >
+                Credits
+              </h3>
             </div>
             <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-1">
               {formatCredits(song.credits)}

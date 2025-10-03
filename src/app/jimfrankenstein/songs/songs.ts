@@ -74,6 +74,87 @@ Spooky kids gotta spooky stick together like bones`,
     credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed",
   },
   {
+    id: "theres-goblins-in-kentucky",
+    title: "There's Goblins in Kentucky!",
+    description:
+      `The first entry in <em>The Creatures of the Void!</em> saga, this jaunty AM Radio nightmare is as tasty and dangerous as a slice of pecan pie, baked in the fires of a cruel and indifferent hell.`,
+    spotifyId: "",
+    releaseDate: "2025-10-10",
+    songType: "single",
+    appleMusicLink: "",
+    youtubeLink: "",
+    headerFont: "monoton",
+    lyrics: `#### Verse 1
+There's a dread about the mountains
+and the Appalachian night.
+In the middle of a dreamless sleep
+you waken in a fright
+
+There's an eerie feeling in the air.
+You can feel it everywhere,
+up from your toes, up to the hair
+that's standing on your neck.
+
+And there's whispering in the forest, if you listen very hard.
+There's goblins in Kentucky and they're playing in the yard.
+
+#### Chorus
+Don't take my love away, don't take my children, too!
+You fearsome goblins of Kentucky, oh, just what you gonna do to us?
+There's a light coming from the woods
+out back by the old well
+
+#### Verse 2
+You suddenly remember all the stories from your youth
+that come drifting back to you upon the breeze;
+The glowing people from the caves below
+that come creeping through the trees.
+
+You're sweating in the humid night,
+but you feel a chill, you see a light
+outside, getting closer, shining bright.
+And suddenly it's at the window!
+
+There's scratching at the window and there's footprints in the grass.
+There's goblins in Kentucky and they're looking through the glass.
+
+#### Chorus
+Don't take my love away, don't take m-my children, too!
+Y-you fearsome goblins of Kentucky, oh, what are you gonna do to us?
+There's a light coming from the woods
+out back by the old well!
+There's a face peeking in the window!
+Don't look, baby, don't look!
+
+#### Verse 3
+Grab your gun and rush your family to the basement,
+where you're safe and you can wait until they leave.
+They're all around the house now, climbing up the walls
+and skittering across the roof and hanging down from the eaves.
+
+A heavy silence settles in.
+You feel it crawling up your skin
+like spiders, alien and thin.
+Your frantic mind begins to spin.
+
+You're haunted by their bug-eyed peeking,
+spindly fingernail squeaking.
+You're shivering, dark and dank and bleak.
+That's when the floorboards start to creak above you
+
+You believe in Jesus, not in ghouls or luck or gnomes
+But there's goblins in Kentucky and they've gotten in your home.
+
+#### Chorus
+They took m-my love away, they took m-my children, too!
+Oh great g-g-gods here in Kentucky, oh, what have I done to you?
+Oh, there's a light coming from the woods
+out back by the old well!
+There's a face peeking in the window!
+Don't scream, baby, hush now!`,
+    credits: "Written and recorded in Minneapolis by Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
+  },
+  {
     id: "beautiful-unknown",
     title: "Beautiful Unknown",
     description:
