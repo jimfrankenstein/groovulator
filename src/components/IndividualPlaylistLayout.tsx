@@ -25,7 +25,7 @@ import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
 interface IndividualPlaylistLayoutProps {
   playlist: Playlist;
   artist: ArtistConfig;
-  formatAbout: (about: string) => React.ReactNode[];
+  formatAbout: (about: string) => React.ReactNode;
 }
 
 export default function IndividualPlaylistLayout({
