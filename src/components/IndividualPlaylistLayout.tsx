@@ -34,7 +34,7 @@ export default function IndividualPlaylistLayout({
   formatAbout,
 }: IndividualPlaylistLayoutProps) {
   return (
-    <ArtistSongBaseLayout artist={artist}>
+    <ArtistSongBaseLayout artist={artist} homeLink="/">
       {/* PLAYLIST HERO */}
       <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">

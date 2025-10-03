@@ -13,7 +13,7 @@ export default function PlaylistsPage() {
   };
 
   return (
-    <ArtistSongBaseLayout artist={artist}>
+    <ArtistSongBaseLayout artist={artist} homeLink="/">
       <main>
         {/* PLAYLISTS GRID */}
         <section className="border-b border-black/10 dark:border-white/10">
