@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { fugaz } from "./fonts/fugaz";
 import { dmSans } from "./fonts/dmsans";
+import { monoton } from "./fonts/monoton";
 import { DarkModeProvider } from "../components/DarkModeContext";
 import "./globals.css";
 
@@ -47,7 +48,7 @@ export default function RootLayout({
         `}</Script>
       </head>
       <body 
-        className={`${fugaz.variable} ${dmSans.variable} antialiased`}
+        className={`${fugaz.variable} ${dmSans.variable} ${monoton.variable} antialiased`}
         style={{
           fontFamily: "var(--font-dm-sans), system-ui, sans-serif"
         }}

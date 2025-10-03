@@ -3,6 +3,7 @@
 @theme {
   --font-fugaz: var(--font-fugaz);
   --font-dm-sans: var(--font-dm-sans);
+  --font-monoton: var(--font-monoton);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
