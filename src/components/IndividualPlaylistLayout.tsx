@@ -22,6 +22,13 @@ import { SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
 import PlaylistImage from "./PlaylistImage";
 import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
 
+// Facebook pixel type declaration
+declare global {
+  interface Window {
+    fbq: (action: string, eventName: string) => void;
+  }
+}
+
 interface IndividualPlaylistLayoutProps {
   playlist: Playlist;
   artist: ArtistConfig;
@@ -70,9 +77,9 @@ export default function IndividualPlaylistLayout({
                   href={`https://open.spotify.com/playlist/${playlist.spotifyId}`}
                   target="_blank"
                   onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).fbq) {
-                      (window as any).fbq("track", "PlaylistLinkClick");
-                      (window as any).fbq("track", "PlaylistLinkClick_Spotify");
+                    if (typeof window !== "undefined" && window.fbq) {
+                      window.fbq("track", "PlaylistLinkClick");
+                      window.fbq("track", "PlaylistLinkClick_Spotify");
                     }
                   }}
                   className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
@@ -98,9 +105,9 @@ export default function IndividualPlaylistLayout({
                   href={playlist.youtubeLink}
                   target="_blank"
                   onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).fbq) {
-                      (window as any).fbq("track", "PlaylistLinkClick");
-                      (window as any).fbq("track", "PlaylistLinkClick_YouTube");
+                    if (typeof window !== "undefined" && window.fbq) {
+                      window.fbq("track", "PlaylistLinkClick");
+                      window.fbq("track", "PlaylistLinkClick_YouTube");
                     }
                   }}
                   className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
@@ -115,9 +122,9 @@ export default function IndividualPlaylistLayout({
                   href={playlist.youtubeMusicLink}
                   target="_blank"
                   onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).fbq) {
-                      (window as any).fbq("track", "PlaylistLinkClick");
-                      (window as any).fbq("track", "PlaylistLinkClick_YouTubeMusic");
+                    if (typeof window !== "undefined" && window.fbq) {
+                      window.fbq("track", "PlaylistLinkClick");
+                      window.fbq("track", "PlaylistLinkClick_YouTubeMusic");
                     }
                   }}
                   className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
