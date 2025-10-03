@@ -5,7 +5,12 @@ interface PlaylistImageProps {
   useStatic?: boolean; // If true, only use static image
 }
 
-export default function PlaylistImage({ playlistId, title, className = "", useStatic = false }: PlaylistImageProps) {
+export default function PlaylistImage({
+  playlistId,
+  title,
+  className = "",
+  useStatic = false,
+}: PlaylistImageProps) {
   if (useStatic) {
     return (
       <img

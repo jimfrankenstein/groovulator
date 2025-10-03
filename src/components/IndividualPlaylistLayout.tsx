@@ -40,10 +40,10 @@ export default function IndividualPlaylistLayout({
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="order-2 md:order-1">
-          <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4">
-            {playlist.title}
-          </h1>
-              <p 
+              <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4">
+                {playlist.title}
+              </h1>
+              <p
                 className="text-lg opacity-80 mb-6 leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: playlist.description }}
               />

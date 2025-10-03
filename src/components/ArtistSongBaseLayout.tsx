@@ -25,7 +25,11 @@ interface ArtistSongBaseLayoutProps {
   homeLink?: string; // Optional override for header link
 }
 
-export default function ArtistSongBaseLayout({ artist, children, homeLink }: ArtistSongBaseLayoutProps) {
+export default function ArtistSongBaseLayout({
+  artist,
+  children,
+  homeLink,
+}: ArtistSongBaseLayoutProps) {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       {/* HEADER */}

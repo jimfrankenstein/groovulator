@@ -16,11 +16,7 @@ export default function PlaylistPage({ params }: { params: Promise<{ playlistId:
 
   // Format about section to handle HTML content
   const formatAbout = (about: string) => {
-    return (
-      <div 
-        dangerouslySetInnerHTML={{ __html: about }}
-      />
-    );
+    return <div dangerouslySetInnerHTML={{ __html: about }} />;
   };
 
   const artist: ArtistConfig = {
@@ -30,11 +26,5 @@ export default function PlaylistPage({ params }: { params: Promise<{ playlistId:
     socialLinks: ["instagram", "spotify", "youtube", "email"],
   };
 
-  return (
-    <IndividualPlaylistLayout
-      playlist={playlist}
-      artist={artist}
-      formatAbout={formatAbout}
-    />
-  );
+  return <IndividualPlaylistLayout playlist={playlist} artist={artist} formatAbout={formatAbout} />;
 }
