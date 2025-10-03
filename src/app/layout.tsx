@@ -6,7 +6,6 @@ import { monoton } from "./fonts/monoton";
 import { DarkModeProvider } from "../components/DarkModeContext";
 import "./globals.css";
 
-
 export const metadata: Metadata = {
   title: "Groovulator",
   description:
@@ -47,10 +46,10 @@ export default function RootLayout({
           fbq('track', 'PageView');
         `}</Script>
       </head>
-      <body 
+      <body
         className={`${fugaz.variable} ${dmSans.variable} ${monoton.variable} antialiased`}
         style={{
-          fontFamily: "var(--font-dm-sans), system-ui, sans-serif"
+          fontFamily: "var(--font-dm-sans), system-ui, sans-serif",
         }}
       >
         <noscript>

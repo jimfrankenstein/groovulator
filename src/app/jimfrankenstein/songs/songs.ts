@@ -76,8 +76,7 @@ Spooky kids gotta spooky stick together like bones`,
   {
     id: "theres-goblins-in-kentucky",
     title: "There's Goblins in Kentucky!",
-    description:
-      `The first entry in <em>The Creatures of the Void!</em> saga, this jaunty AM Radio nightmare is as tasty and dangerous as a slice of pecan pie, baked in the fires of a cruel and indifferent hell.`,
+    description: `The first entry in <em>The Creatures of the Void!</em> saga, this jaunty AM Radio nightmare is as tasty and dangerous as a slice of pecan pie, baked in the fires of a cruel and indifferent hell.`,
     spotifyId: "",
     releaseDate: "2025-10-10",
     songType: "single",
@@ -152,7 +151,8 @@ Oh, there's a light coming from the woods
 out back by the old well!
 There's a face peeking in the window!
 Don't scream, baby, hush now!`,
-    credits: "Written and recorded in Minneapolis by Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
+    credits:
+      "Written and recorded in Minneapolis by Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
   },
   {
     id: "beautiful-unknown",

@@ -47,7 +47,7 @@ export default function IndividualSongLayout({
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="order-2 md:order-1">
-              <h1 
+              <h1
                 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4"
                 style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
               >
@@ -56,7 +56,7 @@ export default function IndividualSongLayout({
               {song.collabArtists && (
                 <p className="text-lg opacity-80 mb-4">{song.collabArtists.join(", ")}</p>
               )}
-              <p 
+              <p
                 className="text-lg opacity-80 mb-6 leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: song.description }}
               />
@@ -96,7 +96,7 @@ export default function IndividualSongLayout({
               <CountdownTimer releaseDate={song.releaseDate} />
             ) : (
               <>
-                <h3 
+                <h3
                   className="text-xl md:text-2xl font-bold mb-6"
                   style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
                 >
@@ -144,7 +144,7 @@ export default function IndividualSongLayout({
           <section className="border-b border-black/10 dark:border-white/10">
             <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
               <div>
-                <h3 
+                <h3
                   className="text-xl md:text-2xl font-bold"
                   style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
                 >
@@ -164,7 +164,7 @@ export default function IndividualSongLayout({
         <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div>
-              <h3 
+              <h3
                 className="text-xl md:text-2xl font-bold"
                 style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
               >
