@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface PlaylistImageProps {
   playlistId: string;
   title: string;
@@ -13,9 +15,11 @@ export default function PlaylistImage({
 }: PlaylistImageProps) {
   if (useStatic) {
     return (
-      <img
+      <Image
         src={`/images/playlists/${playlistId}/static.jpg`}
         alt={title}
+        width={512}
+        height={512}
         className={`${className} w-full h-full aspect-square object-cover m-0`}
       />
     );
@@ -24,9 +28,11 @@ export default function PlaylistImage({
   return (
     <picture className="block aspect-square overflow-hidden">
       <source srcSet={`/images/playlists/${playlistId}/animated.gif`} type="image/gif" />
-      <img
+      <Image
         src={`/images/playlists/${playlistId}/static.jpg`}
         alt={title}
+        width={512}
+        height={512}
         className={`${className} w-full h-full aspect-square object-cover m-0`}
       />
     </picture>

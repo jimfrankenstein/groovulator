@@ -11,6 +11,7 @@ export const songs: Song[] = [
     releaseDate: "2025-08-01",
     songType: "single",
     appleMusicLink: "https://music.apple.com/us/song/spooky-song/1825985235",
+    amazonMusicLink: "https://music.amazon.com/albums/B0FH5HHRJ8",
     youtubeLink: "https://youtu.be/RaEekujTv6E",
     lyrics: `#### Verse 1
 Hard living when you don't belong with them.
@@ -81,6 +82,7 @@ Spooky kids gotta spooky stick together like bones`,
     releaseDate: "2025-10-10",
     songType: "single",
     appleMusicLink: "",
+    amazonMusicLink: "",
     youtubeLink: "",
     headerFont: "monoton",
     lyrics: `#### Verse 1

@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * IndividualSongLayout - Complete layout for individual song detail pages
  *
@@ -19,11 +21,19 @@
  */
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Song, ArtistConfig } from "@/app/constants/types";
-import { SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
+import { AmazonLogo, SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
 import SongImage from "./SongImage";
 import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
 import CountdownTimer from "./CountdownTimer";
+
+// Facebook pixel type declaration
+declare global {
+  interface Window {
+    fbq: (action: string, eventName: string) => void;
+  }
+}
 
 interface IndividualSongLayoutProps {
   song: Song;
@@ -38,8 +48,14 @@ export default function IndividualSongLayout({
   formatLyrics,
   formatCredits,
 }: IndividualSongLayoutProps) {
+  const searchParams = useSearchParams();
+  const debugMode = searchParams.get("debug") === "true";
+
   // Check if release date is in the future
   const isFutureRelease = new Date(song.releaseDate) > new Date();
+
+  // Show music links if not a future release OR if debug mode is enabled
+  const showMusicLinks = !isFutureRelease || debugMode;
   return (
     <ArtistSongBaseLayout artist={artist}>
       {/* SONG HERO */}
@@ -92,49 +108,88 @@ export default function IndividualSongLayout({
         {/* STREAMING LINKS OR COUNTDOWN */}
         <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
-            {isFutureRelease ? (
-              <CountdownTimer releaseDate={song.releaseDate} />
-            ) : (
-              <>
-                <h3
-                  className="text-xl md:text-2xl font-bold mb-6"
-                  style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
-                >
-                  Listen
-                </h3>
-                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 max-w-3xl">
-                  <Link
-                    href={`https://open.spotify.com/track/${song.spotifyId}`}
-                    target="_blank"
-                    className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+            {showMusicLinks ? (
+              <div className="grid gap-6 md:grid-cols-3">
+                <div>
+                  <h3
+                    className="text-xl md:text-2xl font-bold"
+                    style={song.headerFont ? { fontFamily: `var(--font-${song.headerFont})` } : {}}
                   >
-                    <SpotifyLogo size={24} weight="fill" className="mr-3 text-green-600" />
-                    <span className="text-sm font-medium">Spotify</span>
-                  </Link>
-
-                  {song.appleMusicLink && (
-                    <Link
-                      href={song.appleMusicLink}
-                      target="_blank"
-                      className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                    >
-                      <AppleLogo size={24} weight="fill" className="mr-3" />
-                      <span className="text-sm font-medium">Apple Music</span>
-                    </Link>
-                  )}
-
-                  {song.youtubeLink && (
-                    <Link
-                      href={song.youtubeLink}
-                      target="_blank"
-                      className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                    >
-                      <YoutubeLogo size={24} weight="fill" className="mr-3 text-red-600" />
-                      <span className="text-sm font-medium">YouTube</span>
-                    </Link>
-                  )}
+                    Listen
+                  </h3>
                 </div>
-              </>
+                <div className="md:col-span-2">
+                  <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 max-w-3xl">
+                    <Link
+                      href={`https://open.spotify.com/track/${song.spotifyId}`}
+                      target="_blank"
+                      onClick={() => {
+                        if (typeof window !== "undefined" && window.fbq) {
+                          window.fbq("track", "SongLinkClick");
+                          window.fbq("track", "SongLinkClick_Spotify");
+                        }
+                      }}
+                      className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                    >
+                      <SpotifyLogo size={24} weight="fill" className="mr-3 text-green-600" />
+                      <span className="text-sm font-medium">Spotify</span>
+                    </Link>
+
+                    {song.appleMusicLink && (
+                      <Link
+                        href={song.appleMusicLink}
+                        target="_blank"
+                        onClick={() => {
+                          if (typeof window !== "undefined" && window.fbq) {
+                            window.fbq("track", "SongLinkClick");
+                            window.fbq("track", "SongLinkClick_AppleMusic");
+                          }
+                        }}
+                        className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                      >
+                        <AppleLogo size={24} weight="fill" className="mr-3" />
+                        <span className="text-sm font-medium">Apple Music</span>
+                      </Link>
+                    )}
+
+                    {song.youtubeLink && (
+                      <Link
+                        href={song.youtubeLink}
+                        target="_blank"
+                        onClick={() => {
+                          if (typeof window !== "undefined" && window.fbq) {
+                            window.fbq("track", "SongLinkClick");
+                            window.fbq("track", "SongLinkClick_YouTube");
+                          }
+                        }}
+                        className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                      >
+                        <YoutubeLogo size={24} weight="fill" className="mr-3 text-red-600" />
+                        <span className="text-sm font-medium">YouTube</span>
+                      </Link>
+                    )}
+
+                    {song.amazonMusicLink && (
+                      <Link
+                        href={song.amazonMusicLink}
+                        target="_blank"
+                        onClick={() => {
+                          if (typeof window !== "undefined" && window.fbq) {
+                            window.fbq("track", "SongLinkClick");
+                            window.fbq("track", "SongLinkClick_AmazonMusic");
+                          }
+                        }}
+                        className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                      >
+                        <AmazonLogo size={24} weight="fill" className="mr-3 text-red-600" />
+                        <span className="text-sm font-medium">Amazon Music</span>
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <CountdownTimer releaseDate={song.releaseDate} />
             )}
           </div>
         </section>

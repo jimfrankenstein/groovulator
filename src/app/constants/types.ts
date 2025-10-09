@@ -7,6 +7,7 @@ export interface Song {
   releaseDate: string;
   songType: "single" | "episode" | "track";
   appleMusicLink?: string;
+  amazonMusicLink?: string;
   youtubeLink?: string;
   lyrics?: string;
   credits: string;
