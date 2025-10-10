@@ -169,6 +169,27 @@ export default function IndividualSongLayout({
                       </Link>
                     )}
 
+                    {song.youtubeMusicLink && (
+                      <Link
+                        href={song.youtubeMusicLink}
+                        target="_blank"
+                        onClick={() => {
+                          if (typeof window !== "undefined" && window.fbq) {
+                            window.fbq("track", "SongLinkClick");
+                            window.fbq("track", "SongLinkClick_YouTube");
+                          }
+                        }}
+                        className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                      >
+                        <YoutubeLogo
+                          size={24}
+                          weight="fill"
+                          className="mr-3 text-white bg-red-600 rounded-full p-1"
+                        />
+                        <span className="text-sm font-medium">YouTube Music</span>
+                      </Link>
+                    )}
+
                     {song.amazonMusicLink && (
                       <Link
                         href={song.amazonMusicLink}

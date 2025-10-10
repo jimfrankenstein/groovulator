@@ -83,7 +83,9 @@ Spooky kids gotta spooky stick together like bones`,
     songType: "single",
     appleMusicLink: "https://music.apple.com/us/song/theres-goblins-in-kentucky/1842386311",
     amazonMusicLink: "https://music.amazon.com/albums/B0FSS9Z77S",
-    youtubeLink: "",
+    youtubeLink: "https://youtu.be/iKKvEnEwjVc",
+    youtubeMusicLink:
+      "https://music.youtube.com/playlist?list=OLAK5uy_lxAGA-umDahQ8w2Kwmur8IX0gTqk5U33s&si=_Ec7xxIccE1Fx0S6",
     headerFont: "monoton",
     lyrics: `#### Verse 1
 There's a dread about the mountains

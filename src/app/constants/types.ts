@@ -9,6 +9,7 @@ export interface Song {
   appleMusicLink?: string;
   amazonMusicLink?: string;
   youtubeLink?: string;
+  youtubeMusicLink?: string;
   lyrics?: string;
   credits: string;
   album?: string;
