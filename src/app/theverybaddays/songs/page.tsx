@@ -14,6 +14,7 @@ export default function TheVeryBadDaysSongsPage() {
     displayName: "THE VERY BAD DAYS",
     slug: "theverybaddays",
     socialLinks: ["instagram", "spotify", "youtube", "email"],
+    homeLink: "https://theverybaddays.com",
   };
 
   return <SongsListLayout artist={artist} songs={allSongs} />;

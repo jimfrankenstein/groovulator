@@ -20,10 +20,11 @@ export default function PlaylistPage({ params }: { params: Promise<{ playlistId:
   };
 
   const artist: ArtistConfig = {
-    name: "Groovulator",
-    displayName: "GROOVULATOR",
+    name: "EctophonicGroovulator",
+    displayName: "ECTOPHONIC GROOVULATOR",
     slug: "groovulator",
     socialLinks: ["instagram", "spotify", "youtube", "email"],
+    homeLink: "/",
   };
 
   return <IndividualPlaylistLayout playlist={playlist} artist={artist} formatAbout={formatAbout} />;

@@ -63,7 +63,7 @@ export default function JimFrankensteinPage() {
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
           <Link
-            href="/"
+            href="https://jimfrankenstein.com"
             className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors"
           >
             JIM FRANKENSTEIN

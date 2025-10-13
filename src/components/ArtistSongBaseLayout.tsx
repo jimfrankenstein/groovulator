@@ -22,21 +22,19 @@ import { ArtistConfig } from "@/app/constants/types";
 interface ArtistSongBaseLayoutProps {
   artist: ArtistConfig;
   children: React.ReactNode;
-  homeLink?: string; // Optional override for header link
 }
 
-export default function ArtistSongBaseLayout({
-  artist,
-  children,
-  homeLink,
-}: ArtistSongBaseLayoutProps) {
+export default function ArtistSongBaseLayout({ artist, children }: ArtistSongBaseLayoutProps) {
+  // Use artist.homeLink if provided, otherwise fall back to artist slug path
+  const headerLink = artist.homeLink || `/${artist.slug}`;
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       {/* HEADER */}
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
           <Link
-            href={homeLink || `/${artist.slug}`}
+            href={headerLink}
             className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors"
           >
             {artist.displayName}

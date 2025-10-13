@@ -14,6 +14,7 @@ export default function JimFrankensteinSongsPage() {
     displayName: "JIM FRANKENSTEIN",
     slug: "jimfrankenstein",
     socialLinks: ["instagram", "spotify", "youtube", "email"],
+    homeLink: "https://jimfrankenstein.com",
   };
 
   return <SongsListLayout artist={artist} songs={allSongs} />;

@@ -6,14 +6,15 @@ import Link from "next/link";
 
 export default function PlaylistsPage() {
   const artist: ArtistConfig = {
-    name: "Groovulator",
-    displayName: "GROOVULATOR",
+    name: "EctophonicGroovulator",
+    displayName: "ECTOPHONIC GROOVULATOR",
     slug: "groovulator",
     socialLinks: ["instagram", "spotify", "youtube", "email"],
+    homeLink: "/",
   };
 
   return (
-    <ArtistSongBaseLayout artist={artist} homeLink="/">
+    <ArtistSongBaseLayout artist={artist}>
       <main>
         {/* PLAYLISTS GRID */}
         <section className="border-b border-black/10 dark:border-white/10">

@@ -51,6 +51,7 @@ export default function SongPage({ params }: { params: Promise<{ songId: string 
     displayName: "THE VERY BAD DAYS",
     slug: "theverybaddays",
     socialLinks: ["instagram", "spotify", "youtube", "email"],
+    homeLink: "https://theverybaddays.com",
   };
 
   return (

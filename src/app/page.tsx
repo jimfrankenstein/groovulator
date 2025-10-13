@@ -75,7 +75,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
             The grim grunge ghostbustery of{" "}
             <Link
-              href={"/jimfrankenstein"}
+              href={"https://jimfrankenstein.com"}
               className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
             >
               Jim Frankenstein
@@ -83,7 +83,7 @@ export default function Home() {
             and{" "}
             <Link
               className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
-              href={"/theverybaddays"}
+              href={"https://theverybaddays.com"}
             >
               The Very Bad Days
             </Link>

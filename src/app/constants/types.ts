@@ -33,6 +33,7 @@ export interface ArtistConfig {
   displayName: string;
   slug: ArtistSlug;
   socialLinks: readonly SocialPlatform[];
+  homeLink?: string; // Custom domain URL for header link
 }
 
 export interface Playlist {
