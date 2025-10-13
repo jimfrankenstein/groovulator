@@ -12,7 +12,11 @@ const MAP: Record<string, string> = {
 export function middleware(req: NextRequest) {
   const host = req.headers.get("host") ?? "";
   const base = MAP[host];
-  if (!base) return NextResponse.next();
+
+  // Add a debug header so we can see if middleware ran
+  const res = NextResponse.next();
+  res.headers.set("x-groovulator-host", host);
+  if (!base) return res;
 
   const { pathname } = req.nextUrl;
 
@@ -24,7 +28,7 @@ export function middleware(req: NextRequest) {
     pathname === "/robots.txt" ||
     pathname === "/sitemap.xml"
   ) {
-    return NextResponse.next();
+    return res;
   }
 
   // rewrite to the subfolder while keeping the clean domain in the URL bar
@@ -34,8 +38,8 @@ export function middleware(req: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  return NextResponse.next();
+  return res;
 }
 
-// run on everything (we exclude assets inside the function)
-export const config = { matcher: ["/:path*"] };
+// Broader matcher to avoid edge cases
+export const config = { matcher: ["/(.*)"] };
