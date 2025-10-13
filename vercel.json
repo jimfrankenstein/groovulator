@@ -28,27 +28,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "/jimfrankenstein/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.jimfrankenstein.com"
-        }
-      ]
-    },
-    {
-      "source": "/:path*",
-      "destination": "/theverybaddays/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.theverybaddays.com"
-        }
-      ]
-    }
   ]
 }
