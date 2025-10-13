@@ -1,35 +1,58 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Add the async rewrites function here
   async rewrites() {
-    return [
-      // 1. Rewrite for www.jimfrankenstein.com
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.jimfrankenstein.com",
-          },
-        ],
-        destination: "/jimfrankenstein/:path*",
-      },
-      // 2. Rewrite for www.theverybaddays.com
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.theverybaddays.com",
-          },
-        ],
-        destination: "/theverybaddays/:path*",
-      },
-    ];
-  },
+    return {
+      // Run before the filesystem checks so "/" rewrites too
+      beforeFiles: [
+        // --- The Very Bad Days ---
+        {
+          source: "/",
+          has: [{ type: "host", value: "theverybaddays.com" }],
+          destination: "/theverybaddays",
+        },
+        {
+          source: "/:path*",
+          has: [{ type: "host", value: "theverybaddays.com" }],
+          destination: "/theverybaddays/:path*",
+        },
 
-  /* config options here */
+        {
+          source: "/",
+          has: [{ type: "host", value: "www.theverybaddays.com" }],
+          destination: "/theverybaddays",
+        },
+        {
+          source: "/:path*",
+          has: [{ type: "host", value: "www.theverybaddays.com" }],
+          destination: "/theverybaddays/:path*",
+        },
+
+        // --- Jim Frankenstein ---
+        {
+          source: "/",
+          has: [{ type: "host", value: "jimfrankenstein.com" }],
+          destination: "/jimfrankenstein",
+        },
+        {
+          source: "/:path*",
+          has: [{ type: "host", value: "jimfrankenstein.com" }],
+          destination: "/jimfrankenstein/:path*",
+        },
+
+        {
+          source: "/",
+          has: [{ type: "host", value: "www.jimfrankenstein.com" }],
+          destination: "/jimfrankenstein",
+        },
+        {
+          source: "/:path*",
+          has: [{ type: "host", value: "www.jimfrankenstein.com" }],
+          destination: "/jimfrankenstein/:path*",
+        },
+      ],
+    };
+  },
 };
 
 export default nextConfig;
