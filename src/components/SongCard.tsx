@@ -22,7 +22,7 @@ export default function SongCard({
   // For collaborations, use the first collab artist's URL, otherwise use the regular artist
   const linkArtist = collabArtists ? collabArtists[0] : artist;
   const artistUrl = artistUrlMap[linkArtist];
-  const songUrl = `/${artistUrl}/songs/${id}`;
+  const songUrl = `https://${artistUrl}.com/songs/${id}`;
 
   const artistName = collabArtists
     ? "collaborations"
