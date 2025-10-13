@@ -258,13 +258,13 @@ export default function IndividualSongLayout({
           <div className="mx-auto max-w-6xl px-4 py-10">
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
-                href={`/${artist.slug}/songs`}
+                href={`https://${artist.slug}.com/songs`}
                 className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
                 ← All Songs
               </Link>
               <Link
-                href={`/${artist.slug}`}
+                href={`https://${artist.slug}.com`}
                 className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
                 Back to Artist
