@@ -26,8 +26,15 @@ export default function PlaylistImage({
   }
 
   return (
-    <picture className="block aspect-square overflow-hidden">
-      <source srcSet={`/images/playlists/${playlistId}/animated.gif`} type="image/gif" />
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      poster={`/images/playlists/${playlistId}/static.jpg`}
+      className={`${className} w-full h-full aspect-square object-cover m-0 block`}
+    >
+      <source src={`/images/playlists/${playlistId}/Animated Bone Skeleton.mp4`} type="video/mp4" />
       <Image
         src={`/images/playlists/${playlistId}/static.jpg`}
         alt={title}
@@ -35,6 +42,6 @@ export default function PlaylistImage({
         height={512}
         className={`${className} w-full h-full aspect-square object-cover m-0`}
       />
-    </picture>
+    </video>
   );
 }
