@@ -7,3 +7,51 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+.border-striped-green-white {
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(#fefce8, #fefce8),
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      #92e9c0 0deg 8deg,
+      #ffffff 8deg 16deg
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.dark .border-striped-green-white {
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(rgb(15 23 42 / 0.2), rgb(15 23 42 / 0.2)),
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      #92e9c0 0deg 8deg,
+      #ffffff 8deg 16deg
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80px) translateX(15px);
+    opacity: 1;
+  }
+}
+
+.snow-dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  animation: snowfall linear infinite;
+  opacity: 1;
+  box-shadow: 0 0 2px white;
+}
