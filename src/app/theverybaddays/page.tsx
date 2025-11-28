@@ -164,6 +164,17 @@ export default function TheVeryBadDaysPage() {
           <div className="text-sm opacity-70">
             <span>© {new Date().getFullYear()} The Very Bad Days. All rights reserved.</span>
             <br />
+            <span>
+              An{" "}
+              <Link
+                href="https://groovulator.com"
+                className="underline hover:opacity-80 transition-opacity"
+              >
+                Ectophonic Groovulator
+              </Link>{" "}
+              band
+            </span>
+            <br />
             <span>Minneapolis, MN</span>
           </div>
           <div className="flex gap-2 justify-start md:justify-end items-center text-sm">

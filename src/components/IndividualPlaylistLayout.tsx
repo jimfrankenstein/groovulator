@@ -84,7 +84,12 @@ export default function IndividualPlaylistLayout({
                   }}
                   className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                 >
-                  <SpotifyLogo size={24} weight="fill" className="mr-3" style={{ color: '#1ED760' }} />
+                  <SpotifyLogo
+                    size={24}
+                    weight="fill"
+                    className="mr-3"
+                    style={{ color: "#1ED760" }}
+                  />
                   <span className="text-sm font-medium">Spotify</span>
                 </Link>
               )}
@@ -136,24 +141,63 @@ export default function IndividualPlaylistLayout({
                 >
                   {/* Animated snow dots - first batch */}
                   <div className="absolute inset-0 pointer-events-none">
-                    <div className="snow-dot" style={{ left: '10%', animationDelay: '0s', animationDuration: '2s' }}></div>
-                    <div className="snow-dot" style={{ left: '25%', animationDelay: '0.25s', animationDuration: '2.5s' }}></div>
-                    <div className="snow-dot" style={{ left: '40%', animationDelay: '0.5s', animationDuration: '2.25s' }}></div>
-                    <div className="snow-dot" style={{ left: '55%', animationDelay: '0.125s', animationDuration: '2.75s' }}></div>
-                    <div className="snow-dot" style={{ left: '70%', animationDelay: '0.375s', animationDuration: '2.375s' }}></div>
-                    <div className="snow-dot" style={{ left: '85%', animationDelay: '0.625s', animationDuration: '2.625s' }}></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "10%", animationDelay: "0s", animationDuration: "2s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "25%", animationDelay: "0.25s", animationDuration: "2.5s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "40%", animationDelay: "0.5s", animationDuration: "2.25s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "55%", animationDelay: "0.125s", animationDuration: "2.75s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "70%", animationDelay: "0.375s", animationDuration: "2.375s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "85%", animationDelay: "0.625s", animationDuration: "2.625s" }}
+                    ></div>
                   </div>
                   {/* Animated snow dots - second batch (starts halfway through first batch) */}
                   <div className="absolute inset-0 pointer-events-none">
-                    <div className="snow-dot" style={{ left: '15%', animationDelay: '1s', animationDuration: '2.2s' }}></div>
-                    <div className="snow-dot" style={{ left: '30%', animationDelay: '1.25s', animationDuration: '2.6s' }}></div>
-                    <div className="snow-dot" style={{ left: '45%', animationDelay: '1.125s', animationDuration: '2.4s' }}></div>
-                    <div className="snow-dot" style={{ left: '60%', animationDelay: '1.375s', animationDuration: '2.8s' }}></div>
-                    <div className="snow-dot" style={{ left: '75%', animationDelay: '1.1875s', animationDuration: '2.5s' }}></div>
-                    <div className="snow-dot" style={{ left: '90%', animationDelay: '1.3125s', animationDuration: '2.7s' }}></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "15%", animationDelay: "1s", animationDuration: "2.2s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "30%", animationDelay: "1.25s", animationDuration: "2.6s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "45%", animationDelay: "1.125s", animationDuration: "2.4s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "60%", animationDelay: "1.375s", animationDuration: "2.8s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "75%", animationDelay: "1.1875s", animationDuration: "2.5s" }}
+                    ></div>
+                    <div
+                      className="snow-dot"
+                      style={{ left: "90%", animationDelay: "1.3125s", animationDuration: "2.7s" }}
+                    ></div>
                   </div>
-                  <span className="relative text-sm font-bold z-10" style={{ color: '#001405', textShadow: '0 2px 5px rgba(255, 255, 255, 0.5)' }}>
-                   BONUS: Holiday Playlist!
+                  <span
+                    className="relative text-sm font-bold z-10"
+                    style={{ color: "#001405", textShadow: "0 2px 5px rgba(255, 255, 255, 0.5)" }}
+                  >
+                    BONUS: Holiday Playlist!
                   </span>
                 </Link>
               )}
