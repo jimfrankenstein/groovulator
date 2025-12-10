@@ -28,5 +28,17 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/halloween-bone-skeletons",
+      "destination": "https://hypem.com/merch-table/6fAukc4ibGBEUqoIsYdbRV",
+      "permanent": false
+    },
+    {
+      "source": "/holiday-bone-skeletons",
+      "destination": "https://hypem.com/merch-table/370OjSsWC9kf1p7RGVt9jF",
+      "permanent": false
+    }
   ]
 }

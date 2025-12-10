@@ -38,6 +38,7 @@ export interface ArtistConfig {
 
 export interface Playlist {
   id: string;
+  hasMerchTable?: boolean;
   title: string;
   description: string;
   spotifyId?: string;
@@ -45,5 +46,5 @@ export interface Playlist {
   youtubeLink?: string;
   youtubeMusicLink?: string;
   about: string;
-  headerFont?: string; // Custom font for playlist page headers
+  headerFont?: string;
 }

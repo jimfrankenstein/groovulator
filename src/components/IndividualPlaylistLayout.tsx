@@ -205,11 +205,45 @@ export default function IndividualPlaylistLayout({
           </div>
         </section>
 
+        {/* SUPPORT THE ARTISTS */}
+        <section className="border-b border-black/10 dark:border-white/10">
+          <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold">Support the Artists</h3>
+            </div>
+            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
+              <p>
+                If you enjoy this playlist, please consider supporting the artists by visiting the{" "}
+                <Link
+                  href={`https://groovulator.com/${playlist.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  Merch Table
+                </Link>{" "}
+                for this playlist. Your support helps them continue creating the music you love.
+                (The money goes directly to the artists, not to us!)
+              </p>
+              <div className="pt-2">
+                <Link
+                  href={`https://groovulator.com/${playlist.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 text-sm font-medium hover:bg-white/90 transition-colors"
+                >
+                  Support the Artists
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ABOUT */}
         <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold">About</h3>
+              <h3 className="text-xl md:text-2xl font-bold">About this Playlist</h3>
             </div>
             <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-1 [&_a]:underline [&_a]:text-blue-600 hover:[&_a]:text-blue-800 dark:[&_a]:text-blue-400 dark:hover:[&_a]:text-blue-300">
               {formatAbout(playlist.about)}
