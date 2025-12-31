@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { characters } from "../../app/sandbox/characters-data";
+import { characters } from "../../app/taxidermia/characters-data";
 
 interface CharacterCardSectionProps {
   characterSlug?: string;

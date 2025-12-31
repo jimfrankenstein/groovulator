@@ -5,7 +5,7 @@ import StorySection from "../../../components/sandbox/StorySection";
 import CharacterSection from "../../../components/sandbox/CharacterSection";
 import TextSection from "../../../components/sandbox/TextSection";
 import CharacterCardSection from "../../../components/sandbox/CharacterCardSection";
-import { characters, validSlugs } from "../characters-data";
+import { characters, validSlugs } from "../../taxidermia/characters-data";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

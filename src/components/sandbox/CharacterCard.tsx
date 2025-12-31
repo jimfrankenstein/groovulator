@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Character } from "../../app/sandbox/characters-data";
+import { Character } from "../../app/taxidermia/characters-data";
 
 interface CharacterCardProps {
   character: Character;

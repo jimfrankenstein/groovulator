@@ -4,7 +4,7 @@ import Link from "next/link";
 import DarkModeToggle from "../../components/DarkModeToggle";
 import { usePasswordProtect } from "../../components/PasswordProtect";
 import { SANDBOX_STORAGE_KEY } from "./SandboxProtection";
-import { characters } from "./characters-data";
+import { characters } from "../taxidermia/characters-data";
 
 export default function SandboxIndexPage() {
   const { logout } = usePasswordProtect(SANDBOX_STORAGE_KEY);
