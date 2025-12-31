@@ -124,6 +124,7 @@ export default function PasswordProtect({
                 onChange={e => setPasswordInput(e.target.value)}
                 className="w-full border border-black/20 dark:border-white/20 bg-transparent px-4 py-3 pr-12 text-sm focus:outline-none focus:ring-1 focus:ring-pink-500 dark:focus:ring-yellow-300 transition-colors"
                 placeholder="Enter password"
+                autoComplete="off"
                 autoFocus
               />
               <button
