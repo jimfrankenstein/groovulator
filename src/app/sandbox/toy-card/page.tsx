@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../../components/taxidermia/Header";
-import StorySection from "../../components/taxidermia/StorySection";
-import CharacterSection from "../../components/taxidermia/CharacterSection";
-import TextSection from "../../components/taxidermia/TextSection";
-import CharacterCardSection from "../../components/taxidermia/CharacterCardSection";
+import Header from "../../../components/sandbox/Header";
+import StorySection from "../../../components/sandbox/StorySection";
+import CharacterSection from "../../../components/sandbox/CharacterSection";
+import TextSection from "../../../components/sandbox/TextSection";
+import CharacterCardSection from "../../../components/sandbox/CharacterCardSection";
 
-export default function TaxidermiaPage() {
+export default function ToyCardPage() {
   return (
     <div className="min-h-screen p-4 md:p-8 lg:p-8">
       {/* Blue card container with max width and centered */}

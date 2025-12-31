@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Character } from "../../app/taxidermia/characters-data";
+import { Character } from "../../app/sandbox/characters-data";
 
 interface CharacterCardProps {
   character: Character;
@@ -13,7 +13,7 @@ const BASE_CLASSES =
 export default function CharacterCard({ character, onClick, className = "" }: CharacterCardProps) {
   return (
     <Link
-      href={`/taxidermia/${character.id}`}
+      href={`/sandbox/${character.id}`}
       scroll={false}
       onClick={onClick}
       className={`${BASE_CLASSES} ${className}`}

@@ -1,10 +1,10 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import Header from "../../../components/taxidermia/Header";
-import StorySection from "../../../components/taxidermia/StorySection";
-import CharacterSection from "../../../components/taxidermia/CharacterSection";
-import TextSection from "../../../components/taxidermia/TextSection";
-import CharacterCardSection from "../../../components/taxidermia/CharacterCardSection";
+import Header from "../../../components/sandbox/Header";
+import StorySection from "../../../components/sandbox/StorySection";
+import CharacterSection from "../../../components/sandbox/CharacterSection";
+import TextSection from "../../../components/sandbox/TextSection";
+import CharacterCardSection from "../../../components/sandbox/CharacterCardSection";
 import { characters, validSlugs } from "../characters-data";
 
 interface PageProps {
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: PageProps) {
   const character = characters.find(c => c.id === slug);
 
   return {
-    title: character ? `${character.title} - Taxidermia | Groovulator` : "Taxidermia | Groovulator",
-    description: character?.content || "Explore the world of Taxidermia characters",
+    title: character ? `${character.title} - Sandbox | Groovulator` : "Sandbox | Groovulator",
+    description: character?.content || "Explore the sandbox characters",
   };
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { characters } from "../../app/taxidermia/characters-data";
+import { characters } from "../../app/sandbox/characters-data";
 import CharacterCard from "./CharacterCard";
 import { useCarouselDrag } from "./useCarouselDrag";
 
