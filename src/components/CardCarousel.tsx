@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, memo } from "react";
 import { motion, PanInfo } from "framer-motion";
 import type { Character } from "../app/taxidermia/characters-data";
 
@@ -13,11 +13,22 @@ const DISCARD_SPACING = 80;
 const DISCARD_BASE_POSITION = -400;
 const BASE_RADIUS = 700;
 const ANGLE_PER_CARD = 6;
-const VISIBLE_RANGE = 6;
-const DISCARD_RANGE = 5;
 
 export default function CardCarousel({ cards }: CardCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile on mount for performance optimization
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Responsive visible range - fewer cards on mobile
+  const VISIBLE_RANGE = isMobile ? 3 : 6;
+  const DISCARD_RANGE = isMobile ? 2 : 5;
 
   // Create a card ID to index map for O(1) lookups
   const cardIndexMap = useMemo(() => {
@@ -73,6 +84,17 @@ export default function CardCarousel({ cards }: CardCarouselProps) {
     [cards, startIndex, endIndex]
   );
 
+  // Optimize progress indicators for mobile - show fewer dots
+  const progressDots = useMemo(() => {
+    if (isMobile && cards.length > 15) {
+      // Show only 7 dots on mobile: 3 before, current, 3 after
+      const start = Math.max(0, currentIndex - 3);
+      const end = Math.min(cards.length, currentIndex + 4);
+      return Array.from({ length: end - start }, (_, i) => start + i);
+    }
+    return Array.from({ length: cards.length }, (_, i) => i);
+  }, [isMobile, cards.length, currentIndex]);
+
   return (
     <div className="relative w-full max-w-full overflow-hidden">
       {/* Card container */}
@@ -109,7 +131,7 @@ export default function CardCarousel({ cards }: CardCarouselProps) {
         </button>
 
         <div className="flex gap-1.5">
-          {cards.map((_, index) => (
+          {progressDots.map(index => (
             <div
               key={index}
               className={`h-1.5 rounded-full transition-all duration-300 ${
@@ -144,7 +166,13 @@ interface CardProps {
   onDragEnd: (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => void;
 }
 
-function Card({ cardNumber, offset, isActive, isDiscarded, onDragEnd }: CardProps) {
+const Card = memo(function Card({
+  cardNumber,
+  offset,
+  isActive,
+  isDiscarded,
+  onDragEnd,
+}: CardProps) {
   // Calculate position and rotation based on offset for natural card fan arrangement
   const absOffset = Math.abs(offset);
 
@@ -171,18 +199,22 @@ function Card({ cardNumber, offset, isActive, isDiscarded, onDragEnd }: CardProp
     zIndex = isActive ? 20 : 10 - absOffset;
   }
 
-  // Calculate color gradation based on distance from center
-  const fadeAmount = absOffset * 0.15;
+  // Calculate color gradation based on distance from center - memoized for performance
+  const colors = useMemo(() => {
+    const fadeAmount = absOffset * 0.15;
 
-  // Light mode: interpolate toward white (255, 255, 255)
-  const lightR = Math.min(255, Math.round(156 + (255 - 156) * fadeAmount * 2));
-  const lightG = Math.min(255, Math.round(163 + (255 - 163) * fadeAmount * 2));
-  const lightB = Math.min(255, Math.round(175 + (255 - 175) * fadeAmount * 2));
-  const lightRGB = `${lightR}, ${lightG}, ${lightB}`;
+    // Light mode: interpolate toward white (255, 255, 255)
+    const lightR = Math.min(255, Math.round(156 + (255 - 156) * fadeAmount * 2));
+    const lightG = Math.min(255, Math.round(163 + (255 - 163) * fadeAmount * 2));
+    const lightB = Math.min(255, Math.round(175 + (255 - 175) * fadeAmount * 2));
+    const lightRGB = `${lightR}, ${lightG}, ${lightB}`;
 
-  // Dark mode: darken toward black
-  const lightnessDark = Math.max(0.2, 1 - fadeAmount);
-  const darkRGB = `${Math.round(75 * lightnessDark)}, ${Math.round(85 * lightnessDark)}, ${Math.round(99 * lightnessDark)}`;
+    // Dark mode: darken toward black
+    const lightnessDark = Math.max(0.2, 1 - fadeAmount);
+    const darkRGB = `${Math.round(75 * lightnessDark)}, ${Math.round(85 * lightnessDark)}, ${Math.round(99 * lightnessDark)}`;
+
+    return { lightRGB, darkRGB };
+  }, [absOffset]);
 
   return (
     <motion.div
@@ -191,6 +223,9 @@ function Card({ cardNumber, offset, isActive, isDiscarded, onDragEnd }: CardProp
         width: "320px",
         height: "450px",
         zIndex,
+        willChange: "transform",
+        transform: "translateZ(0)",
+        backfaceVisibility: "hidden",
       }}
       initial={false}
       animate={{
@@ -210,20 +245,20 @@ function Card({ cardNumber, offset, isActive, isDiscarded, onDragEnd }: CardProp
       onDragEnd={onDragEnd}
     >
       <div
-        className="w-full h-full rounded-3xl shadow-2xl flex items-center justify-center"
+        className="w-full h-full rounded-3xl shadow-lg md:shadow-2xl flex items-center justify-center"
         style={{
-          backgroundColor: `rgb(${lightRGB})`,
+          backgroundColor: `rgb(${colors.lightRGB})`,
         }}
       >
         {/* Dark mode overlay - fully opaque, just darker color */}
         <div
           className="hidden dark:block absolute inset-0 rounded-3xl"
           style={{
-            backgroundColor: `rgb(${darkRGB})`,
+            backgroundColor: `rgb(${colors.darkRGB})`,
           }}
         />
         <div className="text-8xl font-bold text-white relative z-10">{cardNumber}</div>
       </div>
     </motion.div>
   );
-}
+});
