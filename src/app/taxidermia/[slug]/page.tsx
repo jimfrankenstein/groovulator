@@ -21,7 +21,7 @@ export default async function TaxidermiaSlugPage({ params }: PageProps) {
     }
 
     // Render card carousel at this index
-    return <TaxidermiaCardPage />;
+    return <TaxidermiaCardPage initialCardNumber={cardNumber} />;
   }
 
   // It's a character slug - find character

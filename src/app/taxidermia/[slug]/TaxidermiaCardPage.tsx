@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DarkModeToggle from "../../../components/DarkModeToggle";
 import { usePasswordProtect } from "../../../components/PasswordProtect";
@@ -7,13 +9,45 @@ import { TAXIDERMIA_STORAGE_KEY } from "../TaxidermiaProtection";
 import CardCarousel from "../../../components/CardCarousel";
 import { characters } from "../characters-data";
 
-export default function TaxidermiaCardPage() {
+interface TaxidermiaCardPageProps {
+  initialCardNumber: number;
+}
+
+export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCardPageProps) {
+  const router = useRouter();
   const { logout } = usePasswordProtect(TAXIDERMIA_STORAGE_KEY);
+  const [currentCardNumber, setCurrentCardNumber] = useState(initialCardNumber);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Debounced URL update - only fires 500ms after user stops swiping
+  useEffect(() => {
+    // Clear existing timer
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+
+    // Set new timer
+    debounceTimerRef.current = setTimeout(() => {
+      const newUrl = `/taxidermia/${currentCardNumber}`;
+      router.replace(newUrl, { scroll: false });
+    }, 500);
+
+    // Cleanup
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, [currentCardNumber, router]);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       <main className="mx-auto max-w-full px-0 pt-4 overflow-hidden">
-        <CardCarousel cards={characters} />
+        <CardCarousel
+          cards={characters}
+          initialCardNumber={initialCardNumber}
+          onCardChange={setCurrentCardNumber}
+        />
       </main>
 
       {/* ABOUT */}

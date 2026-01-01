@@ -6,6 +6,8 @@ import type { Character } from "../app/taxidermia/characters-data";
 
 interface CardCarouselProps {
   cards: Character[];
+  initialCardNumber?: number;
+  onCardChange?: (cardNumber: number) => void;
 }
 
 const SWIPE_THRESHOLD = 50;
@@ -14,9 +16,19 @@ const DISCARD_BASE_POSITION = -400;
 const BASE_RADIUS = 700;
 const ANGLE_PER_CARD = 6;
 
-export default function CardCarousel({ cards }: CardCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function CardCarousel({
+  cards,
+  initialCardNumber = 1,
+  onCardChange,
+}: CardCarouselProps) {
+  // Initialize from prop (cardNumber is 1-indexed, currentIndex is 0-indexed)
+  const [currentIndex, setCurrentIndex] = useState(initialCardNumber - 1);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Notify parent when index changes
+  useEffect(() => {
+    onCardChange?.(currentIndex + 1);
+  }, [currentIndex, onCardChange]);
 
   // Detect mobile on mount for performance optimization
   useEffect(() => {
