@@ -12,7 +12,6 @@ interface CardCarouselProps {
 
 const SWIPE_THRESHOLD = 50;
 const DISCARD_SPACING = 80;
-const DISCARD_BASE_POSITION = -400;
 const BASE_RADIUS = 700;
 const ANGLE_PER_CARD = 6;
 
@@ -41,6 +40,11 @@ export default function CardCarousel({
   // Responsive visible range - fewer cards on mobile
   const VISIBLE_RANGE = isMobile ? 3 : 6;
   const DISCARD_RANGE = isMobile ? 2 : 5;
+  
+  // Responsive discard position - keep discarded cards visible on mobile without overlap
+  // Mobile: -300px shows more of discard pile (~60-80px visible) with 14px safety margin
+  // Desktop: -400px (original value) keeps proper spacing
+  const DISCARD_BASE_POSITION = isMobile ? -300 : -400;
 
   // Create a card ID to index map for O(1) lookups
   const cardIndexMap = useMemo(() => {
@@ -124,6 +128,7 @@ export default function CardCarousel({
                 offset={offset}
                 isActive={actualIndex === currentIndex}
                 isDiscarded={isDiscarded}
+                discardBasePosition={DISCARD_BASE_POSITION}
                 onDragEnd={handleDragEnd}
               />
             );
@@ -175,6 +180,7 @@ interface CardProps {
   offset: number;
   isActive: boolean;
   isDiscarded: boolean;
+  discardBasePosition: number;
   onDragEnd: (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => void;
 }
 
@@ -183,6 +189,7 @@ const Card = memo(function Card({
   offset,
   isActive,
   isDiscarded,
+  discardBasePosition,
   onDragEnd,
 }: CardProps) {
   // Calculate position and rotation based on offset for natural card fan arrangement
@@ -192,7 +199,7 @@ const Card = memo(function Card({
 
   if (isDiscarded) {
     // Discarded cards stack up on the left with spacing
-    x = offset * DISCARD_SPACING + DISCARD_BASE_POSITION;
+    x = offset * DISCARD_SPACING + discardBasePosition;
     y = Math.abs(offset) * 15; // Slight vertical stagger
     rotate = -15 + offset * 3; // Slight rotation for discarded pile
     scale = 0.85;
