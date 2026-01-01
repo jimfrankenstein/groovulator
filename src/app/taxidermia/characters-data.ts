@@ -241,3 +241,12 @@ export function getCardNumberFromSlug(slug: string): number | null {
 
   return null;
 }
+
+/**
+ * Determines if a card's back side is in landscape or portrait orientation
+ * @param cardNumber - Card number (1-indexed)
+ * @returns 'landscape' for even cards, 'portrait' for odd cards
+ */
+export function getCardOrientation(cardNumber: number): 'landscape' | 'portrait' {
+  return cardNumber % 2 === 0 ? 'landscape' : 'portrait';
+}

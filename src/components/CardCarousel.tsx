@@ -4,12 +4,16 @@ import { useState, useEffect, useCallback, useMemo, memo } from "react";
 import { motion, PanInfo } from "framer-motion";
 import Image from "next/image";
 import type { Character } from "../app/taxidermia/characters-data";
+import { getCardOrientation } from "../app/taxidermia/characters-data";
 
 interface CardCarouselProps {
   cards: Character[];
   initialCardNumber?: number;
   onCardChange?: (cardNumber: number) => void;
 }
+
+// Type for card state keys - supports both front cards (number) and back cards (string)
+type CardStateKey = number | `${number}-back`;
 
 const SWIPE_THRESHOLD = 50;
 const DISCARD_SPACING = 80;
@@ -26,15 +30,31 @@ export default function CardCarousel({
   const [isMobile, setIsMobile] = useState(false);
 
   // Track which cards have loaded and their load states
-  // Start with empty map - prefetch effect will handle initial loading
-  const [cardStates, setCardStates] = useState<Map<number, "loading" | "loaded" | "error">>(() => {
-    return new Map<number, "loading" | "loaded" | "error">();
-  });
+  const [cardStates, setCardStates] = useState<Map<CardStateKey, "loading" | "loaded" | "error">>(
+    new Map()
+  );
+
+  // Track which cards are flipped (showing back side)
+  const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
 
   // Notify parent when card changes (for share button tracking)
   useEffect(() => {
     onCardChange?.(currentIndex + 1);
   }, [currentIndex, onCardChange]);
+
+  // Auto-reset: flip cards back to front when swiping away
+  useEffect(() => {
+    const activeCardNumber = currentIndex + 1;
+    
+    // Remove all flipped cards except the active one
+    setFlippedCards(prev => {
+      const next = new Set<number>();
+      if (prev.has(activeCardNumber)) {
+        next.add(activeCardNumber);
+      }
+      return next;
+    });
+  }, [currentIndex]);
 
   // Detect mobile using matchMedia API for better performance
   useEffect(() => {
@@ -72,6 +92,22 @@ export default function CardCarousel({
     setCurrentIndex(prev => Math.max(prev - 1, 0));
   }, []);
 
+  const toggleFlip = useCallback((cardNumber: number) => {
+    // Only allow flipping the active card
+    const activeCardNumber = currentIndex + 1;
+    if (cardNumber !== activeCardNumber) return;
+
+    setFlippedCards(prev => {
+      const next = new Set(prev);
+      if (next.has(cardNumber)) {
+        next.delete(cardNumber);
+      } else {
+        next.add(cardNumber);
+      }
+      return next;
+    });
+  }, [currentIndex]);
+
   const handleDragEnd = useCallback(
     (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
       const swipeDistance = info.offset.x;
@@ -101,9 +137,11 @@ export default function CardCarousel({
     };
   }, [goToNext, goToPrevious]);
 
-  // Smart prefetching: Load adjacent cards
+  // Smart prefetching: Load adjacent cards (fronts and backs)
   useEffect(() => {
     const prefetchRange: number[] = [];
+    const prefetchBackRange: number[] = [];
+    
     // Forward-biased: -3 to +4 from current index
     for (let i = currentIndex - 3; i <= currentIndex + 4; i++) {
       const cardNum = i + 1; // Convert to 1-indexed
@@ -112,10 +150,20 @@ export default function CardCarousel({
       }
     }
 
-    if (prefetchRange.length === 0) return;
+    // Prefetch backs only for adjacent cards (current - 1, current, current + 1)
+    for (let i = currentIndex - 1; i <= currentIndex + 1; i++) {
+      const cardNum = i + 1; // Convert to 1-indexed
+      const backKey: CardStateKey = `${cardNum}-back`;
+      if (cardNum >= 1 && cardNum <= cards.length && !cardStates.has(backKey)) {
+        prefetchBackRange.push(cardNum);
+      }
+    }
+
+    if (prefetchRange.length === 0 && prefetchBackRange.length === 0) return;
 
     // Prefetch images on idle to avoid blocking animations
     const prefetchImages = () => {
+      // Prefetch front images
       prefetchRange.forEach(cardNum => {
         const img = new window.Image();
         img.src = `/images/groovulator/taxidermia/cards/${String(cardNum).padStart(2, "0")}.webp`;
@@ -130,6 +178,27 @@ export default function CardCarousel({
           setCardStates(prev => {
             const next = new Map(prev);
             next.set(cardNum, "error");
+            return next;
+          });
+        };
+      });
+
+      // Prefetch back images
+      prefetchBackRange.forEach(cardNum => {
+        const img = new window.Image();
+        img.src = `/images/groovulator/taxidermia/cards/${String(cardNum).padStart(2, "0")}-back.webp`;
+        const backKey: CardStateKey = `${cardNum}-back`;
+        img.onload = () => {
+          setCardStates(prev => {
+            const next = new Map(prev);
+            next.set(backKey, "loaded");
+            return next;
+          });
+        };
+        img.onerror = () => {
+          setCardStates(prev => {
+            const next = new Map(prev);
+            next.set(backKey, "error");
             return next;
           });
         };
@@ -194,8 +263,10 @@ export default function CardCarousel({
                 isDiscarded={isDiscarded}
                 discardBasePosition={discardBasePosition}
                 loadState={cardStates.get(cardNum)}
+                isFlipped={flippedCards.has(cardNum)}
                 onDragEnd={handleDragEnd}
                 onLoadStateChange={handleLoadStateChange}
+                onToggleFlip={toggleFlip}
               />
             );
           })}
@@ -285,8 +356,10 @@ interface CardProps {
   isDiscarded: boolean;
   discardBasePosition: number;
   loadState: "loading" | "loaded" | "error" | undefined;
+  isFlipped: boolean;
   onDragEnd: (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => void;
   onLoadStateChange: (cardNumber: number, state: "loaded" | "error") => void;
+  onToggleFlip: (cardNumber: number) => void;
 }
 
 const Card = memo(function Card({
@@ -296,11 +369,14 @@ const Card = memo(function Card({
   isDiscarded,
   discardBasePosition,
   loadState,
+  isFlipped,
   onDragEnd,
   onLoadStateChange,
+  onToggleFlip,
 }: CardProps) {
   // Calculate position and rotation based on offset for natural card fan arrangement
   const absOffset = Math.abs(offset);
+  const isLandscape = getCardOrientation(cardNumber) === 'landscape';
 
   let x, y, rotate, scale, zIndex;
 
@@ -325,6 +401,12 @@ const Card = memo(function Card({
     zIndex = isActive ? 20 : 10 - absOffset;
   }
 
+  // Add 90° rotation for landscape cards when flipped
+  let rotateZ = rotate;
+  if (isLandscape && isFlipped) {
+    rotateZ = rotate + 90;
+  }
+
   // Calculate image opacity for dimming effect
   const imageOpacity = Math.max(0.3, 1 - absOffset * 0.15);
 
@@ -336,26 +418,27 @@ const Card = memo(function Card({
         height: "448px",
         zIndex,
         willChange: "transform",
-        transform: "translateZ(0)",
-        backfaceVisibility: "hidden",
+        transformStyle: "preserve-3d",
         contain: "layout style paint",
       }}
       initial={false}
       animate={{
         x,
         y,
-        rotate,
+        rotate: rotateZ,
+        rotateY: isFlipped ? 180 : 0,
         scale,
       }}
       transition={{
         type: "spring",
-        stiffness: 300,
-        damping: 30,
+        stiffness: 150,
+        damping: 25,
       }}
       drag={isActive ? "x" : false}
       dragConstraints={{ left: 0, right: 0 }}
       dragElastic={0.2}
       onDragEnd={onDragEnd}
+      onTap={() => onToggleFlip(cardNumber)}
     >
       <div
         className="relative w-full h-full rounded overflow-hidden bg-white dark:bg-black select-none border border-black/10 dark:border-white/10"
@@ -367,8 +450,12 @@ const Card = memo(function Card({
         {loadState === "loaded" ? (
           <>
             <Image
-              src={`/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}.webp`}
-              alt={`Card ${cardNumber}`}
+              src={
+                isFlipped
+                  ? `/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}-back.webp`
+                  : `/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}.webp`
+              }
+              alt={isFlipped ? `Card ${cardNumber} back` : `Card ${cardNumber}`}
               width={640}
               height={896}
               sizes="(max-width: 768px) 320px, 640px"
@@ -377,15 +464,18 @@ const Card = memo(function Card({
               className="object-cover w-full h-full"
               style={{ 
                 opacity: imageOpacity,
-                transition: "opacity 0.3s ease-out"
+                transition: "opacity 0.3s ease-out",
+                transform: isFlipped ? "scaleX(-1)" : "none"
               }}
               draggable={false}
               onError={() => onLoadStateChange(cardNumber, "error")}
             />
             {/* Card number (temporary, centered, charcoal) */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="text-8xl font-bold text-gray-700">{cardNumber}</div>
-            </div>
+            {!isFlipped && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-8xl font-bold text-gray-700">{cardNumber}</div>
+              </div>
+            )}
           </>
         ) : loadState === "error" ? (
           <div
@@ -413,6 +503,9 @@ const Card = memo(function Card({
     prevProps.isActive === nextProps.isActive &&
     prevProps.isDiscarded === nextProps.isDiscarded &&
     prevProps.loadState === nextProps.loadState &&
+    prevProps.isFlipped === nextProps.isFlipped &&
     prevProps.discardBasePosition === nextProps.discardBasePosition
   );
 });
+
+Card.displayName = "Card";
