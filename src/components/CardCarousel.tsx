@@ -20,6 +20,11 @@ const DISCARD_SPACING = 80;
 const BASE_RADIUS = 700;
 const ANGLE_PER_CARD = 6;
 
+// Flip animation timing constants
+const FLIP_DURATION = 0.6; // seconds
+const FLIP_SWAP_PERCENTAGE = 0.35; // swap at 35% (when card is at 90°)
+const FLIP_SWAP_DELAY = FLIP_DURATION * FLIP_SWAP_PERCENTAGE * 1000; // 210ms
+
 export default function CardCarousel({
   cards,
   initialCardNumber = 1,
@@ -45,7 +50,7 @@ export default function CardCarousel({
   // Auto-reset: flip cards back to front when swiping away
   useEffect(() => {
     const activeCardNumber = currentIndex + 1;
-    
+
     // Remove all flipped cards except the active one
     setFlippedCards(prev => {
       const next = new Set<number>();
@@ -92,21 +97,24 @@ export default function CardCarousel({
     setCurrentIndex(prev => Math.max(prev - 1, 0));
   }, []);
 
-  const toggleFlip = useCallback((cardNumber: number) => {
-    // Only allow flipping the active card
-    const activeCardNumber = currentIndex + 1;
-    if (cardNumber !== activeCardNumber) return;
+  const toggleFlip = useCallback(
+    (cardNumber: number) => {
+      // Only allow flipping the active card
+      const activeCardNumber = currentIndex + 1;
+      if (cardNumber !== activeCardNumber) return;
 
-    setFlippedCards(prev => {
-      const next = new Set(prev);
-      if (next.has(cardNumber)) {
-        next.delete(cardNumber);
-      } else {
-        next.add(cardNumber);
-      }
-      return next;
-    });
-  }, [currentIndex]);
+      setFlippedCards(prev => {
+        const next = new Set(prev);
+        if (next.has(cardNumber)) {
+          next.delete(cardNumber);
+        } else {
+          next.add(cardNumber);
+        }
+        return next;
+      });
+    },
+    [currentIndex]
+  );
 
   const handleDragEnd = useCallback(
     (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
@@ -141,7 +149,8 @@ export default function CardCarousel({
   useEffect(() => {
     const prefetchRange: number[] = [];
     const prefetchBackRange: number[] = [];
-    
+    const priorityBackRange: number[] = []; // HIGH PRIORITY: Current card back
+
     // Forward-biased: -3 to +4 from current index
     for (let i = currentIndex - 3; i <= currentIndex + 4; i++) {
       const cardNum = i + 1; // Convert to 1-indexed
@@ -150,18 +159,53 @@ export default function CardCarousel({
       }
     }
 
-    // Prefetch backs only for adjacent cards (current - 1, current, current + 1)
+    // Prefetch backs for adjacent cards (current - 1, current, current + 1)
     for (let i = currentIndex - 1; i <= currentIndex + 1; i++) {
       const cardNum = i + 1; // Convert to 1-indexed
       const backKey: CardStateKey = `${cardNum}-back`;
       if (cardNum >= 1 && cardNum <= cards.length && !cardStates.has(backKey)) {
-        prefetchBackRange.push(cardNum);
+        // Current card back is priority
+        if (i === currentIndex) {
+          priorityBackRange.push(cardNum);
+        } else {
+          prefetchBackRange.push(cardNum);
+        }
       }
     }
 
+    // PRIORITY: Load current card back immediately (no delay)
+    priorityBackRange.forEach(cardNum => {
+      const backKey: CardStateKey = `${cardNum}-back`;
+
+      // Mark as loading immediately to prevent race conditions
+      setCardStates(prev => {
+        if (prev.has(backKey)) return prev; // Already handled
+        const next = new Map(prev);
+        next.set(backKey, "loading");
+        return next;
+      });
+
+      const img = new window.Image();
+      img.src = `/images/groovulator/taxidermia/cards/${String(cardNum).padStart(2, "0")}-back.webp`;
+      img.onload = () => {
+        setCardStates(prev => {
+          const next = new Map(prev);
+          next.set(backKey, "loaded");
+          return next;
+        });
+      };
+      img.onerror = () => {
+        setCardStates(prev => {
+          const next = new Map(prev);
+          next.set(backKey, "error");
+          return next;
+        });
+      };
+    });
+
     if (prefetchRange.length === 0 && prefetchBackRange.length === 0) return;
 
-    // Prefetch images on idle to avoid blocking animations
+    // Prefetch other images on idle to avoid blocking animations
     const prefetchImages = () => {
       // Prefetch front images
       prefetchRange.forEach(cardNum => {
@@ -183,7 +227,7 @@ export default function CardCarousel({
         };
       });
 
-      // Prefetch back images
+      // Prefetch adjacent back images (not current)
       prefetchBackRange.forEach(cardNum => {
         const img = new window.Image();
         img.src = `/images/groovulator/taxidermia/cards/${String(cardNum).padStart(2, "0")}-back.webp`;
@@ -206,14 +250,16 @@ export default function CardCarousel({
     };
 
     // Use requestIdleCallback if available, otherwise fallback to setTimeout
-    if ('requestIdleCallback' in window) {
+    if ("requestIdleCallback" in window) {
       const idleCallbackId = requestIdleCallback(prefetchImages);
       return () => cancelIdleCallback(idleCallbackId);
     } else {
       const timer = setTimeout(prefetchImages, 100);
       return () => clearTimeout(timer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, cards.length]);
+  // Note: cardStates intentionally omitted - only prefetch on navigation, not on every image load
 
   // Callback for when card load state changes
   const handleLoadStateChange = useCallback((cardNumber: number, state: "loaded" | "error") => {
@@ -329,9 +375,9 @@ function PlaceholderCard({ opacity }: { opacity: number }) {
     <div
       className="relative w-full h-full rounded bg-gray-100 dark:bg-gray-900 
                  flex items-center justify-center"
-      style={{ 
+      style={{
         opacity,
-        transition: "opacity 0.3s ease-out"
+        transition: "opacity 0.3s ease-out",
       }}
     >
       <Image
@@ -362,150 +408,182 @@ interface CardProps {
   onToggleFlip: (cardNumber: number) => void;
 }
 
-const Card = memo(function Card({
-  cardNumber,
-  offset,
-  isActive,
-  isDiscarded,
-  discardBasePosition,
-  loadState,
-  isFlipped,
-  onDragEnd,
-  onLoadStateChange,
-  onToggleFlip,
-}: CardProps) {
-  // Calculate position and rotation based on offset for natural card fan arrangement
-  const absOffset = Math.abs(offset);
-  const isLandscape = getCardOrientation(cardNumber) === 'landscape';
+const Card = memo(
+  function Card({
+    cardNumber,
+    offset,
+    isActive,
+    isDiscarded,
+    discardBasePosition,
+    loadState,
+    isFlipped,
+    onDragEnd,
+    onLoadStateChange,
+    onToggleFlip,
+  }: CardProps) {
+    // Track the displayed side with a delay for smooth flip
+    const [displayedSide, setDisplayedSide] = useState<"front" | "back">(
+      isFlipped ? "back" : "front"
+    );
 
-  let x, y, rotate, scale, zIndex;
+    // Update displayed side when flip state changes, with timing to match animation
+    useEffect(() => {
+      if (isFlipped && displayedSide === "front") {
+        // Flip to back: swap at 35% of animation duration (when card is at 90°)
+        const timer = setTimeout(() => setDisplayedSide("back"), FLIP_SWAP_DELAY);
+        return () => clearTimeout(timer);
+      } else if (!isFlipped && displayedSide === "back") {
+        // Flip to front: swap at 35% of animation duration
+        const timer = setTimeout(() => setDisplayedSide("front"), FLIP_SWAP_DELAY);
+        return () => clearTimeout(timer);
+      }
+    }, [isFlipped, displayedSide]);
 
-  if (isDiscarded) {
-    // Discarded cards stack up on the left with spacing
-    x = offset * DISCARD_SPACING + discardBasePosition;
-    y = Math.abs(offset) * 15; // Slight vertical stagger
-    rotate = -15 + offset * 3; // Slight rotation for discarded pile
-    scale = 0.85;
-    // Keep the most recently discarded card (offset === -1) on top during transition
-    zIndex = offset === -1 ? 25 : 5 + offset;
-  } else {
-    // Active and upcoming cards fan out naturally to the right following an arc
-    const angle = offset * ANGLE_PER_CARD;
-    const angleRad = (angle * Math.PI) / 180;
+    // Calculate position and rotation based on offset for natural card fan arrangement
+    const absOffset = Math.abs(offset);
+    const isLandscape = getCardOrientation(cardNumber) === "landscape";
 
-    x = Math.sin(angleRad) * BASE_RADIUS;
-    // Create a natural downward arc - cards progressively lower as they go right
-    y = offset > 0 ? Math.pow(offset, 1.5) * 20 : 0;
-    rotate = angle;
-    scale = isActive ? 1 : 0.92;
-    zIndex = isActive ? 20 : 10 - absOffset;
-  }
+    let x, y, rotate, scale, zIndex;
 
-  // Add 90° rotation for landscape cards when flipped
-  let rotateZ = rotate;
-  if (isLandscape && isFlipped) {
-    rotateZ = rotate + 90;
-  }
+    if (isDiscarded) {
+      // Discarded cards stack up on the left with spacing
+      x = offset * DISCARD_SPACING + discardBasePosition;
+      y = Math.abs(offset) * 15; // Slight vertical stagger
+      rotate = -15 + offset * 3; // Slight rotation for discarded pile
+      scale = 0.85;
+      // Keep the most recently discarded card (offset === -1) on top during transition
+      zIndex = offset === -1 ? 25 : 5 + offset;
+    } else {
+      // Active and upcoming cards fan out naturally to the right following an arc
+      const angle = offset * ANGLE_PER_CARD;
+      const angleRad = (angle * Math.PI) / 180;
 
-  // Calculate image opacity for dimming effect
-  const imageOpacity = Math.max(0.3, 1 - absOffset * 0.15);
+      x = Math.sin(angleRad) * BASE_RADIUS;
+      // Create a natural downward arc - cards progressively lower as they go right
+      y = offset > 0 ? Math.pow(offset, 1.5) * 20 : 0;
+      rotate = angle;
+      scale = isActive ? 1 : 0.92;
+      zIndex = isActive ? 20 : 10 - absOffset;
+    }
 
-  return (
-    <motion.div
-      className="absolute cursor-grab active:cursor-grabbing select-none"
-      style={{
-        width: "320px",
-        height: "448px",
-        zIndex,
-        willChange: "transform",
-        transformStyle: "preserve-3d",
-        contain: "layout style paint",
-      }}
-      initial={false}
-      animate={{
-        x,
-        y,
-        rotate: rotateZ,
-        rotateY: isFlipped ? 180 : 0,
-        scale,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 150,
-        damping: 25,
-      }}
-      drag={isActive ? "x" : false}
-      dragConstraints={{ left: 0, right: 0 }}
-      dragElastic={0.2}
-      onDragEnd={onDragEnd}
-      onTap={() => onToggleFlip(cardNumber)}
-    >
-      <div
-        className="relative w-full h-full rounded overflow-hidden bg-white dark:bg-black select-none border border-black/10 dark:border-white/10"
+    // Add 90° rotation for landscape cards when flipped
+    let rotateZ = rotate;
+    if (isLandscape && isFlipped) {
+      rotateZ = rotate + 90;
+    }
+
+    // Calculate scale for flipped state - landscape cards need more reduction
+    const flippedScale = isFlipped ? (isLandscape ? scale * 0.85 : scale * 0.97) : scale;
+
+    // Calculate image opacity for dimming effect
+    const imageOpacity = Math.max(0.3, 1 - absOffset * 0.15);
+
+    return (
+      <motion.div
+        className="absolute cursor-grab active:cursor-grabbing select-none"
         style={{
-          boxShadow:
-            "0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 5px 15px -5px rgba(0, 0, 0, 0.2), 0 2px 5px -2px rgba(0, 0, 0, 0.15)",
+          width: "320px",
+          height: "448px",
+          zIndex,
+          willChange: "transform",
+          transformStyle: "preserve-3d",
+          contain: "layout style paint",
+          WebkitFontSmoothing: "antialiased",
+          MozOsxFontSmoothing: "grayscale",
+          perspective: 1000,
         }}
+        initial={false}
+        animate={{
+          x,
+          y: isFlipped ? y - 15 : y,
+          rotate: rotateZ,
+          rotateY: isFlipped ? 180 : 0,
+          rotateX: isFlipped ? 3 : 0,
+          scale: flippedScale,
+        }}
+        transition={{
+          type: "tween",
+          duration: FLIP_DURATION,
+          ease: [0.4, 0, 0.2, 1],
+        }}
+        drag={isActive ? "x" : false}
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.2}
+        onDragEnd={onDragEnd}
+        onTap={() => onToggleFlip(cardNumber)}
       >
-        {loadState === "loaded" ? (
-          <>
-            <Image
-              src={
-                isFlipped
-                  ? `/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}-back.webp`
-                  : `/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}.webp`
-              }
-              alt={isFlipped ? `Card ${cardNumber} back` : `Card ${cardNumber}`}
-              width={640}
-              height={896}
-              sizes="(max-width: 768px) 320px, 640px"
-              quality={85}
-              priority={isActive || Math.abs(offset) <= 1}
-              className="object-cover w-full h-full"
-              style={{ 
+        <div
+          className="relative w-full h-full rounded overflow-hidden bg-white dark:bg-black select-none border border-black/10 dark:border-white/10"
+          style={{
+            boxShadow:
+              "0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 5px 15px -5px rgba(0, 0, 0, 0.2), 0 2px 5px -2px rgba(0, 0, 0, 0.15)",
+          }}
+        >
+          {loadState === "loaded" ? (
+            <>
+              <Image
+                src={
+                  displayedSide === "back"
+                    ? `/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}-back.webp`
+                    : `/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}.webp`
+                }
+                alt={displayedSide === "back" ? `Card ${cardNumber} back` : `Card ${cardNumber}`}
+                width={640}
+                height={896}
+                sizes="(max-width: 768px) 320px, 640px"
+                quality={85}
+                priority={isActive || Math.abs(offset) <= 1}
+                className="object-cover w-full h-full"
+                style={{
+                  opacity: imageOpacity,
+                  transition: "opacity 0.3s ease-out",
+                  transform: displayedSide === "back" ? "scaleX(-1)" : "none",
+                  imageRendering: "crisp-edges",
+                  WebkitFontSmoothing: "antialiased",
+                }}
+                draggable={false}
+                onError={() => onLoadStateChange(cardNumber, "error")}
+              />
+              {/* Card number (temporary, centered, charcoal) */}
+              {displayedSide === "front" && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="text-8xl font-bold text-gray-700">{cardNumber}</div>
+                </div>
+              )}
+            </>
+          ) : loadState === "error" ? (
+            <div
+              className="flex items-center justify-center h-full"
+              style={{
                 opacity: imageOpacity,
                 transition: "opacity 0.3s ease-out",
-                transform: isFlipped ? "scaleX(-1)" : "none"
               }}
-              draggable={false}
-              onError={() => onLoadStateChange(cardNumber, "error")}
-            />
-            {/* Card number (temporary, centered, charcoal) */}
-            {!isFlipped && (
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-8xl font-bold text-gray-700">{cardNumber}</div>
+            >
+              <div className="text-2xl font-bold text-gray-700 text-center px-4">
+                Error loading card
               </div>
-            )}
-          </>
-        ) : loadState === "error" ? (
-          <div
-            className="flex items-center justify-center h-full"
-            style={{ 
-              opacity: imageOpacity,
-              transition: "opacity 0.3s ease-out"
-            }}
-          >
-            <div className="text-2xl font-bold text-gray-700 text-center px-4">
-              Error loading card
             </div>
-          </div>
-        ) : (
-          <PlaceholderCard opacity={imageOpacity} />
-        )}
-      </div>
-    </motion.div>
-  );
-}, (prevProps, nextProps) => {
-  // Only re-render if these specific props change
-  return (
-    prevProps.cardNumber === nextProps.cardNumber &&
-    prevProps.offset === nextProps.offset &&
-    prevProps.isActive === nextProps.isActive &&
-    prevProps.isDiscarded === nextProps.isDiscarded &&
-    prevProps.loadState === nextProps.loadState &&
-    prevProps.isFlipped === nextProps.isFlipped &&
-    prevProps.discardBasePosition === nextProps.discardBasePosition
-  );
-});
+          ) : (
+            <PlaceholderCard opacity={imageOpacity} />
+          )}
+        </div>
+      </motion.div>
+    );
+  },
+  (prevProps, nextProps) => {
+    // Custom comparison to prevent unnecessary re-renders
+    // NOTE: Parent must memoize callbacks (onDragEnd, onLoadStateChange, onToggleFlip)
+    // to prevent re-renders due to callback reference changes
+    return (
+      prevProps.cardNumber === nextProps.cardNumber &&
+      prevProps.offset === nextProps.offset &&
+      prevProps.isActive === nextProps.isActive &&
+      prevProps.isDiscarded === nextProps.isDiscarded &&
+      prevProps.loadState === nextProps.loadState &&
+      prevProps.isFlipped === nextProps.isFlipped &&
+      prevProps.discardBasePosition === nextProps.discardBasePosition
+    );
+  }
+);
 
 Card.displayName = "Card";
