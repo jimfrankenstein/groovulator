@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
 import DarkModeToggle from "../../../components/DarkModeToggle";
 import { usePasswordProtect } from "../../../components/PasswordProtect";
@@ -14,31 +13,21 @@ interface TaxidermiaCardPageProps {
 }
 
 export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCardPageProps) {
-  const router = useRouter();
   const { logout } = usePasswordProtect(TAXIDERMIA_STORAGE_KEY);
   const [currentCardNumber, setCurrentCardNumber] = useState(initialCardNumber);
-  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const [copySuccess, setCopySuccess] = useState(false);
 
-  // Debounced URL update - only fires 500ms after user stops swiping
-  useEffect(() => {
-    // Clear existing timer
-    if (debounceTimerRef.current) {
-      clearTimeout(debounceTimerRef.current);
+  const handleShare = async () => {
+    const shareUrl = `${window.location.origin}/taxidermia/${currentCardNumber}`;
+
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy URL:", err);
     }
-
-    // Set new timer
-    debounceTimerRef.current = setTimeout(() => {
-      const newUrl = `/taxidermia/${currentCardNumber}`;
-      router.replace(newUrl, { scroll: false });
-    }, 500);
-
-    // Cleanup
-    return () => {
-      if (debounceTimerRef.current) {
-        clearTimeout(debounceTimerRef.current);
-      }
-    };
-  }, [currentCardNumber, router]);
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
@@ -81,6 +70,13 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
               ← Back to Groovulator
             </Link>
             <div className="flex gap-3 items-center">
+              <button
+                onClick={handleShare}
+                className="text-sm opacity-70 hover:opacity-100 transition-opacity underline"
+                aria-label="Share current card"
+              >
+                {copySuccess ? "Copied!" : "Share"}
+              </button>
               <button
                 onClick={logout}
                 className="text-sm opacity-70 hover:opacity-100 transition-opacity underline"

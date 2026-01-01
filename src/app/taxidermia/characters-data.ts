@@ -9,6 +9,7 @@ export interface Character {
     speed: number;
     defense: number;
   };
+  cardNumber?: number;
 }
 
 export const characters: Character[] = [
@@ -215,3 +216,28 @@ export const characters: Character[] = [
 ];
 
 export const validSlugs = characters.map(char => char.id);
+
+/**
+ * Resolves a slug to a card number (1-indexed)
+ * @param slug - Either a numeric string ("14") or a character id ("the-rabbit")
+ * @returns Card number (1-25) or null if invalid
+ */
+export function getCardNumberFromSlug(slug: string): number | null {
+  // Check if slug is numeric
+  const numericValue = parseInt(slug, 10);
+  if (!isNaN(numericValue)) {
+    // Validate it's in range
+    if (numericValue >= 1 && numericValue <= characters.length) {
+      return numericValue;
+    }
+    return null;
+  }
+
+  // Check if slug is a character id with an assigned card number
+  const character = characters.find(c => c.id === slug);
+  if (character?.cardNumber) {
+    return character.cardNumber;
+  }
+
+  return null;
+}

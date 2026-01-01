@@ -1,8 +1,7 @@
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
-import TaxidermiaCharacterContent from "./TaxidermiaCharacterContent";
 import TaxidermiaCardPage from "./TaxidermiaCardPage";
-import { characters } from "../characters-data";
+import { characters, getCardNumberFromSlug } from "../characters-data";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -11,27 +10,16 @@ interface PageProps {
 export default async function TaxidermiaSlugPage({ params }: PageProps) {
   const { slug } = await params;
 
-  // Check if slug is a number (card index)
-  const cardNumber = parseInt(slug, 10);
+  // Resolve slug to card number (handles both numeric and named slugs)
+  const cardNumber = getCardNumberFromSlug(slug);
 
-  if (!isNaN(cardNumber)) {
-    // It's a card number - validate range
-    if (cardNumber < 1 || cardNumber > characters.length) {
-      redirect("/taxidermia/1");
-    }
-
-    // Render card carousel at this index
-    return <TaxidermiaCardPage initialCardNumber={cardNumber} />;
+  if (!cardNumber) {
+    // Invalid slug - redirect to card 1
+    redirect("/taxidermia/1");
   }
 
-  // It's a character slug - find character
-  const character = characters.find(c => c.id === slug);
-
-  if (!character) {
-    notFound();
-  }
-
-  return <TaxidermiaCharacterContent character={character} />;
+  // Render card carousel at this card number
+  return <TaxidermiaCardPage initialCardNumber={cardNumber} />;
 }
 
 export async function generateStaticParams() {
@@ -49,21 +37,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const cardNumber = parseInt(slug, 10);
 
-  if (!isNaN(cardNumber)) {
-    const character = characters[cardNumber - 1];
+  // Resolve slug to card number
+  const cardNumber = getCardNumberFromSlug(slug);
+
+  if (!cardNumber) {
     return {
-      title: character
-        ? `Card ${cardNumber}: ${character.title} | Taxidermia`
-        : "Taxidermia Cards | Groovulator",
-      description: character?.description || "Explore the Taxidermia trading card collection",
+      title: "Taxidermia | Groovulator",
+      description: "Explore the Taxidermia trading card collection",
     };
   }
 
-  const character = characters.find(c => c.id === slug);
+  const character = characters[cardNumber - 1];
   return {
-    title: character ? `${character.title} - Taxidermia | Groovulator` : "Taxidermia | Groovulator",
-    description: character?.description || "Explore the world of Taxidermia characters",
+    title: character
+      ? `Card ${cardNumber}: ${character.title} | Taxidermia`
+      : "Taxidermia Cards | Groovulator",
+    description: character?.description || "Explore the Taxidermia trading card collection",
   };
 }
