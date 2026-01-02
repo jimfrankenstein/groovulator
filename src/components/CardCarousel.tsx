@@ -300,6 +300,7 @@ export default function CardCarousel({
             const isDiscarded = actualIndex < currentIndex;
 
             const cardNum = cardIndexMap.get(card.id) ?? 0;
+            const backKey: CardStateKey = `${cardNum}-back`;
             return (
               <Card
                 key={card.id}
@@ -309,6 +310,7 @@ export default function CardCarousel({
                 isDiscarded={isDiscarded}
                 discardBasePosition={discardBasePosition}
                 loadState={cardStates.get(cardNum)}
+                backLoadState={cardStates.get(backKey)}
                 isFlipped={flippedCards.has(cardNum)}
                 onDragEnd={handleDragEnd}
                 onLoadStateChange={handleLoadStateChange}
@@ -402,6 +404,7 @@ interface CardProps {
   isDiscarded: boolean;
   discardBasePosition: number;
   loadState: "loading" | "loaded" | "error" | undefined;
+  backLoadState: "loading" | "loaded" | "error" | undefined;
   isFlipped: boolean;
   onDragEnd: (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => void;
   onLoadStateChange: (cardNumber: number, state: "loaded" | "error") => void;
@@ -416,28 +419,27 @@ const Card = memo(
     isDiscarded,
     discardBasePosition,
     loadState,
+    backLoadState,
     isFlipped,
     onDragEnd,
     onLoadStateChange,
     onToggleFlip,
   }: CardProps) {
-    // Track the displayed side with a delay for smooth flip
-    const [displayedSide, setDisplayedSide] = useState<"front" | "back">(
-      isFlipped ? "back" : "front"
-    );
+    // Track which side should be visible with a delay for smooth flip
+    const [showBack, setShowBack] = useState(isFlipped);
 
-    // Update displayed side when flip state changes, with timing to match animation
+    // Update visibility when flip state changes, with timing to match animation
     useEffect(() => {
-      if (isFlipped && displayedSide === "front") {
-        // Flip to back: swap at 35% of animation duration (when card is at 90°)
-        const timer = setTimeout(() => setDisplayedSide("back"), FLIP_SWAP_DELAY);
+      if (isFlipped && !showBack) {
+        // Flip to back: show back at 35% of animation duration (when card is at 90°)
+        const timer = setTimeout(() => setShowBack(true), FLIP_SWAP_DELAY);
         return () => clearTimeout(timer);
-      } else if (!isFlipped && displayedSide === "back") {
-        // Flip to front: swap at 35% of animation duration
-        const timer = setTimeout(() => setDisplayedSide("front"), FLIP_SWAP_DELAY);
+      } else if (!isFlipped && showBack) {
+        // Flip to front: show front at 35% of animation duration
+        const timer = setTimeout(() => setShowBack(false), FLIP_SWAP_DELAY);
         return () => clearTimeout(timer);
       }
-    }, [isFlipped, displayedSide]);
+    }, [isFlipped, showBack]);
 
     // Calculate position and rotation based on offset for natural card fan arrangement
     const absOffset = Math.abs(offset);
@@ -521,13 +523,10 @@ const Card = memo(
         >
           {loadState === "loaded" ? (
             <>
+              {/* Front image */}
               <Image
-                src={
-                  displayedSide === "back"
-                    ? `/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}-back.webp`
-                    : `/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}.webp`
-                }
-                alt={displayedSide === "back" ? `Card ${cardNumber} back` : `Card ${cardNumber}`}
+                src={`/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}.webp`}
+                alt={`Card ${cardNumber}`}
                 width={640}
                 height={896}
                 sizes="(max-width: 768px) 320px, 640px"
@@ -535,17 +534,45 @@ const Card = memo(
                 priority={isActive || Math.abs(offset) <= 1}
                 className="object-cover w-full h-full"
                 style={{
-                  opacity: imageOpacity,
-                  transition: "opacity 0.3s ease-out",
-                  transform: displayedSide === "back" ? "scaleX(-1)" : "none",
+                  position: "absolute",
+                  inset: 0,
+                  opacity: showBack ? 0 : imageOpacity,
+                  transition: isActive ? "none" : "opacity 0.3s ease-out",
                   imageRendering: "crisp-edges",
                   WebkitFontSmoothing: "antialiased",
+                  pointerEvents: showBack ? "none" : "auto",
                 }}
                 draggable={false}
                 onError={() => onLoadStateChange(cardNumber, "error")}
               />
-              {/* Card number (temporary, centered, charcoal) */}
-              {displayedSide === "front" && (
+              
+              {/* Back image - only render if loaded or loading */}
+              {(backLoadState === "loaded" || backLoadState === "loading") && (
+                <Image
+                  src={`/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}-back.webp`}
+                  alt={`Card ${cardNumber} back`}
+                  width={640}
+                  height={896}
+                  sizes="(max-width: 768px) 320px, 640px"
+                  quality={85}
+                  priority={isActive || Math.abs(offset) <= 1}
+                  className="object-cover w-full h-full"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    opacity: showBack ? imageOpacity : 0,
+                    transition: isActive ? "none" : "opacity 0.3s ease-out",
+                    transform: "scaleX(-1)",
+                    imageRendering: "crisp-edges",
+                    WebkitFontSmoothing: "antialiased",
+                    pointerEvents: showBack ? "auto" : "none",
+                  }}
+                  draggable={false}
+                />
+              )}
+              
+              {/* Card number (temporary, centered, charcoal) - only show on front */}
+              {!showBack && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="text-8xl font-bold text-gray-700">{cardNumber}</div>
                 </div>
@@ -580,6 +607,7 @@ const Card = memo(
       prevProps.isActive === nextProps.isActive &&
       prevProps.isDiscarded === nextProps.isDiscarded &&
       prevProps.loadState === nextProps.loadState &&
+      prevProps.backLoadState === nextProps.backLoadState &&
       prevProps.isFlipped === nextProps.isFlipped &&
       prevProps.discardBasePosition === nextProps.discardBasePosition
     );
