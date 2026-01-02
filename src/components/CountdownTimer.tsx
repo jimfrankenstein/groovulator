@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 
 interface CountdownTimerProps {
   releaseDate: string; // Format: "YYYY-MM-DD"
+  headerFont?: string; // Custom font for countdown display (defaults to "monoton")
 }
 
-export default function CountdownTimer({ releaseDate }: CountdownTimerProps) {
+export default function CountdownTimer({ releaseDate, headerFont = "monoton" }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -70,12 +71,8 @@ export default function CountdownTimer({ releaseDate }: CountdownTimerProps) {
           <div className="text-center mb-6">
             <div
               className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2"
-              style={{ fontFamily: "var(--font-monoton)" }}
             >
               Releasing {formatDate(releaseDate)}
-            </div>
-            <div className="text-lg md:text-xl text-black dark:text-white tracking-wide">
-              LIMITED EDITION
             </div>
             <div className="text-sm text-black dark:text-white mt-1 opacity-70">
               COMING TO ALL MAJOR STREAMING PLATFORMS
@@ -87,7 +84,6 @@ export default function CountdownTimer({ releaseDate }: CountdownTimerProps) {
             <div className="text-center bg-gray-100 dark:bg-gray-800 rounded-lg p-3 border-2 border-black dark:border-white shadow-inner">
               <div
                 className="text-3xl md:text-4xl font-bold text-black dark:text-white"
-                style={{ fontFamily: "var(--font-monoton)" }}
               >
                 {timeLeft.days}
               </div>
@@ -98,7 +94,6 @@ export default function CountdownTimer({ releaseDate }: CountdownTimerProps) {
             <div className="text-center bg-gray-100 dark:bg-gray-800 rounded-lg p-3 border-2 border-black dark:border-white shadow-inner">
               <div
                 className="text-3xl md:text-4xl font-bold text-black dark:text-white"
-                style={{ fontFamily: "var(--font-monoton)" }}
               >
                 {timeLeft.hours}
               </div>
@@ -109,7 +104,6 @@ export default function CountdownTimer({ releaseDate }: CountdownTimerProps) {
             <div className="text-center bg-gray-100 dark:bg-gray-800 rounded-lg p-3 border-2 border-black dark:border-white shadow-inner">
               <div
                 className="text-3xl md:text-4xl font-bold text-black dark:text-white"
-                style={{ fontFamily: "var(--font-monoton)" }}
               >
                 {timeLeft.minutes}
               </div>
@@ -120,20 +114,12 @@ export default function CountdownTimer({ releaseDate }: CountdownTimerProps) {
             <div className="text-center bg-gray-100 dark:bg-gray-800 rounded-lg p-3 border-2 border-black dark:border-white shadow-inner">
               <div
                 className="text-3xl md:text-4xl font-bold text-black dark:text-white"
-                style={{ fontFamily: "var(--font-monoton)" }}
               >
                 {timeLeft.seconds}
               </div>
               <div className="text-xs font-semibold text-black dark:text-white tracking-wider uppercase">
                 Seconds
               </div>
-            </div>
-          </div>
-
-          {/* Vintage footer */}
-          <div className="text-center mt-4">
-            <div className="text-xs text-black dark:text-white tracking-widest opacity-70">
-              ORIGINAL • QUALITY • 1955
             </div>
           </div>
         </div>

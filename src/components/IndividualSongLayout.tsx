@@ -73,7 +73,7 @@ export default function IndividualSongLayout({
                 <p className="text-lg opacity-80 mb-4">{song.collabArtists.join(", ")}</p>
               )}
               <p
-                className="text-lg opacity-80 mb-6 leading-relaxed"
+                className="text-lg opacity-80 mb-6 leading-relaxed [&_a]:underline [&_a]:text-pink-700 dark:[&_a]:text-yellow-300 [&_a]:hover:text-pink-800 dark:[&_a]:hover:text-yellow-300/80 [&_a]:active:text-pink-900 dark:[&_a]:active:text-yellow-400 [&_a]:focus:outline-none [&_a]:focus:ring-2 [&_a]:focus:ring-pink-700 dark:[&_a]:focus:ring-yellow-300 [&_a]:transition-colors"
                 dangerouslySetInnerHTML={{ __html: song.description }}
               />
               {song.albumLink && (
@@ -210,7 +210,7 @@ export default function IndividualSongLayout({
                 </div>
               </div>
             ) : (
-              <CountdownTimer releaseDate={song.releaseDate} />
+              <CountdownTimer releaseDate={song.releaseDate} headerFont={song.headerFont} />
             )}
           </div>
         </section>
