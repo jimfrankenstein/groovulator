@@ -7,19 +7,19 @@ export const songs: Song[] = [
     title: "Hey Frogman (Grass and Water)",
     description:
       "Featured in the 2026 film <a href='https://www.imdb.com/title/tt34333434/?ref_=nv_sr_srsg_0_tt_2_nm_0_in_0_q_frogman%2520returns' target='_blank'><em>Frogman Returns</em></a> by <a href='https://www.instagram.com/cousins_anthony' target='_blank'>Anthony Cousins</a>. A surreal meditation on loneliness, connection, and the boiling pot we're all in. From late-night amphibian encounters to contemplations of violence in the bog, this alt-rock odyssey explores what happens when you're looking for a friend in all the wrong places... including a frog you met at 3am.",
-    spotifyId: "placeholder",
+    spotifyId: "6t4KaXHZ2daNPnBWIc9j6B",
     releaseDate: "2026-01-09",
     songType: "single",
-    appleMusicLink: "https://music.apple.com/placeholder",
-    amazonMusicLink: "https://music.amazon.com/placeholder",
-    youtubeLink: "https://youtu.be/placeholder",
-    youtubeMusicLink: "https://music.youtube.com/playlist?list=placeholder",
+    appleMusicLink: "https://music.apple.com/us/song/hey-frogman-grass-and-water/1863805354",
+    amazonMusicLink: "https://music.amazon.com/albums/B0GC7SRFM2",
+    youtubeLink: "https://youtu.be/U0k7cHkcnVA",
+    youtubeMusicLink: "https://music.youtube.com/playlist?list=OLAK5uy_njZ88pWNrOEDLd-vRpkwIiCjBVu3vUQEA&si=ifguroEyXqW2JukN",
     lyrics: `#### Verse 1
 At 3am I'd had a long night
 I swear I saw you in the moonlight
 My heart it jumped gave me a soft fright
-Maybe the swamp gas thought that you might
-Be the type of friend to understand the voices through dense fog in my head
+Maybe it's the swamp gas, but I thought that you might
+Be the type of friend to understand the voices through the dense fog in my head
 
 #### Chorus
 Hey Frogman, do you wanna hop along with me
@@ -30,8 +30,8 @@ There's got to be more than this tiny patch of grass and water
 #### Verse 2
 Can't simply be some missed connection
 I'll bend a knee in genuflection
-And bare witness to this confession
-See you're kind of like my own reflection 
+And bear witness to this confession
+See, you're kind of like my own reflection 
 You and me the same but mirrored, split, divided
 Also you're a frog
 
@@ -45,7 +45,7 @@ There's got to be more than this tiny patch of grass and water
 Hey Frogman - read by blog man
 It makes a lotta sense - I think we'd get along, man
 
-I've been wonderin' - you a dog man
+I've been wondering - are you a dog man?
 Do you wanna jump a dude - in the fog man
 
 Run him over - on a jog man
