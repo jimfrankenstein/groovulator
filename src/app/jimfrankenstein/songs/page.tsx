@@ -2,8 +2,11 @@ import { songs } from "./songs";
 import { collaborations } from "../../collaborations/collaborations";
 import SongsListLayout from "../../../components/SongsListLayout";
 import { ArtistConfig } from "../../constants/types";
+import { getCurrentArtistSlug, artistHref } from "@/lib/urls";
 
-export default function JimFrankensteinSongsPage() {
+export default async function JimFrankensteinSongsPage() {
+  const currentArtist = await getCurrentArtistSlug();
+
   const allSongs = [
     ...songs.map(song => ({ ...song, artist: "Jim Frankenstein" })),
     ...collaborations.map(song => ({ ...song, artist: "Collaboration" })),
@@ -14,7 +17,7 @@ export default function JimFrankensteinSongsPage() {
     displayName: "JIM FRANKENSTEIN",
     slug: "jimfrankenstein",
     socialLinks: ["instagram", "spotify", "youtube", "email"],
-    homeLink: "https://jimfrankenstein.com",
+    homeLink: artistHref(currentArtist, "jimfrankenstein"),
   };
 
   return <SongsListLayout artist={artist} songs={allSongs} />;

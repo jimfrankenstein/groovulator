@@ -1,19 +1,21 @@
 import { Song } from "@/app/constants/types";
 import SongImage from "./SongImage";
 import Link from "next/link";
+import { getCurrentArtistSlug, artistHref } from "@/lib/urls";
 
 interface SongCardProps {
   song: Song & { artist: string };
   aspectRatio?: "square" | "4/3";
 }
 
-export default function SongCard({
+export default async function SongCard({
   song: { id, title, artist, songType, collabArtists, album },
   aspectRatio = "square",
 }: SongCardProps) {
+  const currentArtist = await getCurrentArtistSlug();
   const aspectClass = aspectRatio === "square" ? "aspect-square" : "aspect-[4/3]";
 
-  // Map artist names to URL paths
+  // Map artist names to URL slugs
   const artistUrlMap: Record<string, string> = {
     "Jim Frankenstein": "jimfrankenstein",
     "The Very Bad Days": "theverybaddays",
@@ -22,7 +24,7 @@ export default function SongCard({
   // For collaborations, use the first collab artist's URL, otherwise use the regular artist
   const linkArtist = collabArtists ? collabArtists[0] : artist;
   const artistUrl = artistUrlMap[linkArtist];
-  const songUrl = `https://${artistUrl}.com/songs/${id}`;
+  const songUrl = artistHref(currentArtist, artistUrl, `/songs/${id}`);
 
   const artistName = collabArtists
     ? "collaborations"

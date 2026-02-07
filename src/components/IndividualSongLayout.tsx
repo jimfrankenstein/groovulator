@@ -38,15 +38,45 @@ declare global {
 interface IndividualSongLayoutProps {
   song: Song;
   artist: ArtistConfig;
-  formatLyrics: (lyrics: string) => React.ReactNode[];
-  formatCredits: (credits: string) => React.ReactNode[];
+  songsHref: string;
+  homeHref: string;
+}
+
+// Format lyrics to convert markdown headers to HTML
+function formatLyrics(lyrics: string) {
+  return lyrics.split("\n").map((line, index) => {
+    if (line.startsWith("#### ")) {
+      return (
+        <h4 key={index} className="text-lg font-semibold opacity-90 mt-6 mb-2 first:mt-0">
+          {line.substring(4)}
+        </h4>
+      );
+    }
+    if (line.trim() === "") {
+      return <br key={index} />;
+    }
+    return (
+      <p key={index} className="opacity-80 leading-relaxed mb-1">
+        {line}
+      </p>
+    );
+  });
+}
+
+// Format credits to handle line breaks
+function formatCredits(credits: string) {
+  return credits.split("\n").map((line, index) => (
+    <p key={index} className="">
+      {line}
+    </p>
+  ));
 }
 
 export default function IndividualSongLayout({
   song,
   artist,
-  formatLyrics,
-  formatCredits,
+  songsHref,
+  homeHref,
 }: IndividualSongLayoutProps) {
   const searchParams = useSearchParams();
   const debugMode = searchParams.get("debug") === "true";
@@ -258,13 +288,13 @@ export default function IndividualSongLayout({
           <div className="mx-auto max-w-6xl px-4 py-10">
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
-                href={`https://${artist.slug}.com/songs`}
+                href={songsHref}
                 className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
                 ← All Songs
               </Link>
               <Link
-                href={`https://${artist.slug}.com`}
+                href={homeHref}
                 className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
                 Back to Artist
