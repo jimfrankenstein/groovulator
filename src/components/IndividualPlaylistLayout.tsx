@@ -18,7 +18,7 @@
 
 import Link from "next/link";
 import { Playlist, ArtistConfig } from "@/app/constants/types";
-import { SpotifyLogo, YoutubeLogo } from "@phosphor-icons/react";
+import { SpotifyLogo, YoutubeLogo, AppleLogo } from "@phosphor-icons/react";
 import PlaylistImage from "./PlaylistImage";
 import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
 
@@ -91,6 +91,28 @@ export default function IndividualPlaylistLayout({
                     style={{ color: "#1ED760" }}
                   />
                   <span className="text-sm font-medium">Spotify</span>
+                </Link>
+              )}
+
+              {playlist.appleMusicLink && (
+                <Link
+                  href={playlist.appleMusicLink}
+                  target="_blank"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && window.fbq) {
+                      window.fbq("track", "PlaylistLinkClick");
+                      window.fbq("track", "PlaylistLinkClick_AppleMusic");
+                    }
+                  }}
+                  className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                >
+                  <AppleLogo
+                    size={24}
+                    weight="fill"
+                    className="mr-3"
+                    style={{ color: "#FA243C" }}
+                  />
+                  <span className="text-sm font-medium">Apple Music</span>
                 </Link>
               )}
 

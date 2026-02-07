@@ -8,6 +8,8 @@ export const playlists: Playlist[] = [
     description:
       "Underground, obscure rock with high-energy, Halloween-all-year vibes. Featuring the best spooky artists in psychobilly, surf punk, garage rock, egg punk, southern gothic, and more. Perfect for late-night drives, creepy art sessions, or any day the world needs to feel a bit stranger. Updated weekly!",
     spotifyId: "6fAukc4ibGBEUqoIsYdbRV",
+    appleMusicLink:
+      "https://music.apple.com/us/playlist/bone-skeleton-music-songs-ectophonic-spooky-rock-punk/pl.u-DdAN8l3T0ZNpBYE",
     youtubeLink: "https://youtube.com/playlist?list=PLJbrImz6To6FCLut4CTwv59wc1hJI_pKo",
     youtubeMusicLink: "https://music.youtube.com/playlist?list=PLJbrImz6To6FCLut4CTwv59wc1hJI_pKo",
     about: `Playlist by Ectophonic Groovulator and <a href="https://nicholasburgess.com/" target="_blank" rel="noopener noreferrer">Nicholas Burgess</a>`,
