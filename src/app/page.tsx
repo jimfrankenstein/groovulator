@@ -5,8 +5,10 @@ import { songs as jfSongs } from "./jimfrankenstein/songs/songs";
 import { songs as tvbdSongs } from "./theverybaddays/songs/songs";
 import { collaborations } from "./collaborations/collaborations";
 import Link from "next/link";
+import { getCurrentArtistSlug, artistHref } from "@/lib/urls";
 
-export default function Home() {
+export default async function Home() {
+  const currentArtist = await getCurrentArtistSlug();
   // const featured = {
   //   title: "Here There Be Monsters — Single",
   //   kicker: "Featured",
@@ -75,7 +77,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
             The grim grunge ghostbustery of{" "}
             <Link
-              href={"https://jimfrankenstein.com"}
+              href={artistHref(currentArtist, "jimfrankenstein")}
               className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
             >
               Jim Frankenstein
@@ -83,7 +85,7 @@ export default function Home() {
             and{" "}
             <Link
               className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
-              href={"https://theverybaddays.com"}
+              href={artistHref(currentArtist, "theverybaddays")}
             >
               The Very Bad Days
             </Link>

@@ -6,8 +6,11 @@ import { songs as tvbdSongs } from "./songs/songs";
 import { collaborations } from "../collaborations/collaborations";
 import Link from "next/link";
 import Image from "next/image";
+import { getCurrentArtistSlug, artistHref } from "@/lib/urls";
 
-export default function TheVeryBadDaysPage() {
+export default async function TheVeryBadDaysPage() {
+  const currentArtist = await getCurrentArtistSlug();
+  const vbdHome = artistHref(currentArtist, "theverybaddays");
   // Combine TVBD songs and collaborations, sort by release date
   const allSongs = [
     ...tvbdSongs.map(song => ({ ...song, artist: "The Very Bad Days" })),
@@ -57,7 +60,7 @@ export default function TheVeryBadDaysPage() {
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
           <Link
-            href="https://theverybaddays.com"
+            href={vbdHome}
             className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors"
           >
             THE VERY BAD DAYS

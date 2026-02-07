@@ -46,7 +46,7 @@ export default function SongsListLayout({ artist, songs }: SongsListLayoutProps)
         <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10 text-center">
             <Link
-              href={`/${artist.slug}`}
+              href={artist.homeLink || `/${artist.slug}`}
               className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
             >
               ← Back to {artist.name}

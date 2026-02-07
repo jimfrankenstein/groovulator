@@ -6,8 +6,11 @@ import { songs as jfSongs } from "./songs/songs";
 import { collaborations } from "../collaborations/collaborations";
 import Link from "next/link";
 import Image from "next/image";
+import { getCurrentArtistSlug, artistHref } from "@/lib/urls";
 
-export default function JimFrankensteinPage() {
+export default async function JimFrankensteinPage() {
+  const currentArtist = await getCurrentArtistSlug();
+  const jfHome = artistHref(currentArtist, "jimfrankenstein");
   // Combine JF songs and collaborations, sort by release date
   const allSongs = [
     ...jfSongs.map(song => ({ ...song, artist: "Jim Frankenstein" })),
@@ -63,7 +66,7 @@ export default function JimFrankensteinPage() {
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
           <Link
-            href="https://jimfrankenstein.com"
+            href={jfHome}
             className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors"
           >
             JIM FRANKENSTEIN

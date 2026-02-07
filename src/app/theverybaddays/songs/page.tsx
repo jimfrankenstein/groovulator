@@ -2,8 +2,11 @@ import { songs } from "./songs";
 import { collaborations } from "../../collaborations/collaborations";
 import SongsListLayout from "../../../components/SongsListLayout";
 import { ArtistConfig } from "../../constants/types";
+import { getCurrentArtistSlug, artistHref } from "@/lib/urls";
 
-export default function TheVeryBadDaysSongsPage() {
+export default async function TheVeryBadDaysSongsPage() {
+  const currentArtist = await getCurrentArtistSlug();
+
   const allSongs = [
     ...songs.map(song => ({ ...song, artist: "The Very Bad Days" })),
     ...collaborations.map(song => ({ ...song, artist: "Collaboration" })),
@@ -14,7 +17,7 @@ export default function TheVeryBadDaysSongsPage() {
     displayName: "THE VERY BAD DAYS",
     slug: "theverybaddays",
     socialLinks: ["instagram", "spotify", "youtube", "email"],
-    homeLink: "https://theverybaddays.com",
+    homeLink: artistHref(currentArtist, "theverybaddays"),
   };
 
   return <SongsListLayout artist={artist} songs={allSongs} />;
