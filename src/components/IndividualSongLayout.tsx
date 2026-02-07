@@ -1,24 +1,6 @@
 "use client";
 
-/**
- * IndividualSongLayout - Complete layout for individual song detail pages
- *
- * This component provides the full layout for pages like /artist/songs/[songId].
- * It uses ArtistSongBaseLayout as its wrapper and adds:
- *
- * - Song hero section (title, description, album art in side-by-side layout)
- * - Streaming links section (Spotify, Apple Music, YouTube with platform icons)
- * - Lyrics section (formatted with markdown-style headers)
- * - Credits section (formatted line by line)
- * - Navigation section (back to songs list + back to artist)
- *
- * Used by:
- * - /jimfrankenstein/songs/[songId]/page.tsx
- * - /theverybaddays/songs/[songId]/page.tsx
- *
- * The component takes formatting functions as props to allow each artist
- * to customize how lyrics and credits are displayed if needed.
- */
+// Full layout for /artist/songs/[songId] pages.
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
