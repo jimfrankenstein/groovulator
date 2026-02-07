@@ -7,7 +7,10 @@ interface CountdownTimerProps {
   headerFont?: string; // Custom font for countdown display (defaults to "monoton")
 }
 
-export default function CountdownTimer({ releaseDate, headerFont = "monoton" }: CountdownTimerProps) {
+export default function CountdownTimer({
+  releaseDate,
+  headerFont = "monoton",
+}: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -69,9 +72,7 @@ export default function CountdownTimer({ releaseDate, headerFont = "monoton" }: 
 
           {/* Vintage header */}
           <div className="text-center mb-6">
-            <div
-              className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2"
-            >
+            <div className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2">
               Releasing {formatDate(releaseDate)}
             </div>
             <div className="text-sm text-black dark:text-white mt-1 opacity-70">
@@ -82,9 +83,7 @@ export default function CountdownTimer({ releaseDate, headerFont = "monoton" }: 
           {/* Countdown grid with vintage styling */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center bg-gray-100 dark:bg-gray-800 rounded-lg p-3 border-2 border-black dark:border-white shadow-inner">
-              <div
-                className="text-3xl md:text-4xl font-bold text-black dark:text-white"
-              >
+              <div className="text-3xl md:text-4xl font-bold text-black dark:text-white">
                 {timeLeft.days}
               </div>
               <div className="text-xs font-semibold text-black dark:text-white tracking-wider uppercase">
@@ -92,9 +91,7 @@ export default function CountdownTimer({ releaseDate, headerFont = "monoton" }: 
               </div>
             </div>
             <div className="text-center bg-gray-100 dark:bg-gray-800 rounded-lg p-3 border-2 border-black dark:border-white shadow-inner">
-              <div
-                className="text-3xl md:text-4xl font-bold text-black dark:text-white"
-              >
+              <div className="text-3xl md:text-4xl font-bold text-black dark:text-white">
                 {timeLeft.hours}
               </div>
               <div className="text-xs font-semibold text-black dark:text-white tracking-wider uppercase">
@@ -102,9 +99,7 @@ export default function CountdownTimer({ releaseDate, headerFont = "monoton" }: 
               </div>
             </div>
             <div className="text-center bg-gray-100 dark:bg-gray-800 rounded-lg p-3 border-2 border-black dark:border-white shadow-inner">
-              <div
-                className="text-3xl md:text-4xl font-bold text-black dark:text-white"
-              >
+              <div className="text-3xl md:text-4xl font-bold text-black dark:text-white">
                 {timeLeft.minutes}
               </div>
               <div className="text-xs font-semibold text-black dark:text-white tracking-wider uppercase">
@@ -112,9 +107,7 @@ export default function CountdownTimer({ releaseDate, headerFont = "monoton" }: 
               </div>
             </div>
             <div className="text-center bg-gray-100 dark:bg-gray-800 rounded-lg p-3 border-2 border-black dark:border-white shadow-inner">
-              <div
-                className="text-3xl md:text-4xl font-bold text-black dark:text-white"
-              >
+              <div className="text-3xl md:text-4xl font-bold text-black dark:text-white">
                 {timeLeft.seconds}
               </div>
               <div className="text-xs font-semibold text-black dark:text-white tracking-wider uppercase">

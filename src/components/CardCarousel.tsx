@@ -545,7 +545,7 @@ const Card = memo(
                 draggable={false}
                 onError={() => onLoadStateChange(cardNumber, "error")}
               />
-              
+
               {/* Back image - only render if loaded or loading */}
               {(backLoadState === "loaded" || backLoadState === "loading") && (
                 <Image
@@ -570,7 +570,7 @@ const Card = memo(
                   draggable={false}
                 />
               )}
-              
+
               {/* Card number (temporary, centered, charcoal) - only show on front */}
               {!showBack && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

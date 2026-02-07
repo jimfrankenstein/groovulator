@@ -1,0 +1,69 @@
+---
+description: Process for adding new songs to The Very Bad Days or other artists
+alwaysApply: true
+---
+
+# Adding Songs to Groovulator
+
+Quick reference for adding new songs to artist catalogs on the Groovulator site.
+
+## File Locations
+
+- **Songs data**: `/src/app/{artist}/songs/songs.ts` (e.g., `/src/app/theverybaddays/songs/songs.ts`)
+- **Track art**: `/public/images/{artist}/songs/{song-id}/`
+- **Required images**: `track-art-256.jpg`, `track-art-512.jpg`, `track-art-1024.jpg`
+
+## Song Object Structure
+
+```typescript
+{
+  id: "song-title-kebab-case",           // Must match track art directory name
+  title: "Song Title",
+  description: "Can include <a> tags",   // HTML links allowed
+  spotifyId: "TBD",                      // Use "TBD" until published
+  releaseDate: "YYYY-MM-DD",             // Future dates show countdown
+  songType: "single" | "track",          // "track" for album songs
+  appleMusicLink: "",                    // Empty string placeholder, fill when available
+  amazonMusicLink: "",                   // Empty string placeholder, fill when available
+  youtubeLink: "",                       // Empty string placeholder, fill when available
+  youtubeMusicLink: "",                  // Empty string placeholder, fill when available
+  
+  lyrics: `#### Verse 1
+First line
+Second line
+
+#### Chorus
+Chorus line`,                            // Use #### for section headers
+  
+  credits: "Line one\nLine two\nLine three", // Use \n for line breaks
+  
+  // For album tracks only
+  album: "Album Name",
+  albumLink: "https://open.spotify.com/album/...",
+  trackList: 1,                          // Track number
+}
+```
+
+## Process Checklist
+
+1. **Verify track art** is in `/public/images/{artist}/songs/{song-id}/`
+2. **Add song entry** to appropriate songs array (usually at top for new singles)
+3. **Format lyrics** with `#### ` headers for sections
+4. **Format credits** with `\n` for line breaks  
+5. **Use "TBD"** for spotifyId if not yet available
+6. **Add placeholder links** - Include empty string `""` for all streaming platforms
+7. **Run build** with `npm run build` to verify
+8. **Test song page** at `https://{artist}.com/songs/{song-id}`
+
+## Future Releases
+
+- Release dates in the future automatically show countdown timer
+- Add `?debug=true` to URL to preview streaming links before release
+- Update spotifyId and streaming links when song is published
+
+## Common Mistakes
+
+❌ Using actual line breaks in credits string → ✅ Use `\n`  
+❌ Using `#` or `##` for lyrics → ✅ Use `####` for section headers  
+❌ Missing spotifyId → ✅ Always include, use "TBD" if needed  
+❌ Song ID doesn't match directory → ✅ Must be exact match

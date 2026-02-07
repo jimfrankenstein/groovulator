@@ -3,6 +3,76 @@ import { Song } from "@/app/constants/types";
 export const songs: Song[] = [
   // singles
   {
+    id: "establishment",
+    title: "Establishment",
+    description: `Sometimes love just doesn't make sense. Sometimes, neither do lyrics. But what we do know is that love always makes sense sometimes. But neither does the Establishment. And I can tell you this with confidence: It will never be okay.
+<br><br>
+This song was recorded in front of a live (pronounced “live”) studio audience at Doomsday Coffee in Minnesota on October 23, 2019, sixty minutes before the End.
+`,
+    spotifyId: "TBD",
+    releaseDate: "2026-02-13",
+    songType: "single",
+    appleMusicLink: "",
+    amazonMusicLink: "",
+    youtubeLink: "",
+    youtubeMusicLink: "",
+    lyrics: `#### Verse 1
+I met you while you were standing by
+The water fountain at the Macy's vestibule
+In the mall at a quarter to nine
+You were all alone and thirsty and lookin' so fine
+So I said, "Hey I think you dropped this"
+And you said thanks
+
+And it was then that I knew our love would change the world
+Because you knew full well that that was not yours
+I assume it was someone's before I found it
+And that changes something
+
+#### Chorus
+I don't think it'll ever be okay, but I wouldn't say that to your face
+Cuz I know how much you like things to be okay. 
+I'm down with waiting for the Establishment to be alright
+But I don't think it'll ever be okay
+
+#### Verse 2
+I think everyone is crazy, except for me
+And so does everyone except for you and me
+And everyone who is trapped in the world
+Maybe if they're lucky they can finding a girl like you
+We'd all be free if we could finding too
+
+Not everyone will submit at first to our new world
+But given time, they'll adapt and find it nice
+And if they don't like it, the love will kill them
+All resistance will be crushed
+
+#### Chorus
+I don't think it'll ever be okay
+But I wouldn't say that to your face
+Cuz I know how much you like things to be okay
+I'm down with waiting for the establishment to be alright
+I don't think it'll ever be, oh…
+Our love's too powerful to ever control…
+Should I save the world or should I say hello to you?
+
+#### Bridge
+I met you when you were standing by the water fountain at a Macy's vestibule, my darling…
+I hesitated and I walked away, so I would never have to love you into Judgment Day
+But then I saw you walking my way
+My heart it melted like the flesh of the millions
+Now I see there's beauty in the end of existence
+And I know it's alright and it's okay cuz
+
+#### Chorus
+I don't think it'll ever be okay, but I wouldn't say that to your face
+Cuz I know how much you like things to be okay. 
+I'm down with waiting for the Establishment to be alright
+But I don't think it'll ever be okay`,
+    credits:
+      "Written by Brian Reed, Daniel Goodroad\nVocals: Daniel Goodroad\nGuitar and Vocals: Brian Reed\nBass Guitar: Aric Bieganek\nMix and Mastering Engineer: Jason Obergfoll\nRecorded at Doomsday Coffee by Brian Reed, Ectophonic Groovulator",
+  },
+  {
     id: "hey-frogman",
     title: "Hey Frogman (Grass and Water)",
     description:
@@ -13,7 +83,8 @@ export const songs: Song[] = [
     appleMusicLink: "https://music.apple.com/us/song/hey-frogman-grass-and-water/1863805354",
     amazonMusicLink: "https://music.amazon.com/albums/B0GC7SRFM2",
     youtubeLink: "https://youtu.be/U0k7cHkcnVA",
-    youtubeMusicLink: "https://music.youtube.com/playlist?list=OLAK5uy_njZ88pWNrOEDLd-vRpkwIiCjBVu3vUQEA&si=ifguroEyXqW2JukN",
+    youtubeMusicLink:
+      "https://music.youtube.com/playlist?list=OLAK5uy_njZ88pWNrOEDLd-vRpkwIiCjBVu3vUQEA&si=ifguroEyXqW2JukN",
     lyrics: `#### Verse 1
 At 3am I'd had a long night
 I swear I saw you in the moonlight
