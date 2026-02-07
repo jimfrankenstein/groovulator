@@ -47,4 +47,5 @@ export interface Playlist {
   youtubeMusicLink?: string;
   about: string;
   headerFont?: string;
+  merchTableLink?: string;
 }

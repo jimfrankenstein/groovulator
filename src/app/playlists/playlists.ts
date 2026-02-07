@@ -13,6 +13,7 @@ export const playlists: Playlist[] = [
     youtubeLink: "https://youtube.com/playlist?list=PLJbrImz6To6FCLut4CTwv59wc1hJI_pKo",
     youtubeMusicLink: "https://music.youtube.com/playlist?list=PLJbrImz6To6FCLut4CTwv59wc1hJI_pKo",
     about: `Playlist by Ectophonic Groovulator and <a href="https://nicholasburgess.com/" target="_blank" rel="noopener noreferrer">Nicholas Burgess</a>`,
+    merchTableLink: "https://hypem.com/merch-table/6fAukc4ibGBEUqoIsYdbRV",
   },
   {
     id: "holiday-bone-skeletons",
