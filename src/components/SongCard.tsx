@@ -15,20 +15,25 @@ export default async function SongCard({
   const currentArtist = await getCurrentArtistSlug();
   const aspectClass = aspectRatio === "square" ? "aspect-square" : "aspect-[4/3]";
 
-  // Map artist names to URL slugs
   const artistUrlMap: Record<string, string> = {
     "Jim Frankenstein": "jimfrankenstein",
     "The Very Bad Days": "theverybaddays",
   };
 
-  // For collaborations, use the first collab artist's URL, otherwise use the regular artist
-  const linkArtist = collabArtists ? collabArtists[0] : artist;
-  const artistUrl = artistUrlMap[linkArtist];
-  const songUrl = artistHref(currentArtist, artistUrl, `/songs/${id}`);
+  // For collabs, prefer the current domain's artist so the link stays on-domain.
+  // Falls back to the first collab artist (used on groovulator.com / localhost).
+  let linkSlug: string;
+  if (collabArtists) {
+    const collabSlugs = collabArtists.map(name => artistUrlMap[name]);
+    linkSlug = collabSlugs.includes(currentArtist) ? currentArtist : collabSlugs[0];
+  } else {
+    linkSlug = artistUrlMap[artist];
+  }
+  const songUrl = artistHref(currentArtist, linkSlug, `/songs/${id}`);
 
   const artistName = collabArtists
     ? "collaborations"
-    : (artistUrl as "jimfrankenstein" | "theverybaddays");
+    : (linkSlug as "jimfrankenstein" | "theverybaddays");
 
   return (
     <Link
