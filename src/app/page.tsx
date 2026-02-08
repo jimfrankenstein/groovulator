@@ -206,6 +206,8 @@ export default async function Home() {
                 basement-punk energy. If you like your laughter with a chill and your horror with a
                 wink, welcome to the Groovulator.
               </p>
+              {/* Klaviyo Embed Form */}
+              <div className="klaviyo-form-VhjV3m"></div>
             </div>
           </div>
         </section>

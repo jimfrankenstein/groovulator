@@ -45,6 +45,11 @@ export default function RootLayout({
           fbq('init', '4282589315357977');
           fbq('track', 'PageView');
         `}</Script>
+        <Script
+          id="klaviyo-onsite"
+          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YdgTTW"
+          strategy="afterInteractive"
+        />
       </head>
       <body
         className={`${fugaz.variable} ${dmSans.variable} ${monoton.variable} antialiased`}
