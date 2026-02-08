@@ -12,7 +12,7 @@ export default async function Home() {
   // const featured = {
   //   title: "Here There Be Monsters — Single",
   //   kicker: "Featured",
-  //   blurb: "A short, haunting musical vignette. Stream it everywhere or watch the teaser.",
+  //   blurb: "A short, haunted musical vignette. Stream it everywhere or watch the teaser.",
   //   actions: [
   //     { label: "Listen", href: "#" },
   //     { label: "Details", href: "#" },
@@ -66,7 +66,7 @@ export default async function Home() {
       <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            Short, haunting musicals <span className="opacity-60">and other oddities</span>
+            Short, haunted musicals <span className="opacity-60">and other oddities</span>
           </h1>
         </div>
       </section>*/}
@@ -200,7 +200,7 @@ export default async function Home() {
             <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
               <p>
                 Ectophonic Groovulator is an independent studio and label from Minneapolis, making
-                short, haunting musicals and other oddities. We write songs about goblins, cults,
+                short, haunted musicals and other oddities. We write songs about goblins, cults,
                 dolphin suicides, and whatever else crawls out of the woods. Our projects, The Very
                 Bad Days and Jim Frankenstein, mix dark humor with 90s alt-rock fuzz and
                 basement-punk energy. If you like your laughter with a chill and your horror with a
