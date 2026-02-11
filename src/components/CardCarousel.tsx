@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo, memo } from "react";
-import { motion, PanInfo } from "framer-motion";
+import { motion, useAnimationControls, PanInfo } from "framer-motion";
 import Image from "next/image";
 import type { Card } from "../app/taxidermia/card-data";
 import { getCardOrientation } from "../app/taxidermia/card-data";
@@ -186,8 +186,16 @@ export default function CardCarousel({
     const getImagePrefix = (num: number) =>
       `${String(num).padStart(2, "0")}-${cardNumberToId.get(num) ?? "unknown"}`;
 
-    // PRIORITY: Load current card back immediately (no delay)
+    // Helper to check if a card is released
+    const isCardReleased = (num: number) => {
+      const card = cards[num - 1];
+      return card ? new Date(card.releaseDate) <= new Date() : false;
+    };
+
+    // PRIORITY: Load current card back immediately (no delay) — only for released cards
     priorityBackRange.forEach(cardNum => {
+      if (!isCardReleased(cardNum)) return;
+
       const backKey: CardStateKey = `${cardNum}-back`;
 
       // Mark as loading immediately to prevent race conditions
@@ -220,10 +228,12 @@ export default function CardCarousel({
 
     // Prefetch other images on idle to avoid blocking animations
     const prefetchImages = () => {
-      // Prefetch front images
+      // Prefetch front images (mystery image for unreleased cards)
       prefetchRange.forEach(cardNum => {
         const img = new window.Image();
-        img.src = `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-front.webp`;
+        img.src = isCardReleased(cardNum)
+          ? `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-front.webp`
+          : `/images/groovulator/taxidermia/card-mystery/${String(cardNum).padStart(2, "0")}.webp`;
         img.onload = () => {
           setCardStates(prev => {
             const next = new Map(prev);
@@ -240,8 +250,10 @@ export default function CardCarousel({
         };
       });
 
-      // Prefetch adjacent back images (not current)
+      // Prefetch adjacent back images (not current) — only for released cards
       prefetchBackRange.forEach(cardNum => {
+        if (!isCardReleased(cardNum)) return;
+
         const img = new window.Image();
         img.src = `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-back.webp`;
         const backKey: CardStateKey = `${cardNum}-back`;
@@ -314,6 +326,7 @@ export default function CardCarousel({
 
             const cardNum = cardIndexMap.get(card.id) ?? 0;
             const backKey: CardStateKey = `${cardNum}-back`;
+            const released = new Date(card.releaseDate) <= new Date();
             return (
               <Card
                 key={card.id}
@@ -322,6 +335,7 @@ export default function CardCarousel({
                 offset={offset}
                 isActive={actualIndex === currentIndex}
                 isDiscarded={isDiscarded}
+                isReleased={released}
                 discardBasePosition={discardBasePosition}
                 loadState={cardStates.get(cardNum)}
                 backLoadState={cardStates.get(backKey)}
@@ -417,6 +431,7 @@ interface CardProps {
   offset: number;
   isActive: boolean;
   isDiscarded: boolean;
+  isReleased: boolean;
   discardBasePosition: number;
   loadState: "loading" | "loaded" | "error" | undefined;
   backLoadState: "loading" | "loaded" | "error" | undefined;
@@ -433,6 +448,7 @@ const Card = memo(
     offset,
     isActive,
     isDiscarded,
+    isReleased,
     discardBasePosition,
     loadState,
     backLoadState,
@@ -441,6 +457,24 @@ const Card = memo(
     onLoadStateChange,
     onToggleFlip,
   }: CardProps) {
+    // Animation controls for shake effect on unreleased cards
+    const shakeControls = useAnimationControls();
+    const [isShaking, setIsShaking] = useState(false);
+
+    const handleTap = useCallback(() => {
+      if (isReleased) {
+        onToggleFlip(cardNumber);
+      } else if (!isShaking) {
+        setIsShaking(true);
+        shakeControls
+          .start({
+            x: [0, -8, 8, -6, 6, -3, 3, 0],
+            transition: { duration: 0.4, ease: "easeInOut" },
+          })
+          .then(() => setIsShaking(false));
+      }
+    }, [isReleased, isShaking, cardNumber, onToggleFlip, shakeControls]);
+
     // Track which side should be visible with a delay for smooth flip
     const [showBack, setShowBack] = useState(isFlipped);
 
@@ -527,10 +561,11 @@ const Card = memo(
         dragConstraints={{ left: 0, right: 0 }}
         dragElastic={0.2}
         onDragEnd={onDragEnd}
-        onTap={() => onToggleFlip(cardNumber)}
+        onTap={handleTap}
       >
-        <div
+        <motion.div
           className="relative w-full h-full rounded overflow-hidden bg-white dark:bg-black select-none border border-black/10 dark:border-white/10"
+          animate={shakeControls}
           style={{
             boxShadow:
               "0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 5px 15px -5px rgba(0, 0, 0, 0.2), 0 2px 5px -2px rgba(0, 0, 0, 0.15)",
@@ -538,9 +573,13 @@ const Card = memo(
         >
           {loadState === "loaded" ? (
             <>
-              {/* Front image */}
+              {/* Front image (or mystery image if unreleased) */}
               <Image
-                src={`/images/groovulator/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-front.webp`}
+                src={
+                  isReleased
+                    ? `/images/groovulator/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-front.webp`
+                    : `/images/groovulator/taxidermia/card-mystery/${String(cardNumber).padStart(2, "0")}.webp`
+                }
                 alt={`Card ${cardNumber}`}
                 width={640}
                 height={896}
@@ -561,8 +600,8 @@ const Card = memo(
                 onError={() => onLoadStateChange(cardNumber, "error")}
               />
 
-              {/* Back image - only render if loaded or loading */}
-              {(backLoadState === "loaded" || backLoadState === "loading") && (
+              {/* Back image - only render if released and loaded or loading */}
+              {isReleased && (backLoadState === "loaded" || backLoadState === "loading") && (
                 <Image
                   src={`/images/groovulator/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-back.webp`}
                   alt={`Card ${cardNumber} back`}
@@ -601,7 +640,7 @@ const Card = memo(
           ) : (
             <PlaceholderCard opacity={imageOpacity} />
           )}
-        </div>
+        </motion.div>
       </motion.div>
     );
   },
@@ -615,6 +654,7 @@ const Card = memo(
       prevProps.offset === nextProps.offset &&
       prevProps.isActive === nextProps.isActive &&
       prevProps.isDiscarded === nextProps.isDiscarded &&
+      prevProps.isReleased === nextProps.isReleased &&
       prevProps.loadState === nextProps.loadState &&
       prevProps.backLoadState === nextProps.backLoadState &&
       prevProps.isFlipped === nextProps.isFlipped &&
