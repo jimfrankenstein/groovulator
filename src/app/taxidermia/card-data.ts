@@ -85,11 +85,18 @@ export const cards: Card[] = [
 export const validCardSlugs = cards.map(card => card.id);
 
 /**
- * Resolves a card id slug to a card number (1-indexed)
- * @param slug - A card id (e.g. "the-rabbit")
+ * Resolves a slug to a card number (1-indexed)
+ * @param slug - A card id (e.g. "the-rabbit") or numeric string (e.g. "1")
  * @returns Card number (1-indexed) or null if invalid
  */
 export function getCardNumberFromSlug(slug: string): number | null {
+  // Check if slug is numeric
+  const numericValue = parseInt(slug, 10);
+  if (!isNaN(numericValue) && numericValue >= 1 && numericValue <= cards.length) {
+    return numericValue;
+  }
+
+  // Check if slug is a card id
   const card = cards.find(c => c.id === slug);
   return card?.cardNumber ?? null;
 }

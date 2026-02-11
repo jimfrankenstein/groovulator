@@ -23,9 +23,16 @@ export default async function TaxidermiaSlugPage({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  return cards.map(card => ({
-    slug: card.id,
-  }));
+  return [
+    // Generate paths for all card id slugs
+    ...cards.map(card => ({
+      slug: card.id,
+    })),
+    // Generate paths for all card numbers
+    ...Array.from({ length: cards.length }, (_, i) => ({
+      slug: String(i + 1),
+    })),
+  ];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
