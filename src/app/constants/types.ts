@@ -3,13 +3,14 @@ export interface Song {
   title: string;
   collabArtists?: string[];
   description: string;
-  spotifyId: string;
+  spotifyId?: string;
   releaseDate: string;
   songType: "single" | "episode" | "track";
   appleMusicLink?: string;
   amazonMusicLink?: string;
   youtubeLink?: string;
   youtubeMusicLink?: string;
+  bandcampLink?: string;
   lyrics?: string;
   credits: string;
   album?: string;

@@ -3,84 +3,13 @@ import { Song } from "@/app/constants/types";
 export const songs: Song[] = [
   // singles
   {
-    id: "spooky-song",
-    title: "Spooky Song",
-    description:
-      "A haunted pep talk in lo-fi drag, Spooky Song loops like a dusty cassette in the glovebox of a ghost's car. There's grit in the groove and weight in the words. Rhymes for the lonely, rhythms for the freaks. It's a funeral march you can dance to, with a bassline that drags its bones across the floor and a chorus that chants like a séance in your parents' basement.\n\nSad kids, weird hearts, strange rhythms. You're not alone. Just spooky.",
-    spotifyId: "6Tvka4hgnheKaOc8gOC55k",
-    releaseDate: "2025-08-01",
-    songType: "single",
-    appleMusicLink: "https://music.apple.com/us/song/spooky-song/1825985235",
-    amazonMusicLink: "https://music.amazon.com/albums/B0FH5HHRJ8",
-    youtubeLink: "https://youtu.be/RaEekujTv6E",
-    lyrics: `#### Verse 1
-Hard living when you don't belong with them.
-That's why you need a sad song with a good rhythm.
-Like a shovel in a cemetery, digging grooves for
-
-the souls of the people who once had bones
-before they gave up their ghosts to the sticks and the stones.
-You're digging deeper cuz it's hard to rise above.
-
-#### Prechorus
-You know, if you're gonna stay here,
-you're gonna have to love yourself somehow.
-And damn, that's spooky.
-
-#### Chorus
-Li li li li
-Everybody's gotta…
-Li li li li
-Everybody's gonna be at the party on Saturday
-You gonna be all by yourself
-Spooky kids gotta spooky stick together like bones
-
-#### Verse 2
-Hard breathing when you don't believe in it.
-That's why you let yourself freeze for a good minute
-before you open your lungs and pull in the breeze.
-
-There's no one here who can tell you to leave.
-You're a part of the smell of the rain and the wind in the trees.
-So hard to forgive and forget when there's tightness in your chest.
-
-#### Prechorus
-When you know you don't have to stay here.
-You don't have to love yourself anymore.
-And damn, that's spooky.
-
-#### Chorus
-Li li li li
-Everybody's gotta…
-Li li li li
-Everybody's gonna be at the party on Saturday
-You gonna be all by yourself
-Spooky kids gotta spooky stick together like bones
-
-#### Chorus
-Li li li li
-Everybody's gotta…
-Li li li li
-Everybody knows if you're gonna stay here
-You're gonna have to give your love sometimes
-Spooky kids gotta spooky stick together like bones
-
-#### Chorus... again
-Li li li li
-Everybody's gotta…
-Li li li li
-Everybody's gonna be at the party on Saturday
-You never have to be all by yourself
-Spooky kids gotta spooky stick together like bones`,
-    credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed",
-  },
-  {
     id: "theres-goblins-in-kentucky",
     title: "There's Goblins in Kentucky!",
     description: `The first entry in <em>The Creatures of the Void!</em> saga, this jaunty AM Radio nightmare is as tasty and dangerous as a slice of pecan pie, baked in the fires of a cruel and indifferent hell.`,
     spotifyId: "6awThEf0XoSi1Z9deRGy6o",
     releaseDate: "2025-10-10",
     songType: "single",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/album/theres-goblins-in-kentucky",
     appleMusicLink: "https://music.apple.com/us/song/theres-goblins-in-kentucky/1842386311",
     amazonMusicLink: "https://music.amazon.com/albums/B0FSS9Z77S",
     youtubeLink: "https://youtu.be/iKKvEnEwjVc",
@@ -159,6 +88,79 @@ Don't scream, baby, hush now!`,
       "Written and recorded in Minneapolis by Brian Reed, Ectophonic Groovulator\nMix and Mastering Engineer: Jason Obergfoll",
   },
   {
+    id: "spooky-song",
+    title: "Spooky Song",
+    description:
+      "A haunted pep talk in lo-fi drag, Spooky Song loops like a dusty cassette in the glovebox of a ghost's car. There's grit in the groove and weight in the words. Rhymes for the lonely, rhythms for the freaks. It's a funeral march you can dance to, with a bassline that drags its bones across the floor and a chorus that chants like a séance in your parents' basement.\n\nSad kids, weird hearts, strange rhythms. You're not alone. Just spooky.",
+    spotifyId: "6Tvka4hgnheKaOc8gOC55k",
+    releaseDate: "2025-08-01",
+    songType: "single",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/spooky-song",
+    appleMusicLink: "https://music.apple.com/us/song/spooky-song/1825985235",
+    amazonMusicLink: "https://music.amazon.com/albums/B0FH5HHRJ8",
+    youtubeLink: "https://youtu.be/RaEekujTv6E",
+    lyrics: `#### Verse 1
+Hard living when you don't belong with them.
+That's why you need a sad song with a good rhythm.
+Like a shovel in a cemetery, digging grooves for
+
+the souls of the people who once had bones
+before they gave up their ghosts to the sticks and the stones.
+You're digging deeper cuz it's hard to rise above.
+
+#### Prechorus
+You know, if you're gonna stay here,
+you're gonna have to love yourself somehow.
+And damn, that's spooky.
+
+#### Chorus
+Li li li li
+Everybody's gotta…
+Li li li li
+Everybody's gonna be at the party on Saturday
+You gonna be all by yourself
+Spooky kids gotta spooky stick together like bones
+
+#### Verse 2
+Hard breathing when you don't believe in it.
+That's why you let yourself freeze for a good minute
+before you open your lungs and pull in the breeze.
+
+There's no one here who can tell you to leave.
+You're a part of the smell of the rain and the wind in the trees.
+So hard to forgive and forget when there's tightness in your chest.
+
+#### Prechorus
+When you know you don't have to stay here.
+You don't have to love yourself anymore.
+And damn, that's spooky.
+
+#### Chorus
+Li li li li
+Everybody's gotta…
+Li li li li
+Everybody's gonna be at the party on Saturday
+You gonna be all by yourself
+Spooky kids gotta spooky stick together like bones
+
+#### Chorus
+Li li li li
+Everybody's gotta…
+Li li li li
+Everybody knows if you're gonna stay here
+You're gonna have to give your love sometimes
+Spooky kids gotta spooky stick together like bones
+
+#### Chorus... again
+Li li li li
+Everybody's gotta…
+Li li li li
+Everybody's gonna be at the party on Saturday
+You never have to be all by yourself
+Spooky kids gotta spooky stick together like bones`,
+    credits: "Written, Recorded, and Produced in Minneapolis by Brian Reed",
+  },
+  {
     id: "beautiful-unknown",
     title: "Beautiful Unknown",
     description:
@@ -166,6 +168,7 @@ Don't scream, baby, hush now!`,
     spotifyId: "3Ptj0tk0OR5g9oazsqFhyy",
     releaseDate: "2025-03-20",
     songType: "single",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/beautiful-unknown",
     appleMusicLink: "https://music.apple.com/us/album/beautiful-unknown-single/1800561411",
     youtubeLink: "https://youtu.be/bwn2IHWz9Q0",
     lyrics: `#### Verse 1
@@ -222,6 +225,7 @@ I know you'll be waiting.`,
     spotifyId: "1JLoFwmDIxGc0qNrt76s1c",
     releaseDate: "2024-10-01",
     songType: "single",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/i-believe-in-the-mothman",
     appleMusicLink: "https://music.apple.com/us/album/i-believe-in-the-mothman-single/1772310979",
     youtubeLink: "https://youtu.be/YRMD8O8_I28?si=DfX2haBSLt95Usow",
     lyrics: `#### Verse 1
@@ -271,6 +275,7 @@ Just where the Mothman flies`,
     spotifyId: "5PFBqSxHGE7R0hValZBg94",
     releaseDate: "2023-09-01",
     songType: "single",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/the-cryptozoologist",
     appleMusicLink: "https://music.apple.com/us/album/the-cryptozoologist-single/1704963980",
     youtubeLink: "https://youtu.be/94hfl62wlGY",
     lyrics: `#### Verse 1
@@ -339,6 +344,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
       "All about leaving a cult and starting a new life with the ghouls and the dragons.",
     spotifyId: "7rZc7kNMjpg6bG4N1MF0ya",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/souls-and-ghosts",
     appleMusicLink: "https://music.apple.com/us/song/souls-and-ghosts/1173364081",
     youtubeLink: "https://youtu.be/tWluWmOGg8Y",
     songType: "track",
@@ -354,6 +360,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
       "All about the Ten Commandments and bringing yourself back to life after living in a cult.",
     spotifyId: "6DX6yZzjb64qStiLS0C9ir",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/calamari-sunshine",
     appleMusicLink: "https://music.apple.com/us/song/calamari-sunshine/1173364080",
     youtubeLink: "https://youtu.be/6lxKZz0Xruk",
     songType: "track",
@@ -368,6 +375,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
     description: "All about a dark invocation of the fallen angel and chief of the goat demons.",
     spotifyId: "7GCaeE6YwTtDm2UvzZ7onC",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/azazel",
     appleMusicLink: "https://music.apple.com/us/song/azazel/1173364079",
     youtubeLink: "https://youtu.be/Cdx3mAhrrFo",
     songType: "track",
@@ -382,6 +390,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
     description: "All about transhumanism.",
     spotifyId: "51I8E2lKqho8X4mg9lZap5",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/biotechnic-frankenstein",
     appleMusicLink: "https://music.apple.com/us/song/biotechnic-frankenstein/1173364078",
     youtubeLink: "https://youtu.be/MAuVpXVeRPk",
     songType: "track",
@@ -397,6 +406,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
       "All about how all these worlds are yours, except Europa. Attempt no landings here.",
     spotifyId: "22Arq3hYvxGfd0pF5FTsip",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/europa",
     appleMusicLink: "https://music.apple.com/us/song/europa/1173364077",
     youtubeLink: "https://youtu.be/0PLGz_MCZmA",
     songType: "track",
@@ -411,6 +421,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
     description: "All about divorce.",
     spotifyId: "0Mwa4F61njIvYmYS2BQ7eL",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/cold-wind-in-the-garden",
     appleMusicLink: "https://music.apple.com/us/song/cold-wind-in-the-garden/1173364076",
     youtubeLink: "https://youtu.be/EGF7PXS9qGw",
     songType: "track",
@@ -425,6 +436,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
     description: "All about an almagamation of the weird and wonderful women in my life.",
     spotifyId: "3hN4CwbdkzFYXdlXsmI6Ru",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/weird",
     appleMusicLink: "https://music.apple.com/us/song/weird/1173364075",
     youtubeLink: "https://youtu.be/EQ2qyN3On3E",
     songType: "track",
@@ -439,6 +451,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
     description: "All about meeting someone when you least expect it.",
     spotifyId: "5Akyy0pMm4tu2IcskCAW6Z",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/ripple-in-the-tide",
     appleMusicLink: "https://music.apple.com/us/song/ripple-in-the-tide/1173364074",
     youtubeLink: "https://youtu.be/zxaXX5KQCag",
     songType: "track",
@@ -453,6 +466,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
     description: "All about a murderous love robot.",
     spotifyId: "4XlI0T8g8YyceerYCwb3Xk",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/no-escape-from-the-love",
     appleMusicLink: "https://music.apple.com/us/song/no-escape-from-the-love/1173364073",
     youtubeLink: "https://youtu.be/31rNqRtwAz8",
     songType: "track",
@@ -467,6 +481,7 @@ Cuz if there is something out there, I don't have to feel alone.`,
     description: "All about meeting God in a coffee shop.",
     spotifyId: "6R5vv74A09JIvoMn9MZ9XX",
     releaseDate: "2016-10-31",
+    bandcampLink: "https://jimfrankenstein.bandcamp.com/track/mr-gray",
     appleMusicLink: "https://music.apple.com/us/song/mr-gray/1173364069",
     youtubeLink: "https://youtu.be/0b-Mxa19rwE",
     songType: "track",

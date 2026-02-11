@@ -5,7 +5,13 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Song, ArtistConfig } from "@/app/constants/types";
-import { AmazonLogo, SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
+import {
+  AmazonLogo,
+  SpotifyLogo,
+  AppleLogo,
+  YoutubeLogo,
+  VinylRecord,
+} from "@phosphor-icons/react";
 import SongImage from "./SongImage";
 import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
 import CountdownTimer from "./CountdownTimer";
@@ -68,6 +74,16 @@ export default function IndividualSongLayout({
 
   // Show music links if not a future release OR if debug mode is enabled
   const showMusicLinks = !isFutureRelease || debugMode;
+
+  // Count active streaming links to adjust grid layout
+  const linkCount = [
+    song.spotifyId,
+    song.appleMusicLink,
+    song.youtubeLink,
+    song.youtubeMusicLink,
+    song.amazonMusicLink,
+    song.bandcampLink,
+  ].filter(Boolean).length;
   return (
     <ArtistSongBaseLayout artist={artist}>
       {/* SONG HERO */}
@@ -131,21 +147,25 @@ export default function IndividualSongLayout({
                   </h3>
                 </div>
                 <div className="md:col-span-2">
-                  <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 max-w-3xl">
-                    <Link
-                      href={`https://open.spotify.com/track/${song.spotifyId}`}
-                      target="_blank"
-                      onClick={() => {
-                        if (typeof window !== "undefined" && window.fbq) {
-                          window.fbq("track", "SongLinkClick");
-                          window.fbq("track", "SongLinkClick_Spotify");
-                        }
-                      }}
-                      className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                    >
-                      <SpotifyLogo size={24} weight="fill" className="mr-3 text-green-600" />
-                      <span className="text-sm font-medium">Spotify</span>
-                    </Link>
+                  <div
+                    className={`grid gap-4 max-w-3xl ${linkCount === 1 ? "" : "sm:grid-cols-2 xl:grid-cols-4"}`}
+                  >
+                    {song.spotifyId && (
+                      <Link
+                        href={`https://open.spotify.com/track/${song.spotifyId}`}
+                        target="_blank"
+                        onClick={() => {
+                          if (typeof window !== "undefined" && window.fbq) {
+                            window.fbq("track", "SongLinkClick");
+                            window.fbq("track", "SongLinkClick_Spotify");
+                          }
+                        }}
+                        className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                      >
+                        <SpotifyLogo size={24} weight="fill" className="mr-3 text-green-600" />
+                        <span className="text-sm font-medium">Spotify</span>
+                      </Link>
+                    )}
 
                     {song.appleMusicLink && (
                       <Link
@@ -216,6 +236,23 @@ export default function IndividualSongLayout({
                       >
                         <AmazonLogo size={24} weight="fill" className="mr-3 text-red-600" />
                         <span className="text-sm font-medium">Amazon Music</span>
+                      </Link>
+                    )}
+
+                    {song.bandcampLink && (
+                      <Link
+                        href={song.bandcampLink}
+                        target="_blank"
+                        onClick={() => {
+                          if (typeof window !== "undefined" && window.fbq) {
+                            window.fbq("track", "SongLinkClick");
+                            window.fbq("track", "SongLinkClick_Bandcamp");
+                          }
+                        }}
+                        className="flex items-center p-4 border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                      >
+                        <VinylRecord size={24} weight="fill" className="mr-3 text-teal-600" />
+                        <span className="text-sm font-medium">Bandcamp</span>
                       </Link>
                     )}
                   </div>
