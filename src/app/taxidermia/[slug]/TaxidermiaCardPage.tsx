@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
 import DarkModeToggle from "../../../components/DarkModeToggle";
 import { usePasswordProtect } from "../../../components/PasswordProtect";
@@ -15,8 +14,13 @@ interface TaxidermiaCardPageProps {
 
 export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCardPageProps) {
   const { logout } = usePasswordProtect(TAXIDERMIA_STORAGE_KEY);
-  const searchParams = useSearchParams();
-  const timeTravel = searchParams.get("timetravel") === "true";
+  const [timeTravel] = useState(() => {
+    try {
+      return new URLSearchParams(window.location.search).get("timetravel") === "true";
+    } catch {
+      return false;
+    }
+  });
   const [currentCardNumber, setCurrentCardNumber] = useState(initialCardNumber);
   const [copySuccess, setCopySuccess] = useState(false);
 

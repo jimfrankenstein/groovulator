@@ -286,7 +286,7 @@ export default function CardCarousel({
       return () => clearTimeout(timer);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex, cards.length]);
+  }, [currentIndex, cards.length, revealAll]);
   // Note: cardStates intentionally omitted - only prefetch on navigation, not on every image load
 
   // Callback for when card load state changes
