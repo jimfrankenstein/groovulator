@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import TaxidermiaCardPage from "./TaxidermiaCardPage";
-import { characters, getCardNumberFromSlug } from "../characters-data";
+import { cards, getCardNumberFromSlug } from "../card-data";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -14,8 +14,8 @@ export default async function TaxidermiaSlugPage({ params }: PageProps) {
   const cardNumber = getCardNumberFromSlug(slug);
 
   if (!cardNumber) {
-    // Invalid slug - redirect to card 1
-    redirect("/taxidermia/1");
+    // Invalid slug - redirect to first card
+    redirect(`/taxidermia/${cards[0].id}`);
   }
 
   // Render card carousel at this card number
@@ -23,16 +23,9 @@ export default async function TaxidermiaSlugPage({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  return [
-    // Generate paths for all character slugs
-    ...characters.map(character => ({
-      slug: character.id,
-    })),
-    // Generate paths for all card numbers
-    ...Array.from({ length: characters.length }, (_, i) => ({
-      slug: String(i + 1),
-    })),
-  ];
+  return cards.map(card => ({
+    slug: card.id,
+  }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -48,11 +41,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const character = characters[cardNumber - 1];
+  const card = cards.find(c => c.cardNumber === cardNumber);
   return {
-    title: character
-      ? `Card ${cardNumber}: ${character.title} | Taxidermia`
+    title: card
+      ? `Card ${cardNumber}: ${card.title} | Taxidermia`
       : "Taxidermia Cards | Groovulator",
-    description: character?.description || "Explore the Taxidermia trading card collection",
+    description: card?.description || "Explore the Taxidermia trading card collection",
   };
 }

@@ -3,11 +3,11 @@
 import { useState, useEffect, useCallback, useMemo, memo } from "react";
 import { motion, PanInfo } from "framer-motion";
 import Image from "next/image";
-import type { Character } from "../app/taxidermia/characters-data";
-import { getCardOrientation } from "../app/taxidermia/characters-data";
+import type { Card } from "../app/taxidermia/card-data";
+import { getCardOrientation } from "../app/taxidermia/card-data";
 
 interface CardCarouselProps {
-  cards: Character[];
+  cards: Card[];
   initialCardNumber?: number;
   onCardChange?: (cardNumber: number) => void;
 }
@@ -85,6 +85,15 @@ export default function CardCarousel({
     const map = new Map<string, number>();
     cards.forEach((card, index) => {
       map.set(card.id, index + 1);
+    });
+    return map;
+  }, [cards]);
+
+  // Create a card number to ID map for image path lookups
+  const cardNumberToId = useMemo(() => {
+    const map = new Map<number, string>();
+    cards.forEach((card, index) => {
+      map.set(index + 1, card.id);
     });
     return map;
   }, [cards]);
@@ -173,6 +182,10 @@ export default function CardCarousel({
       }
     }
 
+    // Helper to build image path prefix from card number
+    const getImagePrefix = (num: number) =>
+      `${String(num).padStart(2, "0")}-${cardNumberToId.get(num) ?? "unknown"}`;
+
     // PRIORITY: Load current card back immediately (no delay)
     priorityBackRange.forEach(cardNum => {
       const backKey: CardStateKey = `${cardNum}-back`;
@@ -186,7 +199,7 @@ export default function CardCarousel({
       });
 
       const img = new window.Image();
-      img.src = `/images/groovulator/taxidermia/cards/${String(cardNum).padStart(2, "0")}-back.webp`;
+      img.src = `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-back.webp`;
       img.onload = () => {
         setCardStates(prev => {
           const next = new Map(prev);
@@ -210,7 +223,7 @@ export default function CardCarousel({
       // Prefetch front images
       prefetchRange.forEach(cardNum => {
         const img = new window.Image();
-        img.src = `/images/groovulator/taxidermia/cards/${String(cardNum).padStart(2, "0")}.webp`;
+        img.src = `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-front.webp`;
         img.onload = () => {
           setCardStates(prev => {
             const next = new Map(prev);
@@ -230,7 +243,7 @@ export default function CardCarousel({
       // Prefetch adjacent back images (not current)
       prefetchBackRange.forEach(cardNum => {
         const img = new window.Image();
-        img.src = `/images/groovulator/taxidermia/cards/${String(cardNum).padStart(2, "0")}-back.webp`;
+        img.src = `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-back.webp`;
         const backKey: CardStateKey = `${cardNum}-back`;
         img.onload = () => {
           setCardStates(prev => {
@@ -305,6 +318,7 @@ export default function CardCarousel({
               <Card
                 key={card.id}
                 cardNumber={cardNum}
+                cardId={card.id}
                 offset={offset}
                 isActive={actualIndex === currentIndex}
                 isDiscarded={isDiscarded}
@@ -383,7 +397,7 @@ function PlaceholderCard({ opacity }: { opacity: number }) {
       }}
     >
       <Image
-        src="/images/groovulator/taxidermia/cards/placeholder.webp"
+        src="/images/groovulator/taxidermia/cards-final/placeholder.webp"
         alt="Loading card"
         width={640}
         height={896}
@@ -399,6 +413,7 @@ function PlaceholderCard({ opacity }: { opacity: number }) {
 
 interface CardProps {
   cardNumber: number;
+  cardId: string;
   offset: number;
   isActive: boolean;
   isDiscarded: boolean;
@@ -414,6 +429,7 @@ interface CardProps {
 const Card = memo(
   function Card({
     cardNumber,
+    cardId,
     offset,
     isActive,
     isDiscarded,
@@ -471,11 +487,10 @@ const Card = memo(
     // Add 90° rotation for landscape cards when flipped
     let rotateZ = rotate;
     if (isLandscape && isFlipped) {
-      rotateZ = rotate + 90;
+      rotateZ = rotate - 90;
     }
 
-    // Calculate scale for flipped state - landscape cards need more reduction
-    const flippedScale = isFlipped ? (isLandscape ? scale * 0.85 : scale * 0.97) : scale;
+    const flippedScale = scale;
 
     // Calculate image opacity for dimming effect
     const imageOpacity = Math.max(0.3, 1 - absOffset * 0.15);
@@ -525,7 +540,7 @@ const Card = memo(
             <>
               {/* Front image */}
               <Image
-                src={`/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}.webp`}
+                src={`/images/groovulator/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-front.webp`}
                 alt={`Card ${cardNumber}`}
                 width={640}
                 height={896}
@@ -549,7 +564,7 @@ const Card = memo(
               {/* Back image - only render if loaded or loading */}
               {(backLoadState === "loaded" || backLoadState === "loading") && (
                 <Image
-                  src={`/images/groovulator/taxidermia/cards/${String(cardNumber).padStart(2, "0")}-back.webp`}
+                  src={`/images/groovulator/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-back.webp`}
                   alt={`Card ${cardNumber} back`}
                   width={640}
                   height={896}
@@ -569,13 +584,6 @@ const Card = memo(
                   }}
                   draggable={false}
                 />
-              )}
-
-              {/* Card number (temporary, centered, charcoal) - only show on front */}
-              {!showBack && (
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="text-8xl font-bold text-gray-700">{cardNumber}</div>
-                </div>
               )}
             </>
           ) : loadState === "error" ? (
@@ -603,6 +611,7 @@ const Card = memo(
     // to prevent re-renders due to callback reference changes
     return (
       prevProps.cardNumber === nextProps.cardNumber &&
+      prevProps.cardId === nextProps.cardId &&
       prevProps.offset === nextProps.offset &&
       prevProps.isActive === nextProps.isActive &&
       prevProps.isDiscarded === nextProps.isDiscarded &&

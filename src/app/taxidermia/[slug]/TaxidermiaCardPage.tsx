@@ -6,7 +6,7 @@ import DarkModeToggle from "../../../components/DarkModeToggle";
 import { usePasswordProtect } from "../../../components/PasswordProtect";
 import { TAXIDERMIA_STORAGE_KEY } from "../TaxidermiaProtection";
 import CardCarousel from "../../../components/CardCarousel";
-import { characters } from "../characters-data";
+import { cards } from "../card-data";
 
 interface TaxidermiaCardPageProps {
   initialCardNumber: number;
@@ -18,7 +18,8 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
   const [copySuccess, setCopySuccess] = useState(false);
 
   const handleShare = async () => {
-    const shareUrl = `${window.location.origin}/taxidermia/${currentCardNumber}`;
+    const currentCard = cards[currentCardNumber - 1];
+    const shareUrl = `${window.location.origin}/taxidermia/${currentCard?.id ?? currentCardNumber}`;
 
     try {
       await navigator.clipboard.writeText(shareUrl);
@@ -33,7 +34,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       <main className="mx-auto max-w-full px-0 pt-4 overflow-hidden">
         <CardCarousel
-          cards={characters}
+          cards={cards}
           initialCardNumber={initialCardNumber}
           onCardChange={setCurrentCardNumber}
         />
@@ -47,14 +48,9 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
           </div>
           <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum.
+              Starring delightfully disgusting taxidermied monsters, this illustrated rock opera is
+              a loving tribute to ‘90s music and absurd cartoons, and a hate letter to late-stage
+              capitalism. Get stuffed!
             </p>
           </div>
         </div>
