@@ -10,6 +10,7 @@ interface CardCarouselProps {
   cards: Card[];
   initialCardNumber?: number;
   onCardChange?: (cardNumber: number) => void;
+  revealAll?: boolean;
 }
 
 // Type for card state keys - supports both front cards (number) and back cards (string)
@@ -29,6 +30,7 @@ export default function CardCarousel({
   cards,
   initialCardNumber = 1,
   onCardChange,
+  revealAll = false,
 }: CardCarouselProps) {
   // Initialize from prop (cardNumber is 1-indexed, currentIndex is 0-indexed)
   const [currentIndex, setCurrentIndex] = useState(initialCardNumber - 1);
@@ -188,6 +190,7 @@ export default function CardCarousel({
 
     // Helper to check if a card is released
     const isCardReleased = (num: number) => {
+      if (revealAll) return true;
       const card = cards[num - 1];
       return card ? new Date(card.releaseDate) <= new Date() : false;
     };
@@ -326,7 +329,7 @@ export default function CardCarousel({
 
             const cardNum = cardIndexMap.get(card.id) ?? 0;
             const backKey: CardStateKey = `${cardNum}-back`;
-            const released = new Date(card.releaseDate) <= new Date();
+            const released = revealAll || new Date(card.releaseDate) <= new Date();
             return (
               <Card
                 key={card.id}
