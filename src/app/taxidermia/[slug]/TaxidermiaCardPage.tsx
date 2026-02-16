@@ -3,8 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import DarkModeToggle from "../../../components/DarkModeToggle";
-import { usePasswordProtect } from "../../../components/PasswordProtect";
-import { TAXIDERMIA_STORAGE_KEY } from "../TaxidermiaProtection";
 import CardCarousel from "../../../components/CardCarousel";
 import { cards } from "../card-data";
 
@@ -13,7 +11,6 @@ interface TaxidermiaCardPageProps {
 }
 
 export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCardPageProps) {
-  const { logout } = usePasswordProtect(TAXIDERMIA_STORAGE_KEY);
   const [timeTravel] = useState(() => {
     try {
       return new URLSearchParams(window.location.search).get("timetravel") === "true";
@@ -87,13 +84,6 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
                 aria-label="Share current card"
               >
                 {copySuccess ? "Copied!" : "Share"}
-              </button>
-              <button
-                onClick={logout}
-                className="text-sm opacity-70 hover:opacity-100 transition-opacity underline"
-                aria-label="Logout"
-              >
-                Logout
               </button>
               <DarkModeToggle />
             </div>
