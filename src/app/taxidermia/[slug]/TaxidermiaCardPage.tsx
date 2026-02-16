@@ -64,6 +64,13 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
         </div>
       </section>
 
+      {/* Klaviyo Signup Form */}
+      <section className="border-b border-black/10 dark:border-white/10 [&_form]:!float-none">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <div className="klaviyo-form-SdYxhD"></div>
+        </div>
+      </section>
+
       <footer className="py-6">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex items-center justify-between">

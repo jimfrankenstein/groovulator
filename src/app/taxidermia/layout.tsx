@@ -6,5 +6,10 @@ export const metadata = {
 };
 
 export default function TaxidermiaLayout({ children }: { children: React.ReactNode }) {
-  return <TaxidermiaProtection>{children}</TaxidermiaProtection>;
+  return (
+    <>
+      <link rel="stylesheet" href="https://use.typekit.net/mol1kbc.css" />
+      <TaxidermiaProtection>{children}</TaxidermiaProtection>
+    </>
+  );
 }
