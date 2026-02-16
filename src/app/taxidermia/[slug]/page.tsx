@@ -14,8 +14,8 @@ export default async function TaxidermiaSlugPage({ params }: PageProps) {
   const cardNumber = getCardNumberFromSlug(slug);
 
   if (!cardNumber) {
-    // Invalid slug - redirect to first card
-    redirect(`/taxidermia/${cards[0].id}`);
+    // Invalid slug - redirect to main taxidermia page
+    redirect("/taxidermia");
   }
 
   // Render card carousel at this card number
