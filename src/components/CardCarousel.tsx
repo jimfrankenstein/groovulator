@@ -567,7 +567,7 @@ const Card = memo(
         onTap={handleTap}
       >
         <motion.div
-          className="relative w-full h-full rounded overflow-hidden bg-white dark:bg-black select-none border border-black/10 dark:border-white/10"
+          className="relative w-full h-full rounded overflow-hidden bg-taxidermia-blue select-none border border-taxidermia-blue-dark"
           animate={shakeControls}
           style={{
             boxShadow:

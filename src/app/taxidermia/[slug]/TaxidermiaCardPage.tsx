@@ -36,12 +36,17 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
-      <main className="mx-auto max-w-full px-0 pt-4 overflow-hidden">
+      <main className="relative mx-auto max-w-full px-0 pt-4 overflow-hidden bg-taxidermia-blue">
         <CardCarousel
           cards={cards}
           initialCardNumber={initialCardNumber}
           onCardChange={setCurrentCardNumber}
           revealAll={timeTravel}
+        />
+        <div
+          className="absolute top-0 left-0 h-full w-full bg-cover bg-center pointer-events-none"
+          style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4)), url('/images/taxidermia/taxidermia-grit.webp')" }}
+          aria-hidden="true"
         />
       </main>
 
