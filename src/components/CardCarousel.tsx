@@ -357,7 +357,7 @@ export default function CardCarousel({
         <button
           onClick={goToPrevious}
           disabled={currentIndex === 0}
-          className="w-10 h-10 flex items-center justify-center text-black dark:text-white opacity-50 hover:opacity-100 disabled:opacity-20 disabled:cursor-not-allowed transition-opacity text-xl"
+          className="w-10 h-10 flex items-center justify-center text-black dark:text-white disabled:cursor-not-allowed text-xl"
           aria-label="Previous card"
         >
           ←
@@ -367,12 +367,12 @@ export default function CardCarousel({
           {progressDots.map(index => (
             <div
               key={index}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
+              className={`h-2.5 rounded-full transition-all duration-300 ${
                 index < currentIndex
-                  ? "w-1.5 bg-pink-500/30 dark:bg-yellow-300/30"
+                  ? "w-2.5 bg-taxidermia-yellow"
                   : index === currentIndex
-                    ? "w-8 bg-pink-500 dark:bg-yellow-300"
-                    : "w-1.5 bg-black/10 dark:bg-white/10"
+                    ? "w-10 bg-taxidermia-yellow"
+                    : "w-2.5 bg-white/30"
               }`}
             />
           ))}
@@ -381,7 +381,7 @@ export default function CardCarousel({
         <button
           onClick={goToNext}
           disabled={currentIndex === cards.length - 1}
-          className="w-10 h-10 flex items-center justify-center text-black dark:text-white opacity-50 hover:opacity-100 disabled:opacity-20 disabled:cursor-not-allowed transition-opacity text-xl"
+          className="w-10 h-10 flex items-center justify-center text-black dark:text-white disabled:cursor-not-allowed text-xl"
           aria-label="Next card"
         >
           →

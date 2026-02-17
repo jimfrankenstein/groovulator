@@ -35,17 +35,22 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
+    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors font-astounder [&_h1,&_h2,&_h3,&_h4,&_h5,&_h6]:font-mudstone [&_h1,&_h2,&_h3,&_h4,&_h5,&_h6]:font-black">
       <main className="relative mx-auto max-w-full px-0 pt-4 overflow-hidden bg-taxidermia-blue">
-        <CardCarousel
-          cards={cards}
-          initialCardNumber={initialCardNumber}
-          onCardChange={setCurrentCardNumber}
-          revealAll={timeTravel}
-        />
+        <div className="relative z-10">
+          <CardCarousel
+            cards={cards}
+            initialCardNumber={initialCardNumber}
+            onCardChange={setCurrentCardNumber}
+            revealAll={timeTravel}
+          />
+        </div>
         <div
-          className="absolute top-0 left-0 h-full w-full bg-cover bg-center pointer-events-none"
-          style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4)), url('/images/taxidermia/taxidermia-grit.webp')" }}
+          className="absolute top-0 left-0 h-full w-full bg-cover bg-center pointer-events-none z-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4)), url('/images/taxidermia/taxidermia-grit.webp')",
+          }}
           aria-hidden="true"
         />
       </main>
@@ -54,9 +59,9 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
       <section id="about" className="border-t border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
           <div>
-            <h3 className="text-xl md:text-2xl font-bold">About</h3>
+            <h1 className="text-[30px] text-taxidermia-pink">About</h1>
           </div>
-          <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
+          <div className="md:col-span-2 text-[22px] leading-[33px] space-y-4">
             <p>
               Starring delightfully disgusting taxidermied monsters, this illustrated rock opera is
               a loving tribute to ‘90s music and absurd cartoons, and a hate letter to late-stage
@@ -67,7 +72,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
       </section>
 
       {/* Klaviyo Signup Form */}
-      <section className="border-b border-black/10 dark:border-white/10 [&_form]:!float-none">
+      <section className="border-b border-black/10 dark:border-white/10 [&_form]:!float-none [&_form]:!p-0 [&_form]:!max-w-[600px]">
         <div className="mx-auto max-w-6xl px-4 py-12">
           <div className="klaviyo-form-SdYxhD"></div>
         </div>

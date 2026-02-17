@@ -4,30 +4,32 @@
   --font-fugaz: var(--font-fugaz);
   --font-dm-sans: var(--font-dm-sans);
   --font-monoton: var(--font-monoton);
+  --font-mudstone: "mudstone-sans", sans-serif;
+  --font-astounder: "astounder-squared-lc-bb", sans-serif;
 
-  --color-taxidermia-blue-dark: #135C6C;
-  --color-taxidermia-blue: #4FC6E0;
-  --color-taxidermia-blue-light: #93DCEC;
+  --color-taxidermia-blue-dark: #135c6c;
+  --color-taxidermia-blue: #4fc6e0;
+  --color-taxidermia-blue-light: #93dcec;
 
-  --color-taxidermia-dark-green-dark: #3C5728;
-  --color-taxidermia-dark-green: #74AA4E;
-  --color-taxidermia-dark-green-light: #BBD7A8;
+  --color-taxidermia-dark-green-dark: #3c5728;
+  --color-taxidermia-dark-green: #74aa4e;
+  --color-taxidermia-dark-green-light: #bbd7a8;
 
-  --color-taxidermia-light-green-dark: #51661A;
-  --color-taxidermia-light-green: #A4CD39;
-  --color-taxidermia-light-green-light: #D0E599;
+  --color-taxidermia-light-green-dark: #51661a;
+  --color-taxidermia-light-green: #a4cd39;
+  --color-taxidermia-light-green-light: #d0e599;
 
   --color-taxidermia-pink-dark: #691749;
-  --color-taxidermia-pink: #D22F92;
-  --color-taxidermia-pink-light: #E896C8;
+  --color-taxidermia-pink: #d22f92;
+  --color-taxidermia-pink-light: #e896c8;
 
-  --color-taxidermia-orange-dark: #73380D;
-  --color-taxidermia-orange: #E77724;
-  --color-taxidermia-orange-light: #F2B88C;
+  --color-taxidermia-orange-dark: #73380d;
+  --color-taxidermia-orange: #e77724;
+  --color-taxidermia-orange-light: #f2b88c;
 
   --color-taxidermia-yellow-dark: #807300;
-  --color-taxidermia-yellow: #FBE300;
-  --color-taxidermia-yellow-light: #FFF380;
+  --color-taxidermia-yellow: #fbe300;
+  --color-taxidermia-yellow-light: #fff380;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -81,4 +83,12 @@
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+form.klaviyo-form p span {
+  color: black !important;
+}
+
+.dark form.klaviyo-form p span {
+  color: white !important;
 }
