@@ -21,19 +21,25 @@ interface SocialLink {
 interface SocialLinksProps {
   entity?: EntityName;
   links?: SocialPlatform[] | SocialLink[];
+  large?: boolean;
 }
 
-export default function SocialLinks({ entity = "groovulator", links }: SocialLinksProps) {
+export default function SocialLinks({
+  entity = "groovulator",
+  links,
+  large = false,
+}: SocialLinksProps) {
   // Get social links for the specified entity
   const entitySocialLinks = SOCIAL_LINKS[entity];
 
+  const iconSize = large ? 24 : 16;
   const platformIcons = {
-    instagram: <InstagramLogoIcon size={16} className="text-black dark:text-white" />,
-    spotify: <SpotifyLogoIcon size={16} className="text-black dark:text-white" />,
-    applemusic: <AppleLogoIcon size={16} className="text-black dark:text-white" />,
-    youtube: <YoutubeLogoIcon size={16} className="text-black dark:text-white" />,
-    tiktok: <TiktokLogoIcon size={16} className="text-black dark:text-white" />,
-    email: <EnvelopeSimpleIcon size={16} className="text-black dark:text-white" />,
+    instagram: <InstagramLogoIcon size={iconSize} className="text-black dark:text-white" />,
+    spotify: <SpotifyLogoIcon size={iconSize} className="text-black dark:text-white" />,
+    applemusic: <AppleLogoIcon size={iconSize} className="text-black dark:text-white" />,
+    youtube: <YoutubeLogoIcon size={iconSize} className="text-black dark:text-white" />,
+    tiktok: <TiktokLogoIcon size={iconSize} className="text-black dark:text-white" />,
+    email: <EnvelopeSimpleIcon size={iconSize} className="text-black dark:text-white" />,
   };
 
   // Determine which links to show and their URLs
@@ -65,14 +71,14 @@ export default function SocialLinks({ entity = "groovulator", links }: SocialLin
   }
 
   return (
-    <div className="flex gap-2">
+    <div className={`flex ${large ? "gap-3" : "gap-2"}`}>
       {linksToShow.map(({ platform, href, label }) => (
         <a
           key={platform}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-8 h-8 rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+          className={`${large ? "w-14 h-14" : "w-8 h-8"} rounded-full border border-black/20 dark:border-white/20 flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors`}
           aria-label={label || `${platform} link`}
         >
           {platformIcons[platform]}

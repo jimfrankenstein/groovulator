@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import DarkModeToggle from "../../../components/DarkModeToggle";
+import SocialLinks from "../../../components/SocialLinks";
 import CardCarousel from "../../../components/CardCarousel";
 import { cards } from "../card-data";
 
@@ -57,24 +59,61 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
 
       {/* ABOUT */}
       <section id="about" className="border-t border-b border-black/10 dark:border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
+        <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-2 items-center">
           <div>
-            <h1 className="text-[30px] text-taxidermia-pink">About</h1>
+            <Image
+              src="/images/groovulator/taxidermia/logo.png"
+              alt="Undead Justice Warriors of Taxidermia vs Evil Corporations: FIGHT FOR YOUR LIFE!"
+              width={1000}
+              height={500}
+              className="w-full h-auto"
+            />
           </div>
-          <div className="md:col-span-2 text-[22px] leading-[33px] space-y-4">
+          <div className="text-[22px] leading-[33px] space-y-4">
+            <h1 className="text-[30px] text-taxidermia-pink">
+              Undead Justice Warriors of Taxidermia vs Evil Corporations: FIGHT FOR YOUR LIFE!
+            </h1>
             <p>
               Starring delightfully disgusting taxidermied monsters, this illustrated rock opera is
-              a loving tribute to ‘90s music and absurd cartoons, and a hate letter to late-stage
-              capitalism. Get stuffed!
+              a loving tribute to ‘90s music and absurd cartoons (and a hate letter to late-stage
+              capitalism).
             </p>
+
+            <p>
+              A mini-musical featuring performances from 12 musicians across 8 alt-rock and hip-hop
+              pastiches, Undead Justice Warriors of Taxidermia! stitches together the story of a
+              magically maniacal taxidermist and his critter creations. Reclaiming a stolen
+              childhood dream, he (literally) assembles a cartoon cast that will save the minds and
+              futures of kids everywhere.
+            </p>
+
+            <p>
+              With his cartoon on the TV and the radio playing his song, the system can get stuffed!
+            </p>
+            <SocialLinks
+              entity="groovulator"
+              links={["instagram", "tiktok", "youtube", "email"]}
+              large
+            />
           </div>
         </div>
       </section>
 
       {/* Klaviyo Signup Form */}
-      <section className="border-b border-black/10 dark:border-white/10 [&_form]:!float-none [&_form]:!p-0 [&_form]:!max-w-[600px]">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <div className="klaviyo-form-SdYxhD"></div>
+      <section className="border-b border-black/10 dark:border-white/10 [&_form]:!float-none [&_form]:!p-0">
+        <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-2 items-center">
+          <div>
+            <Image
+              src="/images/groovulator/taxidermia/eg-logo.png"
+              alt="Created by Ectophonic Groovulator"
+              width={1000}
+              height={500}
+              className="w-full h-auto"
+            />
+          </div>
+          <div className="text-[22px] leading-[33px] space-y-4">
+            <div className="klaviyo-form-SdYxhD"></div>
+          </div>
         </div>
       </section>
 
@@ -88,13 +127,10 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
               ← Back to Groovulator
             </Link>
             <div className="flex gap-3 items-center">
-              <button
-                onClick={handleShare}
-                className="text-sm opacity-70 hover:opacity-100 transition-opacity underline"
-                aria-label="Share current card"
-              >
-                {copySuccess ? "Copied!" : "Share"}
-              </button>
+              <SocialLinks
+                entity="groovulator"
+                links={["instagram", "tiktok", "youtube", "email"]}
+              />
               <DarkModeToggle />
             </div>
           </div>
