@@ -81,8 +81,8 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
 
             <p>
               A mini-musical featuring performances from 12 musicians across 8 alt-rock and hip-hop
-              pastiches, <em>Undead Justice Warriors of Taxidermia!</em> stitches together the story of a
-              magically maniacal taxidermist and his critter creations. Reclaiming a stolen
+              pastiches, <em>Undead Justice Warriors of Taxidermia!</em> stitches together the story
+              of a magically maniacal taxidermist and his critter creations. Reclaiming a stolen
               childhood dream, he (literally) assembles a cartoon cast that will save the minds and
               futures of kids everywhere.
             </p>
