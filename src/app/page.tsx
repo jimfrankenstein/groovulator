@@ -219,7 +219,22 @@ export default async function Home() {
           <div className="text-sm opacity-70">
             <span>© {new Date().getFullYear()} Groovulator LLC. All rights reserved.</span>
             <br />
-            <span>Minneapolis, MN</span>
+            <span>
+              Minneapolis, MN ·{" "}
+              <Link
+                href="/terms"
+                className="underline hover:text-pink-500 dark:hover:text-yellow-300 transition-colors"
+              >
+                Terms
+              </Link>{" "}
+              ·{" "}
+              <Link
+                href="/privacy"
+                className="underline hover:text-pink-500 dark:hover:text-yellow-300 transition-colors"
+              >
+                Privacy
+              </Link>
+            </span>
           </div>
           <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
             <SocialLinks entity="groovulator" links={["instagram", "email"]} />
