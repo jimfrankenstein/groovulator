@@ -14,11 +14,6 @@ export default function PlaylistPage({ params }: { params: Promise<{ playlistId:
     notFound();
   }
 
-  // Format about section to handle HTML content
-  const formatAbout = (about: string) => {
-    return <div dangerouslySetInnerHTML={{ __html: about }} />;
-  };
-
   const artist: ArtistConfig = {
     name: "EctophonicGroovulator",
     displayName: "ECTOPHONIC GROOVULATOR",
@@ -27,5 +22,5 @@ export default function PlaylistPage({ params }: { params: Promise<{ playlistId:
     homeLink: "/",
   };
 
-  return <IndividualPlaylistLayout playlist={playlist} artist={artist} formatAbout={formatAbout} />;
+  return <IndividualPlaylistLayout playlist={playlist} artist={artist} />;
 }

@@ -32,13 +32,11 @@ declare global {
 interface IndividualPlaylistLayoutProps {
   playlist: Playlist;
   artist: ArtistConfig;
-  formatAbout: (about: string) => React.ReactNode;
 }
 
 export default function IndividualPlaylistLayout({
   playlist,
   artist,
-  formatAbout,
 }: IndividualPlaylistLayoutProps) {
   return (
     <ArtistSongBaseLayout artist={artist}>
@@ -54,6 +52,18 @@ export default function IndividualPlaylistLayout({
                 className="text-lg opacity-80 mb-6 leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: playlist.description }}
               />
+              <p className="text-lg opacity-80 mb-6 leading-relaxed">
+                Created by Ectophonic Groovulator and{" "}
+                <a
+                  href="https://nicholasburgess.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  Nicholas Burgess
+                </a>
+                .
+              </p>
             </div>
             <div className="order-1 md:order-2">
               <PlaylistImage
@@ -189,14 +199,22 @@ export default function IndividualPlaylistLayout({
           </section>
         )}
 
-        {/* ABOUT */}
+        {/* SIGNUP FORM */}
         <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold">About this Playlist</h3>
+              <h3 className="text-xl md:text-2xl font-bold">Stay in the Loop</h3>
             </div>
-            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-1 [&_a]:underline [&_a]:text-blue-600 hover:[&_a]:text-blue-800 dark:[&_a]:text-blue-400 dark:hover:[&_a]:text-blue-300">
-              {formatAbout(playlist.about)}
+            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
+              <p>
+                Ectophonic Groovulator is an independent studio and label from Minneapolis, making
+                short, haunted musicals and other oddities. We write songs about goblins, cults,
+                dolphin suicides, and whatever else crawls out of the woods. Our projects, The Very
+                Bad Days and Jim Frankenstein, mix dark humor with 90s alt-rock fuzz and
+                basement-punk energy. If you like your laughter with a chill and your horror with a
+                wink, welcome to the Groovulator.
+              </p>
+              <div className="klaviyo-form-VhjV3m"></div>
             </div>
           </div>
         </section>
