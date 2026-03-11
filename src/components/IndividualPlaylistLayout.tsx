@@ -194,7 +194,7 @@ export default function IndividualPlaylistLayout({
                     href={playlist.merchTableLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 text-sm font-medium hover:bg-white/90 transition-colors"
+                    className="inline-flex items-center gap-2 bg-black text-white dark:bg-white dark:text-black px-6 py-3 text-sm font-medium hover:bg-black/80 dark:hover:bg-white/90 transition-colors"
                   >
                     Support the Artists
                   </Link>
