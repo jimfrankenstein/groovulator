@@ -1,7 +1,7 @@
 import SongCard from "../../components/SongCard";
 import DarkModeToggle from "../../components/DarkModeToggle";
 import SocialLinks from "../../components/SocialLinks";
-import LinkCard from "../../components/LinkCard";
+
 import { songs as jfSongs } from "./songs/songs";
 import { collaborations } from "../collaborations/collaborations";
 import Link from "next/link";
@@ -21,44 +21,6 @@ export default async function JimFrankensteinPage() {
     (a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
   );
 
-  const links = [
-    {
-      title: "Spooky Song Video",
-      description: "Lyric video on YouTube",
-      href: "https://youtu.be/RaEekujTv6E?si=ykRTArNZpbXAZMWh",
-      isExternal: true,
-    },
-    {
-      title: "Spooky Song",
-      description: "Listen on Spotify",
-      href: "https://open.spotify.com/track/6Tvka4hgnheKaOc8gOC55k?si=7dad26058c60451f",
-      isExternal: true,
-    },
-    {
-      title: "Weird",
-      description: "The song you liked on Resso",
-      href: "https://open.spotify.com/track/3hN4CwbdkzFYXdlXsmI6Ru?si=09523d9636b14671",
-      isExternal: true,
-    },
-    {
-      title: "Souls and Ghosts",
-      description: "Full-length album",
-      href: "https://open.spotify.com/album/6270AFuOn3qlgGMxIjbrQT?si=AjXkua3CSzScGGb8oxbwUw",
-      isExternal: true,
-    },
-    {
-      title: "You Call This an Apocalypse?",
-      description: "The Very Bad Days album",
-      href: "https://open.spotify.com/album/15fRdFoEfLToMIHjgr3T9c?si=nrfe09Z2QBWP2eeLUplJFw",
-      isExternal: true,
-    },
-    {
-      title: "The Very Bad Days",
-      description: "My band",
-      href: "https://instagram.com/theverybaddays",
-      isExternal: true,
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
@@ -103,24 +65,6 @@ export default async function JimFrankensteinPage() {
       </section>
 
       <main>
-        {/* LINKS GRID */}
-        <section className="border-b border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 py-10">
-            <h3 className="text-xl md:text-2xl font-bold mb-6">Links</h3>
-            <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
-              {links.map(link => (
-                <LinkCard
-                  key={link.title}
-                  title={link.title}
-                  description={link.description}
-                  href={link.href}
-                  isExternal={link.isExternal}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* SONGS GRID */}
         <section id="songs" className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
