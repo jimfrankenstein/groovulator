@@ -7,9 +7,9 @@ import Link from "next/link";
 export default function PlaylistsPage() {
   const artist: ArtistConfig = {
     name: "EctophonicGroovulator",
-    displayName: "ECTOPHONIC GROOVULATOR",
+    displayName: "Ectophonic Groovulator",
     slug: "groovulator",
-    socialLinks: ["instagram", "spotify", "youtube", "email"],
+    socialLinks: ["instagram", "youtube", "spotify", "email"],
     homeLink: "/",
   };
 

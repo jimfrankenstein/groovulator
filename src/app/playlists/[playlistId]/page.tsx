@@ -16,9 +16,9 @@ export default function PlaylistPage({ params }: { params: Promise<{ playlistId:
 
   const artist: ArtistConfig = {
     name: "EctophonicGroovulator",
-    displayName: "ECTOPHONIC GROOVULATOR",
+    displayName: "Ectophonic Groovulator",
     slug: "groovulator",
-    socialLinks: ["instagram", "spotify", "youtube", "email"],
+    socialLinks: ["instagram", "youtube", "spotify", "email"],
     homeLink: "/",
   };
 

@@ -6,8 +6,8 @@ export const SOCIAL_LINKS = {
       label: "Follow Groovulator on Instagram",
     },
     spotify: {
-      href: "https://open.spotify.com/artist/groovulator",
-      label: "Listen to Groovulator on Spotify",
+      href: "https://open.spotify.com/user/31w5tyobdqttzmziiamutz55dfwq",
+      label: "Follow Groovulator on Spotify",
     },
     applemusic: {
       href: "https://music.apple.com/artist/groovulator",

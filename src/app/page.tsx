@@ -56,7 +56,7 @@ export default async function Home() {
             </a>
           </nav> */}
           <div className="flex gap-2">
-            <SocialLinks entity="groovulator" links={["instagram", "email"]} />
+            <SocialLinks entity="groovulator" links={["instagram", "youtube", "spotify", "email"]} />
             <DarkModeToggle />
           </div>
         </div>
@@ -237,7 +237,7 @@ export default async function Home() {
             </span>
           </div>
           <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
-            <SocialLinks entity="groovulator" links={["instagram", "email"]} />
+            <SocialLinks entity="groovulator" links={["instagram", "youtube", "spotify", "email"]} />
             <DarkModeToggle />
           </div>
         </div>
