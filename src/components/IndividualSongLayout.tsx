@@ -2,6 +2,7 @@
 
 // Full layout for /artist/songs/[songId] pages.
 
+import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Song, ArtistConfig } from "@/app/constants/types";
@@ -68,6 +69,7 @@ export default function IndividualSongLayout({
 }: IndividualSongLayoutProps) {
   const searchParams = useSearchParams();
   const debugMode = searchParams.get("debug") === "true";
+  const [lyricsExpanded, setLyricsExpanded] = useState(false);
 
   // Check if release date is in the future
   const isFutureRelease = new Date(song.releaseDate) > new Date();
@@ -272,8 +274,8 @@ export default function IndividualSongLayout({
 
         {/* LYRICS */}
         {song.lyrics && (
-          <section className="border-b border-black/10 dark:border-white/10">
-            <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
+          <section className="relative border-b border-black/10 dark:border-white/10">
+            <div className={`mx-auto max-w-6xl px-4 pt-12 grid gap-6 md:grid-cols-3 ${lyricsExpanded ? "pb-12" : "pb-0"}`}>
               <div>
                 <h3
                   className="text-xl md:text-2xl font-bold"
@@ -283,16 +285,38 @@ export default function IndividualSongLayout({
                 </h3>
               </div>
               <div className="md:col-span-2">
-                <div className="prose prose-lg max-w-none text-black dark:text-white">
-                  {formatLyrics(song.lyrics)}
+                <div className="relative">
+                  <div
+                    className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${
+                      lyricsExpanded ? "max-h-none" : "max-h-[240px]"
+                    }`}
+                  >
+                    <div className="prose prose-lg max-w-none text-black dark:text-white">
+                      {formatLyrics(song.lyrics)}
+                    </div>
+                  </div>
+                
                 </div>
               </div>
             </div>
+            {!lyricsExpanded && (
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-200 dark:from-gray-800 to-transparent" />
+            )}
+            {!lyricsExpanded && (
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+                <button
+                  onClick={() => setLyricsExpanded(true)}
+                  className="border border-black/20 dark:border-white/20 bg-white dark:bg-gray-950 px-6 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+                >
+                  Read All Lyrics and Credits
+                </button>
+              </div>
+            )}
           </section>
         )}
 
         {/* CREDITS */}
-        <section className="border-b border-black/10 dark:border-white/10">
+        <section className={`border-b border-black/10 dark:border-white/10 ${!lyricsExpanded && song.lyrics ? "hidden" : ""}`}>
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div>
               <h3
