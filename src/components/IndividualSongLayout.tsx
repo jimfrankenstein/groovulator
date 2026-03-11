@@ -339,7 +339,7 @@ export default function IndividualSongLayout({
         <section className="border-b border-black/10 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold">Stay in the Loop</h3>
+              <h3 className="text-xl md:text-2xl font-bold">About</h3>
             </div>
             <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
               <p>
