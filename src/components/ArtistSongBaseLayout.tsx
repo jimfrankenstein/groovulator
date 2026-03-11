@@ -38,7 +38,7 @@ export default function ArtistSongBaseLayout({ artist, children, navLinks }: Art
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       {/* HEADER */}
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0">
           <Link
             href={headerLink}
             className={`font-black tracking-tight hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors ${

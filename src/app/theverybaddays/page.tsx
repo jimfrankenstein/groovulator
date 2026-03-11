@@ -58,7 +58,7 @@ export default async function TheVeryBadDaysPage() {
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       {/* HEADER */}
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0">
           <Link
             href={vbdHome}
             className="font-black tracking-tight text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors"
@@ -163,8 +163,8 @@ export default async function TheVeryBadDaysPage() {
 
       {/* FOOTER */}
       <footer className="dark bg-gray-950 text-white py-10">
-        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-end">
-          <div className="text-sm opacity-70">
+        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-start">
+          <div className="order-2 md:order-1 text-center md:text-left text-sm opacity-70">
             <span>© {new Date().getFullYear()} The Very Bad Days. All rights reserved.</span>
             <br />
             <span>
@@ -180,7 +180,7 @@ export default async function TheVeryBadDaysPage() {
             <br />
             <span>Minneapolis, MN</span>
           </div>
-          <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
+          <div className="order-1 md:order-2 flex gap-2 justify-center md:justify-end items-center text-sm">
             <SocialLinks
               entity="theverybaddays"
               links={["instagram", "spotify", "youtube", "email"]}

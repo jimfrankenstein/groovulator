@@ -13,6 +13,12 @@ module.exports = {
         "dm-sans": ["var(--font-dm-sans)", "sans-serif"],
       },
       colors: {
+        groovulator: {
+          black: "#000000",
+          blue: "#0004FF",
+          green: "#7EFF00",
+          pink: "#FF00D5",
+        },
         taxidermia: {
           blue: "#4fc6e0",
           green: "#a4cd39",

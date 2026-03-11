@@ -7,6 +7,7 @@ import { collaborations } from "./collaborations/collaborations";
 import { playlists } from "./playlists/playlists";
 import PlaylistImage from "@/components/PlaylistImage";
 import Link from "next/link";
+import Image from "next/image";
 import { getCurrentArtistSlug, artistHref } from "@/lib/urls";
 
 export default async function Home() {
@@ -36,29 +37,15 @@ export default async function Home() {
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       {/* HEADER */}
       <header className="border-b border-black/10 dark:border-black/10 dark:border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-6 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0">
           <a
             href="#"
             className="font-black font-fugaz tracking-tight lowercase text-2xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors"
           >
             <span>Ectophonic</span> Groovulator
           </a>
-          {/* <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#series" className="hover:underline">
-              Series
-            </a>
-            <a href="#songs" className="hover:underline">
-              Songs
-            </a>
-            <a href="#about" className="hover:underline">
-              About
-            </a>
-            <a href="#join" className="hover:underline">
-              Join
-            </a>
-          </nav> */}
           <div className="flex gap-2">
-            <SocialLinks entity="groovulator" links={["instagram", "youtube", "spotify", "email"]} />
+            <SocialLinks entity="groovulator" links={["instagram", "spotify", "youtube", "email"]} />
             <DarkModeToggle />
           </div>
         </div>
@@ -73,25 +60,37 @@ export default async function Home() {
         </div>
       </section>*/}
 
-      {/* TAGLINE (TEMP) */}
+      {/* TAGLINE */}
       <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
-          <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <Image
+              src="/images/groovulator/profile-square.png"
+              alt="Ectophonic Groovulator"
+              width={200}
+              height={200}
+              className="hidden md:block rounded-full flex-shrink-0 w-32 h-32"
+              priority
+            />
+            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
             Haunted musical oddities by{" "}
-            <Link
-              href={artistHref(currentArtist, "jimfrankenstein")}
-              className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
-            >
-              Jim Frankenstein
-            </Link>{" "}
-            and{" "}
-            <Link
-              className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
-              href={artistHref(currentArtist, "theverybaddays")}
-            >
-              The Very Bad Days
-            </Link>
-          </h1>
+              <Link
+                href={artistHref(currentArtist, "jimfrankenstein")}
+                className="hover:opacity-80 active:opacity-60 transition-opacity duration-200"
+                style={{ color: "#FF00D5" }}
+              >
+                Jim Frankenstein
+              </Link>{" "}
+              and{" "}
+              <Link
+                className="hover:opacity-80 active:opacity-60 transition-opacity duration-200"
+                style={{ color: "#FF00D5" }}
+                href={artistHref(currentArtist, "theverybaddays")}
+              >
+                The Very Bad Days
+              </Link>
+            </h1>
+          </div>
         </div>
       </section>
 
@@ -249,8 +248,8 @@ export default async function Home() {
 
       {/* FOOTER */}
       <footer className="dark bg-gray-950 text-white py-10">
-        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-end">
-          <div className="text-sm opacity-70">
+        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-start">
+          <div className="order-2 md:order-1 text-center md:text-left text-sm opacity-70">
             <span>© {new Date().getFullYear()} Groovulator LLC. All rights reserved.</span>
             <br />
             <span>
@@ -270,8 +269,8 @@ export default async function Home() {
               </Link>
             </span>
           </div>
-          <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
-            <SocialLinks entity="groovulator" links={["instagram", "youtube", "spotify", "email"]} />
+          <div className="order-1 md:order-2 flex gap-2 justify-center md:justify-end items-center text-sm">
+            <SocialLinks entity="groovulator" links={["instagram", "spotify", "youtube", "email"]} />
             <DarkModeToggle />
           </div>
         </div>

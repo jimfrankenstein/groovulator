@@ -9,7 +9,7 @@ export default function PlaylistsPage() {
     name: "EctophonicGroovulator",
     displayName: "Ectophonic Groovulator",
     slug: "groovulator",
-    socialLinks: ["instagram", "youtube", "spotify", "email"],
+    socialLinks: ["instagram", "spotify", "youtube", "email"],
     homeLink: "/",
   };
 

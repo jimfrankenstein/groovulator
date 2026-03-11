@@ -309,8 +309,8 @@ export default function TermsPage() {
       </main>
 
       <footer className="dark bg-gray-950 text-white py-10">
-        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-end">
-          <div className="text-sm opacity-70">
+        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-start">
+          <div className="order-2 md:order-1 text-center md:text-left text-sm opacity-70">
             <span>&copy; {new Date().getFullYear()} Groovulator LLC. All rights reserved.</span>
             <br />
             <span>
@@ -330,7 +330,7 @@ export default function TermsPage() {
               </Link>
             </span>
           </div>
-          <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
+          <div className="order-1 md:order-2 flex gap-2 justify-center md:justify-end items-center text-sm">
             <DarkModeToggle />
           </div>
         </div>
