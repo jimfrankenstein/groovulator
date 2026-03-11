@@ -308,6 +308,26 @@ export default function IndividualSongLayout({
           </div>
         </section>
 
+        {/* SIGNUP FORM */}
+        <section className="border-b border-black/10 dark:border-white/10">
+          <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold">Stay in the Loop</h3>
+            </div>
+            <div className="md:col-span-2 text-sm md:text-base leading-relaxed opacity-90 space-y-4">
+              <p>
+                Ectophonic Groovulator is an independent studio and label from Minneapolis, making
+                short, haunted musicals and other oddities. We write songs about goblins, cults,
+                dolphin suicides, and whatever else crawls out of the woods. Our projects, The Very
+                Bad Days and Jim Frankenstein, mix dark humor with 90s alt-rock fuzz and
+                basement-punk energy. If you like your laughter with a chill and your horror with a
+                wink, welcome to the Groovulator.
+              </p>
+              <div className="klaviyo-form-VhjV3m"></div>
+            </div>
+          </div>
+        </section>
+
       </main>
     </ArtistSongBaseLayout>
   );
