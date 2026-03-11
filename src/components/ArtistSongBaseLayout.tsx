@@ -41,10 +41,10 @@ export default function ArtistSongBaseLayout({ artist, children, navLinks }: Art
         <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0">
           <Link
             href={headerLink}
-            className={`font-black tracking-tight hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors ${
+            className={`font-black tracking-tight transition-colors ${
               artist.slug === "groovulator"
-                ? "font-fugaz lowercase text-2xl"
-                : "text-xl"
+                ? "font-fugaz lowercase text-2xl hover:text-groovulator-pink active:text-groovulator-pink/80 dark:hover:text-groovulator-pink dark:active:text-groovulator-pink/80"
+                : "text-xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80"
             }`}
           >
             {artist.displayName}

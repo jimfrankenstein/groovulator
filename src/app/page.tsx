@@ -40,7 +40,7 @@ export default async function Home() {
         <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center md:justify-between gap-4 md:gap-0">
           <a
             href="#"
-            className="font-black font-fugaz tracking-tight lowercase text-2xl hover:text-pink-500 active:text-pink-700 dark:hover:text-yellow-300 dark:active:text-yellow-300/80 transition-colors"
+            className="font-black font-fugaz tracking-tight lowercase text-2xl hover:text-groovulator-pink active:text-groovulator-pink/80 dark:hover:text-groovulator-pink dark:active:text-groovulator-pink/80 transition-colors"
           >
             <span>Ectophonic</span> Groovulator
           </a>
@@ -76,15 +76,13 @@ export default async function Home() {
             Haunted musical oddities by{" "}
               <Link
                 href={artistHref(currentArtist, "jimfrankenstein")}
-                className="hover:opacity-80 active:opacity-60 transition-opacity duration-200"
-                style={{ color: "#FF00D5" }}
+                className="text-groovulator-pink hover:text-groovulator-pink/80 active:text-groovulator-pink/60 transition-colors duration-200"
               >
                 Jim Frankenstein
               </Link>{" "}
               and{" "}
               <Link
-                className="hover:opacity-80 active:opacity-60 transition-opacity duration-200"
-                style={{ color: "#FF00D5" }}
+                className="text-groovulator-pink hover:text-groovulator-pink/80 active:text-groovulator-pink/60 transition-colors duration-200"
                 href={artistHref(currentArtist, "theverybaddays")}
               >
                 The Very Bad Days

@@ -164,21 +164,20 @@ export default async function TheVeryBadDaysPage() {
       {/* FOOTER */}
       <footer className="dark bg-gray-950 text-white py-10">
         <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-start">
-          <div className="order-2 md:order-1 text-center md:text-left text-sm opacity-70">
-            <span>© {new Date().getFullYear()} The Very Bad Days. All rights reserved.</span>
-            <br />
-            <span>
-              An{" "}
+          <div className="order-2 md:order-1 text-center md:text-left">
+            <div className="flex flex-wrap gap-3 mb-4 justify-center md:justify-start">
               <Link
-                href="https://groovulator.com"
-                className="underline hover:opacity-80 transition-opacity"
+                href="/"
+                className="inline-flex items-center gap-2 border border-white/20 px-5 py-2 text-sm font-medium hover:bg-white/5 transition-colors"
               >
-                Ectophonic Groovulator
-              </Link>{" "}
-              band
-            </span>
-            <br />
-            <span>Minneapolis, MN</span>
+                ← Back to Groovulator
+              </Link>
+            </div>
+            <div className="text-sm opacity-70">
+              <span>© {new Date().getFullYear()} The Very Bad Days. All rights reserved.</span>
+              <br />
+              <span>Minneapolis, MN</span>
+            </div>
           </div>
           <div className="order-1 md:order-2 flex gap-2 justify-center md:justify-end items-center text-sm">
             <SocialLinks
