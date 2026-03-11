@@ -85,9 +85,15 @@ export default function IndividualSongLayout({
     song.bandcampLink,
   ].filter(Boolean).length;
   return (
-    <ArtistSongBaseLayout artist={artist}>
+    <ArtistSongBaseLayout
+      artist={artist}
+      navLinks={[
+        { label: "← All Songs", href: songsHref },
+        { label: "Back to Artist", href: homeHref },
+      ]}
+    >
       {/* SONG HERO */}
-      <section className="border-b border-black/10 dark:border-white/10">
+      <section className="dark bg-gray-950 text-white border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="order-2 md:order-1">
@@ -302,25 +308,6 @@ export default function IndividualSongLayout({
           </div>
         </section>
 
-        {/* NAVIGATION */}
-        <section className="border-b border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 py-10">
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href={songsHref}
-                className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              >
-                ← All Songs
-              </Link>
-              <Link
-                href={homeHref}
-                className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              >
-                Back to Artist
-              </Link>
-            </div>
-          </div>
-        </section>
       </main>
     </ArtistSongBaseLayout>
   );

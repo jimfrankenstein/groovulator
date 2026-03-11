@@ -107,7 +107,7 @@ export default function SandboxIndexPage() {
       </main>
 
       {/* FOOTER */}
-      <footer className="py-10">
+      <footer className="dark bg-gray-950 text-white py-10">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-sm opacity-70 text-center">
             <Link href="/" className="underline hover:opacity-80 transition-opacity">

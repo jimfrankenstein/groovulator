@@ -39,9 +39,12 @@ export default function IndividualPlaylistLayout({
   artist,
 }: IndividualPlaylistLayoutProps) {
   return (
-    <ArtistSongBaseLayout artist={artist}>
+    <ArtistSongBaseLayout
+      artist={artist}
+      navLinks={[{ label: "← All Playlists", href: "/playlists" }]}
+    >
       {/* PLAYLIST HERO */}
-      <section className="border-b border-black/10 dark:border-white/10">
+      <section className="dark bg-gray-950 text-white border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div className="order-2 md:order-1">
@@ -79,9 +82,11 @@ export default function IndividualPlaylistLayout({
       <main>
         {/* STREAMING LINKS */}
         <section className="border-b border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 py-10">
-            <h3 className="text-xl md:text-2xl font-bold mb-6">Listen</h3>
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 max-w-4xl">
+          <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-3">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold">Listen</h3>
+            </div>
+            <div className="md:col-span-2 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               {playlist.spotifyId && (
                 <Link
                   href={`https://open.spotify.com/playlist/${playlist.spotifyId}`}
@@ -219,19 +224,6 @@ export default function IndividualPlaylistLayout({
           </div>
         </section>
 
-        {/* NAVIGATION */}
-        <section className="border-b border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 py-10">
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/playlists"
-                className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              >
-                ← All Playlists
-              </Link>
-            </div>
-          </div>
-        </section>
       </main>
     </ArtistSongBaseLayout>
   );

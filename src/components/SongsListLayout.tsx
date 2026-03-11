@@ -16,7 +16,6 @@
  * with consistent styling across both artists.
  */
 
-import Link from "next/link";
 import { Song, ArtistConfig } from "@/app/constants/types";
 import SongCard from "./SongCard";
 import ArtistSongBaseLayout from "./ArtistSongBaseLayout";
@@ -28,7 +27,10 @@ interface SongsListLayoutProps {
 
 export default function SongsListLayout({ artist, songs }: SongsListLayoutProps) {
   return (
-    <ArtistSongBaseLayout artist={artist}>
+    <ArtistSongBaseLayout
+      artist={artist}
+      navLinks={[{ label: `← Back to ${artist.name}`, href: artist.homeLink || `/${artist.slug}` }]}
+    >
       <main>
         {/* SONGS GRID */}
         <section className="border-b border-black/10 dark:border-white/10">
@@ -42,17 +44,6 @@ export default function SongsListLayout({ artist, songs }: SongsListLayoutProps)
           </div>
         </section>
 
-        {/* NAVIGATION */}
-        <section className="border-b border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 py-10 text-center">
-            <Link
-              href={artist.homeLink || `/${artist.slug}`}
-              className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-            >
-              ← Back to {artist.name}
-            </Link>
-          </div>
-        </section>
       </main>
     </ArtistSongBaseLayout>
   );

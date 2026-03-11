@@ -19,12 +19,18 @@ import DarkModeToggle from "./DarkModeToggle";
 import SocialLinks from "./SocialLinks";
 import { ArtistConfig } from "@/app/constants/types";
 
+interface NavLink {
+  label: string;
+  href: string;
+}
+
 interface ArtistSongBaseLayoutProps {
   artist: ArtistConfig;
   children: React.ReactNode;
+  navLinks?: NavLink[];
 }
 
-export default function ArtistSongBaseLayout({ artist, children }: ArtistSongBaseLayoutProps) {
+export default function ArtistSongBaseLayout({ artist, children, navLinks }: ArtistSongBaseLayoutProps) {
   // Use artist.homeLink if provided, otherwise fall back to artist slug path
   const headerLink = artist.homeLink || `/${artist.slug}`;
 
@@ -49,16 +55,31 @@ export default function ArtistSongBaseLayout({ artist, children }: ArtistSongBas
       {children}
 
       {/* FOOTER */}
-      <footer className="py-10">
-        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-end">
-          <div className="text-sm opacity-70">
-            <span>
-              © {new Date().getFullYear()} {artist.name}. All rights reserved.
-            </span>
-            <br />
-            <span>Minneapolis, MN</span>
+      <footer className="dark bg-gray-950 text-white py-10">
+        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-start">
+          <div className="order-2 md:order-1 text-center md:text-left">
+            {navLinks && navLinks.length > 0 && (
+              <div className="flex flex-wrap gap-3 mb-4 justify-center md:justify-start">
+                {navLinks.map(link => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="inline-flex items-center gap-2 border border-white/20 px-5 py-2 text-sm font-medium hover:bg-white/5 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+            <div className="text-sm opacity-70">
+              <span>
+                © {new Date().getFullYear()} {artist.name}. All rights reserved.
+              </span>
+              <br />
+              <span>Minneapolis, MN</span>
+            </div>
           </div>
-          <div className="flex gap-2 justify-start md:justify-end items-center text-sm">
+          <div className="order-1 md:order-2 flex gap-2 justify-center md:justify-end items-center text-sm">
             <SocialLinks entity={artist.slug} links={[...artist.socialLinks]} />
             <DarkModeToggle />
           </div>

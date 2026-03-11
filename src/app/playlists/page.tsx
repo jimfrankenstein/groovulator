@@ -14,7 +14,10 @@ export default function PlaylistsPage() {
   };
 
   return (
-    <ArtistSongBaseLayout artist={artist}>
+    <ArtistSongBaseLayout
+      artist={artist}
+      navLinks={[{ label: "← Back to Home", href: "/" }]}
+    >
       <main>
         {/* PLAYLISTS GRID */}
         <section className="border-b border-black/10 dark:border-white/10">
@@ -48,17 +51,6 @@ export default function PlaylistsPage() {
           </div>
         </section>
 
-        {/* NAVIGATION */}
-        <section className="border-b border-black/10 dark:border-white/10">
-          <div className="mx-auto max-w-6xl px-4 py-10 text-center">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 px-6 py-3 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-            >
-              ← Back to Home
-            </Link>
-          </div>
-        </section>
       </main>
     </ArtistSongBaseLayout>
   );

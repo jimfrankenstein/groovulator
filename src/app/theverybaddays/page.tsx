@@ -162,7 +162,7 @@ export default async function TheVeryBadDaysPage() {
       </main>
 
       {/* FOOTER */}
-      <footer className="py-10">
+      <footer className="dark bg-gray-950 text-white py-10">
         <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-2 items-end">
           <div className="text-sm opacity-70">
             <span>© {new Date().getFullYear()} The Very Bad Days. All rights reserved.</span>

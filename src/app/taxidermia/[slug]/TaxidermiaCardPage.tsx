@@ -117,7 +117,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
         </div>
       </section>
 
-      <footer className="py-6">
+      <footer className="dark bg-gray-950 text-white py-6">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex items-center justify-between">
             <Link
