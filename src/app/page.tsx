@@ -77,7 +77,7 @@ export default async function Home() {
       <section className="border-b border-black/10 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            The grim grunge ghostbustery of{" "}
+            Haunted musical oddities by{" "}
             <Link
               href={artistHref(currentArtist, "jimfrankenstein")}
               className="text-pink-500 hover:text-pink-700 active:text-pink-900 dark:text-yellow-300 dark:hover:text-yellow-300/80 dark:active:text-yellow-300/60 transition-colors duration-200"
