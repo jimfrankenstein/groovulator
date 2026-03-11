@@ -8,6 +8,22 @@ const hostRule = (host: string, dest: string) => ({
 });
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/woodman",
+        has: [{ type: "host" as const, value: "theverybaddays.com" }],
+        destination: "https://theverybaddays.com/songs/the-tale-of-the-woodman",
+        permanent: false,
+      },
+      {
+        source: "/woodman",
+        has: [{ type: "host" as const, value: "www.theverybaddays.com" }],
+        destination: "https://theverybaddays.com/songs/the-tale-of-the-woodman",
+        permanent: false,
+      },
+    ];
+  },
   async rewrites() {
     return {
       beforeFiles: [
