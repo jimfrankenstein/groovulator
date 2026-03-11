@@ -21,7 +21,6 @@ export default async function JimFrankensteinPage() {
     (a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
   );
 
-
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors">
       {/* HEADER */}

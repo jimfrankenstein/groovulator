@@ -275,7 +275,9 @@ export default function IndividualSongLayout({
         {/* LYRICS */}
         {song.lyrics && (
           <section className="relative border-b border-black/10 dark:border-white/10">
-            <div className={`mx-auto max-w-6xl px-4 pt-12 grid gap-6 md:grid-cols-3 ${lyricsExpanded ? "pb-12" : "pb-0"}`}>
+            <div
+              className={`mx-auto max-w-6xl px-4 pt-12 grid gap-6 md:grid-cols-3 ${lyricsExpanded ? "pb-12" : "pb-0"}`}
+            >
               <div>
                 <h3
                   className="text-xl md:text-2xl font-bold"
@@ -295,7 +297,6 @@ export default function IndividualSongLayout({
                       {formatLyrics(song.lyrics)}
                     </div>
                   </div>
-                
                 </div>
               </div>
             </div>
@@ -316,7 +317,9 @@ export default function IndividualSongLayout({
         )}
 
         {/* CREDITS */}
-        <section className={`border-b border-black/10 dark:border-white/10 ${!lyricsExpanded && song.lyrics ? "hidden" : ""}`}>
+        <section
+          className={`border-b border-black/10 dark:border-white/10 ${!lyricsExpanded && song.lyrics ? "hidden" : ""}`}
+        >
           <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
             <div>
               <h3
@@ -351,7 +354,6 @@ export default function IndividualSongLayout({
             </div>
           </div>
         </section>
-
       </main>
     </ArtistSongBaseLayout>
   );

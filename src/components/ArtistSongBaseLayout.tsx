@@ -30,7 +30,11 @@ interface ArtistSongBaseLayoutProps {
   navLinks?: NavLink[];
 }
 
-export default function ArtistSongBaseLayout({ artist, children, navLinks }: ArtistSongBaseLayoutProps) {
+export default function ArtistSongBaseLayout({
+  artist,
+  children,
+  navLinks,
+}: ArtistSongBaseLayoutProps) {
   // Use artist.homeLink if provided, otherwise fall back to artist slug path
   const headerLink = artist.homeLink || `/${artist.slug}`;
 

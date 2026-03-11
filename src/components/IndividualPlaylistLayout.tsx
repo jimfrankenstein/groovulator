@@ -223,7 +223,6 @@ export default function IndividualPlaylistLayout({
             </div>
           </div>
         </section>
-
       </main>
     </ArtistSongBaseLayout>
   );

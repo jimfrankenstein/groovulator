@@ -14,10 +14,7 @@ export default function PlaylistsPage() {
   };
 
   return (
-    <ArtistSongBaseLayout
-      artist={artist}
-      navLinks={[{ label: "← Back to Home", href: "/" }]}
-    >
+    <ArtistSongBaseLayout artist={artist} navLinks={[{ label: "← Back to Home", href: "/" }]}>
       <main>
         {/* PLAYLISTS GRID */}
         <section className="border-b border-black/10 dark:border-white/10">
@@ -50,7 +47,6 @@ export default function PlaylistsPage() {
             </div>
           </div>
         </section>
-
       </main>
     </ArtistSongBaseLayout>
   );

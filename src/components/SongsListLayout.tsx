@@ -43,7 +43,6 @@ export default function SongsListLayout({ artist, songs }: SongsListLayoutProps)
             </div>
           </div>
         </section>
-
       </main>
     </ArtistSongBaseLayout>
   );

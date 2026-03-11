@@ -45,7 +45,10 @@ export default async function Home() {
             <span>Ectophonic</span> Groovulator
           </a>
           <div className="flex gap-2">
-            <SocialLinks entity="groovulator" links={["instagram", "spotify", "youtube", "email"]} />
+            <SocialLinks
+              entity="groovulator"
+              links={["instagram", "spotify", "youtube", "email"]}
+            />
             <DarkModeToggle />
           </div>
         </div>
@@ -73,7 +76,7 @@ export default async function Home() {
               priority
             />
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
-            Haunted musical oddities by{" "}
+              Haunted musical oddities by{" "}
               <Link
                 href={artistHref(currentArtist, "jimfrankenstein")}
                 className="text-groovulator-pink hover:text-groovulator-pink/80 active:text-groovulator-pink/60 transition-colors duration-200"
@@ -268,7 +271,10 @@ export default async function Home() {
             </span>
           </div>
           <div className="order-1 md:order-2 flex gap-2 justify-center md:justify-end items-center text-sm">
-            <SocialLinks entity="groovulator" links={["instagram", "spotify", "youtube", "email"]} />
+            <SocialLinks
+              entity="groovulator"
+              links={["instagram", "spotify", "youtube", "email"]}
+            />
             <DarkModeToggle />
           </div>
         </div>

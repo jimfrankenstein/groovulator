@@ -7,10 +7,7 @@ interface CountdownTimerProps {
   headerFont?: string; // Custom font for countdown display (defaults to "monoton")
 }
 
-export default function CountdownTimer({
-  releaseDate,
-  headerFont = "monoton",
-}: CountdownTimerProps) {
+export default function CountdownTimer({ releaseDate }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
