@@ -123,9 +123,9 @@ const BandcampIcon = () => (
 );
 
 const SPLASH_SVGS = [
-  "/images/taxidermia/SVG/Pink Splash Tall.svg",
-  "/images/taxidermia/SVG/Yellow Splash Tall.svg",
-  "/images/taxidermia/SVG/Green Splash Tall.svg",
+  "/images/taxidermia/SVG/Pink Splash.svg",
+  "/images/taxidermia/SVG/Yellow Splash.svg",
+  "/images/taxidermia/SVG/Green Splash.svg",
 ];
 
 const ACTIVE_DOT_COLORS = [
@@ -471,7 +471,7 @@ export default function CardCarousel({
       </div>
 
       {/* Listen box — only for released active cards, animates on card change */}
-      <div className="relative z-30 flex justify-center mt-4" style={{ minHeight: 48 }}>
+      <div className="relative z-30 flex justify-center mt-4 mb-4" style={{ minHeight: 48 }}>
         <AnimatePresence mode="wait">
           {(() => {
             const activeCard = cards[currentIndex];
@@ -516,7 +516,7 @@ export default function CardCarousel({
                   aria-hidden="true"
                   draggable={false}
                   className="absolute pointer-events-none max-w-none"
-                  style={{ left: "-82px", top: "-56px", width: "470px", height: "240px" }}
+                  style={{ left: "-82px", top: "-50px", width: "470px", height: "207px" }}
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 500, damping: 20 }}
@@ -562,8 +562,8 @@ export default function CardCarousel({
         </AnimatePresence>
       </div>
 
-      {/* Navigation controls */}
-      <div className="relative z-30 flex items-center justify-center gap-4 mt-2 mb-6">
+      {/* Navigation controls — hidden for now */}
+      <div className="relative z-30 flex items-center justify-center gap-4 mt-2 mb-6 hidden">
         <button
           onClick={goToPrevious}
           disabled={currentIndex === 0}
