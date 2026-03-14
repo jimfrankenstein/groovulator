@@ -123,9 +123,9 @@ const BandcampIcon = () => (
 );
 
 const SPLASH_SVGS = [
-  "/images/taxidermia/SVG/Pink Splash.svg",
-  "/images/taxidermia/SVG/Yellow Splash.svg",
-  "/images/taxidermia/SVG/Green Splash.svg",
+  "/images/taxidermia/SVG/Pink Splash Tall.svg",
+  "/images/taxidermia/SVG/Yellow Splash Tall.svg",
+  "/images/taxidermia/SVG/Green Splash Tall.svg",
 ];
 
 const ACTIVE_DOT_COLORS = [
@@ -516,7 +516,7 @@ export default function CardCarousel({
                   aria-hidden="true"
                   draggable={false}
                   className="absolute pointer-events-none max-w-none"
-                  style={{ left: "-82px", top: "-50px", width: "470px", height: "207px" }}
+                  style={{ left: "-82px", top: "-56px", width: "470px", height: "240px" }}
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 500, damping: 20 }}
