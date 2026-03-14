@@ -21,21 +21,6 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
     }
   });
   const [currentCardNumber, setCurrentCardNumber] = useState(initialCardNumber);
-  const [copySuccess, setCopySuccess] = useState(false);
-
-  const handleShare = async () => {
-    const currentCard = cards[currentCardNumber - 1];
-    const shareUrl = `${window.location.origin}/taxidermia/${currentCard?.id ?? currentCardNumber}`;
-
-    try {
-      await navigator.clipboard.writeText(shareUrl);
-      setCopySuccess(true);
-      setTimeout(() => setCopySuccess(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy URL:", err);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors font-astounder [&_h1,&_h2,&_h3,&_h4,&_h5,&_h6]:font-mudstone [&_h1,&_h2,&_h3,&_h4,&_h5,&_h6]:font-black">
       <main className="relative mx-auto max-w-full px-0 pt-2 overflow-hidden bg-taxidermia-blue">
