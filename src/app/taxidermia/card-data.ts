@@ -5,6 +5,10 @@ export interface Card {
   description: string;
   releaseDate: string; // YYYY-MM-DD
   backOrientation?: "landscape" | "portrait"; // defaults to "portrait" if omitted
+  spotifyId?: string;
+  appleMusicLink?: string;
+  youtubeMusicLink?: string;
+  bandcampLink?: string;
 }
 
 export const cards: Card[] = [
@@ -14,6 +18,10 @@ export const cards: Card[] = [
     cardNumber: 1,
     description: "A mysterious rabbit with extraordinary powers and an enigmatic past.",
     releaseDate: "2026-03-20",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "comphooter",
@@ -21,6 +29,10 @@ export const cards: Card[] = [
     cardNumber: 2,
     description: "A digital companion from another dimension with computational abilities.",
     releaseDate: "2026-04-17",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "lil-dogg",
@@ -28,6 +40,10 @@ export const cards: Card[] = [
     cardNumber: 3,
     description: "The smallest but bravest of the crew, never backs down from a fight.",
     releaseDate: "2026-05-15",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "lil-dogg-2",
@@ -36,6 +52,10 @@ export const cards: Card[] = [
     description: "The smallest but bravest of the crew, never backs down from a fight.",
     releaseDate: "2026-05-15",
     backOrientation: "landscape",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "the-beaver",
@@ -43,6 +63,10 @@ export const cards: Card[] = [
     cardNumber: 5,
     description: "An unlikely duo that became legends through their teamwork and determination.",
     releaseDate: "2026-06-12",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "axe-alot-ul",
@@ -50,6 +74,10 @@ export const cards: Card[] = [
     cardNumber: 6,
     description: "An unlikely duo that became legends through their teamwork and determination.",
     releaseDate: "2026-06-12",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "the-taxidermist",
@@ -57,6 +85,10 @@ export const cards: Card[] = [
     cardNumber: 7,
     description: "Wise guardian of ancient secrets with unmatched vision.",
     releaseDate: "2026-07-17",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "rigor-mort-doch",
@@ -64,6 +96,10 @@ export const cards: Card[] = [
     cardNumber: 8,
     description: "Cunning trickster of the forest, always one step ahead.",
     releaseDate: "2026-07-17",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "count-creep",
@@ -71,6 +107,10 @@ export const cards: Card[] = [
     cardNumber: 9,
     description: "Mighty protector with unstoppable force and fierce loyalty.",
     releaseDate: "2026-07-17",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
   {
     id: "undead-justice-warriors-of-taxidermia",
@@ -79,6 +119,10 @@ export const cards: Card[] = [
     description: "Mighty protector with unstoppable force and fierce loyalty.",
     releaseDate: "2026-08-21",
     backOrientation: "landscape",
+    spotifyId: "",
+    appleMusicLink: "",
+    youtubeMusicLink: "",
+    bandcampLink: "",
   },
 ];
 

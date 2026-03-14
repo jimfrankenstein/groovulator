@@ -38,7 +38,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors font-astounder [&_h1,&_h2,&_h3,&_h4,&_h5,&_h6]:font-mudstone [&_h1,&_h2,&_h3,&_h4,&_h5,&_h6]:font-black">
-      <main className="relative mx-auto max-w-full px-0 pt-4 overflow-hidden bg-taxidermia-blue">
+      <main className="relative mx-auto max-w-full px-0 pt-2 overflow-hidden bg-taxidermia-blue">
         <div className="relative z-10">
           <CardCarousel
             cards={cards}
