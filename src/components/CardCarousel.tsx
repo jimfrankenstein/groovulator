@@ -49,9 +49,9 @@ const BandcampIcon = () => (
 );
 
 const SPLASH_SVGS = [
-  "/images/groovulator/taxidermia/SVG/Pink Splash Tall.svg",
-  "/images/groovulator/taxidermia/SVG/Yellow Splash Tall.svg",
-  "/images/groovulator/taxidermia/SVG/Green Splash Tall.svg",
+  "/images/taxidermia/SVG/Pink Splash Tall.svg",
+  "/images/taxidermia/SVG/Yellow Splash Tall.svg",
+  "/images/taxidermia/SVG/Green Splash Tall.svg",
 ];
 
 const ACTIVE_DOT_COLORS = [
@@ -254,7 +254,7 @@ export default function CardCarousel({
       });
 
       const img = new window.Image();
-      img.src = `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-back.webp`;
+      img.src = `/images/taxidermia/cards-final/${getImagePrefix(cardNum)}-back.webp`;
       img.onload = () => {
         setCardStates(prev => {
           const next = new Map(prev);
@@ -279,8 +279,8 @@ export default function CardCarousel({
       prefetchRange.forEach(cardNum => {
         const img = new window.Image();
         img.src = isCardReleased(cardNum)
-          ? `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-front.webp`
-          : `/images/groovulator/taxidermia/card-mystery/${String(cardNum).padStart(2, "0")}.webp`;
+          ? `/images/taxidermia/cards-final/${getImagePrefix(cardNum)}-front.webp`
+          : `/images/taxidermia/card-mystery/${String(cardNum).padStart(2, "0")}.webp`;
         img.onload = () => {
           setCardStates(prev => {
             const next = new Map(prev);
@@ -302,7 +302,7 @@ export default function CardCarousel({
         if (!isCardReleased(cardNum)) return;
 
         const img = new window.Image();
-        img.src = `/images/groovulator/taxidermia/cards-final/${getImagePrefix(cardNum)}-back.webp`;
+        img.src = `/images/taxidermia/cards-final/${getImagePrefix(cardNum)}-back.webp`;
         const backKey: CardStateKey = `${cardNum}-back`;
         img.onload = () => {
           setCardStates(prev => {
@@ -483,7 +483,7 @@ export default function CardCarousel({
           {progressDots.map(index => {
             const isActive = index === currentIndex;
             const dotNum = String(index + 1).padStart(2, "0");
-            const svgUrl = `/images/groovulator/taxidermia/SVG/progress/${dotNum}.svg`;
+            const svgUrl = `/images/taxidermia/SVG/progress/${dotNum}.svg`;
             const activeDotColor = ACTIVE_DOT_COLORS[currentIndex % ACTIVE_DOT_COLORS.length];
             return (
               <motion.div
@@ -561,7 +561,7 @@ function PlaceholderCard({ opacity }: { opacity: number }) {
       }}
     >
       <Image
-        src="/images/groovulator/taxidermia/cards-final/placeholder.webp"
+        src="/images/taxidermia/cards-final/placeholder.webp"
         alt="Loading card"
         width={640}
         height={896}
@@ -727,8 +727,8 @@ const Card = memo(
               <Image
                 src={
                   isReleased
-                    ? `/images/groovulator/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-front.webp`
-                    : `/images/groovulator/taxidermia/card-mystery/${String(cardNumber).padStart(2, "0")}.webp`
+                    ? `/images/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-front.webp`
+                    : `/images/taxidermia/card-mystery/${String(cardNumber).padStart(2, "0")}.webp`
                 }
                 alt={`Card ${cardNumber}`}
                 width={640}
@@ -753,7 +753,7 @@ const Card = memo(
               {/* Back image - only render if released and loaded or loading */}
               {isReleased && (backLoadState === "loaded" || backLoadState === "loading") && (
                 <Image
-                  src={`/images/groovulator/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-back.webp`}
+                  src={`/images/taxidermia/cards-final/${String(cardNumber).padStart(2, "0")}-${cardId}-back.webp`}
                   alt={`Card ${cardNumber} back`}
                   width={640}
                   height={896}

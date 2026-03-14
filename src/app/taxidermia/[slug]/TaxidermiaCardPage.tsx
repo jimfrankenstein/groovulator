@@ -62,7 +62,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
         <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-2 items-center">
           <div>
             <Image
-              src="/images/groovulator/taxidermia/logo.png"
+              src="/images/taxidermia/logo.png"
               alt="Undead Justice Warriors of Taxidermia vs Evil Corporations: FIGHT FOR YOUR LIFE!"
               width={1000}
               height={500}
@@ -104,7 +104,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
         <div className="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-2 items-center">
           <div>
             <Image
-              src="/images/groovulator/taxidermia/eg-logo.png"
+              src="/images/taxidermia/eg-logo.png"
               alt="Created by Ectophonic Groovulator"
               width={1000}
               height={500}
