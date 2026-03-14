@@ -49,9 +49,15 @@ const BandcampIcon = () => (
 );
 
 const SPLASH_SVGS = [
-  "/images/groovulator/taxidermia/SVG/Pink Splash.svg",
-  "/images/groovulator/taxidermia/SVG/Yellow Splash.svg",
-  "/images/groovulator/taxidermia/SVG/Green Splash.svg",
+  "/images/groovulator/taxidermia/SVG/Pink Splash Tall.svg",
+  "/images/groovulator/taxidermia/SVG/Yellow Splash Tall.svg",
+  "/images/groovulator/taxidermia/SVG/Green Splash Tall.svg",
+];
+
+const ACTIVE_DOT_COLORS = [
+  "var(--color-taxidermia-yellow)",
+  "var(--color-taxidermia-blue)",
+  "var(--color-taxidermia-pink)",
 ];
 
 const SWIPE_THRESHOLD = 50;
@@ -421,7 +427,7 @@ export default function CardCarousel({
                   aria-hidden="true"
                   draggable={false}
                   className="absolute pointer-events-none max-w-none"
-                  style={{ left: "-82px", top: "-50px", width: "470px", height: "207px" }}
+                  style={{ left: "-82px", top: "-56px", width: "470px", height: "240px" }}
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 500, damping: 20 }}
@@ -436,21 +442,25 @@ export default function CardCarousel({
                   Listen
                 </motion.span>
                 <div className="relative flex gap-[14px]">
-                  {links.map((link, i) => (
-                    <motion.a
-                      key={link.label}
-                      href={link.href || undefined}
-                      target={link.href ? "_blank" : undefined}
-                      rel={link.href ? "noopener noreferrer" : undefined}
-                      aria-label={`Listen on ${link.label}`}
-                      className="w-12 h-12 text-black hover:text-white active:text-taxidermia-yellow transition-colors cursor-pointer"
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ type: "spring", stiffness: 500, damping: 20, delay: 0.15 + i * 0.07 }}
-                    >
-                      {link.icon}
-                    </motion.a>
-                  ))}
+                  {links.map((link, i) => {
+                    const hoverColor = ACTIVE_DOT_COLORS[currentIndex % ACTIVE_DOT_COLORS.length];
+                    return (
+                      <motion.a
+                        key={link.label}
+                        href={link.href || undefined}
+                        target={link.href ? "_blank" : undefined}
+                        rel={link.href ? "noopener noreferrer" : undefined}
+                        aria-label={`Listen on ${link.label}`}
+                        className="w-12 h-12 text-black transition-colors cursor-pointer hover:[color:var(--btn-hover)] active:opacity-80"
+                        style={{ "--btn-hover": hoverColor } as React.CSSProperties}
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 20, delay: 0.15 + i * 0.07 }}
+                      >
+                        {link.icon}
+                      </motion.a>
+                    );
+                  })}
                 </div>
               </motion.div>
             );
@@ -459,7 +469,7 @@ export default function CardCarousel({
       </div>
 
       {/* Navigation controls */}
-      <div className="relative z-30 flex items-center justify-center gap-4 mt-4">
+      <div className="relative z-30 flex items-center justify-center gap-4 mt-2 mb-6">
         <button
           onClick={goToPrevious}
           disabled={currentIndex === 0}
@@ -469,19 +479,50 @@ export default function CardCarousel({
           ←
         </button>
 
-        <div className="flex gap-1.5">
-          {progressDots.map(index => (
-            <div
-              key={index}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
-                index < currentIndex
-                  ? "w-2.5 bg-taxidermia-yellow"
-                  : index === currentIndex
-                    ? "w-10 bg-taxidermia-yellow"
-                    : "w-2.5 bg-white/30"
-              }`}
-            />
-          ))}
+        <div className="flex items-center gap-1">
+          {progressDots.map(index => {
+            const isActive = index === currentIndex;
+            const dotNum = String(index + 1).padStart(2, "0");
+            const svgUrl = `/images/groovulator/taxidermia/SVG/progress/${dotNum}.svg`;
+            const activeDotColor = ACTIVE_DOT_COLORS[currentIndex % ACTIVE_DOT_COLORS.length];
+            return (
+              <motion.div
+                key={index}
+                className="relative flex items-center justify-center"
+                animate={{
+                  width: isActive ? 36 : 18,
+                  height: isActive ? 36 : 18,
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              >
+                <div
+                  className="absolute inset-0 transition-colors duration-200"
+                  style={{
+                    backgroundColor: isActive ? activeDotColor : "white",
+                    WebkitMaskImage: `url('${svgUrl}')`,
+                    WebkitMaskSize: "contain",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
+                    maskImage: `url('${svgUrl}')`,
+                    maskSize: "contain",
+                    maskRepeat: "no-repeat",
+                    maskPosition: "center",
+                  }}
+                />
+                <img
+                  src={svgUrl}
+                  alt=""
+                  aria-hidden="true"
+                  draggable={false}
+                  className="relative w-full h-full"
+                  style={{
+                    filter: "saturate(0) contrast(10)",
+                    mixBlendMode: "multiply",
+                  }}
+                />
+              </motion.div>
+            );
+          })}
         </div>
 
         <button
