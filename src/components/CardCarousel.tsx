@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo, memo } from "react";
-import { motion, useAnimationControls, PanInfo } from "framer-motion";
+import { motion, AnimatePresence, useAnimationControls, PanInfo } from "framer-motion";
 import Image from "next/image";
 import type { Card } from "../app/taxidermia/card-data";
 import { getCardOrientation } from "../app/taxidermia/card-data";
@@ -47,6 +47,12 @@ const BandcampIcon = () => (
     <path d="M82.8544 15.6098C85.3164 16.7952 87.7567 18.017 90.1846 19.275C96.405 28.6047 99.3949 35.8716 99.8725 47.3082C98.9685 44.743 98.2521 42.115 96.3815 40.1287C96.1654 32.3711 87.9547 21.2324 82.8544 15.6098Z" fill="currentColor"/>
   </svg>
 );
+
+const SPLASH_SVGS = [
+  "/images/groovulator/taxidermia/SVG/Pink Splash.svg",
+  "/images/groovulator/taxidermia/SVG/Yellow Splash.svg",
+  "/images/groovulator/taxidermia/SVG/Green Splash.svg",
+];
 
 const SWIPE_THRESHOLD = 50;
 const DISCARD_SPACING = 80;
@@ -384,49 +390,73 @@ export default function CardCarousel({
         </div>
       </div>
 
-      {/* Listen box — only for released active cards */}
-      {(() => {
-        const activeCard = cards[currentIndex];
-        const isReleased = activeCard && (revealAll || new Date(activeCard.releaseDate) <= new Date());
-        if (!isReleased) return null;
+      {/* Listen box — only for released active cards, animates on card change */}
+      <div className="relative z-30 flex justify-center mt-4" style={{ minHeight: 48 }}>
+        <AnimatePresence mode="wait">
+          {(() => {
+            const activeCard = cards[currentIndex];
+            const isReleased = activeCard && (revealAll || new Date(activeCard.releaseDate) <= new Date());
+            if (!isReleased) return null;
 
-        const links = [
-          { href: activeCard.spotifyId ? `https://open.spotify.com/track/${activeCard.spotifyId}` : "", label: "Spotify", icon: <SpotifyIcon /> },
-          { href: activeCard.appleMusicLink ?? "", label: "Apple Music", icon: <AppleMusicIcon /> },
-          { href: activeCard.youtubeMusicLink ?? "", label: "YouTube Music", icon: <YoutubeMusicIcon /> },
-          { href: activeCard.bandcampLink ?? "", label: "Bandcamp", icon: <BandcampIcon /> },
-        ];
+            const splashSvg = SPLASH_SVGS[currentIndex % SPLASH_SVGS.length];
+            const links = [
+              { href: activeCard.spotifyId ? `https://open.spotify.com/track/${activeCard.spotifyId}` : "", label: "Spotify", icon: <SpotifyIcon /> },
+              { href: activeCard.appleMusicLink ?? "", label: "Apple Music", icon: <AppleMusicIcon /> },
+              { href: activeCard.youtubeMusicLink ?? "", label: "YouTube Music", icon: <YoutubeMusicIcon /> },
+              { href: activeCard.bandcampLink ?? "", label: "Bandcamp", icon: <BandcampIcon /> },
+            ];
 
-        return (
-          <div className="relative z-30 flex justify-center mt-4">
-            <div className="relative flex items-center justify-center">
-              <img
-                src="/images/groovulator/taxidermia/SVG/Pink Splash.svg"
-                alt=""
-                aria-hidden="true"
-                draggable={false}
-                className="absolute pointer-events-none max-w-none"
-                style={{ left: "-82px", top: "-50px", width: "470px", height: "207px" }}
-              />
-              <span className="relative italic text-black select-none mr-[19px]" style={{ fontSize: "33px", lineHeight: "33px" }}>Listen</span>
-              <div className="relative flex gap-[14px]">
-                {links.map(link => (
-                  <a
-                    key={link.label}
-                    href={link.href || undefined}
-                    target={link.href ? "_blank" : undefined}
-                    rel={link.href ? "noopener noreferrer" : undefined}
-                    aria-label={`Listen on ${link.label}`}
-                    className="w-12 h-12 text-black hover:text-white active:text-taxidermia-yellow transition-colors cursor-pointer"
-                  >
-                    {link.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-      })()}
+            return (
+              <motion.div
+                key={currentIndex}
+                className="relative flex items-center justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.12 }}
+              >
+                <motion.img
+                  src={splashSvg}
+                  alt=""
+                  aria-hidden="true"
+                  draggable={false}
+                  className="absolute pointer-events-none max-w-none"
+                  style={{ left: "-82px", top: "-50px", width: "470px", height: "207px" }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                />
+                <motion.span
+                  className="relative italic text-black select-none mr-[19px]"
+                  style={{ fontSize: "33px", lineHeight: "33px" }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 20, delay: 0.1 }}
+                >
+                  Listen
+                </motion.span>
+                <div className="relative flex gap-[14px]">
+                  {links.map((link, i) => (
+                    <motion.a
+                      key={link.label}
+                      href={link.href || undefined}
+                      target={link.href ? "_blank" : undefined}
+                      rel={link.href ? "noopener noreferrer" : undefined}
+                      aria-label={`Listen on ${link.label}`}
+                      className="w-12 h-12 text-black hover:text-white active:text-taxidermia-yellow transition-colors cursor-pointer"
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ type: "spring", stiffness: 500, damping: 20, delay: 0.15 + i * 0.07 }}
+                    >
+                      {link.icon}
+                    </motion.a>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })()}
+        </AnimatePresence>
+      </div>
 
       {/* Navigation controls */}
       <div className="relative z-30 flex items-center justify-center gap-4 mt-4">
