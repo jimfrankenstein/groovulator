@@ -90,7 +90,13 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
               aria-hidden="true"
               draggable={false}
               className="absolute pointer-events-none max-w-none"
-              style={{ left: "50%", top: "50%", width: "508px", height: "auto", transform: "translate(-50%, -40%)" }}
+              style={{
+                left: "50%",
+                top: "50%",
+                width: "508px",
+                height: "auto",
+                transform: "translate(-50%, -40%)",
+              }}
             />
             <span
               className="relative italic text-black select-none mr-[19px] font-astounder"
@@ -100,11 +106,27 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
             </span>
             <div className="relative flex gap-[14px]">
               {[
-                { href: SOCIAL_LINKS.groovulator.instagram.href, label: "Instagram", icon: <InstagramLogo size={24} weight="fill" color="white" /> },
-                { href: SOCIAL_LINKS.groovulator.spotify.href, label: "Spotify", icon: <SpotifyLogo size={24} weight="fill" color="white" /> },
-                { href: SOCIAL_LINKS.groovulator.youtube.href, label: "YouTube", icon: <YoutubeLogo size={24} weight="fill" color="white" /> },
-                { href: SOCIAL_LINKS.groovulator.email.href, label: "Email", icon: <EnvelopeSimple size={24} weight="fill" color="white" /> },
-              ].map((link) => (
+                {
+                  href: SOCIAL_LINKS.groovulator.instagram.href,
+                  label: "Instagram",
+                  icon: <InstagramLogo size={24} weight="fill" color="white" />,
+                },
+                {
+                  href: SOCIAL_LINKS.groovulator.spotify.href,
+                  label: "Spotify",
+                  icon: <SpotifyLogo size={24} weight="fill" color="white" />,
+                },
+                {
+                  href: SOCIAL_LINKS.groovulator.youtube.href,
+                  label: "YouTube",
+                  icon: <YoutubeLogo size={24} weight="fill" color="white" />,
+                },
+                {
+                  href: SOCIAL_LINKS.groovulator.email.href,
+                  label: "Email",
+                  icon: <EnvelopeSimple size={24} weight="fill" color="white" />,
+                },
+              ].map(link => (
                 <a
                   key={link.label}
                   href={link.href}
@@ -144,12 +166,25 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
             This project was created by{" "}
             <Link href="/" className="underline hover:text-taxidermia-pink transition-colors">
               Ectophonic Groovulator
-            </Link>, an independent studio from Minneapolis, making
-            short, haunted musicals and other oddities. We write songs about goblins, cults,
-            dolphin suicides, and whatever else crawls out of the woods. Our projects, <Link href="/theverybaddays" className="underline hover:text-taxidermia-pink transition-colors">The Very
-            Bad Days</Link> and <Link href="/jimfrankenstein" className="underline hover:text-taxidermia-pink transition-colors">Jim Frankenstein</Link>, mix dark humor with 90s alt-rock fuzz and
-            basement-punk energy. If you like your laughter with a chill and your horror with a
-            wink, welcome to the Groovulator.
+            </Link>
+            , an independent studio from Minneapolis, making short, haunted musicals and other
+            oddities. We write songs about goblins, cults, dolphin suicides, and whatever else
+            crawls out of the woods. Our projects,{" "}
+            <Link
+              href="/theverybaddays"
+              className="underline hover:text-taxidermia-pink transition-colors"
+            >
+              The Very Bad Days
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="/jimfrankenstein"
+              className="underline hover:text-taxidermia-pink transition-colors"
+            >
+              Jim Frankenstein
+            </Link>
+            , mix dark humor with 90s alt-rock fuzz and basement-punk energy. If you like your
+            laughter with a chill and your horror with a wink, welcome to the Groovulator.
           </p>
         </div>
       </section>
@@ -163,7 +198,13 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
               aria-hidden="true"
               draggable={false}
               className="absolute pointer-events-none max-w-none"
-              style={{ left: "50%", top: "50%", width: "508px", height: "auto", transform: "translate(-50%, -40%)" }}
+              style={{
+                left: "50%",
+                top: "50%",
+                width: "508px",
+                height: "auto",
+                transform: "translate(-50%, -40%)",
+              }}
             />
             <span
               className="relative italic text-black select-none mr-[19px] font-astounder"
@@ -173,11 +214,27 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
             </span>
             <div className="relative flex gap-[14px]">
               {[
-                { href: SOCIAL_LINKS.groovulator.instagram.href, label: "Instagram", icon: <InstagramLogo size={24} weight="fill" color="white" /> },
-                { href: SOCIAL_LINKS.groovulator.spotify.href, label: "Spotify", icon: <SpotifyLogo size={24} weight="fill" color="white" /> },
-                { href: SOCIAL_LINKS.groovulator.youtube.href, label: "YouTube", icon: <YoutubeLogo size={24} weight="fill" color="white" /> },
-                { href: SOCIAL_LINKS.groovulator.email.href, label: "Email", icon: <EnvelopeSimple size={24} weight="fill" color="white" /> },
-              ].map((link) => (
+                {
+                  href: SOCIAL_LINKS.groovulator.instagram.href,
+                  label: "Instagram",
+                  icon: <InstagramLogo size={24} weight="fill" color="white" />,
+                },
+                {
+                  href: SOCIAL_LINKS.groovulator.spotify.href,
+                  label: "Spotify",
+                  icon: <SpotifyLogo size={24} weight="fill" color="white" />,
+                },
+                {
+                  href: SOCIAL_LINKS.groovulator.youtube.href,
+                  label: "YouTube",
+                  icon: <YoutubeLogo size={24} weight="fill" color="white" />,
+                },
+                {
+                  href: SOCIAL_LINKS.groovulator.email.href,
+                  label: "Email",
+                  icon: <EnvelopeSimple size={24} weight="fill" color="white" />,
+                },
+              ].map(link => (
                 <a
                   key={link.label}
                   href={link.href}
