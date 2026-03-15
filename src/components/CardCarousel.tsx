@@ -394,8 +394,7 @@ export default function CardCarousel({
         const arrowStyle = { "--btn-hover": hoverColor } as React.CSSProperties;
         return (
           <div
-            className="relative z-30 mt-10 mb-4 flex items-center justify-center gap-4"
-            style={{ minHeight: 48 }}
+            className="relative z-30 mt-10 mb-4 flex items-center justify-center gap-4 min-h-[48px] max-[500px]:min-h-[93px] max-[500px]:items-end"
           >
             <button
               onClick={goToPrevious}
@@ -407,15 +406,59 @@ export default function CardCarousel({
               <LeftArrowSvg />
             </button>
 
-            <div className="flex justify-center">
+            {(() => {
+              const activeCard = cards[currentIndex];
+              const isCurrentReleased = activeCard && (revealAll || new Date(activeCard.releaseDate) <= new Date());
+              return (
+            <div className={`relative flex justify-center ${isCurrentReleased ? "" : "min-w-[320px] max-[500px]:min-w-[234px]"}`}>
               <AnimatePresence mode="wait">
                 {(() => {
-                  const activeCard = cards[currentIndex];
-                  const isReleased =
-                    activeCard && (revealAll || new Date(activeCard.releaseDate) <= new Date());
-                  if (!isReleased) return null;
+                  if (!activeCard) return null;
 
+                  const isReleased = revealAll || new Date(activeCard.releaseDate) <= new Date();
                   const splashSvg = SPLASH_SVGS[currentIndex % SPLASH_SVGS.length];
+
+                  const formatReleaseDate = (dateStr: string) => {
+                    const d = new Date(dateStr + "T00:00:00");
+                    const month = d.toLocaleString("en-US", { month: "short" });
+                    const day = d.getDate();
+                    return `${month} ${day}`;
+                  };
+
+                  if (!isReleased) {
+                    return (
+                      <motion.div
+                        key={`coming-${currentIndex}`}
+                        className="relative flex items-center justify-center w-full"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.12 }}
+                      >
+                        <motion.img
+                          src={splashSvg}
+                          alt=""
+                          aria-hidden="true"
+                          draggable={false}
+                          className="absolute pointer-events-none max-w-none"
+                          style={{ left: "-150px", top: "-72px", width: "600px", height: "auto" }}
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                        />
+                        <motion.span
+                          className="relative italic text-black select-none max-[500px]:mb-2"
+                          style={{ fontSize: "33px", lineHeight: "33px" }}
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 20, delay: 0.15 }}
+                        >
+                          Coming {formatReleaseDate(activeCard.releaseDate)}
+                        </motion.span>
+                      </motion.div>
+                    );
+                  }
+
                   const links = [
                     {
                       href: activeCard.spotifyId
@@ -459,7 +502,7 @@ export default function CardCarousel({
 
                   return (
                     <motion.div
-                      key={currentIndex}
+                      key={`listen-${currentIndex}`}
                       className="relative flex items-center justify-center max-[500px]:flex-col"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -482,7 +525,7 @@ export default function CardCarousel({
                         style={{ fontSize: "33px", lineHeight: "33px" }}
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        transition={{ type: "spring", stiffness: 500, damping: 20, delay: 0.1 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 20, delay: 0.15 }}
                       >
                         Listen
                       </motion.span>
@@ -505,7 +548,7 @@ export default function CardCarousel({
                                 type: "spring",
                                 stiffness: 500,
                                 damping: 20,
-                                delay: 0.15 + i * 0.07,
+                                delay: 0.2 + i * 0.07,
                               }}
                             >
                               {link.icon}
@@ -518,6 +561,8 @@ export default function CardCarousel({
                 })()}
               </AnimatePresence>
             </div>
+              );
+            })()}
 
             <button
               onClick={goToNext}
