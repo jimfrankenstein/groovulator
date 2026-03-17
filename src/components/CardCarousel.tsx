@@ -3,9 +3,15 @@
 import { useState, useEffect, useCallback, useMemo, memo } from "react";
 import { motion, AnimatePresence, useAnimationControls, PanInfo } from "framer-motion";
 import Image from "next/image";
-import { SpotifyLogo, AppleLogo, YoutubeLogo } from "@phosphor-icons/react";
+import { SpotifyLogo, AppleLogo, YoutubeLogo, AmazonLogo } from "@phosphor-icons/react";
 import type { Card } from "../app/taxidermia/card-data";
 import { getCardOrientation } from "../app/taxidermia/card-data";
+
+declare global {
+  interface Window {
+    fbq: (action: string, eventName: string) => void;
+  }
+}
 
 interface CardCarouselProps {
   cards: Card[];
@@ -16,18 +22,6 @@ interface CardCarouselProps {
 
 // Type for card state keys - supports both front cards (number) and back cards (string)
 type CardStateKey = number | `${number}-back`;
-
-const IconCircle = ({ children }: { children: React.ReactNode }) => (
-  <div className="w-full h-full rounded-full bg-black group-hover:bg-[var(--btn-hover)] transition-colors flex items-center justify-center">
-    {children}
-  </div>
-);
-
-const BandcampSvg = () => (
-  <svg viewBox="0 0 256 256" className="w-6 h-6" fill="white">
-    <path d="M166 80H48l42 96h166l-42-96h-48z" />
-  </svg>
-);
 
 const LeftArrowSvg = () => (
   <svg viewBox="0 0 75 75" fill="none" className="w-7 h-7">
@@ -477,38 +471,26 @@ export default function CardCarousel({
                             ? `https://open.spotify.com/track/${activeCard.spotifyId}`
                             : "",
                           label: "Spotify",
-                          icon: (
-                            <IconCircle>
-                              <SpotifyLogo size={24} weight="fill" color="white" />
-                            </IconCircle>
-                          ),
+                          fbqEvent: "SongLinkClick_Spotify",
+                          icon: <SpotifyLogo size={24} weight="fill" />,
                         },
                         {
                           href: activeCard.appleMusicLink ?? "",
                           label: "Apple Music",
-                          icon: (
-                            <IconCircle>
-                              <AppleLogo size={24} weight="fill" color="white" />
-                            </IconCircle>
-                          ),
+                          fbqEvent: "SongLinkClick_AppleMusic",
+                          icon: <AppleLogo size={24} weight="fill" />,
                         },
                         {
                           href: activeCard.youtubeMusicLink ?? "",
                           label: "YouTube Music",
-                          icon: (
-                            <IconCircle>
-                              <YoutubeLogo size={24} weight="fill" color="white" />
-                            </IconCircle>
-                          ),
+                          fbqEvent: "SongLinkClick_YouTube",
+                          icon: <YoutubeLogo size={24} weight="fill" />,
                         },
                         {
-                          href: activeCard.bandcampLink ?? "",
-                          label: "Bandcamp",
-                          icon: (
-                            <IconCircle>
-                              <BandcampSvg />
-                            </IconCircle>
-                          ),
+                          href: activeCard.amazonMusicLink ?? "",
+                          label: "Amazon Music",
+                          fbqEvent: "SongLinkClick_AmazonMusic",
+                          icon: <AmazonLogo size={24} weight="fill" />,
                         },
                       ];
 
@@ -557,7 +539,13 @@ export default function CardCarousel({
                                   target={link.href ? "_blank" : undefined}
                                   rel={link.href ? "noopener noreferrer" : undefined}
                                   aria-label={`Listen on ${link.label}`}
-                                  className="group w-12 h-12 cursor-pointer active:opacity-80"
+                                  onClick={() => {
+                                    if (typeof window !== "undefined" && window.fbq) {
+                                      window.fbq("track", "SongLinkClick");
+                                      window.fbq("track", link.fbqEvent);
+                                    }
+                                  }}
+                                  className="group w-12 h-12 rounded-full bg-black hover:bg-[var(--btn-hover)] text-white hover:text-black transition-colors flex items-center justify-center cursor-pointer active:opacity-80"
                                   style={{ "--btn-hover": linkHoverColor } as React.CSSProperties}
                                   initial={{ scale: 0, opacity: 0 }}
                                   animate={{ scale: 1, opacity: 1 }}

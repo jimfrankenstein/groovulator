@@ -109,22 +109,22 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
                 {
                   href: SOCIAL_LINKS.groovulator.instagram.href,
                   label: "Instagram",
-                  icon: <InstagramLogo size={24} weight="fill" color="white" />,
+                  icon: <InstagramLogo size={24} weight="fill" />,
                 },
                 {
                   href: SOCIAL_LINKS.groovulator.spotify.href,
                   label: "Spotify",
-                  icon: <SpotifyLogo size={24} weight="fill" color="white" />,
+                  icon: <SpotifyLogo size={24} weight="fill" />,
                 },
                 {
                   href: SOCIAL_LINKS.groovulator.youtube.href,
                   label: "YouTube",
-                  icon: <YoutubeLogo size={24} weight="fill" color="white" />,
+                  icon: <YoutubeLogo size={24} weight="fill" />,
                 },
                 {
                   href: SOCIAL_LINKS.groovulator.email.href,
                   label: "Email",
-                  icon: <EnvelopeSimple size={24} weight="fill" color="white" />,
+                  icon: <EnvelopeSimple size={24} weight="fill" />,
                 },
               ].map(link => (
                 <a
@@ -133,7 +133,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="w-12 h-12 rounded-full bg-black flex items-center justify-center cursor-pointer transition-colors hover:bg-taxidermia-blue active:opacity-80"
+                  className="group w-12 h-12 rounded-full bg-black flex items-center justify-center cursor-pointer text-white hover:text-black transition-colors hover:bg-taxidermia-blue active:opacity-80"
                 >
                   {link.icon}
                 </a>
@@ -217,22 +217,22 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
                 {
                   href: SOCIAL_LINKS.groovulator.instagram.href,
                   label: "Instagram",
-                  icon: <InstagramLogo size={24} weight="fill" color="white" />,
+                  icon: <InstagramLogo size={24} weight="fill" />,
                 },
                 {
                   href: SOCIAL_LINKS.groovulator.spotify.href,
                   label: "Spotify",
-                  icon: <SpotifyLogo size={24} weight="fill" color="white" />,
+                  icon: <SpotifyLogo size={24} weight="fill" />,
                 },
                 {
                   href: SOCIAL_LINKS.groovulator.youtube.href,
                   label: "YouTube",
-                  icon: <YoutubeLogo size={24} weight="fill" color="white" />,
+                  icon: <YoutubeLogo size={24} weight="fill" />,
                 },
                 {
                   href: SOCIAL_LINKS.groovulator.email.href,
                   label: "Email",
-                  icon: <EnvelopeSimple size={24} weight="fill" color="white" />,
+                  icon: <EnvelopeSimple size={24} weight="fill" />,
                 },
               ].map(link => (
                 <a
@@ -241,7 +241,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="w-12 h-12 rounded-full bg-black flex items-center justify-center cursor-pointer transition-colors hover:bg-taxidermia-blue active:opacity-80"
+                  className="group w-12 h-12 rounded-full bg-black flex items-center justify-center cursor-pointer text-white hover:text-black transition-colors hover:bg-taxidermia-blue active:opacity-80"
                 >
                   {link.icon}
                 </a>

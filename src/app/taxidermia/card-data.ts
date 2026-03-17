@@ -8,7 +8,7 @@ export interface Card {
   spotifyId?: string;
   appleMusicLink?: string;
   youtubeMusicLink?: string;
-  bandcampLink?: string;
+  amazonMusicLink?: string;
 }
 
 export const cards: Card[] = [
@@ -18,10 +18,10 @@ export const cards: Card[] = [
     cardNumber: 1,
     description: "A mysterious rabbit with extraordinary powers and an enigmatic past.",
     releaseDate: "2026-03-20",
-    spotifyId: "",
-    appleMusicLink: "",
-    youtubeMusicLink: "",
-    bandcampLink: "",
+    spotifyId: "6t4KaXHZ2daNPnBWIc9j6B",
+    appleMusicLink: "https://music.apple.com/us/song/hey-frogman-grass-and-water/1863805354",
+    youtubeMusicLink: "https://music.youtube.com/playlist?list=OLAK5uy_njZ88pWNrOEDLd-vRpkwIiCjBVu3vUQEA&si=ifguroEyXqW2JukN",
+    amazonMusicLink: "https://music.amazon.com/albums/B0GC7SRFM2",
   },
   {
     id: "comphooter",
@@ -32,7 +32,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
   {
     id: "lil-dogg",
@@ -43,7 +43,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
   {
     id: "lil-dogg-2",
@@ -55,7 +55,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
   {
     id: "the-beaver",
@@ -66,7 +66,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
   {
     id: "axe-alot-ul",
@@ -77,7 +77,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
   {
     id: "the-taxidermist",
@@ -88,7 +88,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
   {
     id: "rigor-mort-doch",
@@ -99,7 +99,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
   {
     id: "count-creep",
@@ -110,7 +110,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
   {
     id: "undead-justice-warriors-of-taxidermia",
@@ -122,7 +122,7 @@ export const cards: Card[] = [
     spotifyId: "",
     appleMusicLink: "",
     youtubeMusicLink: "",
-    bandcampLink: "",
+    amazonMusicLink: "",
   },
 ];
 
