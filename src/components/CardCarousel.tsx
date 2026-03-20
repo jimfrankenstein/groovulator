@@ -467,9 +467,7 @@ export default function CardCarousel({
 
                       const links = [
                         {
-                          href: activeCard.spotifyId
-                            ? `https://open.spotify.com/track/${activeCard.spotifyId}`
-                            : "",
+                          href: activeCard.spotifyLink ?? "",
                           label: "Spotify",
                           fbqEvent: "SongLinkClick_Spotify",
                           icon: <SpotifyLogo size={24} weight="fill" />,
