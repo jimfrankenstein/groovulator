@@ -18,7 +18,7 @@ export const cards: Card[] = [
     cardNumber: 1,
     description: "A mysterious rabbit with extraordinary powers and an enigmatic past.",
     releaseDate: "2026-03-20",
-    spotifyLink: "https://open.spotify.com/playlist/06EVaEFQoR7lvHljqdIzuE",
+    spotifyLink: "https://open.spotify.com/playlist/06EVaEFQoR7lvHljqdIzuE?si=OLJyZFBPT5q6k7PIUA0WPg",
     appleMusicLink: "https://music.apple.com/us/playlist/undead-justice-warriors-of-taxidermia-ectophonic/pl.u-mJy8gWPFN7Y82qE",
     youtubeMusicLink: "https://youtu.be/oxZPPDkPRN8",
     amazonMusicLink: "https://music.amazon.com/user-playlists/7cde9c48c3ab4adaa10898134f82e139sune?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_0ZzbEptIpZSAHJ0pOgfYg8NjZ",
