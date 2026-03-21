@@ -3,6 +3,7 @@ import Script from "next/script";
 import { fugaz } from "./fonts/fugaz";
 import { dmSans } from "./fonts/dmsans";
 import { monoton } from "./fonts/monoton";
+import { Analytics } from "@vercel/analytics/next";
 import { DarkModeProvider } from "../components/DarkModeContext";
 import "./globals.css";
 
@@ -68,6 +69,7 @@ export default function RootLayout({
           />
         </noscript>
         <DarkModeProvider>{children}</DarkModeProvider>
+        <Analytics />
       </body>
     </html>
   );
