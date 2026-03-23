@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { track } from "@vercel/analytics";
 import { InstagramLogo, SpotifyLogo, YoutubeLogo, EnvelopeSimple } from "@phosphor-icons/react";
 import CardCarousel from "../../../components/CardCarousel";
 import { cards } from "../card-data";
@@ -21,6 +22,29 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
     }
   });
   const [currentCardNumber, setCurrentCardNumber] = useState(initialCardNumber);
+
+  useEffect(() => {
+    track("Taxidermia Page View", { card: cards[initialCardNumber - 1].id });
+  }, [initialCardNumber]);
+
+  const navCountRef = useRef(0);
+  const prevCardRef = useRef(initialCardNumber);
+
+  const handleCardChange = useCallback((cardNumber: number) => {
+    setCurrentCardNumber(cardNumber);
+    if (cardNumber === prevCardRef.current) {
+      return;
+    }
+    prevCardRef.current = cardNumber;
+    navCountRef.current += 1;
+    if (navCountRef.current === 1 || navCountRef.current === 5) {
+      track("Taxidermia Card Navigation", {
+        milestone: navCountRef.current,
+        card: cards[cardNumber - 1].id,
+      });
+    }
+  }, []);
+
   return (
     <div className="dark min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white antialiased transition-colors font-astounder [&_h1,&_h2,&_h3,&_h4,&_h5,&_h6]:font-mudstone [&_h1,&_h2,&_h3,&_h4,&_h5,&_h6]:font-black">
       <main className="relative mx-auto max-w-full px-0 pt-2 overflow-hidden bg-taxidermia-blue">
@@ -28,7 +52,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
           <CardCarousel
             cards={cards}
             initialCardNumber={initialCardNumber}
-            onCardChange={setCurrentCardNumber}
+            onCardChange={handleCardChange}
             revealAll={timeTravel}
           />
         </div>
@@ -133,6 +157,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
+                  onClick={() => track("Taxidermia Follow Click", { platform: link.label })}
                   className="group w-12 h-12 rounded-full bg-black flex items-center justify-center cursor-pointer text-white hover:text-black transition-colors hover:bg-taxidermia-blue active:opacity-80"
                 >
                   {link.icon}
@@ -241,6 +266,7 @@ export default function TaxidermiaCardPage({ initialCardNumber }: TaxidermiaCard
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
+                  onClick={() => track("Taxidermia Follow Click", { platform: link.label })}
                   className="group w-12 h-12 rounded-full bg-black flex items-center justify-center cursor-pointer text-white hover:text-black transition-colors hover:bg-taxidermia-blue active:opacity-80"
                 >
                   {link.icon}

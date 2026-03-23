@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * IndividualPlaylistLayout - Complete layout for individual playlist detail pages
  *
@@ -16,7 +18,9 @@
  * of how the about section is displayed if needed.
  */
 
+import { useEffect } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { Playlist, ArtistConfig } from "@/app/constants/types";
 import { SpotifyLogo, YoutubeLogo, AppleLogo } from "@phosphor-icons/react";
 import PlaylistImage from "./PlaylistImage";
@@ -38,6 +42,10 @@ export default function IndividualPlaylistLayout({
   playlist,
   artist,
 }: IndividualPlaylistLayoutProps) {
+  useEffect(() => {
+    track("Playlist Page View", { playlist: playlist.id });
+  }, [playlist.id]);
+
   return (
     <ArtistSongBaseLayout
       artist={artist}
@@ -92,6 +100,7 @@ export default function IndividualPlaylistLayout({
                   href={`https://open.spotify.com/playlist/${playlist.spotifyId}`}
                   target="_blank"
                   onClick={() => {
+                    track("Playlist Listen Click", { playlist: playlist.id, platform: "Spotify" });
                     if (typeof window !== "undefined" && window.fbq) {
                       window.fbq("track", "PlaylistLinkClick");
                       window.fbq("track", "PlaylistLinkClick_Spotify");
@@ -114,6 +123,7 @@ export default function IndividualPlaylistLayout({
                   href={playlist.appleMusicLink}
                   target="_blank"
                   onClick={() => {
+                    track("Playlist Listen Click", { playlist: playlist.id, platform: "Apple Music" });
                     if (typeof window !== "undefined" && window.fbq) {
                       window.fbq("track", "PlaylistLinkClick");
                       window.fbq("track", "PlaylistLinkClick_AppleMusic");
@@ -136,6 +146,7 @@ export default function IndividualPlaylistLayout({
                   href={playlist.youtubeLink}
                   target="_blank"
                   onClick={() => {
+                    track("Playlist Listen Click", { playlist: playlist.id, platform: "YouTube" });
                     if (typeof window !== "undefined" && window.fbq) {
                       window.fbq("track", "PlaylistLinkClick");
                       window.fbq("track", "PlaylistLinkClick_YouTube");
@@ -153,6 +164,7 @@ export default function IndividualPlaylistLayout({
                   href={playlist.youtubeMusicLink}
                   target="_blank"
                   onClick={() => {
+                    track("Playlist Listen Click", { playlist: playlist.id, platform: "YouTube Music" });
                     if (typeof window !== "undefined" && window.fbq) {
                       window.fbq("track", "PlaylistLinkClick");
                       window.fbq("track", "PlaylistLinkClick_YouTubeMusic");
@@ -182,6 +194,7 @@ export default function IndividualPlaylistLayout({
                     href={playlist.merchTableLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => track("Playlist Support Artists Click", { playlist: playlist.id })}
                     className="underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                   >
                     Merch Table
@@ -194,6 +207,7 @@ export default function IndividualPlaylistLayout({
                     href={playlist.merchTableLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => track("Playlist Support Artists Click", { playlist: playlist.id })}
                     className="inline-flex items-center gap-2 bg-black text-white dark:bg-white dark:text-black px-6 py-3 text-sm font-medium hover:bg-black/80 dark:hover:bg-white/90 transition-colors"
                   >
                     Support the Artists

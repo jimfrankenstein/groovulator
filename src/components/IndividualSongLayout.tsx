@@ -2,9 +2,10 @@
 
 // Full layout for /artist/songs/[songId] pages.
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { track } from "@vercel/analytics";
 import { Song, ArtistConfig } from "@/app/constants/types";
 import {
   AmazonLogo,
@@ -70,6 +71,10 @@ export default function IndividualSongLayout({
   const searchParams = useSearchParams();
   const debugMode = searchParams.get("debug") === "true";
   const [lyricsExpanded, setLyricsExpanded] = useState(false);
+
+  useEffect(() => {
+    track("Song Page View", { song: song.id, artist: artist.name });
+  }, [song.id, artist.name]);
 
   // Check if release date is in the future
   const isFutureRelease = new Date(song.releaseDate) > new Date();
@@ -163,6 +168,7 @@ export default function IndividualSongLayout({
                         href={`https://open.spotify.com/track/${song.spotifyId}`}
                         target="_blank"
                         onClick={() => {
+                          track("Song Listen Click", { song: song.id, artist: artist.name, platform: "Spotify" });
                           if (typeof window !== "undefined" && window.fbq) {
                             window.fbq("track", "SongLinkClick");
                             window.fbq("track", "SongLinkClick_Spotify");
@@ -180,6 +186,7 @@ export default function IndividualSongLayout({
                         href={song.appleMusicLink}
                         target="_blank"
                         onClick={() => {
+                          track("Song Listen Click", { song: song.id, artist: artist.name, platform: "Apple Music" });
                           if (typeof window !== "undefined" && window.fbq) {
                             window.fbq("track", "SongLinkClick");
                             window.fbq("track", "SongLinkClick_AppleMusic");
@@ -197,6 +204,7 @@ export default function IndividualSongLayout({
                         href={song.youtubeLink}
                         target="_blank"
                         onClick={() => {
+                          track("Song Listen Click", { song: song.id, artist: artist.name, platform: "YouTube" });
                           if (typeof window !== "undefined" && window.fbq) {
                             window.fbq("track", "SongLinkClick");
                             window.fbq("track", "SongLinkClick_YouTube");
@@ -214,6 +222,7 @@ export default function IndividualSongLayout({
                         href={song.youtubeMusicLink}
                         target="_blank"
                         onClick={() => {
+                          track("Song Listen Click", { song: song.id, artist: artist.name, platform: "YouTube Music" });
                           if (typeof window !== "undefined" && window.fbq) {
                             window.fbq("track", "SongLinkClick");
                             window.fbq("track", "SongLinkClick_YouTube");
@@ -235,6 +244,7 @@ export default function IndividualSongLayout({
                         href={song.amazonMusicLink}
                         target="_blank"
                         onClick={() => {
+                          track("Song Listen Click", { song: song.id, artist: artist.name, platform: "Amazon Music" });
                           if (typeof window !== "undefined" && window.fbq) {
                             window.fbq("track", "SongLinkClick");
                             window.fbq("track", "SongLinkClick_AmazonMusic");
@@ -252,6 +262,7 @@ export default function IndividualSongLayout({
                         href={song.bandcampLink}
                         target="_blank"
                         onClick={() => {
+                          track("Song Listen Click", { song: song.id, artist: artist.name, platform: "Bandcamp" });
                           if (typeof window !== "undefined" && window.fbq) {
                             window.fbq("track", "SongLinkClick");
                             window.fbq("track", "SongLinkClick_Bandcamp");
