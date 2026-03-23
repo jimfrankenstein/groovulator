@@ -612,6 +612,7 @@ function PlaceholderCard({ opacity }: { opacity: number }) {
         alt="Loading card"
         width={640}
         height={896}
+        priority
         className="object-cover w-full h-full"
         draggable={false}
       />
