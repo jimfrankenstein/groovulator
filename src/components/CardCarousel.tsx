@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useMemo, memo } from "react";
 import { motion, AnimatePresence, useAnimationControls, PanInfo } from "framer-motion";
 import Image from "next/image";
+import { track } from "@vercel/analytics";
 import { SpotifyLogo, AppleLogo, YoutubeLogo, AmazonLogo } from "@phosphor-icons/react";
 import type { Card } from "../app/taxidermia/card-data";
 import { getCardOrientation } from "../app/taxidermia/card-data";
@@ -538,6 +539,7 @@ export default function CardCarousel({
                                   rel={link.href ? "noopener noreferrer" : undefined}
                                   aria-label={`Listen on ${link.label}`}
                                   onClick={() => {
+                                    track("Taxidermia Listen Click", { platform: link.label, card: activeCard.id });
                                     if (typeof window !== "undefined" && window.fbq) {
                                       window.fbq("track", "SongLinkClick");
                                       window.fbq("track", link.fbqEvent);
@@ -610,6 +612,7 @@ function PlaceholderCard({ opacity }: { opacity: number }) {
         alt="Loading card"
         width={640}
         height={896}
+        priority
         className="object-cover w-full h-full"
         draggable={false}
       />
